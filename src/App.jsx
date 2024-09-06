@@ -12,15 +12,14 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/detail" element={<Detail/>}/>
-        <Route path="/authorization" element={<Authorization/>}/>
-        <Route path="/apply" element={<Apply/>}/>
-        <Route path="/profile" element={<Profile/>}/>
-        <Route path="/createTender" element={<CreateTender/>}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/detail" element={<Detail />} />
+        <Route path="/authorization" element={<Authorization />} />
+        <Route path="/apply" element={<Apply />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/createTender" element={<CreateTender />} />
       </Routes>
     </Router>
   )
 }
-
 export default App
