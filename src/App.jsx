@@ -5,6 +5,7 @@ import Detail from './pages/detail/Detail'
 import Authorization from './pages/authorization/Authorization'
 import Apply from './pages/apply/Apply'
 import Profile from './pages/profile/Profile'
+import CreateTender from './pages/createTender/CreateTender'
 function App() {
 
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/authorization" element={<Authorization/>}/>
         <Route path="/apply" element={<Apply/>}/>
         <Route path="/profile" element={<Profile/>}/>
+        <Route path="/createTender" element={<CreateTender/>}/>
       </Routes>
     </Router>
   )
