@@ -6,6 +6,7 @@ import Authorization from './pages/authorization/Authorization'
 import Apply from './pages/apply/Apply'
 import Profile from './pages/profile/Profile'
 import CreateTender from './pages/createTender/CreateTender'
+import './styles/_global.scss'
 function App() {
 
   return (
