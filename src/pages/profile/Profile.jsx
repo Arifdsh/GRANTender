@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './profile.scss'
 import { useNavigate } from 'react-router-dom'
+import CreateTender from '../../components/createTender/CreateTender'
+import  Navbar  from '../../components/navbar/Navbar.jsx'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
@@ -17,6 +19,8 @@ const Profile = () => {
   }
 
   return (
+    <>
+    <Navbar/>
     <div className='profile-area'>
       <div className='profile-information-box'>
         <div className='profile-img'>
@@ -52,7 +56,9 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      <CreateTender/>
     </div>
+    </>
   )
 }
 
