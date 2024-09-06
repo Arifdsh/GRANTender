@@ -1,11 +1,19 @@
 import React, { useState } from 'react'
 import './profile.scss'
+import { useNavigate } from 'react-router-dom'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
 
+  const navigate = useNavigate()
+
   const handleTabClick = (index) => {
     setActiveTab(index)
+  }
+
+  // path should be chenged 
+  const handleNavigate = ()=>{
+    navigate('/createTender')
   }
 
   return (
@@ -27,7 +35,7 @@ const Profile = () => {
           <li className={`profile-tab ${activeTab === 1 ? 'active' : ''}`} onClick={() => handleTabClick(1)}>Tab 1</li>
           <li className={`profile-tab ${activeTab === 2 ? 'active' : ''}`} onClick={() => handleTabClick(2)}>Tab 2</li>
           <li className={`profile-tab ${activeTab === 3 ? 'active' : ''}`} onClick={() => handleTabClick(3)}>Tab 3</li>
-          <button className='profile-add-tender'>Tender əlavə et</button>
+          <button className='profile-add-tender' onClick={handleNavigate}>Tender əlavə et</button>
         </ul>
         <div className='profile-content-tabs'>
           <div className={activeTab === 1 ? 'profile-active-content' : 'profile-content'}>
