@@ -10,24 +10,26 @@ function Header() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#">
-       
+        <Navbar.Brand href="#" className="py-0 my-0">
           <img className="w-50" src="navbar-logo.png" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll" className="gap-5">
-          <Nav className="me-auto my-2 my-lg-0 ">
-            <Nav.Link>
+        <Navbar.Collapse className="gap-5">
+          <Nav className="me-auto  my-lg-0 ">
+            <Nav.Link className="mt-2">
               <DarkLightMode />
             </Nav.Link>
           </Nav>
-          <Button variant="outline-success">
-        
-            <LiaSignInAltSolid /> Sign In
-          </Button>
-          <Button variant="outline-success">
-            <GoPersonFill /> Sign Up
-          </Button>
+          <Nav className="mt-2">
+            <Button variant="outline-success">
+              <LiaSignInAltSolid /> Sign In
+            </Button>
+          </Nav>
+          <Nav className="mt-2">
+            <Button variant="outline-success">
+              <GoPersonFill /> Sign Up
+            </Button>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
