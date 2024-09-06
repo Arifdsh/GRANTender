@@ -1,71 +1,220 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-$borderColor:#e1e4e8;
-$borderColor2:#387d71;
-.searchContainer{
-    margin-top: 10px;
-    margin-inline: 15%;
-    padding: 30px;
-    border: 1px solid $borderColor ;
-    border-radius: 4px;
-    .filter{
-        display: flex;
-        .myInput{
-            margin-right: 25px;
-            width:60%;
-            input{
-                width: 100%;
-                border-radius: 4px;
-                padding: 12px;
-                border: 1px solid $borderColor;
-            }
-        }
-        
-        .more{
-            border-radius: 4px;
-            border: 1px solid $borderColor2;
-            padding: 10px 15px;
-            .upDown{
-                color:$borderColor2;
-                font-size:20px;
-            }
-            span{
-                font-weight: 500;
-                color: $borderColor2;
-                margin-right: 20px;
-            }
-            
-        }
-        .more:hover{
-            cursor: pointer;
-            background-color:#f0faf8;
-        }
-        .buttons{
-            margin-left: 20px;
-            button:first-child{
-                background-color:#7a7f7e;
-                &:hover{
-                background-color:#d7dfdd;
+$borderColor: #e1e4e8;
+$borderColor2: #387d71;
+.searchContainer {
+  margin-top: 10px;
+  margin-inline: 10%;
+  padding: 1.5%;
+  border: 1px solid $borderColor;
+  border-radius: 4px;
+  .filter {
+    display: flex;
+    width: 105%;
+    .myInput {
+      margin-right: 4%;
+      width: 60%;
+      display: flex;
+      input {
+        width: 100%;
+        border-radius: 4px;
+        padding: 1.5%;
+        border: 1px solid $borderColor;
+        background: url("../../../public/icons8-search-50.png") no-repeat ;
+        background-position:98%;
+        background-size: 25px;
+        cursor: pointer;
 
-                }
-            }
-            button:last-child{
-                background-color:$borderColor2;
-                &:hover{
-                    background-color:#89ccc1;
-                }
-            }
-            button{
-                padding: 5px 30px 8px 30px;
-                margin-left: 10px;
-                border-radius: 4px;
-                border: none;
-                color: white;
-                font-size: 25px;
+      }
+      &:hover{
+        background-color:#f0faf8;
+      }
+    }
+
+    .more {
+      width: 10%;
+      text-align: center;
+      min-width: 10%;
+      border-radius: 4px;
+      border: 1px solid $borderColor2;
+      padding: 1% 1%;
+      .upDown {
+        color: $borderColor2;
+        font-size: 100%;
+      }
+      span {
+        font-size: 90%;
+        font-weight: 500;
+        color: $borderColor2;
+        margin-right: 10%;
+      }
+    }
+    .more:hover {
+      cursor: pointer;
+      background-color: #f0faf8;
+      transition: 1s;
+    }
+    .buttons {
+      width: 20%;
+      margin-left: 1%;
+      button:first-child {
+        background-color: #7a7f7e;
+        &:hover {
+          background-color: #d7dfdd;
+        }
+      }
+      button:last-child {
+        background-color: $borderColor2;
+        &:hover {
+          background-color: #89ccc1;
+        }
+      }
+      button {
+        text-align: center;
+        width: 40%;
+        padding: 5px 12% 8px 12%;
+        margin-left: 10px;
+        border-radius: 4px;
+        border: none;
+        color: white;
+        font-size: 150%;
+      }
+    }
+  }
+}
+.filterModal {
+    display: flex;
+  p {
+    display: inline-block;
+    font-weight: 500;
+    height: 40px;
+    margin-top: 5px;
+  }
+  padding: 1.5%;
+  margin-inline: 10%;
+  width: 80%;
+  border: 1px solid $borderColor;
+
+  select {
+    height: 40px    ;
+    margin-inline: 1% 5%;
+    width: 20%;
+    text-align: center;
+    padding: 0.5%;
+    border: 1px solid $borderColor;
+    &:hover {
+      background-color: #f0faf8;
+      cursor: pointer;
+      transition: 1s;
+    }
+  }
+  input {
+    cursor: pointer;
+    margin-inline: 1% 3%;
+    height:40px;
+    border: 1px solid $borderColor;
+    padding: 0.5%;
+    width: 10%;
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+      &:hover{
+        background-color: #f0faf8;
+        transition: 1s;
+      }
+  }
+
+}
+
+$primary-color: #009688;
+$secondary-color: #fff;
+$border-radius: 10px;
+$box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+.calendar {
+    width: 350px;
+    background-color: $secondary-color;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    padding: 20px;
+    
+    .month {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        button {
+            background-color: $primary-color;
+            border: none;
+            color: $secondary-color;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+
+    .weekdays {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        font-weight: bold;
+    }
+
+    .days {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        div {
+            width: 14%;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $primary-color;
+                color: $secondary-color;
             }
         }
+
+        .current-day {
+            background-color: $primary-color;
+            color: $secondary-color;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .calendar {
+        max-width: 100%; 
+    }
+
+    .days div {
+        width: 21%; 
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar {
+        padding: 10px; 
+    }
+
+    .month h1 {
+        font-size: 18px; 
+    }
+
+    .days div {
+        width: 30%; 
+        padding: 10px; 
     }
 }
