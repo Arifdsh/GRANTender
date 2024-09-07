@@ -5,7 +5,7 @@
   }
   
   .profile-information-box {
-    width: 300px;
+    width: 40%;
     height: 500px;
     display: flex;
     flex-direction: column;
@@ -38,14 +38,14 @@
   
   .settings-btn {
     padding: 8px 16px;
-    background-color: #007bff;
+    background-color: #088b29;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
   
     &:hover {
-      background-color: #0056b3;
+      background-color: #599a5d;
     }
   }
   
@@ -107,6 +107,18 @@
       background-color: #fafafa;
       border: 1px solid #ddd;
       border-radius: 5px;
+    }
+  }
+
+  .profile-cancel-btn{
+    width: 50px;
+    height: 30px;
+    color: white;
+    background-color: #088b29;
+    border-radius: 5px;
+
+    &:hover{
+      background-color: #599a5d;
     }
   }
   
