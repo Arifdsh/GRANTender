@@ -7,6 +7,7 @@ const Home = () => {
   return (
     <div>
       <Navbar/>
+      <Hero/>
       <Search/>
       <Cards/>
     </div>
