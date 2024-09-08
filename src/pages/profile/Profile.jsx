@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './profile.scss'
-import { useNavigate } from 'react-router-dom'
 import CreateTender from '../../components/createTender/CreateTender'
-import  Navbar  from '../../components/navbar/Navbar.jsx'
+import Navbar from '../../components/navbar/Navbar.jsx'
+import { FaRegEdit } from "react-icons/fa";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
@@ -12,7 +12,7 @@ const Profile = () => {
     setActiveTab(index)
   }
 
-  const handleNavigate = ()=>{
+  const handleNavigate = () => {
     setShowCreateTender(true)
   }
 
@@ -22,21 +22,29 @@ const Profile = () => {
 
   return (
     <>
-    <Navbar/>
-    <div className='profile-area'>
-      <div className='profile-information-box'>
-        <div className='profile-img'>
-          <img src="" alt="" />
+      <Navbar />
+      <div className='profile-area'>
+        <div className='profile-information-box'>
+          <div className='profile-edit-box'>
+            <FaRegEdit />
+            <span className='profile-edit'>Edit</span>
+          </div>
+          <div className='profile-img'>
+            <img src="../../../public/tender.png" alt="" />
+          </div>
+          <div className='profile-name-box'>
+            <p className='profile-name'>Ad Soyad</p>
+            <p className='profile-company'>Şirket Adı</p>
+          </div>
+          <div className='profile-notification-box'>
+            <ul>
+              <li>Müraciyet edənlər: <span>0</span></li>
+              <li>Yaradan tenderler: <span>0</span></li>
+              <li>Sorğu: <span>0</span></li>
+            </ul>
+          </div>
         </div>
-        <div className='profile-name-box'>
-          <p className='profile-name'>Ad Soyad</p>
-          <p className='profile-company'>Şirket Adı</p>
-        </div>
-        <div>
-          <button className='settings-btn'>Settings</button>
-        </div>
-      </div>
-      {!showCreateTender ? ( 
+        {!showCreateTender ? (
           <div className='profile-control-box'>
             <ul className='profile-tabs'>
               <li className={`profile-tab ${activeTab === 1 ? 'active' : ''}`} onClick={() => handleTabClick(1)}>Tab 1</li>
@@ -61,11 +69,11 @@ const Profile = () => {
           </div>
         ) : (
           <>
-          <CreateTender/> 
-          <button onClick={handleCancel} className='profile-cancel-btn'>X</button>
+            <CreateTender />
+            <button onClick={handleCancel} className='profile-cancel-btn'>X</button>
           </>
         )}
-    </div>
+      </div>
     </>
   )
 }
