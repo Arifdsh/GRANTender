@@ -10,7 +10,7 @@ import OwlCarousel from './components/owlcarousel/OwlCarouselComp'
 
 const App=()=>{
   return (
-  <><OwlCarousel/>
+  <>
   <Router>
     <Routes>
       <Route path="/" element={<Home/>}/>
