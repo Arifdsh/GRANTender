@@ -6,7 +6,7 @@ import Authorization from './pages/authorization/Authorization'
 import Apply from './pages/apply/Apply'
 import Profile from './pages/profile/Profile'
 
-import OwlCarousel from './components/owlcarousel/OwlCarouselComp'
+
 
 const App=()=>{
   return (
