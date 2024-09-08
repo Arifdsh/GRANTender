@@ -8,28 +8,34 @@ import { LiaSignInAltSolid } from "react-icons/lia";
 import { GoPersonFill } from "react-icons/go";
 function Header() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary ">
       <Container fluid>
         <Navbar.Brand href="#" className="py-0 my-0">
-          <img className="w-50" src="navbar-logo.png" />
+          <img className="w-75" src="logo-tender.png" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse className="gap-5">
           <Nav className="me-auto  my-lg-0 ">
-            <Nav.Link className="mt-2">
+            <Nav.Link className="my-2">
               <DarkLightMode />
             </Nav.Link>
           </Nav>
-          <Nav className="mt-2">
-            <Button variant="outline-success">
+          {/* <Nav className="my-2">
+            <Button variant="outline-success shadow-lg ">
               <LiaSignInAltSolid /> Sign In
             </Button>
           </Nav>
-          <Nav className="mt-2">
-            <Button variant="outline-success">
+          <Nav className="my-2">
+            <Button variant="outline-success shadow-lg">
               <GoPersonFill /> Sign Up
             </Button>
-          </Nav>
+          </Nav> */}
+          <Nav className="my-2">
+            <Button variant="outline-success shadow-lg">
+              <GoPersonFill /> Profile
+            </Button>
+          </Nav> 
+          <Nav><input type="e-mail"   className="text-center rounded me-2" placeholder="User e-mail" /></Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
