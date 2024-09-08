@@ -3,6 +3,7 @@ import './profile.scss'
 import { useNavigate } from 'react-router-dom'
 import CreateTender from '../../components/createTender/CreateTender'
 import  Navbar  from '../../components/navbar/Navbar.jsx'
+import ProfileEdit from './profileEdit/ProfileEdit.jsx'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
@@ -57,6 +58,7 @@ const Profile = () => {
         </div>
       </div>
       <CreateTender/>
+      <ProfileEdit/>
     </div>
     </>
   )
