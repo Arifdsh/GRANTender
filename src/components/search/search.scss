@@ -1,0 +1,316 @@
+@import '../../styles/global';
+
+
+.searchContainer {
+  margin-top: 10px;
+  margin-inline: 10%;
+  padding: 1.5%;
+  border: 1px solid $borderColor-lightGray;
+  border-radius: 4px;
+  .filter {
+    display: flex;
+    width: 105%;
+    .myInput {
+      margin-right: 4%;
+      width: 60%;
+      transition:0.3s;
+      display: flex;
+      input {
+        width: 100%;
+        border-radius: 4px;
+        padding: 1.5%;
+        border: 1px solid $borderColor-lightGray;
+        background: url("../../assets/image/icons8-search-50.png") no-repeat;
+        background-position: 98%;
+        background-size: 25px;
+      }
+      &:hover {
+        background-color: $borderColor-lightGray;
+        // transition: 0.4s;
+      }
+    }
+
+    .more {
+      width: 10%;
+      text-align: center;
+      min-width: 10%;
+      border-radius: 4px;
+      border: 1px solid $primary-color;
+      padding: 1% 1%;
+      transition: 0.3s;
+      .upDown {
+        color: $primary-color;
+        font-size: 1.2em;
+      }
+      span {
+        font-size: 90%;
+        font-weight: 500;
+        color: $primary-color;
+        margin-right: 10%;
+        transition: 0.3s;
+      }
+    }
+    .more:hover {
+      cursor: pointer;
+      background-color: $primary-color;
+      span{
+        color:$neutral-color-white;
+      }
+      .upDown {
+        color: $neutral-color-white;
+      }
+    }
+    .buttons {
+      width: 20%;
+      margin-left: 1%;
+
+      button:first-child {
+        background-color:$neutral-color-gray;
+        &:hover {
+          background-color:$primary-color;
+        }
+      }
+      button:last-child {
+        background-color: $primary-color;
+        border:1px solid $primary-color;
+        &:hover {
+          background-color: $neutral-color-white;
+          color:$primary-color;
+        }
+      }
+      button {
+        transition: 0.3s;
+        text-align: center;
+        width: 40%;
+        padding: 5px 12% 8px 12%;
+        margin-left: 10px;
+        border-radius: 4px;
+        border: none;
+        color: $neutral-color-white;
+        font-size: 150%;
+      }
+    }
+  }
+}
+.filterContainer {
+  margin-inline: 10%;
+  width: 80%;
+  border: 1px solid $borderColor-lightGray;
+  display: flex;
+  flex-direction: column;
+  .close {
+    width: 100%;
+    height: 13vh;
+    padding-inline: 2%;
+    border-top: 1px solid $borderColor-lightGray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .close1{
+      cursor: pointer;
+    }
+    .close2{
+      width: 50%;
+    }
+    .searchReset {
+      margin-top: 10px;
+      height: 7vh;
+      float:right;
+      border: 1px solid $primary-color;
+      border-radius: 4px;
+      color: $primary-color;
+      font-weight: 500;
+      background: #ffffff;
+      padding: 1% 1.5%;
+      &:hover {
+        background-color: #f0faf8;
+        transition: 0.4s;
+      }
+    }
+    .modalClose {
+      margin-top: 40%;
+      color: $primary-color;
+      font-weight: 500;
+      border: none;
+      background-color: #fff;
+      padding-top:3%;
+    }
+  }
+}
+.filterModal {
+  display: flex;
+  padding: 1.5%;
+  p {
+    width: 10%;
+    display: inline-block;
+    font-weight: 500;
+    height: 40px;
+    margin-top: 5px;
+  }
+  .priceP {
+    width: 5%;
+  }
+  .dateP {
+    width: 5%;
+  }
+
+  select {
+    height: 40px;
+    margin-inline: 0 4%;
+    width: 20%;
+    text-align: center;
+    padding: 0.5%;
+    border: 1px solid $borderColor-lightGray;
+    &:hover {
+      background-color: #f0faf8;
+      cursor: pointer;
+      transition: 0.4s;
+    }
+  }
+  input[type="date"] {
+    width: 20%;
+    height: 40px;
+    appearance: none;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 1.5% 2%;
+    font-size: 16px;
+    color: #333;
+    max-width: 300px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &::-webkit-datetime-edit-fields-wrapper {
+      color: #888;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+      color: #333;
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
+    &:hover {
+      border-color: #999;
+      background-color: #f0faf8;
+      transition: 0.4s;
+    }
+    &:last-child {
+      margin-left: 2%;
+    }
+
+    &:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+      outline: none;
+    }
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-clear-button {
+      display: none;
+    }
+  }
+}
+.price {
+  cursor: pointer;
+  margin-inline: 1% 3%;
+  height: 40px;
+  border: 1px solid $borderColor-lightGray;
+  padding: 0.5%;
+  width: 10%;
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  &:hover {
+    background-color: #f0faf8;
+    transition: 0.4s;
+  }
+}
+
+$primary-color: #009688;
+$secondary-color: #fff;
+$border-radius: 10px;
+$box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+@media (max-width: 768px) {
+  .filterModal {
+    padding: 2%;
+    margin-inline: 5%;
+    width: 90%;
+
+    p {
+      font-size: 14px;
+      height: 35px;
+      margin-top: 3px;
+    }
+
+    select {
+      height: 35px;
+      width: 30%;
+      margin-inline: 1% 3%;
+      font-size: 14px;
+    }
+
+    input[type="date"] {
+      width: 40%;
+      padding: 1%;
+      font-size: 14px;
+      max-width: 100%;
+    }
+  }
+
+  .price {
+    width: 20%;
+    padding: 0.5%;
+    margin-inline: 2% 3%;
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filterModal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 3%;
+    margin-inline: 2%;
+    width: 96%;
+
+    p {
+      width: 70%;
+      font-size: 12px;
+      height: 30px;
+      margin: 20px 0 0 0;
+    }
+    .priceP {
+      height: 10px;
+    }
+
+    select {
+      height: 30px;
+      width: 70%;
+      margin-inline: 2% 4%;
+      font-size: 12px;
+    }
+
+    input[type="date"] {
+      width: 60%;
+      padding: 1%;
+      font-size: 12px;
+      max-width: 100%;
+      &:last-child {
+        margin: 10px 0 0 0;
+      }
+    }
+  }
+
+  .price {
+    width: 30%;
+    padding: 0.5%;
+    margin: 10px 0 10px 20px;
+    height: 30px;
+  }
+}

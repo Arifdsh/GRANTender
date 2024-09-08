@@ -1,4 +1,5 @@
 import React from 'react'
+import '../detail/detail.scss'
 
 const Detail = () => {
   return (
