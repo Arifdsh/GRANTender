@@ -2,22 +2,23 @@ import React, { useState } from 'react'
 import './profile.scss'
 import CreateTender from '../../components/createTender/CreateTender'
 import Navbar from '../../components/navbar/Navbar.jsx'
+import ProfileEdit from './profileEdit/ProfileEdit.jsx'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
   const [showCreateTender, setShowCreateTender] = useState(false)
+  const [showProfileEdit, setShowProfileEdit] = useState(false)
 
-  const handleTabClick = (index) => {
-    setActiveTab(index)
-  }
+  const handleTabClick = (index) => setActiveTab(index)
 
-  const handleNavigate = () => {
-    setShowCreateTender(true)
-  }
+  const handleNavigate = () => setShowCreateTender(true)
 
-  const handleCancel = () => {
-    setShowCreateTender(false)
-  }
+  const handleCancel = () => setShowCreateTender(false)
+
+  const handleProfileEdit = () => setShowProfileEdit(true)
+
+  const handleEditCancel = () => setShowProfileEdit(false)
+
 
   return (
     <>
@@ -40,10 +41,16 @@ const Profile = () => {
             </ul>
           </div>
           <div className='profile-edit-box'>
-            <button className='profile-edit-btn'>Edit</button>
+            <button className='profile-edit-btn' onClick={handleProfileEdit}>Edit</button>
           </div>
         </div>
-        {!showCreateTender ? (
+
+        {showProfileEdit ? (
+          <>
+            <ProfileEdit />
+            <button onClick={handleEditCancel} className='profile-cancel-btn'>X</button>
+          </>
+        ) : !showCreateTender ? (
           <div className='profile-control-box'>
             <ul className='profile-tabs'>
               <li className={`profile-tab ${activeTab === 1 ? 'active' : ''}`} onClick={() => handleTabClick(1)}>Tab 1</li>
