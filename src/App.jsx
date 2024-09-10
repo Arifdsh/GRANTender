@@ -3,23 +3,21 @@ import './App.css'
 import Home from './pages/home/Home'
 import Detail from './pages/detail/Detail'
 import Authorization from './pages/authorization/Authorization'
-import Apply from './pages/apply/Apply'
+import Apply from './components/apply/Apply'
 import Profile from './pages/profile/Profile'
-import { Navbar } from 'react-bootstrap'
-function App() {
-
+import Footer from './components/footer/Footer'
+const App=()=>{
   return (
     <>
-    <Navbar/>
     <Router>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/detail" element={<Detail/>}/>
         <Route path="/authorization" element={<Authorization/>}/>
-        <Route path="/apply" element={<Apply/>}/>
         <Route path="/profile" element={<Profile/>}/>
       </Routes>
     </Router>
+    <Footer/>
     </>
   )
 }
