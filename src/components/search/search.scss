@@ -1,93 +1,101 @@
 @import '../../styles/global';
-
-
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+@mixin transition($duration) {
+  transition: $duration;
+}
+@mixin button-styles($bg-color, $text-color, $border-color: transparent) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  padding: 1% 1.5%;
+  @include transition(0.3s);
+}
 .searchContainer {
   margin-top: 10px;
   margin-inline: 10%;
   padding: 1.5%;
   border: 1px solid $borderColor-lightGray;
-  border-radius: 4px;
+  @include border-radius(4px);
   .filter {
     display: flex;
     width: 105%;
     .myInput {
       margin-right: 4%;
       width: 60%;
-      transition:0.3s;
       display: flex;
+      transition: 0.3s;
       input {
         width: 100%;
-        border-radius: 4px;
+        @include border-radius(4px);
         padding: 1.5%;
         border: 1px solid $borderColor-lightGray;
         background: url("../../assets/image/icons8-search-50.png") no-repeat;
         background-position: 98%;
         background-size: 25px;
-      }
-      &:hover {
-        background-color: $borderColor-lightGray;
-        // transition: 0.4s;
+        &:hover {
+          background-color: $borderColor-lightGray;
+        }
       }
     }
-
     .more {
       width: 10%;
       text-align: center;
       min-width: 10%;
-      border-radius: 4px;
-      border: 1px solid $primary-color;
-      padding: 1% 1%;
-      transition: 0.3s;
+      @include button-styles($primary-color, $primary-color);
       .upDown {
-        color: $primary-color;
+        color: $neutral-color-white;
         font-size: 1.2em;
       }
       span {
+        color: $neutral-color-white;
         font-size: 90%;
         font-weight: 500;
         color: $primary-color;
         margin-right: 10%;
-        transition: 0.3s;
-      }
-    }
-    .more:hover {
-      cursor: pointer;
-      background-color: $primary-color;
-      span{
-        color:$neutral-color-white;
-      }
-      .upDown {
         color: $neutral-color-white;
+        @include transition(0.3s);
+      }
+      &:hover {
+        cursor: pointer;
+        background-color: $primary-color;
+        span {
+          color: $neutral-color-white;
+        }
+        .upDown {
+          color: $neutral-color-white;
+        }
       }
     }
     .buttons {
       width: 20%;
       margin-left: 1%;
-
-      button:first-child {
-        background-color:$neutral-color-gray;
-        &:hover {
-          background-color:$primary-color;
-        }
-      }
-      button:last-child {
-        background-color: $primary-color;
-        border:1px solid $primary-color;
-        &:hover {
-          background-color: $neutral-color-white;
-          color:$primary-color;
-        }
-      }
       button {
         transition: 0.3s;
         text-align: center;
         width: 40%;
         padding: 5px 12% 8px 12%;
         margin-left: 10px;
-        border-radius: 4px;
+        @include border-radius(4px);
         border: none;
         color: $neutral-color-white;
         font-size: 150%;
+        &:first-child {
+          background-color: $neutral-color-gray;
+          &:hover {
+            background-color: $primary-color;
+          }
+        }
+        &:last-child {
+          background-color: $primary-color;
+          border: 1px solid $primary-color;
+          &:hover {
+            background-color: $neutral-color-white;
+            color: $primary-color;
+          }
+        }
       }
     }
   }
@@ -106,34 +114,27 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .close1{
+    .close1 {
+      color: $primary-color;
       cursor: pointer;
+      width: 10%;
     }
-    .close2{
+    .close2 {
       width: 50%;
     }
     .searchReset {
       margin-top: 10px;
       height: 7vh;
-      float:right;
-      border: 1px solid $primary-color;
-      border-radius: 4px;
-      color: $primary-color;
-      font-weight: 500;
-      background: #ffffff;
-      padding: 1% 1.5%;
+      float: right;
+      @include button-styles($neutral-color-white, $primary-color, $primary-color);
       &:hover {
-        background-color: #f0faf8;
-        transition: 0.4s;
+        background-color: $primary-colorLight;
       }
     }
     .modalClose {
       margin-top: 40%;
-      color: $primary-color;
-      font-weight: 500;
-      border: none;
-      background-color: #fff;
-      padding-top:3%;
+      @include button-styles($neutral-color-white, $primary-color);
+      padding-top: 3%;
     }
   }
 }
@@ -153,7 +154,6 @@
   .dateP {
     width: 5%;
   }
-
   select {
     height: 40px;
     margin-inline: 0 4%;
@@ -161,51 +161,45 @@
     text-align: center;
     padding: 0.5%;
     border: 1px solid $borderColor-lightGray;
+    @include transition(0.4s);
     &:hover {
-      background-color: #f0faf8;
+      background-color: $primary-color;
       cursor: pointer;
-      transition: 0.4s;
     }
   }
   input[type="date"] {
     width: 20%;
     height: 40px;
     appearance: none;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    background-color: $borderColor-lightGray;
+    border: 1px solid $borderColor-lightGray;
+    @include border-radius(8px);
     cursor: pointer;
     padding: 1.5% 2%;
     font-size: 16px;
-    color: #333;
+    color: $neutral-color-black;
     max-width: 300px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-
+    @include transition(0.4s);
     &::-webkit-datetime-edit-fields-wrapper {
-      color: #888;
+      color: $neutral-color-gray;
     }
-
     &::-webkit-calendar-picker-indicator {
-      color: #333;
+      color: $neutral-color-black;
       cursor: pointer;
       opacity: 0.7;
     }
-
     &:hover {
-      border-color: #999;
-      background-color: #f0faf8;
-      transition: 0.4s;
+      border-color: $borderColor-lightGray;
+      background-color: $primary-color;
     }
     &:last-child {
       margin-left: 2%;
     }
-
     &:focus {
-      border-color: #007bff;
-      box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+      border-color: $primary-colorLight;
+      box-shadow: 0 0 5px $primary-color;
       outline: none;
     }
-
     &::-webkit-inner-spin-button,
     &::-webkit-clear-button {
       display: none;
@@ -213,45 +207,36 @@
   }
 }
 .price {
-  cursor: pointer;
-  margin-inline: 1% 3%;
-  height: 40px;
-  border: 1px solid $borderColor-lightGray;
-  padding: 0.5%;
   width: 10%;
+  height: 40px;
+  margin-inline: 1% 3%;
+  padding: 0.5%;
+  cursor: pointer;
+  border: 1px solid $borderColor-lightGray;
+  @include transition(0.4s);
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
   &:hover {
-    background-color: #f0faf8;
-    transition: 0.4s;
+    background-color: $primary-color;
   }
 }
-
-$primary-color: #009688;
-$secondary-color: #fff;
-$border-radius: 10px;
-$box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-
 @media (max-width: 768px) {
   .filterModal {
     padding: 2%;
     margin-inline: 5%;
     width: 90%;
-
     p {
       font-size: 14px;
       height: 35px;
       margin-top: 3px;
     }
-
     select {
       height: 35px;
       width: 30%;
       margin-inline: 1% 3%;
       font-size: 14px;
     }
-
     input[type="date"] {
       width: 40%;
       padding: 1%;
@@ -259,7 +244,6 @@ $box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
       max-width: 100%;
     }
   }
-
   .price {
     width: 20%;
     padding: 0.5%;
@@ -267,7 +251,6 @@ $box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     height: 35px;
   }
 }
-
 @media (max-width: 480px) {
   .filterModal {
     display: flex;
@@ -278,7 +261,6 @@ $box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     padding: 3%;
     margin-inline: 2%;
     width: 96%;
-
     p {
       width: 70%;
       font-size: 12px;
@@ -288,14 +270,12 @@ $box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     .priceP {
       height: 10px;
     }
-
     select {
       height: 30px;
       width: 70%;
       margin-inline: 2% 4%;
       font-size: 12px;
     }
-
     input[type="date"] {
       width: 60%;
       padding: 1%;
@@ -306,7 +286,6 @@ $box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
       }
     }
   }
-
   .price {
     width: 30%;
     padding: 0.5%;
