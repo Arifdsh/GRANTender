@@ -8,14 +8,14 @@ import DarkLightMode from '../../components/navbar/DarkLightMode.jsx'
 
 const Home = () => {
   return (
-    <div>
+     <div>
       <Navbar/>
-<DarkLightMode/>
+ <DarkLightMode/>
       <Hero/>
-      <Search/>
+       <Search/>
       <Cards/>
-  <OwlCarouselComp/>
-    </div>
+   <OwlCarouselComp/>
+     </div>
   )
 }
 
