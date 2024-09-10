@@ -16,7 +16,6 @@ function Cards() {
       try {
         const response = await axios.get(apiUrl);
         setTenders(response.data.cards);
-        // Initialize bookmarks for each tender
         const initialBookmarks = {};
         response.data.cards.forEach(tender => {
           initialBookmarks[tender.id] = false;
