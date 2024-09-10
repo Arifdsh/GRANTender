@@ -1,17 +1,10 @@
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import './apply.scss'
 
 const Apply = () => {
 
-  // Validation schema using Yup
-  const validationSchema = Yup.object({
-    name: Yup.string().required('Name is required'),
-    description: Yup.string().required('Description is required'),
-    details: Yup.string().required('Details are required'),
-    file: Yup.mixed().required('File is required'),
-  });
+  
 
   // Initial form values
   const initialValues = {
