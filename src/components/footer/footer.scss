@@ -19,7 +19,7 @@
 
     &__bottom {
         position: relative;
-        background-color: $neutral-color-black;
+        background-color: $secondary-color-gray;
     }
 
     &-cards {
@@ -37,8 +37,8 @@
 
     &-cards__item {
         text-align: center;
-        width: 195px;
-        height: 257px;
+        width: 158px;
+        height: 175px;
         margin: 3px;
         padding: 17px;
         border-radius: 7px;

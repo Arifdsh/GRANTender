@@ -18,7 +18,6 @@ const Footer = () => {
                     <FaTelegram className="fab fa-telegram-plane" /> 
                     </div>
                     <h1 className="footer-cards__title">Telegram</h1>
-                    <p className="footer-cards__content">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                     <strong className="footer-cards__socials socials--telegram">telegram.org</strong>
                 </a>
             </li>
@@ -28,7 +27,6 @@ const Footer = () => {
                     <FaWhatsapp className="fab fa-whatsapp"/>
                     </div>
                     <h1 className="footer-cards__title">WhatsApp</h1>
-                    <p className="footer-cards__content">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                     <strong className="footer-cards__socials socials--whatsapp">whatsapp.com</strong>
                 </a>
             </li>
@@ -38,7 +36,6 @@ const Footer = () => {
                     <FaInstagram className="fab fa-instagram"/>
                     </div>
                     <h1 className="footer-cards__title">Instagram</h1>
-                    <p className="footer-cards__content">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                     <strong className="footer-cards__socials socials--instagram">instagram.com</strong>
                 </a>
             </li>
@@ -48,7 +45,6 @@ const Footer = () => {
                     <FaFacebookF className="fab fa-facebook-f"/>
                     </div>
                     <h1 className="footer-cards__title">Facebook</h1>
-                    <p className="footer-cards__content">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                     <strong className="footer-cards__socials socials--facebook">facebook.com</strong>
                 </a>
             </li>
