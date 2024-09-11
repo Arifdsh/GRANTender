@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import './profile.scss'
 import CreateTender from '../../components/createTender/CreateTender'
 import Navbar from '../../components/navbar/Navbar.jsx'
-import { FaRegEdit } from "react-icons/fa";
-import ProfileEdit from './profileEdit/ProfileEdit.jsx'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
@@ -26,16 +24,13 @@ const Profile = () => {
       <Navbar />
       <div className='profile-area'>
         <div className='profile-information-box'>
-          <div className='profile-edit-box'>
-            <FaRegEdit />
-            <span className='profile-edit'>Edit</span>
-          </div>
-          <div className='profile-img'>
-            <img src="../../../public/tender.png" alt="" />
+          <div className='profile-decoration-top'>
+            <div className='profile-img'>
+              <img src="src/assets/image/car.jpg" alt="car" />
+            </div>
           </div>
           <div className='profile-name-box'>
             <p className='profile-name'>Ad Soyad</p>
-            <p className='profile-company'>Şirket Adı</p>
           </div>
           <div className='profile-notification-box'>
             <ul>
@@ -43,6 +38,9 @@ const Profile = () => {
               <li>Yaradan tenderler: <span>0</span></li>
               <li>Sorğu: <span>0</span></li>
             </ul>
+          </div>
+          <div className='profile-edit-box'>
+            <button className='profile-edit-btn'>Edit</button>
           </div>
         </div>
         {!showCreateTender ? (

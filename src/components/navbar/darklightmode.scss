@@ -1,6 +1,3 @@
-  .dark{
-    background-color: black;
-    color:white;
-  } 
-
-/* DarkLightMode.css */
+.darkmode-layer, .darkmode-toggle {
+  z-index: 500;
+}

@@ -1,33 +1,46 @@
+@import '../../styles/global';
+
 .profile-area {
-  width: 80%;
+  width: 90%;
   margin: 20px auto;
   display: flex;
+  justify-content: center;
+}
+
+.profile-decoration-top {
+  width: 100%;
+  padding-top: 10%;
+  background-color: $primary-color;
+  text-align: center;
+  border-bottom-left-radius: 35%;
+  border-bottom-right-radius: 35%;
 }
 
 .profile-information-box {
-  width: 40%;
+  width: 25%;
   max-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #719e74;
   border-radius: 5px;
-  padding-top: 4%;
-  background-color: #719e74;
+  background-color: $borderColor-lightGray;
   color: white;
 }
 
 .profile-img img {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  outline: 9px solid green;
+  outline: 5px solid rgb(13, 81, 144);
   background-color: white;
-  margin-bottom: 15%;
+  position:relative;
+  top:50px;
 }
 
 .profile-name-box {
   text-align: center;
+  margin: 30% 0 10% 0;
+  color: black;
 
   .profile-name {
     font-size: 1.5rem;
@@ -41,9 +54,10 @@
 
 .profile-notification-box {
   width: 80%;
-  background-color: #088b29;
+  background-color: $primary-color;
   padding: 20px;
   align-items: center;
+  border-radius: 8px;
 
   li {
     list-style: none;
@@ -54,19 +68,30 @@
 .profile-edit-box {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  padding-right: 10%;
+  margin-top: 7%;
 }
 
-.profile-edit {
-  font-size: 15px;
+.profile-edit-btn {
+  transition:0.3s;
+  padding:5px;
+  border:1px solid $primary-color;
+  width: 30%;
+  border-radius: 3px;
+  background-color: #007bff;
   color: white;
+  font-size: 17px;
   cursor: pointer;
+
+  &:hover {
+    background-color:$neutral-color-white;
+    color:$primary-color;
+  }
 }
 
 .profile-control-box {
-  width: 80%;
+  width: 53%;
   height: 100vh;
   margin-left: 5%;
 
