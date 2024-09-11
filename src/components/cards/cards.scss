@@ -1,2 +1,146 @@
+@import '../../styles/global';
 
+@mixin transition($duration) {
+  transition: $duration;
+}
 
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  
+}
+
+@mixin box-shadow($color, $offset: 2px, $blur: 8px) {
+  box-shadow: 0 $offset $blur 0 $color;
+}
+
+@mixin button-styles($bg-color, $text-color, $border-color: transparent) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: 1px solid $border-color;
+  @include border-radius(5px);
+  padding: 10px 25px;
+  @include transition(0.3s);
+}
+
+.cardsContainer {
+  margin-top: 100px;
+  margin-inline: 10%;
+  @include border-radius(4px);
+
+  .cardsItem {
+    background-image: linear-gradient(to right, $neutral-color-white, $neutral-color-white,$primary-colorGradient);
+    display: flex;
+    width: 100%;
+    height: 40vh;
+    border: 1px solid $borderColor-lightGray;
+    @include border-radius(4px);
+    margin-top: 20px;
+    position: relative;
+    @include transition(0.3s);
+    bottom: 0;
+
+    &:hover {
+      bottom: 5px;
+      @include box-shadow($primary-colorLight);
+    }
+
+    .itemLeft {
+      width: 30%;
+
+      img {
+        height: 40vh;
+        width: 100%;
+        clip-path: polygon(0 0, 100% 0%, 87% 100%, 0% 100%);
+      }
+    }
+
+    .itemRight {
+      display: flex;
+      justify-content: space-around;
+      width: 75%;
+      padding: 10px;
+
+      .about {
+        width: 75%;
+      }
+
+      h1 {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      span {
+        display: block;
+        margin-left: 10px;
+        font-weight: 100;
+      }
+
+      .createSpans {
+        color: $neutral-color-gray;
+      }
+
+      .editDelete {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        width: 17%;
+        height: 35vh;
+      }
+
+      .arrow {
+        margin-top: 15px;
+        height: 35vh;
+        border: 1px solid $primary-color;
+      }
+
+      .save {
+        font-size: 30px;
+        color: $primary-color;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .editDeleteButtons {
+        display: none;
+      }
+
+      button {
+        margin: 20px 0 0 10px;
+        @include button-styles($accent-color, $neutral-color-white);
+
+        &:hover {
+          background-color: $primary-colorLight;
+          bottom: 2px;
+          @include box-shadow($primary-colorLight);
+        }
+      }
+    }
+  }
+
+  .pagination {
+    margin-top: 20px;
+    text-align: center;
+
+    button {
+      margin: 0 5px;
+      padding: 5px 10px;
+      border: 1px solid $neutral-color-gray;
+      border-radius: 3px;
+      cursor: pointer;
+      background-color: $neutral-color-white;
+      @include transition(0.3s);
+
+      &:hover {
+        background-color: $primary-colorGradient;
+      }
+
+      &.active {
+        background-color: $primary-color;
+        color: $neutral-color-white;
+        border: none;
+      }
+    }
+  }
+}
