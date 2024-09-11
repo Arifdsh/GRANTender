@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../cards/cards.scss'
 import Car from '../../assets/image/car.jpg'
+import { FaBookmark } from "react-icons/fa"
+import { FaRegBookmark } from "react-icons/fa";
 function Cards() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const [tenders, setTenders] = useState([]);
