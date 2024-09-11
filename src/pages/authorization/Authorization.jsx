@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Formik, useFormik } from 'formik';
 import { AuthorizationSchema } from './AuthorizationSchema.js'
 import './authorization.scss'
+import Navbar from '../../components/navbar/Navbar.jsx'
 
 const Authorization = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,6 +28,7 @@ const Authorization = () => {
   });
   return (
     <div>
+      <Navbar/>
       <section className='authorization'>
         <ul className="login">
           <li className="login__leftside">
