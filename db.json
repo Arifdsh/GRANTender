@@ -1,101 +1,175 @@
 {
-    "cards": [
-      {
-        "id": 1,
-        "owner": "'Azərbaycan Respublikası Maliyyə Nazirliyinin Məlumat Hesablama Mərkəzi' Məhdud Məsuliyyətli Cəmiyyəti",
-        "subject": "AR Maliyyə Nazirliyinin 'Məlumat Hesablama Mərkəzi' MMC-nin xidmət göstərdiyi təşkilatlarda istismar olunan elektrotexniki avadanlıqlara ehtiyat hissələrinin satınalınması",
-        "address": "Bakı şəhəri Səməd Vurğun 135",
-        "price": "538.000,00 AZN",
-        "imgUrl":"",
-        "creationDate": "09.09.2024 15:48",
-        "expirationDate": "02.10.2024 18:00",
-        "files": [
-            {
-            "fileId": 1,
-            "fileName": "",
-            "fileType": "",
-            "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
-            "fileSize":""
-            }
-        ]
-      },
-      {
-        "id": 2,
-        "owner": "'Su Meliorasiya Xidməti'Publik Hüquqi Şəxsi",
-        "subject": "“Şərur rayonunun Məmmədsabir, Aşağı Aralıq, Yuxarı Aralıq, Qarxun, Muğancıq Mehrab, Muğancıq Müslüm, Xələc, Çərçiboğan, Çomaxtur və Arıbatan kəndlərinin su təchizatı və kanalizasiya sistemlərinin tikintisinin texniki-iqtisadi əsaslandırılma və layihə-smeta sənədlərinin hazırlanması” nın satınalınması",
-        "address": "Naxçıvan şəhər Xətai məhəlləsi",
-        "price": "118.100,30 AZN",
-        "imgUrl":"",
-        "creationDate": "09.09.2024 15:44",
-        "expirationDate": "30.09.2024 17:00",
-        "files": [
-            {
-            "fileId": 1,
-            "fileName": "",
-            "fileType": "",
-            "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
-            "fileSize":""
-            }
-        ]
-      },
-      {
-        "id": 3,
-        "owner": "Zaqatala Rayon İcra Hakimiyyəti Başçısının Zaqatala Şəhət Ərazisi Üzrə Nümayəndəliyi",
-        "subject": "Zaqatala şəhər Aşıq Ələsgər və Həzi Aslanov küçələrində abadlıq işlərinin satın alınması",
-        "address": "M.Əsədov 5",
-        "price": "496.030,00 AZN",
-        "imgUrl":"",
-        "creationDate": "09.09.2024 15:31",
-        "expirationDate": "01.10.2024 17:00",
-        "files": [
-            {
-            "fileId": 1,
-            "fileName": "",
-            "fileType": "",
-            "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
-            "fileSize":""
-            }
-        ]
-      },
-      {
-        "id": 4,
-        "owner": "“Qarabağ Dirçəliş Fondu” Publik Hüquqi Şəxsi",
-        "subject": "Nəqliyyat vasitəsinin satın alınması",
-        "address": "Bakı şəhəri, Nəsimi rayonu, Cəfər Cabbarlı küçəsi 609, Globus Business Center, 14-cü mərtəbə, Qarabağ Dirçəliş Fondu ofisi",
-        "price": "114.678,50 AZN",
-        "imgUrl":"",
-        "creationDate": "09.09.2024 15:05",
-        "expirationDate": "17.09.2024 15:00",
-        "files": [
-            {
-            "fileId": 1,
-            "fileName": "",
-            "fileType": "",
-            "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
-            "fileSize":""
-            }
-        ]
-      },
-      {
-        "id": 5,
-        "owner": "Kürdəmir Rayon İcra Hakimiyyəti",
-        "subject": "Kürdəmir rayonunda avtomobil yollarının təmiri işlərinin satın alınması",
-        "address": "M.Ə.Sabir küçəsi №15",
-        "price": "1.350.253,74 AZN",
-        "imgUrl":"",
-        "creationDate": "09.09.2024 11:36",
-        "expirationDate": "08.10.2024 12:00",
-        "files": [
-            {
-            "fileId": 1,
-            "fileName": "",
-            "fileType": "",
-            "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
-            "fileSize":""
-            }
-        ]
-      }
-      
-    ]
-  }
-  
+  "cards": [
+    {
+      "id": "1",
+      "owner": "'Azərbaycan Respublikası Maliyyə Nazirliyinin Məlumat Hesablama Mərkəzi' Məhdud Məsuliyyətli Cəmiyyəti",
+      "subject": "AR Maliyyə Nazirliyinin 'Məlumat Hesablama Mərkəzi' MMC-nin xidmət göstərdiyi təşkilatlarda istismar olunan elektrotexniki avadanlıqlara ehtiyat hissələrinin satınalınması",
+      "address": "Bakı şəhəri Səməd Vurğun 135",
+      "price": "538.000,00 AZN",
+      "imgUrl": "",
+      "creationDate": "09.09.2024 15:48",
+      "expirationDate": "02.10.2024 18:00",
+      "files": [
+        {
+          "fileId": 1,
+          "fileName": "",
+          "fileType": "",
+          "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
+          "fileSize": ""
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "owner": "'Su Meliorasiya Xidməti'Publik Hüquqi Şəxsi",
+      "subject": "“Şərur rayonunun Məmmədsabir, Aşağı Aralıq, Yuxarı Aralıq, Qarxun, Muğancıq Mehrab, Muğancıq Müslüm, Xələc, Çərçiboğan, Çomaxtur və Arıbatan kəndlərinin su təchizatı və kanalizasiya sistemlərinin tikintisinin texniki-iqtisadi əsaslandırılma və layihə-smeta sənədlərinin hazırlanması” nın satınalınması",
+      "address": "Naxçıvan şəhər Xətai məhəlləsi",
+      "price": "118.100,30 AZN",
+      "imgUrl": "",
+      "creationDate": "09.09.2024 15:44",
+      "expirationDate": "30.09.2024 17:00",
+      "files": [
+        {
+          "fileId": 1,
+          "fileName": "",
+          "fileType": "",
+          "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
+          "fileSize": ""
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "owner": "Zaqatala Rayon İcra Hakimiyyəti Başçısının Zaqatala Şəhət Ərazisi Üzrə Nümayəndəliyi",
+      "subject": "Zaqatala şəhər Aşıq Ələsgər və Həzi Aslanov küçələrində abadlıq işlərinin satın alınması",
+      "address": "M.Əsədov 5",
+      "price": "496.030,00 AZN",
+      "imgUrl": "",
+      "creationDate": "09.09.2024 15:31",
+      "expirationDate": "01.10.2024 17:00",
+      "files": [
+        {
+          "fileId": 1,
+          "fileName": "",
+          "fileType": "",
+          "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
+          "fileSize": ""
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "owner": "“Qarabağ Dirçəliş Fondu” Publik Hüquqi Şəxsi",
+      "subject": "Nəqliyyat vasitəsinin satın alınması",
+      "address": "Bakı şəhəri, Nəsimi rayonu, Cəfər Cabbarlı küçəsi 609, Globus Business Center, 14-cü mərtəbə, Qarabağ Dirçəliş Fondu ofisi",
+      "price": "114.678,50 AZN",
+      "imgUrl": "",
+      "creationDate": "09.09.2024 15:05",
+      "expirationDate": "17.09.2024 15:00",
+      "files": [
+        {
+          "fileId": 1,
+          "fileName": "",
+          "fileType": "",
+          "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
+          "fileSize": ""
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "owner": "Kürdəmir Rayon İcra Hakimiyyəti",
+      "subject": "Kürdəmir rayonunda avtomobil yollarının təmiri işlərinin satın alınması",
+      "address": "M.Ə.Sabir küçəsi №15",
+      "price": "1.350.253,74 AZN",
+      "imgUrl": "",
+      "creationDate": "09.09.2024 11:36",
+      "expirationDate": "08.10.2024 12:00",
+      "files": [
+        {
+          "fileId": 1,
+          "fileName": "",
+          "fileType": "",
+          "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
+          "fileSize": ""
+        }
+      ]
+    }
+  ],
+  "user": [
+    {
+      "id": "1",
+      "name": "",
+      "picture": ""
+    },
+    {
+      "id": "5e00",
+      "name": "rafail",
+      "picture": null
+    },
+    {
+      "id": "7286",
+      "name": "asdas",
+      "picture": null
+    },
+    {
+      "id": "02dc",
+      "name": "arif",
+      "picture": null
+    },
+    {
+      "id": "efcf",
+      "name": "Nurlan",
+      "picture": null
+    },
+    {
+      "id": "8e35",
+      "name": "asdfhagf",
+      "surname": "ashfdg",
+      "email": "asgf@asgf",
+      "age": "2003-02-12"
+    },
+    {
+      "id": "e6be",
+      "name": "Rafail",
+      "surname": "Mursukayev",
+      "email": "raf242@yandex.ru",
+      "age": "1994-05-06",
+      "password": "123",
+      "confirmPassword": "123"
+    },
+    {
+      "id": "4194",
+      "name": "dfsdfs",
+      "surname": "rtdgfdfg",
+      "email": "saf@sfes",
+      "age": "1111-01-01",
+      "password": "123",
+      "confirmPassword": "123"
+    },
+    {
+      "id": "381c",
+      "name": "aaaaaaaaaaaa",
+      "surname": "aaaaaaaaaaa",
+      "email": "aaa@aaaa",
+      "age": "1111-01-01",
+      "password": "123"
+    },
+    {
+      "id": "f857",
+      "name": "Laman",
+      "surname": "Laman",
+      "email": "afar@arg",
+      "age": "1111-02-02",
+      "password": "123"
+    },
+    {
+      "id": "207f",
+      "name": "aaaa",
+      "surname": "aaaa",
+      "email": "dsds@ghgh",
+      "age": "2000-02-02",
+      "password": "123"
+    }
+  ]
+}
