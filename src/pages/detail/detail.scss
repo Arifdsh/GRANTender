@@ -1,7 +1,26 @@
-.content-detail{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    gap:20px;
+@import '../../styles/global';
+h1{color:$primary-color;}
+
+
+    .vertical-text {
+        box-sizing: border-box;
+        border-radius: 50px;
+        border: 1px solid #ddd; 
+        padding: 10px;
+ background-color:$primary-colorLight;
+         writing-mode: vertical-tb;
+      text-align: center;
+      font-size: 30px; 
+      font-weight: bold;
+      
+      .yanibsonenyazi {
+        animation: blinker 2.5s linear infinite; 
+        color: $primary-colorGradient; 
+    }
+        @keyframes blinker {  
+        50% { opacity: 0; }
+        }  
    
-}
+    }
+   
+

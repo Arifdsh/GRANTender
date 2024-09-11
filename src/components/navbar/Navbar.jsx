@@ -11,7 +11,7 @@ function Header() {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
         <Navbar.Brand href="#" className="py-0 my-0">
-          <img className="w-75" src="logo-tender.png" />
+          <img className="w-75" src="./src/assets/logo-tender.png" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse className="gap-5">

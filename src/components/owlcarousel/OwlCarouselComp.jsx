@@ -32,109 +32,72 @@ const OwlCarouselComp = () => {
           <OwlCarousel className="owl-theme " {...options}>
             <div className="item">
               <h4 className="text-center text-muted">
-                <img
-                  src="1.jpg.jpg"
-                  className="border carousel-border rounded"
-                />
+                <img src="./src/assets/image/azinterservicecolor.png" className="border carousel-border rounded"/>
                 Avantgarde Web studio
               </h4>
             </div>
             <div className="item">
               <h4 className="text-center text-muted">
-                <img
-                  src="2.png.png"
-                  className="border carousel-border rounded"
-                />
+                <img src="./src/assets/image/crocuscolor.png" className="border carousel-border rounded"/>
                 EcoStep
               </h4>
             </div>
             <div className="item">
               <h4 className="text-center text-muted">
-                <img
-                  src="3.jpg.jpg"
-                  className="border carousel-border rounded"
-                />
+                <img src="./src/assets/image/velievcolor.png" className="border carousel-border rounded"/>
                 Smts
               </h4>
             </div>
             <div className="item">
               <h4 className="text-center text-muted">
-                <img
-                  src="4.jpg.jpg"
-                  className="border carousel-border rounded"
-                />
+                <img src="./src/assets/image/eurooilcolor.png" className="border carousel-border rounded"/>
                 White Construction Group MMC
               </h4>
             </div>
             <div className="item">
               <h4 className="text-center text-muted">
-                <img
-                  src="5.jpg.jpg"
-                  className="border carousel-border rounded"
-                />
+                <img src="./src/assets/image/liderqrupcolor.png" className="border carousel-border rounded"/>
                 MİNOR BUSİNESS GROUP
               </h4>
             </div>
             <div className="item">
               <h4 className="text-center text-muted">
-                <img
-                  src="6.jpg.jpg"
-                  className="border carousel-border rounded"
-                />
+                <img src="./src/assets/image/logo-Zahidandzakircolor.png" className="border carousel-border rounded"/>
                 Agah Group MMC
               </h4>
             </div>
             <div className="item">
               <h4 className="text-center text-muted">
-                <img
-                  src="7.png.png"
-                  className="border carousel-border  rounded"
-                />{" "}
-                AZİS TİKİNTİ ŞİRKƏTİ
+                <img src="./src/assets/image/lubristarcolor.png" className="border carousel-border  rounded"/> AZİS TİKİNTİ ŞİRKƏTİ
               </h4>
             </div>
             <div className="item">
               <h4 className="text-center text-muted">
-                <img
-                  src="8.png.png"
-                  className="border carousel-border rounded"
-                />
+                <img src="./src/assets/image/retroholdingcolor.png" className="border carousel-border rounded"/>
                 Admaer
               </h4>
             </div>
             <div className="item">
               <h4 className="text-center text-muted ">
-                <img
-                  src="9.png.png"
-                  className="border carousel-border rounded"
-                />
+                <img src="./src/assets/image/velievcolor.png"  className="border carousel-border rounded"/>
                 MOR MMC
               </h4>
             </div>
             <div className="item">
               <h4 className="text-center text-muted">
-                <img
-                  src="10.png.png"
-                  className="border carousel-border rounded"
-                />
+                <img src="./src/assets/image/zzmotorscolor.png" className="border carousel-border rounded"/>
                 AZKAN İNŞAAT
               </h4>
             </div>
             <div className="item">
               <h4 className="text-center text-muted">
-                <img
-                  src="11.jpg.jpg"
-                  className="border carousel-border rounded"
-                />
+                <img src="./src/assets/image/retroholdingcolor.png" className="border carousel-border rounded"/>
                 Miray inşaat
               </h4>
             </div>
             <div className="item">
               <h4 className="text-center text-muted">
-                <img
-                  src="12.png.png"
-                  className="border carousel-border rounded"
-                />
+                <img src="./src/assets/image/eurooilcolor.png" className="border carousel-border rounded"/>
                 İndigo
               </h4>
             </div>
