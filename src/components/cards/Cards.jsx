@@ -8,7 +8,7 @@ function Cards() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const [tenders, setTenders] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 2;
+  const itemsPerPage = 5;
   const [bookmarked, setBookmarked] = useState({});
 
   useEffect(() => {

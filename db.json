@@ -94,6 +94,101 @@
             "fileSize":""
             }
         ]
+      },
+      {
+        "id": 6,
+        "owner": "Azərbaycan Respublikası Əmlak Məsələləri Dövlət Komitəsinin Yanında Daşınmaz Əmlakın Dövlət Reyestri Xidtmətinin 10 Saylı Lənkəran Ərazi İdarəsi",
+        "subject": "'Daşınmaz Əmlakın Dövlət Kadastrı və Reyestri' publik hüquqi şəxsinin 10 saylı Lənkəran Ərazi İdarəsinin inzibati binasında təmir və yenidənqurma işləri",
+        "address": "Lənkəran ş Nizami küç 84 a",
+        "price": "862.221,95 AZN",
+        "imgUrl":"",
+        "creationDate": "11.09.2024 12:54",
+        "expirationDate": "08.10.2024 15:00",
+        "files": [
+            {
+            "fileId": 1,
+            "fileName": "",
+            "fileType": "",
+            "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
+            "fileSize":""
+            }
+        ]
+      },
+      {
+        "id": 7,
+        "owner": "'Dövlət Sosial Müdafiə Fondu' Publik Hüquqi Şəxsi",
+        "subject": "Yüklərin daşınması xidmətinin satın alınması",
+        "address": "Həsən bəy Zərdabi 80",
+        "price": "11.127,40 AZN",
+        "imgUrl":"",
+        "creationDate": "05.09.2024 15:38",
+        "expirationDate": "27.09.2024 16:00",
+        "files": [
+            {
+            "fileId": 1,
+            "fileName": "",
+            "fileType": "",
+            "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
+            "fileSize":""
+            }
+        ]
+      },
+      {
+        "id": 8,
+        "owner": "Qəbələ Rayon İcra Hakimiyyəti Qəbələ Şəhər İnzibati Ərazi Nümayəndəliyi",
+        "subject": "Qəbələ şəhərində küçə, səki və parklarda abadlıq təmir işlərinin satın alınması",
+        "address": "Həzi Aslanov 31",
+        "price": "285.236,68 AZN",
+        "imgUrl":"",
+        "creationDate": "05.09.2024 16:24",
+        "expirationDate": "26.09.2024 17:15",
+        "files": [
+            {
+            "fileId": 1,
+            "fileName": "",
+            "fileType": "",
+            "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
+            "fileSize":""
+            }
+        ]
+      },
+      {
+        "id": 9,
+        "owner": "Əkinçilik Elmi-Tədqiqat İnstitutunun Yardımçı Təcrübə Təsərrüfatları Birliyi",
+        "subject": "Ammofos gübresinin satınalınmas",
+        "address": "Abşeron rayonu, 2 nömrəli Sovxoz",
+        "price": "195.853,00 AZN",
+        "imgUrl":"",
+        "creationDate": "05.09.2024 17:36",
+        "expirationDate": "07.10.2024 18:00",
+        "files": [
+            {
+            "fileId": 1,
+            "fileName": "",
+            "fileType": "",
+            "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
+            "fileSize":""
+            }
+        ]
+      },
+      {
+        "id": 10,
+        "owner": "Azərbaycan Respublikası Xarici İşlər Nazirliyi",
+        "subject": "Azərbaycan Respublikasının Xarici İşlər Nazirliyi tərəfindən proqram təminatları üçün lisenziyaların satın alınması",
+        "address": "M.Ə.Sabir küçəsi №15",
+        "price": "1.350.253,74 AZN",
+        "imgUrl":"",
+        "creationDate": "05.09.2024 18:31",
+        "expirationDate": "27.09.2024 18:00",
+        "files": [
+            {
+            "fileId": 1,
+            "fileName": "",
+            "fileType": "",
+            "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
+            "fileSize":""
+            }
+        ]
       }
       
     ]
