@@ -41,26 +41,8 @@ function Cards() {
   };
 
   return (
-    <div className="cardsContainer">
-      <div className="cardsItem">
-        <div className="itemLeft">
-          <img src={Car} alt="" />
-        </div>
-        <div className="itemRight"></div>
-      </div>
-      <div className="cardsItem">
-        <div className="itemLeft">
-          <img src={Car} alt="" />
-        </div>
-        <div className="itemRight"></div>
-      </div>
-      <div className="cardsItem">
-        <div className="itemLeft">
-          <img src={Car} alt="" />
-        </div>
-        <div className="itemRight"></div>
-      </div>
-      </div>
+    <>
+    </>
 
   )
 }
