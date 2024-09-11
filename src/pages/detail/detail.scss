@@ -1,26 +1,33 @@
-@import '../../styles/global';
-h1{color:$primary-color;}
+@import "../../styles/global";
+h1 {
+  color: $primary-color;
+  font-family: "Roboto";
+}
 
-
-    .vertical-text {
-        box-sizing: border-box;
-        border-radius: 50px;
-        border: 1px solid #ddd; 
-        padding: 10px;
- background-color:$primary-colorLight;
-         writing-mode: vertical-tb;
-      text-align: center;
-      font-size: 30px; 
-      font-weight: bold;
-      
-      .yanibsonenyazi {
-        animation: blinker 2.5s linear infinite; 
-        color: $primary-colorGradient; 
+.vertical-text {
+  box-sizing: border-box;
+  border-radius: 50px;
+  border: 1px solid #ddd;
+  padding-left: 170px;
+  padding-right: 170px;
+  background-color: $primary-colorLight;
+  writing-mode: vertical-tb;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Roboto";
+  .yanibsonenyazi {
+    animation: blinker 2.5s linear infinite;
+    color: $primary-colorGradient;
+  }
+  @keyframes blinker {
+    50% {
+      opacity: 0;
     }
-        @keyframes blinker {  
-        50% { opacity: 0; }
-        }  
-   
-    }
-   
-
+  }
+}
+button,
+p {color:black;
+  font-family: sans-serif;
+  font-size: 16px;
+}
