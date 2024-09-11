@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './profile.scss'
 import CreateTender from '../../components/createTender/CreateTender'
 import Navbar from '../../components/navbar/Navbar.jsx'
@@ -8,6 +8,8 @@ const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
   const [showCreateTender, setShowCreateTender] = useState(false)
   const [showProfileEdit, setShowProfileEdit] = useState(false)
+  //const [profilePicture, setProfilePicture] = useState(null); // from local
+  const [profile, setProfile] = useState({ name: '', picture: '' }); // holds name and picture from db.json
 
   const handleTabClick = (index) => setActiveTab(index)
 
@@ -19,6 +21,34 @@ const Profile = () => {
 
   const handleEditCancel = () => setShowProfileEdit(false)
 
+  // useEffect(() => {
+  //   // Retrieve the profile data (including picture) from localStorage
+  //   const savedProfile = JSON.parse(localStorage.getItem('profile'));
+  //   if (savedProfile && savedProfile.picture) {
+  //     setProfilePicture(savedProfile.picture); // base64 image string
+  //   }
+  // }, []);
+
+  useEffect(() => {
+    // Fetch profile data from db.json (json-server)
+    const fetchProfileData = async () => {
+      try {
+        const response = await fetch('http://localhost:5173/user'); // make sure the server is running
+        const data = await response.json();
+        if (data && data.length > 0) {
+          setProfile({
+            name: data[0].name,
+            picture: data[0].picture, // Assuming picture is a URL or base64 encoded string
+          });
+        }
+      } catch (error) {
+        console.error('Failed to fetch profile data:', error);
+      }
+    };
+
+    fetchProfileData();
+  }, []);
+
 
   return (
     <>
@@ -27,11 +57,13 @@ const Profile = () => {
         <div className='profile-information-box'>
           <div className='profile-decoration-top'>
             <div className='profile-img'>
-              <img src="src/assets/image/car.jpg" alt="car" />
+             {/* <img src="src/assets/image/car.jpg" alt="car" /> */}
+             {/* <img src={profilePicture} alt="Profile" /> */}
+             <img src={profile.picture} alt="" />
             </div>
           </div>
           <div className='profile-name-box'>
-            <p className='profile-name'>Ad Soyad</p>
+            <p className='profile-name'>{profile.name || 'Ad Soyad'}</p>
           </div>
           <div className='profile-notification-box'>
             <ul>
