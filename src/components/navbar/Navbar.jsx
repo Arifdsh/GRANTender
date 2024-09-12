@@ -17,26 +17,26 @@ function Header() {
         <Navbar.Collapse className="gap-5">
   <Nav fill variant="tabs" defaultActiveKey="/home" className="gap-2">
       <Nav.Item>
-        <Nav.Link href="/#" className=" nav-color fw-bold fs-4">Home</Nav.Link>
+        <Nav.Link href="/#" className=" nav-color fw-bold fs-4">Əsas səhifə</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="link-1" className="nav-color fw-bold fs-4">Tenders</Nav.Link>
+        <Nav.Link eventKey="link-1" className="nav-color fw-bold fs-4">Tenderlər</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="link-2"className="nav-color fw-bold fs-4">Our Partners</Nav.Link>
+        <Nav.Link eventKey="link-2"className="nav-color fw-bold fs-4">Partnyorlarımız</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="link-3" className="nav-color fw-bold fs-4">Contacts</Nav.Link>
+        <Nav.Link eventKey="link-3" className="nav-color fw-bold fs-4">Əlaqə</Nav.Link>
       </Nav.Item>
 </Nav>
           <Nav className="my-2">
             <Button variant="outline-primary fw-bold fs-5 shadow-lg ">
-              <LiaSignInAltSolid /> Sign In
+              <LiaSignInAltSolid /> Giriş
             </Button>
           </Nav>
           <Nav className="my-2">
             <Button variant="outline-primary fw-bold fs-5 shadow-lg">
-              <GoPersonFill /> Sign Up
+              <GoPersonFill /> Qeydiyyat
             </Button>
           </Nav>
           {/* <Nav className="my-2">

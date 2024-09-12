@@ -5,6 +5,7 @@ import axios from "axios";
 import "../detail/detail.scss";
 import { useParams } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import ScrollToTop from "../../components/scrolltotop/ScrollToTop.jsx";
 
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
@@ -33,7 +34,7 @@ const Detail = () => {
     fetchData();
   }, [baseApiUrl]);
 
-  const findTender = data.find((tender) => tender.id == 3);
+  const findTender = data.find((tender) => tender.id == 4);
   console.log(findTender);
   console.log(id);
 
@@ -57,8 +58,9 @@ const Detail = () => {
     <div>
       <Navbar />
       <DarkLightMode />
-      <h1 className="d-flex align-items-center justify-content-center fw-bold text-decoration-underline my-5">
-        Detail
+      <ScrollToTop />
+      <h1 className="d-flex align-items-center justify-content-center fw-bold text-decoration-underline my-5 detail-heading">
+        ƏTRAFLI
       </h1>
       <div className="container mb-5">
         <div className="row">
@@ -67,72 +69,64 @@ const Detail = () => {
               src="./src/assets/image/velievcolor.png"
               alt=""
               className="border rounded  "
-              style={{ width: "350px", height: "200px" }}
+              style={{ width: "330px", height: "330px" }}
             />
 
-            <div className=" border-top  border-dark w-75 my-2"></div>
-
-            <div className="vertical-text w-50 ">
-              <div className="yanibsonenyazi">G</div>
-              <div className="yanibsonenyazi">R</div>
-              <div className="yanibsonenyazi">A</div>
-              <div className="yanibsonenyazi">N</div>
-              <div className="yanibsonenyazi">T</div>
-              <div className="yanibsonenyazi">e</div>
-              <div className="yanibsonenyazi">n</div>
-              <div className="yanibsonenyazi">d</div>
-              <div className="yanibsonenyazi">e</div>
-              <div className="yanibsonenyazi">r</div>
+            <div className="vertical-text my-2 w-50">
+              <p className="light-effect my-2">GRANTender</p>
             </div>
           </div>
           {findTender ? (
-            <div className="col-lg-3 col-md-12 col-sm-12 mb-3">
-              <div className=" border-bottom border-dark mb-4 w-75"></div>
+            <div className="col-lg-3 col-md-12 col-sm-12 mb-3 mt-2">
               <div className="mb-3">
-                <span className="border border-left border-dark me-2"></span>
-                <button className=" border fw-bold ">
-                  Elan sahibi (müəssisənin adı)
+                <span className="border border-left border-primary border-2 me-2"></span>
+                <button className=" border fw-bold fs-5">Elan sahibi</button>
+                <p className="ms-3 mt-2 mb-4">{findTender.owner}</p>
+              </div>
+
+              <div className="mb-3">
+                <span className="border border-left border-primary border-2 me-2"></span>
+                <button className=" border fw-bold fs-5">
+                  Elanın predmeti
                 </button>
-                <p>{findTender.owner}</p>{" "}
+                <p className="ms-3 mt-2 mb-4"> {findTender.subject}</p>
               </div>
 
               <div className="mb-3">
-                <span className="border border-left border-dark me-2"></span>
-                <button className=" border fw-bold">Elanın predmeti</button>
-                <p> {findTender.subject}</p>
+                <span className="border border-left border-primary border-2 me-2"></span>
+                <button className=" border fw-bold fs-5">
+                  Təşkilatın ünvanı
+                </button>
+                <p className="ms-3 mt-2 mb-4"> {findTender.address}</p>
               </div>
 
               <div className="mb-3">
-                <span className="border border-left border-dark me-2"></span>
-                <button className=" border fw-bold">Təşkilatın ünvanı</button>
-                <p> {findTender.address}</p>
-              </div>
-
-              <div className="mb-3">
-                <span className="border border-left border-dark me-2"></span>
-                <button className=" border fw-bold">
+                <span className="border border-left border-primary border-2  me-2"></span>
+                <button className=" border fw-bold fs-5">
                   Ehtimal olunan qiyməti
                 </button>
-                <p> {findTender.price}</p>
+                <p className="ms-3 mt-2 mb-4"> {findTender.price}</p>
               </div>
 
               <div className="mb-3">
-                <span className="border border-left border-dark me-2"></span>
-                <button className=" border fw-bold">
+                <span className="border border-left border-primary border-2 me-2"></span>
+                <button className=" border fw-bold fs-5">
                   Elanın yaradılma tarixi
                 </button>
-                <p> {findTender.creationDate}</p>
+                <p className="ms-3 mt-2 mb-4"> {findTender.creationDate}</p>
               </div>
 
               <div className="mb-3">
-                <span className="border border-left border-dark me-2"></span>
-                <button className=" border fw-bold">Elanın bitmə tarixi</button>
-                <p> {findTender.expirationDate}</p>
+                <span className="border border-left border-primary border-2 me-2"></span>
+                <button className=" border fw-bold fs-5">
+                  Elanın bitmə tarixi
+                </button>
+                <p className="ms-3 mt-2 mb-5"> {findTender.expirationDate}</p>
               </div>
 
               <Button
                 variant="primary"
-                className="w-100 fw-bold fs-6"
+                className="w-100 fw-bold fs-5 mt-5"
                 // disabled={isLoading}
                 onClick={!isLoading ? handleClick : null}
               >
