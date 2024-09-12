@@ -7,6 +7,7 @@ import { FiRefreshCcw } from "react-icons/fi";
 function Search() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [city, setCity] = useState("");
+  const [all, setAll] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -20,6 +21,7 @@ function Search() {
     setMaxPrice("");
     setStartDate("");
     setEndDate("");
+    setAll("");
   };
 
   return (
@@ -27,7 +29,7 @@ function Search() {
       <div className="searchContainer">
         <div className="filter">
           <div className="myInput">
-            <input type="text" placeholder="Satınalma predmeti" />
+            <input type="text" placeholder="Satınalma predmeti" value={all} onChange={(e) => setAll(e.target.value)} />
           </div>
           <div className="more" onClick={toggleModal}>
             <span>Filter</span>
@@ -41,8 +43,8 @@ function Search() {
             <button>
               <IoIosSearch />
             </button>
-            <button>
-              <FiRefreshCcw />
+            <button onClick={resetFilters}>
+              <FiRefreshCcw  />
             </button>
           </div>
         </div>
