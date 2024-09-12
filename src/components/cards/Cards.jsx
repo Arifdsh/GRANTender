@@ -91,7 +91,7 @@ function Cards() {
                 <button className="tenders-list__edit tenders-list__button">
                   Düzəliş et
                 </button>
-                <button className="tenders-list__delete tenders-list__button">
+                <button className="tenders-list__edit tenders-list__button">
                   Sil
                 </button>
               </div>
