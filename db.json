@@ -170,6 +170,14 @@
       "email": "dsds@ghgh",
       "age": "2000-02-02",
       "password": "123"
+    },
+    {
+      "id": "f298",
+      "name": "Arif",
+      "surname": "Maharramov",
+      "email": "arif@gmail.com",
+      "age": "1993-03-07",
+      "password": "123"
     }
   ]
 }

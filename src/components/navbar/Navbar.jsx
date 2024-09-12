@@ -3,11 +3,12 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { useNavigate } from "react-router-dom";
 import "./navbar.scss"
-//import DarkLightMode from "./DarkLightMode";
 import { LiaSignInAltSolid } from "react-icons/lia";
 import { GoPersonFill } from "react-icons/go";
 function Header() {
+  const navigate = useNavigate()
   return (
     <Navbar expand="lg" className="bg-body-tertiary ">
       <Container fluid>
@@ -16,11 +17,6 @@ function Header() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse className="gap-5">
-          {/* <Nav className="me-auto  my-lg-0 ">
-            <Nav.Link className="my-2">
-              <DarkLightMode />
-            </Nav.Link>
-          </Nav> */}
   <Nav fill variant="tabs" defaultActiveKey="/home" className="gap-2">
       <Nav.Item>
         <Nav.Link href="/#" className=" nav-color fw-bold fs-3">Home</Nav.Link>
@@ -36,15 +32,15 @@ function Header() {
       </Nav.Item>
 </Nav>
           <Nav className="my-2">
-            <Button variant="outline-primary fw-bold fs-4 shadow-lg ">
-              <LiaSignInAltSolid /> Sign In
+            <Button  onClick={() => navigate("/authorization")} variant="outline-primary fw-bold fs-4 shadow-lg ">
+              <LiaSignInAltSolid /> Sign In/Up
             </Button>
           </Nav>
-          <Nav className="my-2">
+          {/* <Nav className="my-2">
             <Button variant="outline-primary fw-bold fs-4 shadow-lg">
               <GoPersonFill /> Sign Up
             </Button>
-          </Nav>
+          </Nav> */}
           {/* <Nav className="my-2">
             <Button variant="outline-primary fw-bold fs-3 shadow-lg">
               <GoPersonFill /> Profile

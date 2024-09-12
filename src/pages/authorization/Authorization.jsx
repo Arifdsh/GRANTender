@@ -5,10 +5,13 @@ import './authorization.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUser, updateUser } from '../../features/usersSlice.js';
 import Navbar from '../../components/navbar/Navbar.jsx';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Authorization = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loginError, setLoginError] = useState('');
+
+  const navigate=useNavigate();
 
   const dispatch = useDispatch();
   const { user, loading, error } = useSelector((state) => state.user)
@@ -29,7 +32,7 @@ const Authorization = () => {
     if (foundUser) {
       if (foundUser.password == loginData.password) {
         setLoginError('')
-        console.log("login ok");
+        navigate("/home")
       }
       else {
         setLoginError('Incorrect password')
