@@ -120,7 +120,6 @@ const Authorization = () => {
             {errors.confirmPassword && touched.confirmPassword && <div className='error'>{errors.confirmPassword}</div>}
             <button type='submit' className="register__button">Register</button>
           </form>
-          {/* <i className="fa-solid fa-circle-xmark"></i> */}
           <button onClick={closeModal} className="close">Close</button>
         </div>
       </section>

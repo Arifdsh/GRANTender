@@ -11,7 +11,7 @@ const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  const { id } = useParams();
+  const { id } = useParams(); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,11 +19,11 @@ const Detail = () => {
         const response = await axios.get(baseApiUrl);
         console.log("Full API response:", response.data);
 
-        if (response.data && Array.isArray(response.data.cards)) {
-          setData(response.data.cards);
+        if (response.data && Array.isArray(response.data)) {
+          setData(response.data);
         } else {
           console.error("Unexpected data structure:", response.data);
-          setError("Unexpected data structure");
+          setError("Unexpected data structure",);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -34,9 +34,9 @@ const Detail = () => {
     fetchData();
   }, [baseApiUrl]);
 
-  const findTender = data.find((tender) => tender.id == 4);
+  
+  const findTender = data.find((tender) => tender.id.toString() === id);
   console.log(findTender);
-  console.log(id);
 
   const [isLoading, setLoading] = useState(false);
 
@@ -66,7 +66,7 @@ const Detail = () => {
         <div className="row">
           <div className="col-lg-6 col-md-8 col-sm-12 ">
             <img
-              src="./src/assets/image/velievcolor.png"
+              src="/src/assets/image/velievcolor.png"
               alt=""
               className="border rounded  "
               style={{ width: "330px", height: "330px" }}
@@ -80,54 +80,43 @@ const Detail = () => {
             <div className="col-lg-3 col-md-12 col-sm-12 mb-3 mt-2">
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className=" border fw-bold fs-5">Elan sahibi</button>
+                <button className="border fw-bold fs-5">Elan sahibi</button>
                 <p className="ms-3 mt-2 mb-4">{findTender.owner}</p>
               </div>
 
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className=" border fw-bold fs-5">
-                  Elanın predmeti
-                </button>
+                <button className="border fw-bold fs-5">Elanın predmeti</button>
                 <p className="ms-3 mt-2 mb-4"> {findTender.subject}</p>
               </div>
 
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className=" border fw-bold fs-5">
-                  Təşkilatın ünvanı
-                </button>
+                <button className="border fw-bold fs-5">Təşkilatın ünvanı</button>
                 <p className="ms-3 mt-2 mb-4"> {findTender.address}</p>
               </div>
 
               <div className="mb-3">
-                <span className="border border-left border-primary border-2  me-2"></span>
-                <button className=" border fw-bold fs-5">
-                  Ehtimal olunan qiyməti
-                </button>
+                <span className="border border-left border-primary border-2 me-2"></span>
+                <button className="border fw-bold fs-5">Ehtimal olunan qiyməti</button>
                 <p className="ms-3 mt-2 mb-4"> {findTender.price}</p>
               </div>
 
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className=" border fw-bold fs-5">
-                  Elanın yaradılma tarixi
-                </button>
+                <button className="border fw-bold fs-5">Elanın yaradılma tarixi</button>
                 <p className="ms-3 mt-2 mb-4"> {findTender.creationDate}</p>
               </div>
 
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className=" border fw-bold fs-5">
-                  Elanın bitmə tarixi
-                </button>
+                <button className="border fw-bold fs-5">Elanın bitmə tarixi</button>
                 <p className="ms-3 mt-2 mb-5"> {findTender.expirationDate}</p>
               </div>
 
               <Button
                 variant="primary"
                 className="w-100 fw-bold fs-5 mt-5"
-                // disabled={isLoading}
                 onClick={!isLoading ? handleClick : null}
               >
                 {isLoading ? "Loading…" : "Müraciət et"}
