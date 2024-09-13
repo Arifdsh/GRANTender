@@ -10,7 +10,7 @@ const OwlCarouselComp = () => {
     autoplay: true,
     autoplayTimeout: 1000,
     animateOut: "slideOutUp",
-    nav: true,
+    nav: false,
 
     dots: true,
     margin: 30,
@@ -24,9 +24,9 @@ const OwlCarouselComp = () => {
   };
   return (
     <>
-      <div className="content_carousel bg-light mt-5">
-        <h1 className="d-flex justify-content-center align-items-center fw-bold py-5 fs-2 carousel-heading">
-          OUR PARTNERS
+      <section className="content_carousel bg-light mt-5">
+        <h1 className="d-flex justify-content-center align-items-center fw-bold py-5 fs-2 carousel-heading text-decoration-underline">
+       PARTNYORLARIMIZ
         </h1>
         <div className="d-flex justify-content-center align-items-center mx-5 ">
           <OwlCarousel className="owl-theme " {...options}>
@@ -103,7 +103,7 @@ const OwlCarouselComp = () => {
             </div>
           </OwlCarousel>
         </div>
-      </div>
+      </section>
     </>
   );
 };

@@ -4,12 +4,15 @@ import "../cards/cards.scss";
 import Car from "../../assets/image/car.jpg";
 import { FaBookmark, FaRegBookmark, FaCalendarCheck } from "react-icons/fa";
 import { FaCalendarXmark } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
+
 function Cards() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const [tenders, setTenders] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const [bookmarked, setBookmarked] = useState({});
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchTenders = async () => {
@@ -41,6 +44,11 @@ function Cards() {
   const handleBookmarkClick = (id) => {
     setBookmarked((prev) => ({ ...prev, [id]: !prev[id] }));
   };
+
+  const goToDetails = (id) => {
+    navigate(`/detail/${id}`); // URL-i '/detail/:id' formatında qururuq
+  };
+
   return (
     <div className="tenders">
       <ul className="tenders-list">
@@ -85,7 +93,10 @@ function Cards() {
                 </div>
               </div>
               <div className="tenders-list__actions">
-                <button className="tenders-list__detail tenders-list__button">
+                <button
+                  className="tenders-list__detail tenders-list__button"
+                  onClick={() => goToDetails(tender.id)} 
+                >
                   Ətraflı
                 </button>
                 <button className="tenders-list__edit tenders-list__button">

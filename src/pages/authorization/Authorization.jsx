@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { Formik, useFormik } from 'formik';
 import { AuthorizationSchema } from './AuthorizationSchema.js'
 import './authorization.scss'
@@ -41,7 +41,6 @@ const Authorization = () => {
               <a href="" className="login__forgetPassword">Forget password?</a>
               <hr />
               <button onClick={openModal} className="login__newAccount">Register</button>
-              {/* <a onClick={openModal} className="login__newAccount">Register</a> */}
               <div className="userInfo"></div>
             </form>
           </li>
@@ -61,7 +60,6 @@ const Authorization = () => {
             <input className="register__confirmPassword input" type="password" placeholder=" Confirm password" />
           <button type='submit' className="register__button">Register</button>
           </form>
-          {/* <i className="fa-solid fa-circle-xmark"></i> */}
           <button onClick={closeModal} className="close">Close</button>
         </div>
       </section>

@@ -1,4 +1,4 @@
-$primary-color:rgb(21, 146, 177);
+@import '../../styles/global';
 .carousel-heading{
     color:$primary-color;
    .carousel-border{border-color: $primary-color;}

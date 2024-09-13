@@ -6,8 +6,7 @@ import validationSchema from './createTenderValidationSchema';
 const CreateTender = () => {
   const [files, setFiles] = useState([])
   const [errorMessage, setErrorMessage] = useState('')
-
-  const handleFileChange = (event) => {
+const handleFileChange = (event) => {
     const allowedTypes = [
       'application/pdf', // PDF
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // Word
@@ -35,8 +34,9 @@ const CreateTender = () => {
   }
 
 
-  return (
+  return ( 
     <div className='ct-main-area'>
+       
       <Formik
         initialValues={{ owner: '', purpose: '', endDate: '', address: '', price: '', files: [] }}
         validationSchema={validationSchema}
@@ -54,12 +54,12 @@ const CreateTender = () => {
               <ErrorMessage name="owner" component="div" className="error" />
             </div>
             <div className='ct-input-holder'>
-              <label htmlFor="purpose">Elanin məqsədi:</label>
+              <label htmlFor="purpose">Elanın məqsədi:</label>
               <Field as="textarea" id="purpose" name="purpose" placeholder='Elanin məqsədi' />
               <ErrorMessage name="purpose" component="div" className="error" />
             </div>
             <div className='ct-input-holder'>
-              <label htmlFor="endDate">Bitme tarixi:</label>
+              <label htmlFor="endDate">Bitmə tarixi:</label>
               <Field type="date" id="endDate" name="endDate" />
               <ErrorMessage name="endDate" component="div" className="error" />
             </div>
@@ -98,11 +98,12 @@ const CreateTender = () => {
                 </ul>
               )}
             </div>
-            <button type="submit">Elave et</button>
+            <button type="submit">Əlavə et</button>
           </Form>
         )}
       </Formik>
     </div>
+    
   )
 }
 
