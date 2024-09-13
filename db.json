@@ -101,7 +101,7 @@
       "subject": "Rafail ise goturmek",
       "address": "Neriman nerimanov",
       "price": 2000,
-      "createonDate": "2024-09-12",
+      "creationDate": "2024-09-12",
       "expirationDate": "2024-09-14",
       "files": [
         {}
@@ -113,7 +113,7 @@
       "subject": "is tapmaq",
       "address": "jasldksdfs",
       "price": 15000.01,
-      "createonDate": "2024-09-12",
+      "creationDate": "2024-09-12",
       "expirationDate": "2024-09-13",
       "files": []
     }
@@ -215,6 +215,14 @@
       "surname": "Sultanov",
       "email": "ali@gmail.com",
       "age": "1111-11-11",
+      "password": "123"
+    },
+    {
+      "id": "3d77",
+      "name": "Nurlan",
+      "surname": "Mahmudov",
+      "email": "nurlan@gmail.com",
+      "age": "2001-11-11",
       "password": "123"
     }
   ]

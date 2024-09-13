@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  user: null,
+  user: {},
   status: 'idle',
   error: null,
 };
@@ -22,7 +22,17 @@ export const updateUser = createAsyncThunk('user/updateUser', async (userData) =
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    setLoggedInUser: (state, action) => {
+      const { name, id } = action.payload; // Extract only name and id
+      state.user = { name, id }; // Update state with only name and id
+      localStorage.setItem('loggedInUser', JSON.stringify({ name, id })); // Store name and id in localStorage
+    },
+    logout: (state) => {
+      state.user = null;
+      localStorage.removeItem('loggedInUser'); // Clear user from localStorage on logout
+    },
+  },
   extraReducers: (builder) => {
     builder
       // Handle GET request
@@ -52,4 +62,5 @@ const userSlice = createSlice({
   },
 });
 
-export default userSlice.reducer;
+export const { setLoggedInUser, logout } = userSlice.actions
+export default userSlice.reducer

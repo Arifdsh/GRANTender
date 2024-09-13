@@ -3,7 +3,7 @@ import { Formik, useFormik } from 'formik';
 import { AuthorizationSchema } from './AuthorizationSchema.js'
 import './authorization.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUser, updateUser } from '../../features/usersSlice.js';
+import { fetchUser, updateUser, setLoggedInUser } from '../../features/usersSlice.js';
 import Navbar from '../../components/navbar/Navbar.jsx';
 import { Navigate, useNavigate } from 'react-router-dom';
 
@@ -32,6 +32,7 @@ const Authorization = () => {
     if (foundUser) {
       if (foundUser.password == loginData.password) {
         setLoginError('')
+        dispatch(setLoggedInUser({ name: foundUser.name, id: foundUser.id }));
         navigate("/")
       }
       else {
