@@ -2,18 +2,21 @@ import React, { useState } from 'react'
 import './createTender.scss'
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import validationSchema from './createTenderValidationSchema';
+import { useDispatch } from 'react-redux';
+import { createTender } from '../../features/tendersSlice.js';
 
 const CreateTender = () => {
   const [files, setFiles] = useState([])
   const [errorMessage, setErrorMessage] = useState('')
+  const dispatch = useDispatch()
 
   const handleFileChange = (event) => {
     const allowedTypes = [
-      'application/pdf', // PDF
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // Word
-      'application/msword', // Older Word format
-      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', // Excel
-      'application/vnd.ms-excel', // Older Excel format
+      'application/pdf', 
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      'application/msword',
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 
+      'application/vnd.ms-excel', 
     ]
 
     const uploadedFiles = Array.from(event.target.files)
@@ -35,13 +38,28 @@ const CreateTender = () => {
   }
 
 
-  return (
+  return ( 
     <div className='ct-main-area'>
+       
       <Formik
-        initialValues={{ owner: '', purpose: '', endDate: '', address: '', price: '', files: [] }}
+        initialValues={{ owner: '', subject: '', endDate: '', address: '', price: '', files: [] }}
         validationSchema={validationSchema}
         onSubmit={(values, { resetForm }) => {
-          alert('Create Tender Form Submitted: ' + JSON.stringify(values, null, 2))
+
+          const currentDate = new Date().toISOString().split('T')[0]
+
+          const newTender = {
+             owner: values.owner,
+             subject: values.subject,
+             address: values.address,
+             price: values.price,
+             creationDate: currentDate,
+             expirationDate: values.endDate,
+             files: files,
+          }
+
+          dispatch(createTender(newTender))
+
           resetForm()
           setFiles([])
         }}
@@ -54,12 +72,12 @@ const CreateTender = () => {
               <ErrorMessage name="owner" component="div" className="error" />
             </div>
             <div className='ct-input-holder'>
-              <label htmlFor="purpose">Elanin məqsədi:</label>
-              <Field as="textarea" id="purpose" name="purpose" placeholder='Elanin məqsədi' />
-              <ErrorMessage name="purpose" component="div" className="error" />
+              <label htmlFor="subject">Elanin məqsədi:</label>
+              <Field as="textarea" id="subject" name="subject" placeholder='Elanin məqsədi' />
+              <ErrorMessage name="subject" component="div" className="error" />
             </div>
             <div className='ct-input-holder'>
-              <label htmlFor="endDate">Bitme tarixi:</label>
+              <label htmlFor="endDate">Bitmə tarixi:</label>
               <Field type="date" id="endDate" name="endDate" />
               <ErrorMessage name="endDate" component="div" className="error" />
             </div>
@@ -98,11 +116,12 @@ const CreateTender = () => {
                 </ul>
               )}
             </div>
-            <button type="submit">Elave et</button>
+            <button type="submit">Əlavə et</button>
           </Form>
         )}
       </Formik>
     </div>
+    
   )
 }
 

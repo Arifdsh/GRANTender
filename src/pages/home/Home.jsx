@@ -1,10 +1,11 @@
-import React from 'react'
-import Search from '../../components/search/Search.jsx'
-import Cards from '../../components/cards/Cards.jsx'
-import Hero from '../../components/hero/Hero.jsx'
-import Navbar from '../../components/navbar/Navbar.jsx'
-import OwlCarouselComp from '../../components/owlcarousel/OwlCarouselComp.jsx'
-import DarkLightMode from '../../components/navbar/DarkLightMode.jsx'
+import React from "react";
+import Search from "../../components/search/Search.jsx";
+import Cards from "../../components/cards/Cards.jsx";
+import Hero from "../../components/hero/Hero.jsx";
+import Navbar from "../../components/navbar/Navbar.jsx";
+import OwlCarouselComp from "../../components/owlcarousel/OwlCarouselComp.jsx";
+import DarkLightMode from "../../components/navbar/DarkLightMode.jsx";
+import ScrollToTop from "../../components/scrolltotop/ScrollToTop.jsx";
 
 const Home = () => {
   return (
@@ -13,10 +14,11 @@ const Home = () => {
       <DarkLightMode />
       <Hero />
       <Search />
-      <Cards />
+      <Cards/>
       <OwlCarouselComp />
+      <ScrollToTop />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

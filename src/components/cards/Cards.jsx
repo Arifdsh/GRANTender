@@ -1,33 +1,58 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import '../cards/cards.scss'
-import Car from '../../assets/image/car.jpg'
-import { FaBookmark } from "react-icons/fa"
-import { FaRegBookmark } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import "../cards/cards.scss";
+import Car from "../../assets/image/car.jpg";
+import { FaBookmark, FaRegBookmark, FaCalendarCheck } from "react-icons/fa";
+import { FaCalendarXmark } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
+
 function Cards() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const [tenders, setTenders] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 2;
+  const itemsPerPage = 5;
   const [bookmarked, setBookmarked] = useState({});
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchTenders = async () => {
       try {
         const response = await axios.get(apiUrl);
-        setTenders(response.data.cards);
+        setTenders(response.data)
         const initialBookmarks = {};
-        response.data.cards.forEach(tender => {
+        response.data.forEach((tender) => {
           initialBookmarks[tender.id] = false;
         });
         setBookmarked(initialBookmarks);
       } catch (error) {
-        console.error('Error fetching tenders:', error);
+        console.error("Error fetching tenders:", error);
       }
     };
 
     fetchTenders();
   }, [apiUrl]);
+
+  useEffect(() => {
+    const fetchTenders = async () => {
+      try {
+        const response = await axios.get(apiUrl);
+        setTenders(response.data);
+      } catch (error) {
+        console.error("Error fetching tenders:", error);
+      }
+    };
+  
+    fetchTenders();
+  }, [apiUrl]);
+  
+  useEffect(() => {
+    const initialBookmarks = {};
+    tenders.forEach((tender) => {
+      initialBookmarks[tender.id] = false;
+    });
+    setBookmarked(initialBookmarks);
+  }, [tenders]);
+  
 
   const indexOfLastTender = currentPage * itemsPerPage;
   const indexOfFirstTender = indexOfLastTender - itemsPerPage;
@@ -39,51 +64,90 @@ function Cards() {
   }
 
   const handleBookmarkClick = (id) => {
-    setBookmarked(prev => ({ ...prev, [id]: !prev[id] }));
+    setBookmarked((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  const goToDetails = (id) => {
+    navigate(`/detail/${id}`); // URL-i '/detail/:id' formatında qururuq
   };
 
   return (
-    <div className="cardsContainer">
-      {currentTenders.map(tender => (
-        <div key={tender.id} className="cardsItem">
-          <div className="itemLeft">
-            <img src={Car} alt="Car" />
-          </div>
-          <div className="itemRight">
-            <div className="about">
-              <h1>
-                Elan Sahibi: <span>{tender.owner.length > 150 ? `${tender.owner.slice(0, 150)}...` : tender.owner}</span>
-              </h1>
-              <h1>
-                Elanın predmeti: <span>{tender.subject.length > 150 ? `${tender.subject.slice(0, 150)}...` : tender.subject}</span>
-              </h1>
-              <h1>
-                Elanın yaradılış tarixi: <span className='createSpans'>{tender.creationDate}</span>
-              </h1>
-              <h1>
-                Elanın bitmə tarixi: <span className='createSpans'>{tender.expirationDate}</span>
-              </h1>
+    <div className="tenders">
+      <ul className="tenders-list">
+        {currentTenders.map((tender) => (
+          <li key={tender.id} className="tenders-list__item">
+            <div className="tenders-list__photo">
+              <img src={Car} alt="" />
             </div>
-            <div className='arrow'></div>
-            <div className="editDelete">
-              <button className='editDeleteButtons'>Sil</button>
-              <button className='editDeleteButtons'>Düzəliş et</button>
-              <button>Ətraflı</button>
-            </div>
-            <div>
-              <div onClick={() => handleBookmarkClick(tender.id)} className='save'>
-                {bookmarked[tender.id] ? <FaBookmark /> : <FaRegBookmark />}
+            <div className="tenders-list__information">
+              <div className="tenders-list__owner">
+                <h6 className="tenders-list__heading">Elan sahibi</h6>
+                <p className="tenders-list__content">
+                  {tender.owner.length > 150
+                    ? `${tender.owner.slice(0, 150)}...`
+                    : tender.owner}
+                </p>
+              </div>
+              <div className="tenders-list__purpose">
+                <h6 className="tenders-list__heading">Elanın predmeti</h6>
+                <p className="tenders-list__content">
+                  {tender.subject.length > 150
+                    ? `${tender.subject.slice(0, 150)}...`
+                    : tender.subject}
+                </p>
+              </div>
+              <div className="tenders-list__activateTime">
+                <div className="tenders-list__createTime">
+                  <h6 className="tenders-list__heading">
+                    Elanın yaradılış tarixi
+                  </h6>
+                  <p className="tenders-list__content">
+                    <FaCalendarCheck className="calendar" />
+                    {tender.creationDate}
+                  </p>
+                </div>
+                <div className="tenders-list__expireTime">
+                  <h6 className="tenders-list__heading">Elan bitmə tarixi</h6>
+                  <p className="tenders-list__content">
+                    <FaCalendarXmark className="calendar" />
+                    {tender.expirationDate}
+                  </p>
+                </div>
+              </div>
+              <div className="tenders-list__actions">
+                <button
+                  className="tenders-list__detail tenders-list__button"
+                  onClick={() => goToDetails(tender.id)} 
+                >
+                  Ətraflı
+                </button>
+                <button className="tenders-list__edit tenders-list__button">
+                  Düzəliş et
+                </button>
+                <button className="tenders-list__edit tenders-list__button">
+                  Sil
+                </button>
               </div>
             </div>
-          </div>
-        </div>
-      ))}
+            <div
+              onClick={() => handleBookmarkClick(tender.id)}
+              className="tenders-list__save"
+            >
+              {bookmarked[tender.id] ? (
+                <FaBookmark className="saveIcon" />
+              ) : (
+                <FaRegBookmark className="saveIcon" />
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
       <div className="pagination">
-        {pageNumbers.map(number => (
-          <button 
-            key={number} 
+        {pageNumbers.map((number) => (
+          <button
+            key={number}
             onClick={() => setCurrentPage(number)}
-            className={number === currentPage ? 'active' : ''}
+            className={number === currentPage ? "active" : ""}
           >
             {number}
           </button>
