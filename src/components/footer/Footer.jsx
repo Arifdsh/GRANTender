@@ -69,7 +69,7 @@ const Footer = () => {
             </ul>
             <hr/>
             <div className="footer-copyright">
-                <p className="footer-copyright__content">All Right Reserved | Baku EA_Groups <i
+                <p className="footer-copyright__content">All Rights Reserved | Baku GRAN_Groups <i
                         className="fal fa-copyright"></i> 2024</p>
             </div>
         </div>
