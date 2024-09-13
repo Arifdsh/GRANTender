@@ -96,21 +96,12 @@
       ]
     },
     {
-      "id": "9346",
-      "owner": "asd",
-      "address": "asjdhgashdjas",
-      "price": 100.01,
-      "createonDate": "2024-09-12",
-      "expirationDate": "2024-09-15",
-      "files": []
-    },
-    {
       "id": "00b5",
       "owner": "Agile Solution",
       "subject": "Rafail ise goturmek",
       "address": "Neriman nerimanov",
       "price": 2000,
-      "createonDate": "2024-09-12",
+      "creationDate": "2024-09-12",
       "expirationDate": "2024-09-14",
       "files": [
         {}
@@ -122,7 +113,7 @@
       "subject": "is tapmaq",
       "address": "jasldksdfs",
       "price": 15000.01,
-      "createonDate": "2024-09-12",
+      "creationDate": "2024-09-12",
       "expirationDate": "2024-09-13",
       "files": []
     }

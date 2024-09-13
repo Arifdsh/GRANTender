@@ -52,7 +52,7 @@ const CreateTender = () => {
              subject: values.subject,
              address: values.address,
              price: values.price,
-             createonDate: currentDate,
+             creationDate: currentDate,
              expirationDate: values.endDate,
              files: files,
           }

@@ -3,7 +3,7 @@ import { Formik, useFormik } from 'formik';
 import { AuthorizationSchema } from './AuthorizationSchema.js'
 import './authorization.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUser, updateUser } from '../../features/usersSlice.js';
+import { fetchUser, updateUser, setLoggedInUser } from '../../features/usersSlice.js';
 import Navbar from '../../components/navbar/Navbar.jsx';
 
 const Authorization = () => {
@@ -12,6 +12,8 @@ const Authorization = () => {
 
   const dispatch = useDispatch();
   const { user, loading, error } = useSelector((state) => state.user)
+  console.log(user);
+  
 
   useEffect(() => {
     dispatch(fetchUser());
@@ -29,6 +31,9 @@ const Authorization = () => {
     if (foundUser) {
       if (foundUser.password == loginData.password) {
         setLoginError('')
+        dispatch(setLoggedInUser({ name: foundUser.name, id: foundUser.id }));
+        //dispatch(setLoggedInUser(foundUser));
+        //localStorage.setItem('loggedInUser', JSON.stringify({name: foundUser.name, id: foundUser.id})); // Save to localStorage
         console.log("login ok");
       }
       else {
