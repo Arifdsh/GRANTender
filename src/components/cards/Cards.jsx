@@ -5,45 +5,24 @@ import Car from "../../assets/image/car.jpg";
 import { FaBookmark, FaRegBookmark, FaCalendarCheck } from "react-icons/fa";
 import { FaCalendarXmark } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTenders } from "../../features/tendersSlice";
+
 
 function Cards() {
   const apiUrl = import.meta.env.VITE_API_URL;
-  const [tenders, setTenders] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const [bookmarked, setBookmarked] = useState({});
-  const navigate = useNavigate(); 
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const {tenders} = useSelector((state) => state.tenders)
 
   useEffect(() => {
-    const fetchTenders = async () => {
-      try {
-        const response = await axios.get(apiUrl);
-        setTenders(response.data)
-        const initialBookmarks = {};
-        response.data.forEach((tender) => {
-          initialBookmarks[tender.id] = false;
-        });
-        setBookmarked(initialBookmarks);
-      } catch (error) {
-        console.error("Error fetching tenders:", error);
-      }
-    };
+    dispatch(fetchTenders());
+  }, [dispatch]);
 
-    fetchTenders();
-  }, [apiUrl]);
-
-  useEffect(() => {
-    const fetchTenders = async () => {
-      try {
-        const response = await axios.get(apiUrl);
-        setTenders(response.data);
-      } catch (error) {
-        console.error("Error fetching tenders:", error);
-      }
-    };
-  
-    fetchTenders();
-  }, [apiUrl]);
   
   useEffect(() => {
     const initialBookmarks = {};
@@ -52,7 +31,7 @@ function Cards() {
     });
     setBookmarked(initialBookmarks);
   }, [tenders]);
-  
+
 
   const indexOfLastTender = currentPage * itemsPerPage;
   const indexOfFirstTender = indexOfLastTender - itemsPerPage;
@@ -117,7 +96,7 @@ function Cards() {
               <div className="tenders-list__actions">
                 <button
                   className="tenders-list__detail tenders-list__button"
-                  onClick={() => goToDetails(tender.id)} 
+                  onClick={() => goToDetails(tender.id)}
                 >
                   Ətraflı
                 </button>
@@ -155,7 +134,7 @@ function Cards() {
       </div>
     </div>
   );
-  
+
 }
 
 export default Cards;

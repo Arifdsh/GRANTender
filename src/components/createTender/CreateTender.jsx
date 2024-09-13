@@ -47,6 +47,8 @@ const CreateTender = () => {
         onSubmit={(values, { resetForm }) => {
 
           const currentDate = new Date().toISOString().split('T')[0]
+          const user = JSON.parse(localStorage.getItem('loggedInUser'))
+          const userId = user?.id || null
 
           const newTender = {
              owner: values.owner,
@@ -55,6 +57,7 @@ const CreateTender = () => {
              price: values.price,
              creationDate: currentDate,
              expirationDate: values.endDate,
+             userId: userId,
              files: files,
           }
 

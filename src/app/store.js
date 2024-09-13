@@ -7,6 +7,6 @@ export const store = configureStore({
     reducer: {
         apply: applyReducer,
         user: userReducer,
-        tender: tendersReducer,
+        tenders: tendersReducer,
     },
 });
