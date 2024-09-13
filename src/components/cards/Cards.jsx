@@ -15,9 +15,9 @@ function Cards() {
     const fetchTenders = async () => {
       try {
         const response = await axios.get(apiUrl);
-        setTenders(response.data.cards);
+        setTenders(response.data)
         const initialBookmarks = {};
-        response.data.cards.forEach((tender) => {
+        response.data.forEach((tender) => {
           initialBookmarks[tender.id] = false;
         });
         setBookmarked(initialBookmarks);
@@ -28,6 +28,28 @@ function Cards() {
 
     fetchTenders();
   }, [apiUrl]);
+
+  useEffect(() => {
+    const fetchTenders = async () => {
+      try {
+        const response = await axios.get(apiUrl);
+        setTenders(response.data);
+      } catch (error) {
+        console.error("Error fetching tenders:", error);
+      }
+    };
+  
+    fetchTenders();
+  }, [apiUrl]);
+  
+  useEffect(() => {
+    const initialBookmarks = {};
+    tenders.forEach((tender) => {
+      initialBookmarks[tender.id] = false;
+    });
+    setBookmarked(initialBookmarks);
+  }, [tenders]);
+  
 
   const indexOfLastTender = currentPage * itemsPerPage;
   const indexOfFirstTender = indexOfLastTender - itemsPerPage;

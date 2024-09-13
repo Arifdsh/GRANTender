@@ -18,7 +18,7 @@ const Authorization = () => {
 
   useEffect(() => {
     dispatch(fetchUser());
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -32,7 +32,7 @@ const Authorization = () => {
     if (foundUser) {
       if (foundUser.password == loginData.password) {
         setLoginError('')
-        navigate("/home")
+        navigate("/")
       }
       else {
         setLoginError('Incorrect password')

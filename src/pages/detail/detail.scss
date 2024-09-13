@@ -1,0 +1,38 @@
+@import "../../styles/global";
+.detail-heading {
+  color: $primary-color;
+  font-family: "Roboto";
+}
+
+.vertical-text {
+  box-sizing: border-box;
+  border-radius: 50px;
+  border: 1px solid $borderColor-lightGray;
+  padding-left: 170px;
+  padding-right: 170px;
+  background-color: $primary-colorLight;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .light-effect {
+    animation: blinker 2.5s linear infinite;
+    color: $primary-colorGradient;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Roboto";
+  }
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+}
+button,
+p {
+  color: black;
+  font-family: sans-serif;
+  font-size: 16px;
+}
