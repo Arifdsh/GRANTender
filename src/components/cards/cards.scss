@@ -145,7 +145,6 @@
     display: none;
   }
 
-  // Media Queries for Responsive Design
   @media (max-width: 1200px) {
     margin-inline: 5%;
     &-list__information {
@@ -165,6 +164,9 @@
   }
 
   @media (max-width: 768px) {
+    .tenders-list__heading{
+      margin-top: 10px;
+    }
     margin-inline: 2%;
     &-list__item {
       flex-direction: column;

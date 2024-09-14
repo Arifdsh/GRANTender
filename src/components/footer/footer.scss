@@ -6,13 +6,11 @@
     font-family: "dancing_in_the_rainbow";
     src: url("../../assets/fonts/dancing_in_the_rainbow.otf") format("opentype");
 }
-//Footer scss start
 .footer {
     position: relative;
 
     &__top {
         height: 25vh;
-        // background-color: rgb(13, 165, 101);
         background-color: $primary-color;
 
     }
@@ -46,10 +44,6 @@
         box-shadow: 0 0 12px 1px rgb(107, 107, 107);
         background-color: rgba(39, 39, 39, 0.85);
 
-        &:nth-child(even) {
-            // transform: translateY(-9%);
-        }
-
         &:hover {
             transform: translateY(-11%);
 
@@ -80,7 +74,6 @@
     }
 
     &-cards__link {
-        // overflow: hidden;
         display: block;
     }
 
@@ -220,10 +213,8 @@
         border-color: rgb(133, 133, 133);
     }
 }
-//Footer scss End
 
 
-//Footer responsive design start
 @media screen and (max-width:767px) {
     .footer {
         &__top {
@@ -364,4 +355,3 @@
         }
     }
 }
-//Footer responsive design End

@@ -68,7 +68,7 @@ function Cards() {
   };
 
   const goToDetails = (id) => {
-    navigate(`/detail/${id}`); // URL-i '/detail/:id' formatında qururuq
+    navigate(`/detail/${id}`);
   };
 
   return (

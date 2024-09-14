@@ -116,6 +116,16 @@
       "creationDate": "2024-09-12",
       "expirationDate": "2024-09-13",
       "files": []
+    },
+    {
+      "id": "4f99",
+      "owner": "Nurlan holding",
+      "subject": "Nurlana 2000+ azn liq is tapmaq",
+      "address": "Baki",
+      "price": 1999,
+      "creationDate": "2024-09-13",
+      "expirationDate": "2024-09-15",
+      "files": []
     }
   ],
   "user": [
@@ -224,6 +234,14 @@
       "email": "nurlan@gmail.com",
       "age": "2001-11-11",
       "password": "123"
+    },
+    {
+      "id": "cfa8",
+      "name": "Nurlan",
+      "surname": "Mahmudov",
+      "email": "mahmudovnurlan301@gmail.com",
+      "age": "2001-03-07",
+      "password": "nurlan2001"
     }
   ]
 }

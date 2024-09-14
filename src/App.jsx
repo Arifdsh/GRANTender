@@ -15,7 +15,6 @@ const App=()=>{
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Check if user is stored in localStorage
     const savedUser = localStorage.getItem('loggedInUser');
     if (savedUser) {
       dispatch(setLoggedInUser(JSON.parse(savedUser)));
