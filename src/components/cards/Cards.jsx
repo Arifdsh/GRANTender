@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../cards/cards.scss";
-import Car from "../../assets/image/car.jpg";
 import { FaBookmark, FaRegBookmark, FaCalendarCheck } from "react-icons/fa";
 import { FaCalendarXmark } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
@@ -77,7 +76,7 @@ function Cards() {
         {currentTenders.map((tender) => (
           <li key={tender.id} className="tenders-list__item">
             <div className="tenders-list__photo">
-              <img src={Car} alt="" />
+              <img src={tender.imgUrl} alt="" />
             </div>
             <div className="tenders-list__information">
               <div className="tenders-list__owner">

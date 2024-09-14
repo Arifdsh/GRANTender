@@ -6,7 +6,6 @@ import "../detail/detail.scss";
 import { useParams } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import ScrollToTop from "../../components/scrolltotop/ScrollToTop.jsx";
-
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([]);
