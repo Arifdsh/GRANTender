@@ -3,22 +3,32 @@ import './profile.scss'
 import CreateTender from '../../components/createTender/CreateTender'
 import Navbar from '../../components/navbar/Navbar.jsx'
 import ProfileEdit from './profileEdit/ProfileEdit.jsx'
-import  Cards  from '../../components/cards/Cards.jsx'
+import Cards from '../../components/cards/Cards.jsx'
+import { useDispatch } from 'react-redux'
+import { fetchTenders } from '../../features/tendersSlice.js'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
   const [showCreateTender, setShowCreateTender] = useState(false)
   const [showProfileEdit, setShowProfileEdit] = useState(false)
-  const [profile, setProfile] = useState({ name: '', picture: '' })
+  const [localUserId, setLocalUserId] = useState(null)
+  const [profile, setProfile] = useState({ name: '', picture: ''})
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchTenders())
+    const user = JSON.parse(localStorage.getItem('loggedInUser'))
+    if (user) {
+      setLocalUserId(user.id)
+      setProfile({ name: user.name, picture: user.picture || '' })
+    }
+  }, [dispatch])
 
   const handleTabClick = (index) => setActiveTab(index)
-
   const handleNavigate = () => setShowCreateTender(true)
-
   const handleCancel = () => setShowCreateTender(false)
-
   const handleProfileEdit = () => setShowProfileEdit(true)
-
   const handleEditCancel = () => setShowProfileEdit(false)
 
   return (
@@ -28,7 +38,7 @@ const Profile = () => {
         <div className='profile-information-box'>
           <div className='profile-decoration-top'>
             <div className='profile-img'>
-             <img src={profile.picture} alt="" />
+              <img src={profile.picture} alt="" />
             </div>
           </div>
           <div className='profile-name-box'>
@@ -59,10 +69,10 @@ const Profile = () => {
               <li className={`profile-tab ${activeTab === 3 ? 'active' : ''}`} onClick={() => handleTabClick(3)}>Müraciet gələn</li>
               <li className={`profile-tab ${activeTab === 4 ? 'active' : ''}`} onClick={() => handleTabClick(4)}>Follow</li>
               <button className='profile-add-tender' onClick={handleNavigate}>Tender əlavə et</button>
-            </ul>  
+            </ul>
             <div className='profile-content-tabs'>
               <div className={activeTab === 1 ? 'profile-active-content' : 'profile-content'}>
-                <Cards />
+                <Cards userId={localUserId} />
               </div>
               <div className={activeTab === 2 ? 'profile-active-content' : 'profile-content'}>
                 <h2>Lorem ipsum dolor sit amet.</h2>

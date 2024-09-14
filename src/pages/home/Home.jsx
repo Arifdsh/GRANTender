@@ -14,7 +14,7 @@ const Home = () => {
       <DarkLightMode />
       <Hero />
       <Search />
-      <Cards/>
+      <Cards />
       <OwlCarouselComp />
       <ScrollToTop />
     </div>
