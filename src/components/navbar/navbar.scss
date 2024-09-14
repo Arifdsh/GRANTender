@@ -1,4 +1,88 @@
-$primary-color:rgb(21, 146, 177);
-.nav-color{
-    color:$primary-color;
+@import '../../styles/global';
+
+.bg-body-tertiary {
+    top: 0;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    box-shadow: 0px 1px 13px 0px $boxShadow-ultraLightPrimaryColor;
+    margin: 0 auto;
+
+    .container-fluid {
+        .navbar-collapse {
+            justify-content: space-between;
+        }
+    }
+}
+
+.nav-tabs {
+    border: none !important;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active:active {
+    color: inherit !important;
+    background-color: transparent !important;
+    border-color: none !important
+}
+
+.nav-item {
+    a {
+        display: block;
+        position: relative;
+        color: $neutral-color-black;
+        font-size: 1.1em !important;
+        transition: 0.3s;
+        border: none !important;
+        top: 0;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            left: 50%;
+            background-color: $primary-color !important;
+            transition: 0.3s;
+        }
+
+        &:hover {
+            color: $primary-color !important;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 2px;
+                left: 0;
+                background-color: $primary-color !important;
+                transition: 0.3s;
+            }
+        }
+    }
+}
+
+.my-2 {
+    .btn {
+        font-size: 0.9em !important;
+        border-color: $primary-color !important;
+        transition: 0.3s;
+        box-shadow: none !important;
+        background-color: $primary-color;
+        color: $neutral-color-white !important;
+        border-radius: 5px !important;
+        box-shadow: 0 2px 5px $neutral-color-gray !important;
+
+        &:hover {
+            color: $primary-color !important;
+            background-color: $neutral-color-white;
+        }
+
+        .signInUp {
+            width: 30px !important;
+            height: 30px !important;
+        }
+    }
 }

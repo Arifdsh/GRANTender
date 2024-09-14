@@ -2,12 +2,14 @@
 
 .hero {
     box-shadow: 0 0 5px $neutral-color-gray;
+    margin-top:85px;
     height: 80vh;
 
     .container {
         display: flex;
         align-items: center;
         justify-content: center;
+        height:100%;
     }
 
     &__content {
@@ -143,3 +145,26 @@
 //         content: "yeni tərəfdaşlıqlar qazanın!";
 //     }
 // }
+
+@media screen and (max-width:1439px) and (min-width: 1024px){
+
+}
+@media screen and (max-width:767px){
+    .hero {
+        height: 60vh;
+        &__content {
+            border-left: 3px solid $primary-color;
+            padding-left: 20px;
+            width: 60%;
+            font-size: 1em;
+        }
+    
+        &__photo {
+            width: 50%;
+    
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

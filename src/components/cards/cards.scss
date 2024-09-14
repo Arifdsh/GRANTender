@@ -45,6 +45,7 @@
       &:hover {
         @include boxShadow($primary-colorLight);
         left: 10px;
+        background-image: linear-gradient(to right, $neutral-color-white,$neutral-color-white, $primary-colorGradient);
       }
     }
     &__photo {

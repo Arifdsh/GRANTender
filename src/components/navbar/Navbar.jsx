@@ -9,7 +9,7 @@ import { LiaSignInAltSolid } from "react-icons/lia";
 import { GoPersonFill } from "react-icons/go";
 function Header() {
   const navigate = useNavigate()
-  const goToHomePage=()=>{
+  const goToHomePage = () => {
     navigate("/")
   }
   return (
@@ -20,23 +20,23 @@ function Header() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse className="gap-5">
-  <Nav fill variant="tabs" defaultActiveKey="/home" className="gap-2">
-      <Nav.Item>
-        <Nav.Link onClick={goToHomePage} className=" nav-color fw-bold fs-4">Əsas səhifə</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="link-1" className="nav-color fw-bold fs-4">Tenderlər</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="link-2"className="nav-color fw-bold fs-4">Partnyorlarımız</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="link-3" className="nav-color fw-bold fs-4">Əlaqə</Nav.Link>
-      </Nav.Item>
-</Nav>
+          <Nav fill variant="tabs" defaultActiveKey="/home" className="gap-2">
+            <Nav.Item>
+              <Nav.Link onClick={goToHomePage} className=" nav-color fw-bold fs-4">Əsas səhifə</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="link-1" className="nav-color fw-bold fs-4">Tenderlər</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="link-2" className="nav-color fw-bold fs-4">Partnyorlarımız</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="link-3" className="nav-color fw-bold fs-4">Əlaqə</Nav.Link>
+            </Nav.Item>
+          </Nav>
           <Nav className="my-2">
-            <Button  onClick={() => navigate("/authorization")} variant="outline-primary fw-bold fs-4 shadow-lg ">
-              <LiaSignInAltSolid /> Giris/Qeydiyyat
+            <Button onClick={() => navigate("/authorization")} variant="outline-primary fw-bold fs-4 shadow-lg ">
+              <LiaSignInAltSolid className="signInUp" /> Giriş | Qeydiyyat
             </Button>
           </Nav>
           {/* <Nav className="my-2">

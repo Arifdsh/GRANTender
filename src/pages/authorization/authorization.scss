@@ -1,6 +1,7 @@
 @import '../../styles/global';
 
 .authorization {
+    margin-top:85px;
     position: relative;
     background-image: linear-gradient(to right, $borderColor-lightGray, $primary-color);
     .input {
