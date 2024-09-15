@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchUser, updateUser, setLoggedInUser } from '../../features/usersSlice.js';
 import Navbar from '../../components/navbar/Navbar.jsx';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { IoCloseCircle } from "react-icons/io5";
+import { IoIosLogIn } from "react-icons/io";
+import { MdOutlineDocumentScanner } from "react-icons/md";
 
 const Authorization = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,11 +39,11 @@ const Authorization = () => {
         navigate("/")
       }
       else {
-        setLoginError('Incorrect password')
+        setLoginError('Yanlış şifrə')
       }
     }
     else {
-      setLoginError('User not found')
+      setLoginError('İstifadəçi tapılmadı')
     }
   }
 
@@ -66,7 +69,7 @@ const Authorization = () => {
       const emailExists = user.some((existingUser) => existingUser.email == userData.email)
 
       if (emailExists) {
-        actions.setFieldError('email', 'Email already in use')
+        actions.setFieldError('email', 'Bu email artıq istifadə olunub')
       }
       else {
         dispatch(updateUser(userData))
@@ -88,23 +91,23 @@ const Authorization = () => {
       <section className='authorization'>
         <ul className="login">
           <li className="login__leftside">
-            <h1 className="login__leftside__heading">LOGIN</h1>
+            <h1 className="login__leftside__heading"><IoIosLogIn className='login__icon' />Giriş</h1>
           </li>
           <li className="login__rightside">
             <form onSubmit={handleLogin} className="login__form">
               <input type="email" name="email" placeholder="Email" className="login__username input" />
               <input type="password" name="password" placeholder="Password" className="login__password input" />
               {loginError && <div className="error">{loginError}</div>}
-              <button type="submit" className="login__logIn">Log In</button>
-              <a href="" className="login__forgetPassword">Forget password?</a>
+              <button type="submit" className="login__logIn">Daxil ol</button>
+              <a href="" className="login__forgetPassword">Şifrəni unutmusan?</a>
               <hr />
-              <button onClick={openModal} className="login__newAccount">Register</button>
+              <button onClick={openModal} className="login__newAccount">Qeydiyyat</button>
               <div className="userInfo"></div>
             </form>
           </li>
         </ul>
         <div className={isModalOpen ? "modal active" : "modal"}>
-          <h1 className="modal__heading">Registration</h1>
+          <h1 className="modal__heading"><MdOutlineDocumentScanner className='modal__icon' />Qeydiyyat</h1>
           <form className="register" onSubmit={handleSubmit}>
             <input name='name' className="register__name input" type="text" placeholder="Name" value={values.name} onChange={handleChange} />
             {errors.name && touched.name && <div className='error'>{errors.name}</div>}
@@ -118,12 +121,12 @@ const Authorization = () => {
             {errors.password && touched.password && <div className='error'>{errors.password}</div>}
             <input name='confirmPassword' className="register__confirmPassword input" type="password" placeholder=" Confirm password" value={values.confirmPassword} onChange={handleChange} />
             {errors.confirmPassword && touched.confirmPassword && <div className='error'>{errors.confirmPassword}</div>}
-            <button type='submit' className="register__button">Register</button>
+            <button type='submit' className="register__button">Qeydiyyat</button>
           </form>
-          <button onClick={closeModal} className="close">Close</button>
+          <IoCloseCircle onClick={closeModal} className="close"/>
+          {/* <button onClick={closeModal} className="close">Bağla</button> */}
         </div>
       </section>
-
     </div>
   )
 }

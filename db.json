@@ -118,13 +118,101 @@
       "files": []
     },
     {
-      "id": "4f99",
-      "owner": "Nurlan holding",
-      "subject": "Nurlana 2000+ azn liq is tapmaq",
-      "address": "Baki",
+      "id": "5b11",
+      "owner": "granTender",
+      "subject": "isi bitirmek",
+      "address": "asdasd",
       "price": 1999,
       "creationDate": "2024-09-13",
       "expirationDate": "2024-09-15",
+      "files": []
+    },
+    {
+      "id": "8d36",
+      "owner": "1231",
+      "subject": "1233",
+      "address": "123",
+      "price": 123,
+      "creationDate": "2024-09-13",
+      "expirationDate": "2024-09-14",
+      "userId": "e6be",
+      "files": []
+    },
+    {
+      "id": "4205",
+      "owner": "ttttt",
+      "subject": "ttttttttt",
+      "address": "ttttt",
+      "price": 1111111111,
+      "creationDate": "2024-09-14",
+      "expirationDate": "2024-09-18",
+      "userId": "e6be",
+      "files": []
+    },
+    {
+      "id": "e8c7",
+      "owner": "arif",
+      "subject": "Team lead",
+      "address": "asjdhgashdjas",
+      "price": 0.5,
+      "creationDate": "2024-09-14",
+      "expirationDate": "2024-09-23",
+      "userId": "e6be",
+      "files": []
+    },
+    {
+      "id": "fbac",
+      "owner": "Nurlan",
+      "subject": "Buiznes creation",
+      "address": "sdjfgkdjhfdjk",
+      "price": 10000000000,
+      "creationDate": "2024-09-14",
+      "expirationDate": "2024-09-17",
+      "userId": "381c",
+      "files": []
+    },
+    {
+      "id": "f1d6",
+      "owner": "sadgasdja",
+      "subject": "asjhgdgshjbfs",
+      "address": "fffffffffffffffffffffffffffffffff",
+      "price": 0.5,
+      "creationDate": "2024-09-14",
+      "expirationDate": "2024-09-15",
+      "userId": "381c",
+      "files": []
+    },
+    {
+      "id": "38db",
+      "owner": "RafailMMC",
+      "subject": "Milyoncu olmaq",
+      "address": "Xalqlar dostlugu",
+      "price": 100000,
+      "creationDate": "2024-09-15",
+      "expirationDate": "2025-10-10",
+      "userId": "207f",
+      "files": []
+    },
+    {
+      "id": "94fa",
+      "owner": "sdfgrthydcsfdvgb",
+      "subject": "dcef",
+      "address": "vffv",
+      "price": 555555,
+      "creationDate": "2024-09-15",
+      "expirationDate": "2000-04-05",
+      "userId": "cfa8",
+      "files": []
+    },
+    {
+      "id": "8f67",
+      "owner": "dfg",
+      "subject": "hgfds",
+      "address": "cfg",
+      "price": 882,
+      "creationDate": "2024-09-15",
+      "expirationDate": "2000-05-05",
+      "userId": "cfa8",
       "files": []
     }
   ],
@@ -242,6 +330,44 @@
       "email": "mahmudovnurlan301@gmail.com",
       "age": "2001-03-07",
       "password": "nurlan2001"
+    },
+    {
+      "id": "a798",
+      "name": "Gunel",
+      "surname": "Muradova",
+      "email": "dnhbbdg@fgbhnj",
+      "age": "1986-06-14",
+      "password": "123"
+    },
+    {
+      "id": "7834",
+      "name": "Nurlan Mahmudov",
+      "picture": null
+    },
+    {
+      "id": "8f20",
+      "name": "Nurlan Mahmudov",
+      "picture": null
+    },
+    {
+      "id": "c08a",
+      "name": "Nurlan Mahmudov",
+      "picture": null
+    },
+    {
+      "id": "2192",
+      "name": "Nurlan Mahmudov",
+      "picture": null
+    },
+    {
+      "id": "a3a0",
+      "name": "Nurlan Mahmudov",
+      "picture": null
+    },
+    {
+      "id": "961b",
+      "name": "Nurlan Mahmudov",
+      "picture": null
     }
   ]
 }
