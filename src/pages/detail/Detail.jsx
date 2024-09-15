@@ -58,7 +58,6 @@ const Detail = () => {
     <div>
       <Navbar />
       <DarkLightMode />
-      <ScrollToTop />
       <h1 className="d-flex align-items-center justify-content-center fw-bold text-decoration-underline my-5 detail-heading">
         ƏTRAFLI
       </h1>

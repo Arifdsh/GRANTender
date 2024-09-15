@@ -16,7 +16,7 @@ function Cards({ userId }) {
   const tenders = useSelector(selectAllTenders) || [];
 
   const userTenders = useMemo(() => {
-    return userId ? tenders.filter((tender) => tender.userId === userId) : tenders;
+    return userId ? tenders.filter((tender) => tender.userId === userId)  : tenders;
 
   }, [tenders, userId]);
 
@@ -96,8 +96,8 @@ function Cards({ userId }) {
                 <button className="tenders-list__detail tenders-list__button" onClick={() => goToDetails(tender.id)}>
                   Ətraflı
                 </button>
-                <button className="tenders-list__edit tenders-list__button">Düzəliş et</button>
-                <button className="tenders-list__edit tenders-list__button">Sil</button>
+                <button style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
+                <button style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
               </div>
             </div>
             <div onClick={() => handleBookmarkClick(tender.id)} className="tenders-list__save">

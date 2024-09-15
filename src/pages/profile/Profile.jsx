@@ -7,8 +7,7 @@ import Cards from '../../components/cards/Cards.jsx'
 import { useDispatch } from 'react-redux'
 import { fetchTenders } from '../../features/tendersSlice.js'
 import DarkLightMode from '../../components/navbar/DarkLightMode.jsx'
-import ScrollToTop from '../../components/scrolltotop/ScrollToTop.jsx'
-
+import Confirm from '../../components/confirm/confirm.jsx'
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
   const [showCreateTender, setShowCreateTender] = useState(false)
@@ -37,7 +36,7 @@ const Profile = () => {
     <>
       <Navbar />
       <DarkLightMode />
-      <ScrollToTop />
+        <Confirm/>
       <div className='profile-area'>
         <div className='profile-information-box'>
           <div className='profile-decoration-top'>
@@ -59,7 +58,6 @@ const Profile = () => {
             <button className='profile-edit-btn' onClick={handleProfileEdit}>Redaktə et</button>
           </div>
         </div>
-
         {showProfileEdit ? (
           <>
             <ProfileEdit />
