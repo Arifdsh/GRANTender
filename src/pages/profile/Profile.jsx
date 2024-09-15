@@ -6,6 +6,8 @@ import ProfileEdit from './profileEdit/ProfileEdit.jsx'
 import Cards from '../../components/cards/Cards.jsx'
 import { useDispatch } from 'react-redux'
 import { fetchTenders } from '../../features/tendersSlice.js'
+import DarkLightMode from '../../components/navbar/DarkLightMode.jsx'
+import ScrollToTop from '../../components/scrolltotop/ScrollToTop.jsx'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
