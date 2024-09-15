@@ -56,7 +56,7 @@ const Profile = () => {
             </ul>
           </div>
           <div className='profile-edit-box'>
-            <button className='profile-edit-btn' onClick={handleProfileEdit}>Edit</button>
+            <button className='profile-edit-btn' onClick={handleProfileEdit}>Redaktə et</button>
           </div>
         </div>
 
@@ -68,10 +68,10 @@ const Profile = () => {
         ) : !showCreateTender ? (
           <div className='profile-control-box'>
             <ul className='profile-tabs'>
-              <li className={`profile-tab ${activeTab === 1 ? 'active' : ''}`} onClick={() => handleTabClick(1)}>Mənim tenderim</li>
-              <li className={`profile-tab ${activeTab === 2 ? 'active' : ''}`} onClick={() => handleTabClick(2)}>Müraciet edənlər</li>
-              <li className={`profile-tab ${activeTab === 3 ? 'active' : ''}`} onClick={() => handleTabClick(3)}>Müraciet gələn</li>
-              <li className={`profile-tab ${activeTab === 4 ? 'active' : ''}`} onClick={() => handleTabClick(4)}>Follow</li>
+              <li className={`profile-tab ${activeTab === 1 ? 'active' : ''}`} onClick={() => handleTabClick(1)}>Mənim tenderlərim</li>
+              <li className={`profile-tab ${activeTab === 2 ? 'active' : ''}`} onClick={() => handleTabClick(2)}>Müraciət etdiklərim</li>
+              <li className={`profile-tab ${activeTab === 3 ? 'active' : ''}`} onClick={() => handleTabClick(3)}>Gələn müraciətlər </li>
+              <li className={`profile-tab ${activeTab === 4 ? 'active' : ''}`} onClick={() => handleTabClick(4)}>İzlədiklərim</li>
               <button className='profile-add-tender' onClick={handleNavigate}>Tender əlavə et</button>
             </ul>
             <div className='profile-content-tabs'>

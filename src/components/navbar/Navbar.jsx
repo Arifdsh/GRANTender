@@ -1,5 +1,5 @@
 
-import React, { useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -11,22 +11,22 @@ import "./navbar.scss";
 
 function Header() {
   const [showAuthorization, setShowAuthorization] = useState(false);
-  const [userName, setUserName] = useState(" "); 
+  const [userName, setUserName] = useState(" ");
   const navigate = useNavigate();
 
   const goToHomePage = () => {
     navigate("/");
     setShowAuthorization(true);
   };
-  const goToProfilePage=()=>{
-    navigate ("/profile");
+  const goToProfilePage = () => {
+    navigate("/profile");
   }
   useEffect(() => {
     const storedUser = localStorage.getItem('loggedInUser');
     if (storedUser) {
       setShowAuthorization(true)
       const user = JSON.parse(storedUser);
-      setUserName(user.name); 
+      setUserName(user.name);
     }
   }, []);
 
@@ -62,27 +62,25 @@ function Header() {
                   </Nav.Link>
                 </Nav.Item>
               </>
-          ) : null}
-           </Nav> 
+            ) : null}
+          </Nav>
           <Nav className="my-2">
             {showAuthorization ? (
-             
-             
-         <>    <Button   onClick={ goToProfilePage}
-             variant="outline-primary fw-bold fs-5 shadow-lg">
-              <GoPersonFill /> Şəxsi kabinet
-            </Button>
-       
-              <span className="text-center fs-6 fw-bold my-3 ms-5 text-muted">İstifadəçi adı:{userName}</span>
-        </>
-             
+
+
+              <>    <Button onClick={goToProfilePage}
+                variant="outline-primary fw-bold fs-5 shadow-lg">
+                <GoPersonFill /> {userName}
+              </Button>
+              </>
+
             ) : (
               <><Button
-              onClick={() => navigate("/authorization")}
-              variant="outline-primary fw-bold fs-4 shadow-lg"
-            >
-              <LiaSignInAltSolid className="signInUp"/> Giriş | Qeydiyyat
-            </Button>
+                onClick={() => navigate("/authorization")}
+                variant="outline-primary fw-bold fs-4 shadow-lg"
+              >
+                <LiaSignInAltSolid className="signInUp" /> Giriş | Qeydiyyat
+              </Button>
 
 
 
