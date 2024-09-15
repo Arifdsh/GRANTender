@@ -1,10 +1,10 @@
 @import '../../styles/global';
 
 .profile-area {
-  width: 90%;
+  width: 100%;
   margin: 20px auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .profile-decoration-top {
@@ -91,9 +91,9 @@
 }
 
 .profile-control-box {
-  width: 53%;
+  //width: 10%;
   height: 100vh;
-  margin-left: 5%;
+ // margin-left: 5%;
 
   .profile-tabs {
     list-style: none;
@@ -106,29 +106,32 @@
   }
 
   .profile-add-tender {
-    padding: 8px 16px;
+    padding: 8px 15px;
     margin-left: auto;
     width: 150px;
     background-color: $primary-color;
+    border: 1px solid $borderColor-lightGray;
     color: white;
-    border: none;
     border-radius: 4px;
     cursor: pointer;
 
     &:hover {
-      background-color: #0056b3;
+      background-color:$neutral-color-white;
+      color:$primary-color;
     }
   }
 
   .profile-tab {
     padding: 10px 20px;
-    background-color: #f0f0f0;
+    border: 1px solid $borderColor-lightGray;
     border-radius: 5px;
+    text-align: center;
     cursor: pointer;
     transition: background-color 0.3s;
 
     &:hover {
-      background-color: #ddd;
+      background-color:$neutral-color-white;
+      color:$primary-color;
     }
   }
 
@@ -147,11 +150,15 @@
   }
 
   .profile-active-content {
+    width: 100%;
     display: block;
     padding: 20px;
     background-color: #fafafa;
     border: 1px solid #ddd;
     border-radius: 5px;
+    .tenders{
+      margin-inline: 0;
+    }
   }
 }
 
