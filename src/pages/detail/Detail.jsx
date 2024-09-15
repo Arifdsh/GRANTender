@@ -55,81 +55,85 @@ const Detail = () => {
   const handleClick = () => setLoading(true);
 
   return (
-    <div>
-      <Navbar />
-      <DarkLightMode />
-      <ScrollToTop />
-      <section className="detail">
-      <h1 className="d-flex align-items-center justify-content-center fw-bold text-decoration-underline my-5 detail-heading">
-        ƏTRAFLI
-      </h1>
-      <div className="container mb-5">
-        <div className="row">
-          <div className="col-lg-6 col-md-8 col-sm-12 ">
-            <img
-              src="/src/assets/image/velievcolor.png"
-              alt=""
-              className="border rounded  "
-              style={{ width: "330px", height: "330px" }}
-            />
+    // <div>
+    //   <Navbar />
+    //   <DarkLightMode />
+    //   <ScrollToTop />
+    //   <h1 className="d-flex align-items-center justify-content-center fw-bold text-decoration-underline my-5 detail-heading">
+    //     ƏTRAFLI
+    //   </h1>
+    //   <div className="container mb-5">
+    //     <div className="row">
+    //       <div className="col-lg-6 col-md-8 col-sm-12 ">
+    //         <img
+    //           src="/src/assets/image/velievcolor.png"
+    //           alt=""
+    //           className="border rounded  "
+    //           style={{ width: "330px", height: "330px" }}
+    //         />
 
-            <div className="vertical-text my-2 w-50">
-              <p className="light-effect my-2">GRANTender</p>
-            </div>
-          </div>
-          {findTender ? (
-            <div className="col-lg-3 col-md-12 col-sm-12 mb-3 mt-2">
-              <div className="mb-3">
-                <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Elan sahibi</button>
-                <p className="ms-3 mt-2 mb-4">{findTender.owner}</p>
-              </div>
+    //         <div className="vertical-text my-2 w-50">
+    //           <p className="light-effect my-2">GRANTender</p>
+    //         </div>
+    //       </div>
+    //       {findTender ? (
+    //         <div className="col-lg-3 col-md-12 col-sm-12 mb-3 mt-2">
+    //           <div className="mb-3">
+    //             <span className="border border-left border-primary border-2 me-2"></span>
+    //             <button className="border fw-bold fs-5">Elan sahibi</button>
+    //             <p className="ms-3 mt-2 mb-4">{findTender.owner}</p>
+    //           </div>
 
-              <div className="mb-3">
-                <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Elanın predmeti</button>
-                <p className="ms-3 mt-2 mb-4"> {findTender.subject}</p>
-              </div>
+    //           <div className="mb-3">
+    //             <span className="border border-left border-primary border-2 me-2"></span>
+    //             <button className="border fw-bold fs-5">Elanın predmeti</button>
+    //             <p className="ms-3 mt-2 mb-4"> {findTender.subject}</p>
+    //           </div>
 
-              <div className="mb-3">
-                <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Təşkilatın ünvanı</button>
-                <p className="ms-3 mt-2 mb-4"> {findTender.address}</p>
-              </div>
+    //           <div className="mb-3">
+    //             <span className="border border-left border-primary border-2 me-2"></span>
+    //             <button className="border fw-bold fs-5">Təşkilatın ünvanı</button>
+    //             <p className="ms-3 mt-2 mb-4"> {findTender.address}</p>
+    //           </div>
 
-              <div className="mb-3">
-                <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Ehtimal olunan qiyməti</button>
-                <p className="ms-3 mt-2 mb-4"> {findTender.price}</p>
-              </div>
+    //           <div className="mb-3">
+    //             <span className="border border-left border-primary border-2 me-2"></span>
+    //             <button className="border fw-bold fs-5">Ehtimal olunan qiyməti</button>
+    //             <p className="ms-3 mt-2 mb-4"> {findTender.price}</p>
+    //           </div>
 
-              <div className="mb-3">
-                <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Elanın yaradılma tarixi</button>
-                <p className="ms-3 mt-2 mb-4"> {findTender.creationDate}</p>
-              </div>
+    //           <div className="mb-3">
+    //             <span className="border border-left border-primary border-2 me-2"></span>
+    //             <button className="border fw-bold fs-5">Elanın yaradılma tarixi</button>
+    //             <p className="ms-3 mt-2 mb-4"> {findTender.creationDate}</p>
+    //           </div>
 
-              <div className="mb-3">
-                <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Elanın bitmə tarixi</button>
-                <p className="ms-3 mt-2 mb-5"> {findTender.expirationDate}</p>
-              </div>
+    //           <div className="mb-3">
+    //             <span className="border border-left border-primary border-2 me-2"></span>
+    //             <button className="border fw-bold fs-5">Elanın bitmə tarixi</button>
+    //             <p className="ms-3 mt-2 mb-5"> {findTender.expirationDate}</p>
+    //           </div>
 
-              <Button
-                variant="primary"
-                className="w-100 fw-bold fs-5 mt-5"
-                onClick={!isLoading ? handleClick : null}
-              >
-                {isLoading ? "Loading…" : "Müraciət et"}
-              </Button>
-            </div>
-          ) : (
-            <p>No tender found</p>
-          )}
-        </div>
-      </div>
-      </section>
-    </div>
+    //           <Button
+    //             variant="primary"
+    //             className="w-100 fw-bold fs-5 mt-5"
+    //             onClick={!isLoading ? handleClick : null}
+    //           >
+    //             {isLoading ? "Loading…" : "Müraciət et"}
+    //           </Button>
+    //         </div>
+    //       ) : (
+    //         <p>No tender found</p>
+    //       )}
+    //     </div>
+    //   </div>
+    // </div>
+    <>
+    <section className="detail">
+      
+    </section>
+    </>
+    
   );
 };
 

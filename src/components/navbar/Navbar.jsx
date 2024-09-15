@@ -16,11 +16,11 @@ function Header() {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
         <Navbar.Brand onClick={goToHomePage} className="py-0 my-0">
-          <img className="w-75" src="/src/assets/logo-tender.png" />
+          <img className="logo" src="/src/assets/logo-tender.png" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse className="gap-5">
-          <Nav fill variant="tabs" defaultActiveKey="/home" className="gap-2">
+          <Nav fill variant="tabs" defaultActiveKey="/home" className="navList gap-2">
             <Nav.Item>
               <Nav.Link onClick={goToHomePage} className=" nav-color fw-bold fs-4">Əsas səhifə</Nav.Link>
             </Nav.Item>
