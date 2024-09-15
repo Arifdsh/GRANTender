@@ -67,7 +67,7 @@ const Detail = () => {
             <img
               src="/src/assets/image/velievcolor.png"
               alt=""
-              className="border rounded  "
+              className="border rounded-5"
               style={{ width: "330px", height: "330px" }}
             />
 
@@ -79,37 +79,37 @@ const Detail = () => {
             <div className="col-lg-3 col-md-12 col-sm-12 mb-3 mt-2">
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Elan sahibi</button>
+                <span className=" fw-bold fs-5">Elan sahibi</span>
                 <p className="ms-3 mt-2 mb-4">{findTender.owner}</p>
               </div>
 
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Elanın predmeti</button>
+                <span className="fw-bold fs-5">Elanın predmeti</span>
                 <p className="ms-3 mt-2 mb-4"> {findTender.subject}</p>
               </div>
 
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Təşkilatın ünvanı</button>
+                <span className=" fw-bold fs-5">Təşkilatın ünvanı</span>
                 <p className="ms-3 mt-2 mb-4"> {findTender.address}</p>
               </div>
 
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Ehtimal olunan qiyməti</button>
+                <span className=" fw-bold fs-5">Ehtimal olunan qiyməti</span>
                 <p className="ms-3 mt-2 mb-4"> {findTender.price}</p>
               </div>
 
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Elanın yaradılma tarixi</button>
+                <span className=" fw-bold fs-5">Elanın yaradılma tarixi</span>
                 <p className="ms-3 mt-2 mb-4"> {findTender.creationDate}</p>
               </div>
 
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Elanın bitmə tarixi</button>
+                <span className=" fw-bold fs-5">Elanın bitmə tarixi</span>
                 <p className="ms-3 mt-2 mb-5"> {findTender.expirationDate}</p>
               </div>
 

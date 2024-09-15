@@ -3,7 +3,8 @@ import './profile.scss'
 import CreateTender from '../../components/createTender/CreateTender'
 import Navbar from '../../components/navbar/Navbar.jsx'
 import ProfileEdit from './profileEdit/ProfileEdit.jsx'
-
+import DarkLightMode from "../../components/navbar/DarkLightMode.jsx";
+import ScrollToTop from "../../components/scrolltotop/ScrollToTop.jsx";
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
   const [showCreateTender, setShowCreateTender] = useState(false)
@@ -53,6 +54,8 @@ const Profile = () => {
   return (
     <>
       <Navbar />
+      <DarkLightMode />
+      <ScrollToTop />
       <div className='profile-area'>
         <div className='profile-information-box'>
           <div className='profile-decoration-top'>

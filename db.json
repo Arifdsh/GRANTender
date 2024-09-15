@@ -236,12 +236,29 @@
       "password": "123"
     },
     {
+<<<<<<< HEAD
       "id": "cfa8",
       "name": "Nurlan",
       "surname": "Mahmudov",
       "email": "mahmudovnurlan301@gmail.com",
       "age": "2001-03-07",
       "password": "nurlan2001"
+=======
+      "id": "1086",
+      "name": "Gunel",
+      "surname": "Muradova",
+      "email": "gvgvgh@fgvbhn",
+      "age": "1987-07-09",
+      "password": "567"
+    },
+    {
+      "id": "a798",
+      "name": "Gunel",
+      "surname": "Muradova",
+      "email": "dnhbbdg@fgbhnj",
+      "age": "1986-06-14",
+      "password": "123"
+>>>>>>> 4d23168da3fe0ce5b307ddfe4a7b3ef0493918f8
     }
   ]
 }
