@@ -24,7 +24,7 @@ const OwlCarouselComp = () => {
   };
   return (
     <>
-      <section className="content_carousel bg-light mt-5">
+      <section  className="content_carousel bg-light mt-5">
         <h1 className="d-flex justify-content-center align-items-center fw-bold py-5 fs-2 carousel-heading text-decoration-underline">
        PARTNYORLARIMIZ
         </h1>
