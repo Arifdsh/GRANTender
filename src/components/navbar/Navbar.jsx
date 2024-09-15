@@ -109,7 +109,7 @@ function Header() {
                 Əsas səhifə
               </Nav.Link>
             </Nav.Item>
-            {showAuthorization ? (
+            {!showAuthorization ? (
               <>
                 <Nav.Item>
                   <Nav.Link eventKey="link-1" className="nav-color fw-bold fs-4">
@@ -131,21 +131,41 @@ function Header() {
            </Nav> 
           <Nav className="my-2">
             {!showAuthorization ? (
-              <Button
-                onClick={() => navigate("/authorization")}
-                variant="outline-primary fw-bold fs-4 shadow-lg"
-              >
-                <LiaSignInAltSolid /> Giriş/ <GoPersonFill /> Qeydiyyat
-              </Button>
+             
+             
+         <>    <Button   onClick={ goToProfilePage}
+             variant="outline-primary fw-bold fs-5 shadow-lg">
+              <GoPersonFill /> Şəxsi kabinet
+            </Button>
+       
+              <span className="text-center fs-6 fw-bold my-3 ms-5 text-muted">İstifadəçi adı:{userName}</span>
+        </>
+             
+             
+             
+            //  <Button
+            //     onClick={() => navigate("/authorization")}
+            //     variant="outline-primary fw-bold fs-4 shadow-lg"
+            //   >
+            //     <LiaSignInAltSolid className="signInUp"/> Giriş| Qeydiyyat
+            //   </Button>
             ) : (
-              <>
-                <Button   onClick={ goToProfilePage}
+              <><Button
+              onClick={() => navigate("/authorization")}
+              variant="outline-primary fw-bold fs-4 shadow-lg"
+            >
+              <LiaSignInAltSolid className="signInUp"/> Giriş| Qeydiyyat
+            </Button>
+
+
+
+                {/* <Button   onClick={ goToProfilePage}
                  variant="outline-primary fw-bold fs-5 shadow-lg">
                   <GoPersonFill /> Şəxsi kabinet
                 </Button>
                 <Nav>
-                  <span className="text-center fs-5 fw-bold my-3 ms-5 ">UserName:{userName}</span>
-                </Nav>
+                  <span className="text-center fs-6 fw-bold my-3 ms-5 text-muted">İstifadəçi adı:{userName}</span>
+                </Nav> */}
               </>
             )}
           </Nav>

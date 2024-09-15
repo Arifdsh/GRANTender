@@ -31,75 +31,65 @@ const OwlCarouselComp = () => {
         <div className="d-flex justify-content-center align-items-center mx-5 ">
           <OwlCarousel className="owl-theme " {...options}>
             <div className="item">
-              <h4 className="text-center text-muted">
+             
                 <img src="./src/assets/image/azinterservicecolor.png" className="border carousel-border rounded"/>
-                Avantgarde Web studio
-              </h4>
+               
             </div>
             <div className="item">
-              <h4 className="text-center text-muted">
+              
                 <img src="./src/assets/image/crocuscolor.png" className="border carousel-border rounded"/>
-                EcoStep
-              </h4>
+                
             </div>
             <div className="item">
-              <h4 className="text-center text-muted">
+              
                 <img src="./src/assets/image/velievcolor.png" className="border carousel-border rounded"/>
-                Smts
-              </h4>
+                
             </div>
             <div className="item">
-              <h4 className="text-center text-muted">
+              
                 <img src="./src/assets/image/eurooilcolor.png" className="border carousel-border rounded"/>
-                White Construction Group MMC
-              </h4>
+               
             </div>
             <div className="item">
-              <h4 className="text-center text-muted">
+              
                 <img src="./src/assets/image/liderqrupcolor.png" className="border carousel-border rounded"/>
-                MİNOR BUSİNESS GROUP
-              </h4>
+               
             </div>
             <div className="item">
-              <h4 className="text-center text-muted">
+             
                 <img src="./src/assets/image/logo-Zahidandzakircolor.png" className="border carousel-border rounded"/>
-                Agah Group MMC
-              </h4>
+               
+                
             </div>
             <div className="item">
-              <h4 className="text-center text-muted">
-                <img src="./src/assets/image/lubristarcolor.png" className="border carousel-border  rounded"/> AZİS TİKİNTİ ŞİRKƏTİ
-              </h4>
+              
+                <img src="./src/assets/image/lubristarcolor.png" className="border carousel-border  rounded"/>
+                
             </div>
             <div className="item">
-              <h4 className="text-center text-muted">
+              
                 <img src="./src/assets/image/retroholdingcolor.png" className="border carousel-border rounded"/>
-                Admaer
-              </h4>
+                
             </div>
             <div className="item">
-              <h4 className="text-center text-muted ">
+             
                 <img src="./src/assets/image/velievcolor.png"  className="border carousel-border rounded"/>
-                MOR MMC
-              </h4>
+               
             </div>
             <div className="item">
-              <h4 className="text-center text-muted">
+             
                 <img src="./src/assets/image/zzmotorscolor.png" className="border carousel-border rounded"/>
-                AZKAN İNŞAAT
-              </h4>
+                
             </div>
             <div className="item">
-              <h4 className="text-center text-muted">
+             
                 <img src="./src/assets/image/retroholdingcolor.png" className="border carousel-border rounded"/>
-                Miray inşaat
-              </h4>
+               
             </div>
             <div className="item">
-              <h4 className="text-center text-muted">
+             
                 <img src="./src/assets/image/eurooilcolor.png" className="border carousel-border rounded"/>
-                İndigo
-              </h4>
+               
             </div>
           </OwlCarousel>
         </div>
