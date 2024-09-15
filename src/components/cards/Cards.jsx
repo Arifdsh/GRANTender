@@ -144,6 +144,7 @@ function Cards() {
       <div className="pagination">
         {pageNumbers.map((number) => (
           <button
+          href="#tenders-list"
             key={number}
             onClick={() => setCurrentPage(number)}
             className={number === currentPage ? "active" : ""}
