@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, createSelector } from "@reduxjs/toolkit";
 import axios from 'axios'
 
 //GET
@@ -22,10 +22,12 @@ const tendersSlice = createSlice({
   name: 'tenders',
   initialState: {
     tenders: [],
+    bookmarks: {},
     status: 'idle',
     error: null,
   },
-  reducers: {},
+  reducers: {
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchTenders.pending, (state) => {
@@ -34,6 +36,7 @@ const tendersSlice = createSlice({
       .addCase(fetchTenders.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.tenders = action.payload;
+        
       })
       .addCase(fetchTenders.rejected, (state, action) => {
         state.status = 'failed';
@@ -46,8 +49,13 @@ const tendersSlice = createSlice({
 })
 
 export default tendersSlice.reducer;
+
 export const selectAllTenders = (state) => state.tenders.tenders;
-export const selectTendersByUserId = (state, userId) => {
-  if (!state.tenders || !state.tenders.tenders || !userId) return [];
-  // return state.tenders.tenders.filter((tender) => tender.userId == userId);
-}
+
+export const selectTendersByUserId = createSelector(
+  [selectAllTenders, (state, userId) => userId],
+  (tenders, userId) => {
+    if (!userId) return tenders;
+    return tenders.filter((tender) => tender.userId === userId);
+  }
+)

@@ -4,6 +4,10 @@ import DarkLightMode from "../../components/navbar/DarkLightMode.jsx";
 import axios from "axios";
 import "../detail/detail.scss";
 import { useParams } from "react-router-dom";
+import { FaUserCircle, FaCalendarCheck } from "react-icons/fa";
+import { FaLocationDot, FaCalendarXmark } from "react-icons/fa6";
+import { GiMoneyStack } from "react-icons/gi";
+import { RiMoneyEuroBoxFill } from "react-icons/ri";
 import Button from "react-bootstrap/Button";
 import ScrollToTop from "../../components/scrolltotop/ScrollToTop.jsx";
 
@@ -11,7 +15,7 @@ const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  const { id } = useParams(); 
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,7 +38,7 @@ const Detail = () => {
     fetchData();
   }, [baseApiUrl]);
 
-  
+
   const findTender = data.find((tender) => tender.id.toString() === id);
   console.log(findTender);
 

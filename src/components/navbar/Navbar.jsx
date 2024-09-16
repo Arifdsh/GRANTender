@@ -1,5 +1,4 @@
-
-import React, { useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -10,23 +9,21 @@ import { GoPersonFill } from "react-icons/go";
 import "./navbar.scss";
 
 function Header() {
-  const [showAuthorization, setShowAuthorization] = useState(false);
-  const [userName, setUserName] = useState(" "); 
+  const [userName, setUserName] = useState("");
   const navigate = useNavigate();
 
   const goToHomePage = () => {
     navigate("/");
-    setShowAuthorization(true);
   };
-  const goToProfilePage=()=>{
-    navigate ("/profile");
-  }
+  const goToProfilePage = () => {
+    navigate("/profile");
+  };
+
   useEffect(() => {
-    const storedUser = localStorage.getItem('loggedInUser');
+    const storedUser = localStorage.getItem("loggedInUser");
     if (storedUser) {
-      setShowAuthorization(true)
       const user = JSON.parse(storedUser);
-      setUserName(user.name); 
+      setUserName(user.name);
     }
   }, []);
 
@@ -38,61 +35,51 @@ function Header() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse className="gap-5">
-          <Nav fill variant="tabs" defaultActiveKey="/home" className="gap-2">
+          <Nav fill variant="tabs" defaultActiveKey="/home" className="gap-2 navList">
             <Nav.Item>
-              <Nav.Link onClick={goToHomePage} className="nav-color fw-bold fs-4">
+              <Nav.Link
+                onClick={goToHomePage}
+                className="nav-color fw-bold fs-4"
+              >
                 Əsas səhifə
               </Nav.Link>
             </Nav.Item>
-            {showAuthorization ? (
-              <>
-                <Nav.Item>
-                  <Nav.Link eventKey="link-1" className="nav-color fw-bold fs-4">
-                    Tenderlər
-                  </Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="link-2" className="nav-color fw-bold fs-4">
-                    Partnyorlarımız
-                  </Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="link-3" className="nav-color fw-bold fs-4">
-                    Əlaqə
-                  </Nav.Link>
-                </Nav.Item>
-              </>
-          ) : null}
-           </Nav> 
+
+            <Nav.Item>
+              <Nav.Link eventKey="link-1" className="nav-color fw-bold fs-4">
+                Tenderlər
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="link-2" className="nav-color fw-bold fs-4">
+                Partnyorlarımız
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="link-3" className="nav-color fw-bold fs-4">
+                Əlaqə
+              </Nav.Link>
+            </Nav.Item>
+          </Nav>
           <Nav className="my-2">
-            {showAuthorization ? (
-             
-             
-         <>    <Button   onClick={ goToProfilePage}
-             variant="outline-primary fw-bold fs-5 shadow-lg">
-              <GoPersonFill /> Şəxsi kabinet
-            </Button>
-       
-              <span className="text-center fs-6 fw-bold my-3 ms-5 text-muted">İstifadəçi adı:{userName}</span>
-        </>
-             
-            ) : (
-              <><Button
-              onClick={() => navigate("/authorization")}
-              variant="outline-primary fw-bold fs-4 shadow-lg"
-            >
-              <LiaSignInAltSolid className="signInUp"/> Giriş | Qeydiyyat
-            </Button>
-
-
-
-                {/* <Button   onClick={ goToProfilePage}
-                 variant="outline-primary fw-bold fs-5 shadow-lg">
-                  <GoPersonFill /> Şəxsi kabinet
+          {!userName ? (
+              <>
+                <Button
+                  onClick={() => navigate("/authorization")}
+                  variant="outline-primary fw-bold fs-4 shadow-lg mx-5"
+                >
+                  <LiaSignInAltSolid className="signInUp" /> Giriş | Qeydiyyat
                 </Button>
-                <Nav>
-                  <span className="text-center fs-6 fw-bold my-3 ms-5 text-muted">İstifadəçi adı:{userName}</span>
-                </Nav> */}
+              </>
+            ) : (
+              <>
+                {" "}
+                <Button
+                  onClick={goToProfilePage}
+                  variant="outline-primary fw-bold fs-5 shadow-lg mx-5"
+                >
+                  <GoPersonFill className="personIcon"/> {userName}
+                </Button>
               </>
             )}
           </Nav>

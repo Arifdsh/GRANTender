@@ -57,10 +57,10 @@ const ProfileEdit = () => {
 
   return (
     <div className="edit-area">
-      <h2>Edit Profile</h2>
+      <h2> Profili Redaktə et</h2>
       <form onSubmit={handleSubmit} className="profile-edit-form">
         <div className="edit-input-group">
-          <label htmlFor="profile-picture">Change Picture:</label>
+          <label htmlFor="profile-picture">Şəklinizi dəyişin:</label>
           <input
             type="file"
             id="profile-picture"
@@ -71,17 +71,17 @@ const ProfileEdit = () => {
         </div>
 
         <div className="edit-input-group">
-          <label htmlFor="profile-name">Change Name:</label>
+          <label htmlFor="profile-name">Adınızı dəyişin:</label>
           <input
             type="text"
             id="profile-name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Enter new name"
+            placeholder="Adınızı daxil edin"
           />
         </div>
 
-        <button type="submit" className="edit-submit-btn">Save Changes</button>
+        <button type="submit" className="edit-submit-btn">Yadda saxla</button>
       </form>
     </div>
   );
