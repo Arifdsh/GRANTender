@@ -25,7 +25,7 @@ function Cards({ userId, filterType }) {
     } else {
       return tenders
     }
-  }, [tenders, userId, user.bookmarked, filterType]);
+  }, [tenders, userId, user?.bookmarked, filterType]);
 
 
   useEffect(() => {
@@ -52,7 +52,7 @@ function Cards({ userId, filterType }) {
 
 
   const isBookmarked = (id) => {
-    return user.bookmarked.includes(id)
+    return user?.bookmarked?.includes(id)
   }
 
   const goToDetails = (id) => {
