@@ -7,6 +7,7 @@ import Cards from '../../components/cards/Cards.jsx'
 import { useDispatch} from 'react-redux'
 import { fetchTenders } from '../../features/tendersSlice.js'
 import { fetchUser } from '../../features/usersSlice.js'
+import DarkLightMode from '../../components/navbar/DarkLightMode.jsx'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
@@ -36,6 +37,7 @@ const Profile = () => {
   return (
     <>
       <Navbar />
+      <DarkLightMode />
       <div className='profile-area'>
         <div className='profile-information-box'>
           <div className='profile-decoration-top'>
@@ -48,16 +50,15 @@ const Profile = () => {
           </div>
           <div className='profile-notification-box'>
             <ul>
-              <li>Müraciyet edənlər: <span>0</span></li>
-              <li>Yaradan tenderler: <span>0</span></li>
+              <li>Müraciət edənlər: <span>0</span></li>
+              <li>Yaradilan tenderlər: <span>0</span></li>
               <li>Sorğu: <span>0</span></li>
             </ul>
           </div>
           <div className='profile-edit-box'>
-            <button className='profile-edit-btn' onClick={handleProfileEdit}>Edit</button>
+            <button className='profile-edit-btn' onClick={handleProfileEdit}>Redaktə et</button>
           </div>
         </div>
-
         {showProfileEdit ? (
           <>
             <ProfileEdit />
@@ -66,10 +67,10 @@ const Profile = () => {
         ) : !showCreateTender ? (
           <div className='profile-control-box'>
             <ul className='profile-tabs'>
-              <li className={`profile-tab ${activeTab == 1 ? 'active' : ''}`} onClick={() => handleTabClick(1)}>Mənim tenderim</li>
-              <li className={`profile-tab ${activeTab == 2 ? 'active' : ''}`} onClick={() => handleTabClick(2)}>Müraciet edənlər</li>
-              <li className={`profile-tab ${activeTab == 3 ? 'active' : ''}`} onClick={() => handleTabClick(3)}>Müraciet gələn</li>
-              <li className={`profile-tab ${activeTab == 4 ? 'active' : ''}`} onClick={() => handleTabClick(4)}>Follow</li>
+              <li className={`profile-tab ${activeTab == 1 ? 'active' : ''}`} onClick={() => handleTabClick(1)}>Mənim tenderlərim</li>
+              <li className={`profile-tab ${activeTab == 2 ? 'active' : ''}`} onClick={() => handleTabClick(2)}>Müraciət etdiklərim</li>
+              <li className={`profile-tab ${activeTab == 3 ? 'active' : ''}`} onClick={() => handleTabClick(3)}>Gələn müraciətlər</li>
+              <li className={`profile-tab ${activeTab == 4 ? 'active' : ''}`} onClick={() => handleTabClick(4)}>İzlədiklərim</li>
               <button className='profile-add-tender' onClick={handleNavigate}>Tender əlavə et</button>
             </ul>
             <div className='profile-content-tabs'>

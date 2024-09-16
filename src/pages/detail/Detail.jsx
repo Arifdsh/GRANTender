@@ -4,6 +4,10 @@ import DarkLightMode from "../../components/navbar/DarkLightMode.jsx";
 import axios from "axios";
 import "../detail/detail.scss";
 import { useParams } from "react-router-dom";
+import { FaUserCircle, FaCalendarCheck } from "react-icons/fa";
+import { FaLocationDot, FaCalendarXmark } from "react-icons/fa6";
+import { GiMoneyStack } from "react-icons/gi";
+import { RiMoneyEuroBoxFill } from "react-icons/ri";
 import Button from "react-bootstrap/Button";
 import ScrollToTop from "../../components/scrolltotop/ScrollToTop.jsx";
 
@@ -11,7 +15,7 @@ const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  const { id } = useParams(); 
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,7 +38,7 @@ const Detail = () => {
     fetchData();
   }, [baseApiUrl]);
 
-  
+
   const findTender = data.find((tender) => tender.id.toString() === id);
   console.log(findTender);
 
@@ -58,7 +62,6 @@ const Detail = () => {
     <div>
       <Navbar />
       <DarkLightMode />
-      <ScrollToTop />
       <h1 className="d-flex align-items-center justify-content-center fw-bold text-decoration-underline my-5 detail-heading">
         ƏTRAFLI
       </h1>
@@ -68,7 +71,7 @@ const Detail = () => {
             <img
               src="/src/assets/image/velievcolor.png"
               alt=""
-              className="border rounded  "
+              className="border rounded-5"
               style={{ width: "330px", height: "330px" }}
             />
 
@@ -80,37 +83,37 @@ const Detail = () => {
             <div className="col-lg-3 col-md-12 col-sm-12 mb-3 mt-2">
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Elan sahibi</button>
+                <span className=" fw-bold fs-5">Elan sahibi</span>
                 <p className="ms-3 mt-2 mb-4">{findTender.owner}</p>
               </div>
 
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Elanın predmeti</button>
+                <span className="fw-bold fs-5">Elanın predmeti</span>
                 <p className="ms-3 mt-2 mb-4"> {findTender.subject}</p>
               </div>
 
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Təşkilatın ünvanı</button>
+                <span className=" fw-bold fs-5">Təşkilatın ünvanı</span>
                 <p className="ms-3 mt-2 mb-4"> {findTender.address}</p>
               </div>
 
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Ehtimal olunan qiyməti</button>
+                <span className=" fw-bold fs-5">Ehtimal olunan qiyməti</span>
                 <p className="ms-3 mt-2 mb-4"> {findTender.price}</p>
               </div>
 
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Elanın yaradılma tarixi</button>
+                <span className=" fw-bold fs-5">Elanın yaradılma tarixi</span>
                 <p className="ms-3 mt-2 mb-4"> {findTender.creationDate}</p>
               </div>
 
               <div className="mb-3">
                 <span className="border border-left border-primary border-2 me-2"></span>
-                <button className="border fw-bold fs-5">Elanın bitmə tarixi</button>
+                <span className=" fw-bold fs-5">Elanın bitmə tarixi</span>
                 <p className="ms-3 mt-2 mb-5"> {findTender.expirationDate}</p>
               </div>
 

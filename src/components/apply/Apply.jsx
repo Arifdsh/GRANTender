@@ -6,7 +6,6 @@ const Apply = () => {
 
   
 
-  // Initial form values
   const initialValues = {
     name: '',
     description: '',
@@ -14,7 +13,6 @@ const Apply = () => {
     file: null,
   };
 
-  // Form submission handler
   const handleSubmit = (values) => {
     console.log('Form values:', values);
   };
@@ -24,7 +22,7 @@ const Apply = () => {
       <h2>Apply for Tender</h2>
       <Formik
         initialValues={initialValues}
-        validationSchema={validationSchema}
+        // validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
         {({ setFieldValue }) => (
@@ -48,7 +46,7 @@ const Apply = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="file">Upload File</label>
+              <label htmlFor="file" className='fileLabel'>Upload File</label>
               <input
                 type="file"
                 id="file"

@@ -5,6 +5,8 @@
   margin: 20px auto;
   display: flex;
   justify-content: space-between;
+  margin-top: 82px;
+  padding: 30px;
 }
 
 .profile-decoration-top {
@@ -33,8 +35,8 @@
   border-radius: 50%;
   outline: 5px solid rgb(13, 81, 144);
   background-color: white;
-  position:relative;
-  top:50px;
+  position: relative;
+  top: 50px;
 }
 
 .profile-name-box {
@@ -59,6 +61,10 @@
   align-items: center;
   border-radius: 8px;
 
+  ul {
+    padding: 0;
+  }
+
   li {
     list-style: none;
     margin-bottom: 5%;
@@ -71,28 +77,29 @@
   justify-content: center;
   align-items: center;
   margin-top: 7%;
+  padding:10px;
 }
 
 .profile-edit-btn {
-  transition:0.3s;
-  padding:5px;
-  border:1px solid $primary-color;
-  width: 30%;
+  transition: 0.3s;
+  padding: 5px;
+  border: 1px solid $primary-color;
+  // width: 30%;
   border-radius: 3px;
-  background-color: #007bff;
+  background-color: $primary-color;
   color: white;
   font-size: 17px;
   cursor: pointer;
 
   &:hover {
-    background-color:$neutral-color-white;
-    color:$primary-color;
+    background-color: $neutral-color-white;
+    color: $primary-color;
   }
 }
 
 .profile-control-box {
-  //width: 10%;
-  height: 100vh;
+  width: 73%;
+  // height: 100vh;
  // margin-left: 5%;
 
   .profile-tabs {
@@ -100,6 +107,9 @@
     display: flex;
     gap: 15px;
     padding: 0;
+    .profile-tab.active{
+      background-color: $primary-color;
+    }
   }
 
   .profile-add-tender {
@@ -149,7 +159,6 @@
   .profile-active-content {
     width: 100%;
     display: block;
-    padding: 20px;
     background-color: #fafafa;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -173,34 +182,60 @@
 
 @media (max-width: 768px) {
   .profile-area {
-    width: 95%;
+    flex-direction: column;
+    padding:10px 0;
   }
-
-  .profile-information-box,
-  .profile-control-box {
+  .profile-information-box {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
   }
 
+  .profile-decoration-top {
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    width: 25%
+  }
   .profile-img img {
+    top: 0;
     width: 120px;
     height: 120px;
   }
 
+  .profile-name-box {
+    margin: 0;
+    width: 20%;
+  }
+
   .profile-name-box .profile-name {
-    font-size: 1.2rem;
+    margin: 0;
   }
 
   .profile-name-box .profile-company {
     font-size: 1rem;
   }
 
-  .profile-edit-box {
-    padding-right: 5%;
+  .profile-notification-box {
+    width: 40%;
+
+    li {
+      margin: 0;
+      padding: 5px;
+    }
   }
 
-  .profile-add-tender {
-    width: 100%;
-    text-align: center;
+  .profile-edit-box {
+    margin: 0;
+    width: 15%;
+  }
+
+  .profile-edit-btn {
+    width: 80%;
   }
 
   .profile-tabs {
@@ -211,23 +246,36 @@
   .profile-cancel-btn {
     width: auto;
   }
+  .profile-control-box{
+    padding-top:20px;
+    width:100%;
+    margin:0;
+    .profile-tab{
+      width:100%;
+      text-align: center;
+    }
+    .profile-add-tender{
+      margin:0;
+      order:-1;
+    }
+  }
 }
 
 @media (max-width: 480px) {
-  .profile-img img {
-    width: 100px;
-    height: 100px;
+  .profile-notification-box {
+    display: none;
   }
-
-  .profile-name-box .profile-name {
-    font-size: 1rem;
+  .profile-decoration-top{
+    width:35%;
   }
-
-  .profile-name-box .profile-company {
-    font-size: 0.9rem;
+  .profile-name-box{
+    width:40%;
   }
-
-  .profile-edit {
-    font-size: 14px;
+  .profile-img img{
+    width:50px;
+    height:50px;
+  }
+  .profile-edit-box{
+    width:25%;
   }
 }

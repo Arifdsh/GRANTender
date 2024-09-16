@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
 import "../cards/cards.scss";
-import Car from "../../assets/image/car.jpg";
 import { FaBookmark, FaRegBookmark, FaCalendarCheck } from "react-icons/fa";
 import { FaCalendarXmark } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
@@ -65,7 +64,7 @@ function Cards({ userId, filterType }) {
         {currentTenders.map((tender) => (
           <li key={tender.id} className="tenders-list__item">
             <div className="tenders-list__photo">
-              <img src={Car} alt="" />
+              <img src={tender.imgUrl} alt="" />
             </div>
             <div className="tenders-list__information">
               <div className="tenders-list__owner">
@@ -104,8 +103,8 @@ function Cards({ userId, filterType }) {
                 <button className="tenders-list__detail tenders-list__button" onClick={() => goToDetails(tender.id)}>
                   Ətraflı
                 </button>
-                <button className="tenders-list__edit tenders-list__button">Düzəliş et</button>
-                <button className="tenders-list__edit tenders-list__button">Sil</button>
+                <button style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
+                <button style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
               </div>
             </div>
             <div onClick={() => handleBookmarkClick(tender.id)} className="tenders-list__save">

@@ -1,0 +1,54 @@
+@import "../../styles/global";
+.confirmContainer{
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba($color: #0000006a, $alpha: 1.0);
+    display: none;
+    .confirmMain{
+        border-radius: 7px;
+        box-shadow: 0 0 5px $primary-color;
+        width: 30%;
+        height: 40vh;
+        background-color: rgba($color: #00000098, $alpha: 1.0);
+        .textClose{
+            h5{
+                color: aquamarine;
+                margin: 10px;
+                font-weight: bold;
+            }
+            display: flex;
+            justify-content: space-between;
+            padding-inline:20px 2px;
+            margin-top: 5px;
+            .sharp{
+                font-size: 25px;
+                color: $primary-color;
+                cursor: pointer;
+            }
+        }
+        .mainText{
+            color: $neutral-color-white;
+            text-align: center;
+            margin-top: 60px;
+            font-size: 25px;
+        }
+        .btns{
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-evenly;
+            button{
+                padding: 10px 40px;
+                border: none;
+                border-radius: 5px;
+                background-color: $primary-color;
+                color: $neutral-color-white;
+            }
+        }
+    }
+}
+ 

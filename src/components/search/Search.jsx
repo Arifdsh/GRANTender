@@ -52,7 +52,8 @@ function Search() {
       {isModalOpen && (
         <div className="filterContainer">
           <div className="filterModal">
-            <p>Şəhər seçin:</p>
+            <div className="cityAndPrice">
+            <p>Şəhər:</p>
             <select value={city} onChange={(e) => setCity(e.target.value)}>
               <option value="" disabled>
                 Seçim edin
@@ -79,6 +80,8 @@ function Search() {
               value={maxPrice}
               onChange={(e) => setMaxPrice(e.target.value)}
             />
+            </div>
+            <div className="dates">
             <p className="dateP">Tarix:</p>
             <input
               type="date"
@@ -90,6 +93,8 @@ function Search() {
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
             />
+            </div>
+            
           </div>
           <div className="close">
             <div className="close1">

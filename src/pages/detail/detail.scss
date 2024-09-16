@@ -1,7 +1,9 @@
 @import "../../styles/global";
+
 .detail-heading {
   color: $primary-color;
   font-family: "Roboto";
+  margin-top: 82px !important;
 }
 
 .vertical-text {
@@ -35,4 +37,7 @@ p {
   color: black;
   font-family: sans-serif;
   font-size: 16px;
+  
 }
+
+
