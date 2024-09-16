@@ -70,7 +70,7 @@ function Header() {
 
               <>    <Button onClick={goToProfilePage}
                 variant="outline-primary fw-bold fs-5 shadow-lg">
-                <GoPersonFill /> {userName}
+                <GoPersonFill className="personIcon" /> {userName}
               </Button>
               </>
 
