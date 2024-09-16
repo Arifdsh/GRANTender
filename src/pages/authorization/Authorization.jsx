@@ -88,7 +88,7 @@ const Authorization = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <section className='authorization'>
         <ul className="login">
           <li className="login__leftside">
