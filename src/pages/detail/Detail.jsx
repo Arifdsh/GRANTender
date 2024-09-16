@@ -72,7 +72,7 @@ const Detail = () => {
             />
 
             <div className="vertical-text my-2 w-50">
-              <p className="light-effect my-2">GRANTender</p>
+              <p className="light-effect my-2">GRANtender</p>
             </div>
           </div>
           {findTender ? (

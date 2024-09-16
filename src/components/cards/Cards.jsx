@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import "../cards/cards.scss";
 import { FaBookmark, FaRegBookmark, FaCalendarCheck } from "react-icons/fa";
 import { FaCalendarXmark } from "react-icons/fa6";

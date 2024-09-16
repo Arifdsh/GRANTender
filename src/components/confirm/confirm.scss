@@ -7,14 +7,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:rgba($color: #0000006a, $alpha: 1.0);
+    background-image: linear-gradient(to right, $neutral-color-black-opacity, $primary-color-opacity);
     display: none;
+    z-index: 10;
+    position: absolute;
     .confirmMain{
         border-radius: 7px;
         box-shadow: 0 0 5px $primary-color;
         width: 30%;
         height: 40vh;
-        background-color: rgba($color: #00000098, $alpha: 1.0);
+        background-color: rgba($color: #00000098, $alpha: 0.7);
         .textClose{
             h5{
                 color: aquamarine;

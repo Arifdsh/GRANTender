@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import './profile.scss'
 import CreateTender from '../../components/createTender/CreateTender'
 import Navbar from '../../components/navbar/Navbar.jsx'
@@ -36,7 +36,6 @@ const Profile = () => {
     <>
       <Navbar />
       <DarkLightMode />
-        <Confirm/>
       <div className='profile-area'>
         <div className='profile-information-box'>
           <div className='profile-decoration-top'>
