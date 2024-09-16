@@ -5,48 +5,55 @@ import { FaBookmark, FaRegBookmark, FaCalendarCheck } from "react-icons/fa";
 import { FaCalendarXmark } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTenders, selectAllTenders } from "../../features/tendersSlice";
+import { fetchTenders } from "../../features/tendersSlice";
+import { toggleBookmark } from '../../features/usersSlice.js'
 
-function Cards({ userId }) {
+function Cards({ userId, filterType }) {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
-  const [bookmarked, setBookmarked] = useState({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const tenders = useSelector(selectAllTenders) || [];
+  const user = useSelector((state) => state.user.user);
+  const tenders = useSelector((state) => state.tenders.tenders)
 
-  const userTenders = useMemo(() => {
-    return userId ? tenders.filter((tender) => tender.userId === userId) : tenders;
+  const filteredTenders = useMemo(() => {
+    if (filterType === "created") {
+      return tenders.filter((tender) => tender.userId === userId)
+    } else if (filterType === "bookmarked") {
+      return tenders.filter((tender) => user.bookmarked.includes(tender.id))
+    } else {
+      return tenders
+    }
+  }, [tenders, userId, user.bookmarked, filterType]);
 
-  }, [tenders, userId]);
 
   useEffect(() => {
-    dispatch(fetchTenders())
+    dispatch(fetchTenders());
   }, [dispatch]);
 
 
+  const paginate = (items, currentPage, itemsPerPage) => {
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    return items.slice(indexOfFirstItem, indexOfLastItem);
+  };
 
-  useEffect(() => {
-    const initialBookmarks = {};
-    userTenders.forEach((tender) => {
-      initialBookmarks[tender.id] = false;
-    });
-    setBookmarked(initialBookmarks);
-  }, [userTenders]);
-
-  const indexOfLastTender = currentPage * itemsPerPage;
-  const indexOfFirstTender = indexOfLastTender - itemsPerPage;
-  const currentTenders = userTenders.slice(indexOfFirstTender, indexOfLastTender);
+  const currentTenders = paginate(filteredTenders, currentPage, itemsPerPage);
 
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(userTenders.length / itemsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(filteredTenders.length / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
 
   const handleBookmarkClick = (id) => {
-    setBookmarked((prev) => ({ ...prev, [id]: !prev[id] }));
-  };
+    dispatch(toggleBookmark({ tenderId: id, userId: user.id }));
+  }
+
+
+  const isBookmarked = (id) => {
+    return user.bookmarked.includes(id)
+  }
 
   const goToDetails = (id) => {
     navigate(`/detail/${id}`);
@@ -102,18 +109,24 @@ function Cards({ userId }) {
               </div>
             </div>
             <div onClick={() => handleBookmarkClick(tender.id)} className="tenders-list__save">
-              {bookmarked[tender.id] ? <FaBookmark className="saveIcon" /> : <FaRegBookmark className="saveIcon" />}
+              {isBookmarked(tender.id) ? <FaBookmark className="bookmark" /> : <FaRegBookmark className="bookmark" />}
             </div>
           </li>
         ))}
       </ul>
-      <div className="pagination">
-        {pageNumbers.map((number) => (
-          <button key={number} onClick={() => setCurrentPage(number)} className={number === currentPage ? "active" : ""}>
-            {number}
-          </button>
-        ))}
-      </div>
+      {pageNumbers.length > 1 && (
+        <div className="pagination">
+          {pageNumbers.map((number) => (
+            <button
+              key={number}
+              onClick={() => setCurrentPage(number)}
+              className={number === currentPage ? "active" : ""}
+            >
+              {number}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

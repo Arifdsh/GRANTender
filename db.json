@@ -181,6 +181,83 @@
       "expirationDate": "2024-09-15",
       "userId": "381c",
       "files": []
+    },
+    {
+      "id": "1cf7",
+      "owner": "44444444444444444",
+      "subject": "44444444444",
+      "address": "44444444444444",
+      "price": 444444444441,
+      "creationDate": "2024-09-15",
+      "expirationDate": "2024-09-16",
+      "userId": "e6be",
+      "files": []
+    },
+    {
+      "id": "90d9",
+      "owner": "rafail",
+      "subject": "redux isle",
+      "address": "fffffffffffffffffffffffffffffffff",
+      "price": 1,
+      "creationDate": "2024-09-15",
+      "expirationDate": "2024-09-16",
+      "userId": "e6be",
+      "files": []
+    },
+    {
+      "id": "8461",
+      "owner": "aaaaaaa",
+      "subject": "aaaaaa",
+      "address": "aaaaaaa",
+      "price": 111111,
+      "creationDate": "2024-09-15",
+      "expirationDate": "2024-09-17",
+      "userId": "8f87",
+      "files": []
+    },
+    {
+      "id": "4257",
+      "owner": "111111111",
+      "subject": "1111111111",
+      "address": "1111111",
+      "price": 111111,
+      "creationDate": "2024-09-15",
+      "expirationDate": "2024-09-16",
+      "userId": "2f5b",
+      "files": []
+    },
+    {
+      "id": "8959",
+      "owner": "rafail",
+      "subject": "asdasd",
+      "address": "ASsaa",
+      "price": 123,
+      "creationDate": "2024-09-15",
+      "expirationDate": "2024-09-17",
+      "userId": "3197",
+      "files": []
+    },
+    {
+      "id": "d794",
+      "owner": "kubik",
+      "subject": "check",
+      "address": "asdasdasd",
+      "price": 123121,
+      "creationDate": "2024-09-16",
+      "expirationDate": "2024-09-18",
+      "userId": "77c3",
+      "files": []
+    },
+    {
+      "id": "0eb6",
+      "owner": "fuad",
+      "subject": "ZXx",
+      "address": "ZXZX",
+      "price": 121333,
+      "creationDate": "2024-09-16",
+      "expirationDate": "2024-09-12",
+      "userId": "8a53",
+      "files": []
     }
   ],
   "user": [
@@ -217,13 +294,11 @@
       "age": "2003-02-12"
     },
     {
-      "id": "e6be",
       "name": "Rafail",
-      "surname": "Mursukayev",
-      "email": "raf242@yandex.ru",
-      "age": "1994-05-06",
-      "password": "123",
-      "confirmPassword": "123"
+      "id": "e6be",
+      "bookmarked": [
+        "90d9"
+      ]
     },
     {
       "id": "4194",
@@ -232,7 +307,8 @@
       "email": "saf@sfes",
       "age": "1111-01-01",
       "password": "123",
-      "confirmPassword": "123"
+      "confirmPassword": "123",
+      "bookmarked": []
     },
     {
       "id": "381c",
@@ -240,7 +316,8 @@
       "surname": "aaaaaaaaaaa",
       "email": "aaa@aaaa",
       "age": "1111-01-01",
-      "password": "123"
+      "password": "123",
+      "bookmarked": []
     },
     {
       "id": "f857",
@@ -256,7 +333,8 @@
       "surname": "aaaa",
       "email": "dsds@ghgh",
       "age": "2000-02-02",
-      "password": "123"
+      "password": "123",
+      "bookmarked": []
     },
     {
       "id": "ca39",
@@ -289,6 +367,62 @@
       "email": "nurlan@gmail.com",
       "age": "2001-11-11",
       "password": "123"
+    },
+    {
+      "name": "Rafail",
+      "id": "8f87",
+      "bookmarked": []
+    },
+    {
+      "name": "Rafail",
+      "id": "2f5b",
+      "bookmarked": [
+        "4257"
+      ]
+    },
+    {
+      "id": "3197",
+      "name": "Rafail",
+      "surname": "Mursukayev",
+      "email": "raf242@yandex.ru",
+      "age": "1994-06-05",
+      "password": "123",
+      "bookmarked": [
+        "8959",
+        "1"
+      ]
+    },
+    {
+      "id": "eb30",
+      "name": "Kubik",
+      "surname": "Rubik",
+      "email": "k@k",
+      "age": "1111-11-11",
+      "password": "123",
+      "bookmarked": []
+    },
+    {
+      "id": "77c3",
+      "name": "Kubik",
+      "surname": "Rubik",
+      "email": "k@kk",
+      "age": "1111-11-11",
+      "password": "123",
+      "bookmarked": [
+        "8959"
+      ]
+    },
+    {
+      "id": "8a53",
+      "name": "fuad",
+      "surname": "beybudov",
+      "email": "fuad@gmail",
+      "age": "1111-11-11",
+      "password": "123",
+      "bookmarked": [
+        "4257",
+        "8461"
+      ]
     }
   ]
 }
