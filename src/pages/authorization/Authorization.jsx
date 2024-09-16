@@ -3,7 +3,7 @@ import { Formik, useFormik } from 'formik';
 import { AuthorizationSchema } from './AuthorizationSchema.js'
 import './authorization.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUser, updateUser, setLoggedInUser } from '../../features/usersSlice.js';
+import { updateUser, setLoggedInUser, fetchAllUsers } from '../../features/usersSlice.js';
 import Navbar from '../../components/navbar/Navbar.jsx';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { IoCloseCircle } from "react-icons/io5";
@@ -14,14 +14,14 @@ const Authorization = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loginError, setLoginError] = useState('');
 
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  const { user, loading, error } = useSelector((state) => state.user)
+  const { users, loading, error } = useSelector((state) => state.user)
 
   useEffect(() => {
-    dispatch(fetchUser());
-  }, [dispatch, user]);
+    dispatch(fetchAllUsers());
+  }, [dispatch, users]);
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -30,7 +30,7 @@ const Authorization = () => {
       password: e.target.password.value,
     }
 
-    const foundUser = user.find((user) => user.email == loginData.email)
+    const foundUser = users.find((user) => user.email == loginData.email)
 
     if (foundUser) {
       if (foundUser.password == loginData.password) {
@@ -62,11 +62,12 @@ const Authorization = () => {
       age: "",
       password: "",
       confirmPassword: "",
+      bookmarked: []
     },
     onSubmit: (values, actions) => {
       const { confirmPassword, ...userData } = values
 
-      const emailExists = user.some((existingUser) => existingUser.email == userData.email)
+      const emailExists = users.some((existingUser) => existingUser.email == userData.email)
 
       if (emailExists) {
         actions.setFieldError('email', 'Bu email artıq istifadə olunub')
