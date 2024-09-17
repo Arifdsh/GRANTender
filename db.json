@@ -281,6 +281,18 @@
       "city": "Baku",
       "userId": "3197",
       "files": []
+    },
+    {
+      "id": "c12c",
+      "owner": "granTender",
+      "subject": "test",
+      "address": "test",
+      "price": 124,
+      "creationDate": "2024-09-17",
+      "expirationDate": "2024-09-19",
+      "city": "Baku",
+      "userId": "3197",
+      "files": []
     }
   ],
   "user": [
@@ -410,7 +422,10 @@
       "email": "raf242@yandex.ru",
       "age": "1994-06-05",
       "password": "123",
-      "bookmarked": []
+      "bookmarked": [
+        "8d36",
+        "c12c"
+      ]
     },
     {
       "id": "eb30",

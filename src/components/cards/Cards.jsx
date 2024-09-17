@@ -15,16 +15,46 @@ function Cards({ userId, filterType }) {
 
   const user = useSelector((state) => state.user.user);
   const tenders = useSelector((state) => state.tenders.tenders)
+  const searchFilters = useSelector((state)=> state.search)
 
   const filteredTenders = useMemo(() => {
-    if (filterType === "created") {
-      return tenders.filter((tender) => tender.userId === userId)
-    } else if (filterType === "bookmarked") {
-      return tenders.filter((tender) => user.bookmarked.includes(tender.id))
-    } else {
-      return tenders
+    let result = tenders;
+
+    if (filterType === "all") {
+      if (searchFilters.city) {
+        result = result.filter((tender) => tender.city === searchFilters.city);
+      }
+      if (searchFilters.all) {
+        result = result.filter(
+          (tender) =>
+            tender.subject.toLowerCase().includes(searchFilters.all.toLowerCase()) ||
+            tender.owner.toLowerCase().includes(searchFilters.all.toLowerCase())
+        );
+      }
+      if (searchFilters.minPrice) {
+        result = result.filter((tender) => tender.price >= searchFilters.minPrice);
+      }
+      if (searchFilters.maxPrice) {
+        result = result.filter((tender) => tender.price <= searchFilters.maxPrice);
+      }
+      if (searchFilters.startDate) {
+        result = result.filter((tender) => tender.creationDate >= searchFilters.startDate);
+      }
+      if (searchFilters.endDate) {
+        result = result.filter((tender) => tender.expirationDate <= searchFilters.endDate);
+      }
     }
-  }, [tenders, userId, user?.bookmarked, filterType]);
+
+    if (filterType === "created") {
+      result = result.filter((tender) => tender.userId === userId);
+    }
+
+    if (filterType === "bookmarked") {
+      result = result.filter((tender) => user.bookmarked.includes(tender.id));
+    }
+
+    return result;
+  }, [tenders, userId, user?.bookmarked, searchFilters, filterType]);
 
 
   useEffect(() => {
