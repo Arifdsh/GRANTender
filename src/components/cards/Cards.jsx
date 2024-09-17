@@ -4,7 +4,7 @@ import { FaBookmark, FaRegBookmark, FaCalendarCheck } from "react-icons/fa";
 import { FaCalendarXmark } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTenders } from "../../features/tendersSlice";
+import { deleteTender, fetchTenders } from "../../features/tendersSlice";
 import { toggleBookmark } from '../../features/usersSlice.js'
 
 function Cards({ userId, filterType }) {
@@ -85,8 +85,12 @@ function Cards({ userId, filterType }) {
   }
 
   const goToDetails = (id) => {
-    navigate(`/detail/${id}`);
-  };
+    navigate(`/detail/${id}`)
+  }
+
+  const handelDeleteClick = (id)=>{
+     dispatch(deleteTender(id))
+  }
 
   return (
     <div className="tenders">
@@ -134,7 +138,7 @@ function Cards({ userId, filterType }) {
                   Ətraflı
                 </button>
                 <button style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
-                <button style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
+                <button onClick={()=>handelDeleteClick(tender.id)} style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
               </div>
             </div>
             <div onClick={() => handleBookmarkClick(tender.id)} className="tenders-list__save">
