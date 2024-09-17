@@ -59,7 +59,7 @@ function Cards({ userId, filterType }) {
   };
 
   return (
-    <div className="tenders">
+    <div className="tenders" id="/cards.htm">
       <ul className="tenders-list">
         {currentTenders.map((tender) => (
           <li key={tender.id} className="tenders-list__item">

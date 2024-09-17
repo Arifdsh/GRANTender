@@ -5,7 +5,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import "./owlcarouselcomp.scss";
 const OwlCarouselComp = () => {
   const options = {
-    items: 3,
+    items: 6,
     loop: true,
     autoplay: true,
     autoplayTimeout: 1000,
@@ -24,7 +24,7 @@ const OwlCarouselComp = () => {
   };
   return (
     <>
-      <section  className="content_carousel bg-light mt-5">
+      <section  className="content_carousel bg-light mt-5" id="/section-partnyor.htm">
         <h1 className="d-flex justify-content-center align-items-center fw-bold py-5 fs-2 carousel-heading text-decoration-underline">
        PARTNYORLARIMIZ
         </h1>

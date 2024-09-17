@@ -11,11 +11,14 @@ import "./navbar.scss";
 function Header() {
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
-
+  const [homePage, setHomePage] = useState(false);
+  const [profilePage, setProfilePage] = useState(false);
   const goToHomePage = () => {
+    setHomePage(true);
     navigate("/");
   };
   const goToProfilePage = () => {
+    setProfilePage(true);
     navigate("/profile");
   };
 
@@ -35,7 +38,12 @@ function Header() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse className="gap-5">
-          <Nav fill variant="tabs" defaultActiveKey="/home" className="gap-2 navList">
+          <Nav
+            fill
+            variant="tabs"
+            defaultActiveKey="/home"
+            className="gap-2 navList"
+          >
             <Nav.Item>
               <Nav.Link
                 onClick={goToHomePage}
@@ -46,23 +54,65 @@ function Header() {
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link eventKey="link-1" className="nav-color fw-bold fs-4">
-                Tenderlər
-              </Nav.Link>
+              {profilePage || homePage ? (
+                <>
+                  <Nav.Link
+                    eventKey="link-1"
+                    href="#/cards.htm"
+                    className="nav-color fw-bold fs-4"
+                  >
+                    Tenderlər
+                  </Nav.Link>
+                </>
+              ) : (
+                <>
+                  <Nav.Link
+                    eventKey="link-1"
+                    href="#/cards.htm"
+                    className="nav-color fw-bold fs-4"
+                    disabled
+                  >
+                    Tenderlər
+                  </Nav.Link>
+                </>
+              )}
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link-2" className="nav-color fw-bold fs-4">
-                Partnyorlarımız
-              </Nav.Link>
+              {profilePage || homePage ? (
+                <>
+                  <Nav.Link
+                    eventKey="link-2"
+                    href="#/section-partnyor.htm"
+                    className="nav-color fw-bold fs-4"
+                  >
+                    Partnyorlarımız
+                  </Nav.Link>
+                </>
+              ) : (
+                <>
+                  <Nav.Link
+                    eventKey="link-2"
+                    href="#/section-partnyor.htm"
+                    className="nav-color fw-bold fs-4"
+                    disabled
+                  >
+                    Partnyorlarımız
+                  </Nav.Link>
+                </>
+              )}
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link-3" className="nav-color fw-bold fs-4">
+              <Nav.Link
+                eventKey="link-3"
+                href="#/footer.htm"
+                className="nav-color fw-bold fs-4"
+              >
                 Əlaqə
               </Nav.Link>
             </Nav.Item>
           </Nav>
           <Nav className="my-2">
-          {!userName ? (
+            {!userName ? (
               <>
                 <Button
                   onClick={() => navigate("/authorization")}
@@ -73,12 +123,11 @@ function Header() {
               </>
             ) : (
               <>
-                {" "}
                 <Button
                   onClick={goToProfilePage}
                   variant="outline-primary fw-bold fs-5 shadow-lg mx-5"
                 >
-                  <GoPersonFill className="personIcon"/> {userName}
+                  <GoPersonFill className="personIcon" /> {userName}
                 </Button>
               </>
             )}
