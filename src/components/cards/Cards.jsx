@@ -108,7 +108,7 @@ function Cards({ userId, filterType }) {
               </div>
             </div>
             <div onClick={() => handleBookmarkClick(tender.id)} className="tenders-list__save">
-              {isBookmarked(tender.id) ? <FaBookmark className="bookmark" /> : <FaRegBookmark className="bookmark" />}
+              {isBookmarked(tender.id) ? <FaBookmark className="saveIcon" /> : <FaRegBookmark className="saveIcon" />}
             </div>
           </li>
         ))}

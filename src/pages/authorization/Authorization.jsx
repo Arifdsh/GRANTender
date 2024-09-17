@@ -48,7 +48,7 @@ const Authorization = () => {
   }
 
   const openModal = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     setIsModalOpen(true)
   }
 
@@ -124,7 +124,7 @@ const Authorization = () => {
             {errors.confirmPassword && touched.confirmPassword && <div className='error'>{errors.confirmPassword}</div>}
             <button type='submit' className="register__button">Qeydiyyat</button>
           </form>
-          <IoCloseCircle onClick={closeModal} className="close"/>
+          <IoCloseCircle onClick={closeModal} className="close" />
           {/* <button onClick={closeModal} className="close">Bağla</button> */}
         </div>
       </section>
