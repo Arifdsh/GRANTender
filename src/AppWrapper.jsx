@@ -3,7 +3,6 @@ import App from "./App";
 
 const AppWrapper = () => (
   <Router>
-    <ScrollRestoration/>
     <App />
   </Router>
 );
