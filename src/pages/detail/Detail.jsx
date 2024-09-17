@@ -6,6 +6,7 @@ import "../detail/detail.scss";
 import { useParams } from "react-router-dom";
 import { FaUserCircle, FaCalendarCheck } from "react-icons/fa";
 import { FaLocationDot, FaCalendarXmark } from "react-icons/fa6";
+import { MdSubject } from "react-icons/md";
 import { GiMoneyStack } from "react-icons/gi";
 import { RiMoneyEuroBoxFill } from "react-icons/ri";
 import Button from "react-bootstrap/Button";
@@ -86,7 +87,11 @@ const Detail = () => {
               </p>
 
               <h3 className="detail-list__title">Elanın predmeti</h3>
-              <p className="detail-list__content">{findTender.subject}</p>
+
+              <p className="detail-list__content">
+                <MdSubject className="detail-list__icon" />
+                {findTender.subject}
+              </p>
 
               <h3 className="detail-list__title">Təşkilatın ünvanı</h3>
               <p className="detail-list__content">
@@ -101,7 +106,6 @@ const Detail = () => {
               </p>
 
               <h3 className="detail-list__title">
-              
                 Elanın yaradılış tarixi ve vaxtı
               </h3>
               <p className="detail-list__content">
