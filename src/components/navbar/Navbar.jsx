@@ -65,7 +65,7 @@ function Header() {
             </Nav.Item>
 
             <Nav.Item>
-              {profilePage || homePage ? (
+              {!profilePage  ? (
                 <>
                   <Nav.Link
                     eventKey="link-1"
@@ -89,7 +89,7 @@ function Header() {
               )}
             </Nav.Item>
             <Nav.Item>
-              {profilePage || homePage ? (
+              {!profilePage? (
                 <>
                   <Nav.Link
                     eventKey="link-2"
@@ -136,12 +136,12 @@ function Header() {
               <>
                 <Button
                   onClick={goToProfilePage}
-                  variant="outline-primary fw-bold fs-5 shadow-lg mx-5"
+                  variant="outline-primary fw-bold fs-5 shadow-lg mx-3"
                 >
                   <GoPersonFill className="personIcon" /> {userName}
                 </Button>
                 <Button
-                  variant="outline-primary fw-bold fs-5 shadow-lg mx-5"
+                  variant="outline-primary fw-bold fs-5 shadow-lg me-3"
                   onClick={LogOut}
                 >
                   <RiLogoutCircleLine className="personIcon" /> Çıxış
