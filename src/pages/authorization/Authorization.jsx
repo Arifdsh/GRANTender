@@ -14,6 +14,11 @@ import { MdOutlineDocumentScanner } from "react-icons/md";
 const Authorization = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loginError, setLoginError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const navigate = useNavigate();
 
@@ -99,11 +104,15 @@ const Authorization = () => {
             <form onSubmit={handleLogin} className="login__form">
               <input type="email" name="email" placeholder="Email" className="login__username input" />
               <div className="passwordArea">
-                <input type="password" name="password" placeholder="Password" className="login__password input" />
-                <IoMdEye className='eye showEye' />
-                <IoMdEyeOff className='eye closeEye' />
-                {loginError && <div className="error">{loginError}</div>}
+                <input type={showPassword ? "text" : "password"} name="password" placeholder="Password" className="login__password input" />
+                {!showPassword ? (
+                  <IoMdEyeOff className="eye closeEye" onClick={togglePasswordVisibility} />
+                ) : (
+                  <IoMdEye className="eye showEye" onClick={togglePasswordVisibility} />
+                )}
+                
               </div>
+              {loginError && <div className="error">{loginError}</div>}
 
               <button type="submit" className="login__logIn">Daxil ol</button>
               <a href="" className="login__forgetPassword">Şifrəni unutmusan?</a>
@@ -125,12 +134,15 @@ const Authorization = () => {
             <input name='age' className="register__dateTime input" type="date" placeholder="Birth date" value={values.age} onChange={handleChange} />
             {errors.age && touched.age && <div className='error'>{errors.age}</div>}
             <div className="passwordArea">
-              <input name='password' className="register__password input" type="password" placeholder=" Set password" value={values.password} onChange={handleChange} />
-              <IoMdEye className='eye showEye' />
-              <IoMdEyeOff className='eye closeEye' />
+              <input name='password' className="register__password input" type={showPassword ? "text" : "password"} placeholder=" Set password" value={values.password} onChange={handleChange} />
+              {!showPassword ? (
+                  <IoMdEyeOff className="eye closeEye" onClick={togglePasswordVisibility} />
+                ) : (
+                  <IoMdEye className="eye showEye" onClick={togglePasswordVisibility} />
+                )}
               {errors.password && touched.password && <div className='error'>{errors.password}</div>}
             </div>
-            <input name='confirmPassword' className="register__confirmPassword input" type="password" placeholder=" Confirm password" value={values.confirmPassword} onChange={handleChange} />
+            <input name='confirmPassword' className="register__confirmPassword input" type={showPassword ? "text" : "password"} placeholder=" Confirm password" value={values.confirmPassword} onChange={handleChange} />
             {errors.confirmPassword && touched.confirmPassword && <div className='error'>{errors.confirmPassword}</div>}
             <button type='submit' className="register__button">Qeydiyyat</button>
           </form>
