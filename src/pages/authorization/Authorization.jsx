@@ -109,16 +109,16 @@ const Authorization = () => {
                 ) : (
                   <IoMdEye className="eye showEye" onClick={togglePasswordVisibility} />
                 )}
-                
+
               </div>
               {loginError && <div className="error">{loginError}</div>}
 
               <button type="submit" className="login__logIn">Daxil ol</button>
               <a href="" className="login__forgetPassword">Şifrəni unutmusan?</a>
               <hr />
-              <button onClick={openModal} className="login__newAccount">Qeydiyyat</button>
               <div className="userInfo"></div>
             </form>
+            <button onClick={openModal} className="login__newAccount">Qeydiyyat</button>
           </li>
         </ul>
         <div className={isModalOpen ? "modal active" : "modal"}>
@@ -135,10 +135,10 @@ const Authorization = () => {
             <div className="passwordArea">
               <input name='password' className="register__password input" type={showPassword ? "text" : "password"} placeholder=" Set password" value={values.password} onChange={handleChange} />
               {!showPassword ? (
-                  <IoMdEyeOff className="eye closeEye" onClick={togglePasswordVisibility} />
-                ) : (
-                  <IoMdEye className="eye showEye" onClick={togglePasswordVisibility} />
-                )}
+                <IoMdEyeOff className="eye closeEye" onClick={togglePasswordVisibility} />
+              ) : (
+                <IoMdEye className="eye showEye" onClick={togglePasswordVisibility} />
+              )}
               {errors.password && touched.password && <div className='error'>{errors.password}</div>}
             </div>
             <input name='confirmPassword' className="register__confirmPassword input" type={showPassword ? "text" : "password"} placeholder=" Confirm password" value={values.confirmPassword} onChange={handleChange} />
