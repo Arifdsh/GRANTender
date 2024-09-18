@@ -14,7 +14,7 @@ function Header() {
 
   const goToHomePage = () => {
     navigate("/");
-    setShowAuthorization(true);
+    
   };
   const goToProfilePage = () => {
     navigate("/profile");

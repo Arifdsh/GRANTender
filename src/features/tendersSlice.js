@@ -29,15 +29,40 @@ export const deleteTender = createAsyncThunk('tender/deleteTender', async (tende
   }
 });
 
+// PUT - to update a tender
+export const updateTender = createAsyncThunk('tender/updateTender', async ({ id, updatedData }) => {
+  try {
+    const response = await axios.put(`http://localhost:5173/cards/${id}`, updatedData);
+    return response.data
+  } catch (error) {
+    console.error('Failed to update tender:', error);
+    throw error;
+  }
+});
+
 const tendersSlice = createSlice({
   name: 'tenders',
   initialState: {
     tenders: [],
+    tenderToEdit: null,
     bookmarks: {},
     status: 'idle',
     error: null,
+    showCreateTender: false,
   },
   reducers: {
+    setTenderToEdit: (state, action) => {
+      state.tenderToEdit = action.payload
+    },
+    clearTenderToEdit: (state) => {
+      state.tenderToEdit = null
+    },
+    showCreateTenderForm: (state) => {
+      state.showCreateTender = true;
+    },
+    hideCreateTenderForm: (state) => {
+      state.showCreateTender = false;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -59,10 +84,21 @@ const tendersSlice = createSlice({
       .addCase(deleteTender.fulfilled, (state, action) => {
         state.tenders = state.tenders.filter(tender => tender.id !== action.payload);
       })
+      .addCase(updateTender.fulfilled, (state, action) => {
+        const index = state.tenders.findIndex(tender => tender.id === action.payload.id);
+        if (index !== -1) {
+          state.tenders[index] = action.payload
+        }
+        state.tenderToEdit = null
+      })
   },
 })
 
 export default tendersSlice.reducer;
+
+export const { showCreateTenderForm, hideCreateTenderForm } = tendersSlice.actions
+
+export const { setTenderToEdit, clearTenderToEdit } = tendersSlice.actions
 
 export const selectAllTenders = (state) => state.tenders.tenders;
 

@@ -4,19 +4,22 @@ import CreateTender from '../../components/createTender/CreateTender'
 import Navbar from '../../components/navbar/Navbar.jsx'
 import ProfileEdit from './profileEdit/ProfileEdit.jsx'
 import Cards from '../../components/cards/Cards.jsx'
-import { useDispatch} from 'react-redux'
-import { fetchTenders } from '../../features/tendersSlice.js'
+import { useDispatch, useSelector} from 'react-redux'
+import { clearTenderToEdit, fetchTenders, hideCreateTenderForm, showCreateTenderForm } from '../../features/tendersSlice.js'
 import { fetchUser } from '../../features/usersSlice.js'
 import DarkLightMode from '../../components/navbar/DarkLightMode.jsx'
+import { useLocation } from 'react-router-dom'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
-  const [showCreateTender, setShowCreateTender] = useState(false)
   const [showProfileEdit, setShowProfileEdit] = useState(false)
   const [localUserId, setLocalUserId] = useState(null)
   const [profile, setProfile] = useState({ name: '', picture: '' })
 
+  const location = useLocation()
   const dispatch = useDispatch()
+
+  const showCreateTender = useSelector((state)=>state.tenders.showCreateTender)
 
   useEffect(() => {
     dispatch(fetchTenders())
@@ -26,11 +29,17 @@ const Profile = () => {
       setLocalUserId(user.id)
       setProfile({ name: user.name, picture: user.picture || '' })
     }
-  }, [dispatch])
+
+    if (!location.state || !location.state.openCreateTender) {
+      dispatch(hideCreateTenderForm());
+      dispatch(clearTenderToEdit())
+    }
+
+  }, [dispatch, location.state])
 
   const handleTabClick = (index) => setActiveTab(index)
-  const handleNavigate = () => setShowCreateTender(true)
-  const handleCancel = () => setShowCreateTender(false)
+  const handleNavigate = () => dispatch(showCreateTenderForm())
+  const handleCancel = () => dispatch(hideCreateTenderForm())
   const handleProfileEdit = () => setShowProfileEdit(true)
   const handleEditCancel = () => setShowProfileEdit(false)
 
