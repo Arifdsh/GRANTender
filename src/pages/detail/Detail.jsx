@@ -7,10 +7,8 @@ import { useParams } from "react-router-dom";
 import { FaUserCircle, FaCalendarCheck } from "react-icons/fa";
 import { FaLocationDot, FaCalendarXmark } from "react-icons/fa6";
 import { MdSubject } from "react-icons/md";
-import { GiMoneyStack } from "react-icons/gi";
 import { RiMoneyEuroBoxFill } from "react-icons/ri";
 import Button from "react-bootstrap/Button";
-import ScrollToTop from "../../components/scrolltotop/ScrollToTop.jsx";
 import { Container, Row, Col } from "react-bootstrap";
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
@@ -102,7 +100,7 @@ const Detail = () => {
               <h3 className="detail-list__title">Ehtimal olunan qiyməti </h3>
               <p className="detail-list__content">
                 <RiMoneyEuroBoxFill className="detail-list__icon" />
-                {findTender.price}
+                {findTender.price + " AZN"}
               </p>
 
               <h3 className="detail-list__title">

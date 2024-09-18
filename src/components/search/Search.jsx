@@ -44,6 +44,7 @@ function Search() {
 
   return (
     <>
+    <h1 className="tendersHeading" id="/cards.htm">TENDERLƏR</h1>
       <div className="searchContainer">
         <div className="filter">
           <div className="myInput">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import "../cards/cards.scss";
 import { FaBookmark, FaRegBookmark, FaCalendarCheck } from "react-icons/fa";
 import { FaCalendarXmark } from "react-icons/fa6";
@@ -93,7 +93,7 @@ function Cards({ userId, filterType }) {
   }
 
   return (
-    <div className="tenders" id="/cards.htm">
+    <div className="tenders" >
       <ul className="tenders-list">
         {currentTenders.map((tender) => (
           <li key={tender.id} className="tenders-list__item">

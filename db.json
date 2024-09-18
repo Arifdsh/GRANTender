@@ -5,7 +5,7 @@
       "owner": "'Azərbaycan Respublikası Maliyyə Nazirliyinin Məlumat Hesablama Mərkəzi' Məhdud Məsuliyyətli Cəmiyyəti",
       "subject": "AR Maliyyə Nazirliyinin 'Məlumat Hesablama Mərkəzi' MMC-nin xidmət göstərdiyi təşkilatlarda istismar olunan elektrotexniki avadanlıqlara ehtiyat hissələrinin satınalınması",
       "address": "Bakı şəhəri Səməd Vurğun 135",
-      "price": "538.000,00 AZN",
+      "price": 538000,
       "imgUrl": "src/assets/image/azinterservicecolor.png",
       "creationDate": "09.09.2024 15:48",
       "expirationDate": "02.10.2024 18:00",
@@ -24,7 +24,7 @@
       "owner": "'Su Meliorasiya Xidməti'Publik Hüquqi Şəxsi",
       "subject": "“Şərur rayonunun Məmmədsabir, Aşağı Aralıq, Yuxarı Aralıq, Qarxun, Muğancıq Mehrab, Muğancıq Müslüm, Xələc, Çərçiboğan, Çomaxtur və Arıbatan kəndlərinin su təchizatı və kanalizasiya sistemlərinin tikintisinin texniki-iqtisadi əsaslandırılma və layihə-smeta sənədlərinin hazırlanması” nın satınalınması",
       "address": "Naxçıvan şəhər Xətai məhəlləsi",
-      "price": "118.100,30 AZN",
+      "price": 118100,
       "imgUrl": "src/assets/image/crocuscolor.png",
       "creationDate": "09.09.2024 15:44",
       "expirationDate": "30.09.2024 17:00",
@@ -43,7 +43,7 @@
       "owner": "Zaqatala Rayon İcra Hakimiyyəti Başçısının Zaqatala Şəhət Ərazisi Üzrə Nümayəndəliyi",
       "subject": "Zaqatala şəhər Aşıq Ələsgər və Həzi Aslanov küçələrində abadlıq işlərinin satın alınması",
       "address": "M.Əsədov 5",
-      "price": "496.030,00 AZN",
+      "price": 496030,
       "imgUrl": "src/assets/image/elsevercolor.png",
       "creationDate": "09.09.2024 15:31",
       "expirationDate": "01.10.2024 17:00",
@@ -62,7 +62,7 @@
       "owner": "“Qarabağ Dirçəliş Fondu” Publik Hüquqi Şəxsi",
       "subject": "Nəqliyyat vasitəsinin satın alınması",
       "address": "Bakı şəhəri, Nəsimi rayonu, Cəfər Cabbarlı küçəsi 609, Globus Business Center, 14-cü mərtəbə, Qarabağ Dirçəliş Fondu ofisi",
-      "price": "114.678,50 AZN",
+      "price": 114678,
       "imgUrl": "src/assets/image/eurooilcolor.png",
       "creationDate": "09.09.2024 15:05",
       "expirationDate": "17.09.2024 15:00",
@@ -81,7 +81,7 @@
       "owner": "Kürdəmir Rayon İcra Hakimiyyəti",
       "subject": "Kürdəmir rayonunda avtomobil yollarının təmiri işlərinin satın alınması",
       "address": "M.Ə.Sabir küçəsi №15",
-      "price": "1.350.253,74 AZN",
+      "price": 1350253,
       "imgUrl": "src/assets/image/liderqrupcolor.png",
       "creationDate": "09.09.2024 11:36",
       "expirationDate": "08.10.2024 12:00",
@@ -260,26 +260,15 @@
       "files": []
     },
     {
-      "id": "9973",
-      "owner": "Gullu mmc",
-      "subject": "Biznes ",
-      "address": "Xalqlar dostlugu",
-      "price": 9999,
-      "creationDate": "2024-09-16",
-      "expirationDate": "2024-09-18",
-      "userId": "2bf8",
-      "files": []
-    },
-    {
-      "id": "c12c",
-      "owner": "granTender",
-      "subject": "test",
-      "address": "test",
-      "price": 124,
-      "creationDate": "2024-09-17",
-      "expirationDate": "2024-09-19",
+      "id": "783a",
+      "owner": "rafail",
+      "subject": "asdfsgdhfjg",
+      "address": "sdvfdbgfnhgm",
+      "price": 4852,
+      "creationDate": "2024-09-18",
+      "expirationDate": "5485-05-06",
       "city": "Baku",
-      "userId": "3197",
+      "userId": "28cb",
       "files": []
     }
   ],
@@ -458,6 +447,18 @@
       "password": "123",
       "bookmarked": [
         "9973"
+      ]
+    },
+    {
+      "id": "28cb",
+      "name": "Nurlan",
+      "surname": "Mahmudov",
+      "email": "mahmudovnurlan301@gmail.com",
+      "age": "2000-09-11",
+      "password": "nurlan2001",
+      "bookmarked": [
+        "9973",
+        "c12c"
       ]
     }
   ]
