@@ -156,7 +156,7 @@ const CreateTender = () => {
                 </ul>
               )}
             </div>
-            <button type="submit">Əlavə et</button>
+            <button type="submit">{tenderToEdit ?  'Yenilənmə' : 'Əlavə et' }</button>
           </Form>
         )}
       </Formik>

@@ -142,8 +142,8 @@ function Cards({ userId, filterType }) {
                 <button className="tenders-list__detail tenders-list__button" onClick={() => goToDetails(tender.id)}>
                   Ətraflı
                 </button>
-                <button onClick={() => handleEditClick(tender)} style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
-                <button onClick={() => handleDeleteClick(tender.id)} style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
+                <button onClick={() => handleEditClick(tender)} style={{ display: (filterType === "created" && userId) ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
+                <button onClick={() => handleDeleteClick(tender.id)} style={{ display: (filterType === "created" && userId) ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
               </div>
             </div>
             <div onClick={() => handleBookmarkClick(tender.id)} className="tenders-list__save">

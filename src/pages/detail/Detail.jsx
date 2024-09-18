@@ -10,11 +10,15 @@ import { MdSubject } from "react-icons/md";
 import { RiMoneyEuroBoxFill } from "react-icons/ri";
 import Button from "react-bootstrap/Button";
 import { Container, Row, Col } from "react-bootstrap";
+import { useSelector } from "react-redux";
+
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const { id } = useParams();
+
+  const userId = useSelector((state) => state.user.user?.id)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -116,12 +120,14 @@ const Detail = () => {
                 <FaCalendarXmark className="detail-list__icon" />
                 {findTender.expirationDate}
               </p>
-              <Button
-                className="detail-list__apply mt-3"
-                onClick={!isLoading ? handleClick : null}
-              >
-                {isLoading ? "Loading…" : "Müraciət et"}
-              </Button>
+              {findTender.userId !== userId && (
+                <Button
+                  className="detail-list__apply mt-3"
+                  onClick={!isLoading ? handleClick : null}
+                >
+                  {isLoading ? "Loading…" : "Müraciət et"}
+                </Button>
+              )}
             </div>
           ) : (
             <p>No tender found</p>
