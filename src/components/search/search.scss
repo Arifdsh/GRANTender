@@ -16,7 +16,13 @@
   padding: 1% 1.5%;
   @include transition(0.3s);
 }
-
+.tendersHeading{
+  text-align: center;
+  margin-block: 50px;
+  text-decoration: underline !important;
+  color: $primary-color;
+  font-weight: bold;
+}
 .searchContainer {
   margin-top: 10px;
   margin-inline: 10%;
@@ -142,7 +148,7 @@
     .close2 {
       width: 50%;
     }
-
+    
     .searchReset {
       margin-top: 10px;
       height: 7vh;
@@ -151,6 +157,7 @@
 
       &:hover {
         background-color: $primary-colorLight;
+        color:$neutral-color-white;
       }
     }
 
@@ -247,6 +254,7 @@
   .searchContainer{
     .filter{
       .more{
+        margin-top: 5px;
         width:13%;
         height:9vh;
       }

@@ -1,5 +1,4 @@
 @import '../../styles/global';
-
 .profile-area {
   width: 100%;
   margin: 20px auto;
@@ -180,74 +179,53 @@
   }
 }
 
+@media (max-width: 1024px){
+  .profile-control-box{
+    .profile-tab{
+      padding:10px 6px;
+      font-size:0.9em;
+    }
+  }
+}
 @media (max-width: 768px) {
   .profile-area {
     flex-direction: column;
     padding:10px 0;
   }
   .profile-information-box {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
   }
 
-  .profile-decoration-top {
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 35%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    width: 25%
-  }
-  .profile-img img {
-    top: 0;
-    width: 120px;
-    height: 120px;
-  }
 
   .profile-name-box {
-    margin: 0;
+    margin: 70px 0 10px;
     width: 20%;
   }
 
-  .profile-name-box .profile-name {
-    margin: 0;
-  }
-
-  .profile-name-box .profile-company {
-    font-size: 1rem;
-  }
 
   .profile-notification-box {
-    width: 40%;
-
+    width: 50%;
     li {
-      margin: 0;
       padding: 5px;
     }
   }
 
   .profile-edit-box {
     margin: 0;
-    width: 15%;
+    width: 50%;
   }
 
   .profile-edit-btn {
-    width: 80%;
+    width: 100%;
   }
 
   .profile-tabs {
     flex-direction: column;
     align-items: center;
-  }
-
-  .profile-cancel-btn {
-    width: auto;
+    padding:30px;
   }
   .profile-control-box{
-    padding-top:20px;
+    padding:20px;
     width:100%;
     margin:0;
     .profile-tab{
@@ -260,22 +238,11 @@
     }
   }
 }
-
 @media (max-width: 480px) {
-  .profile-notification-box {
-    display: none;
-  }
-  .profile-decoration-top{
-    width:35%;
+  .profile-notification-box{
+    width:90%;
   }
   .profile-name-box{
     width:40%;
-  }
-  .profile-img img{
-    width:50px;
-    height:50px;
-  }
-  .profile-edit-box{
-    width:25%;
   }
 }

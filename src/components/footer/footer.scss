@@ -8,11 +8,16 @@
 }
 .footer {
     position: relative;
-
+    &__heading{
+        text-align: center;
+        padding:10px;
+        font-weight: bold;
+        font-family: "dancing_in_the_rainbow";
+        font-size:4em; 
+    }
     &__top {
-        height: 25vh;
+        height: 190px;
         background-color: $primary-color;
-
     }
 
     &__bottom {
@@ -218,11 +223,14 @@
 @media screen and (max-width:767px) {
     .footer {
         &__top {
-            height: 90px;
+            height: 110px;
         }
-
+        &__heading{
+            padding:1px;
+            font-size:3em;
+        }
         .footer-cards {
-            top: 33%;
+            top: 45%;
             padding-left:0;
             &__item {
                 padding: 12px;
@@ -259,7 +267,7 @@
 
             &__link {
                 font-size:10px;
-                padding: 7px 5px;
+                padding: 2px 5px;
             }
         }
 
@@ -281,11 +289,11 @@
 @media screen and (max-width:1023px) and (min-width: 768px) {
     .footer {
         &__top {
-            height: 90px;
+            height: 140px;
         }
 
         .footer-cards {
-            top: 33%;
+            top: 51%;
 
             &__item {
                 width: 90px;
@@ -320,7 +328,7 @@
 
             &__link {
                 font-size: 15px;
-                padding: 7px 10px;
+                padding: 2px 10px;
             }
         }
 

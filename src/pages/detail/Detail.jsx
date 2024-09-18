@@ -6,11 +6,10 @@ import "../detail/detail.scss";
 import { useParams } from "react-router-dom";
 import { FaUserCircle, FaCalendarCheck } from "react-icons/fa";
 import { FaLocationDot, FaCalendarXmark } from "react-icons/fa6";
-import { GiMoneyStack } from "react-icons/gi";
+import { MdSubject } from "react-icons/md";
 import { RiMoneyEuroBoxFill } from "react-icons/ri";
 import Button from "react-bootstrap/Button";
-import ScrollToTop from "../../components/scrolltotop/ScrollToTop.jsx";
-
+import { Container, Row, Col } from "react-bootstrap";
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([]);
@@ -27,7 +26,7 @@ const Detail = () => {
           setData(response.data);
         } else {
           console.error("Unexpected data structure:", response.data);
-          setError("Unexpected data structure",);
+          setError("Unexpected data structure");
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -37,7 +36,6 @@ const Detail = () => {
 
     fetchData();
   }, [baseApiUrl]);
-
 
   const findTender = data.find((tender) => tender.id.toString() === id);
   console.log(findTender);
@@ -62,64 +60,64 @@ const Detail = () => {
     <div>
       <Navbar />
       <DarkLightMode />
-      <h1 className="d-flex align-items-center justify-content-center fw-bold text-decoration-underline my-5 detail-heading">
-        ƏTRAFLI
-      </h1>
-      <div className="container mb-5">
-        <div className="row">
-          <div className="col-lg-6 col-md-8 col-sm-12 ">
-            <img
-              src="/src/assets/image/velievcolor.png"
-              alt=""
-              className="border rounded-5"
-              style={{ width: "330px", height: "330px" }}
-            />
 
-            <div className="vertical-text my-2 w-50">
-              <p className="light-effect my-2">GRANTender</p>
+      <Container fluid className="detail mt-5 py-5">
+        <Row className="justify-content-center">
+          <Col xs={12} className="detail__heading">
+            <h2>Ətraflı</h2>
+          </Col>
+        </Row>
+        <Row className="detail-list justify-content-center align-items-center shadow">
+          <div className="detail-list__item detail-list__leftside">
+            <p className="detail-list__vertical detail-list__light-effect m-2 ">
+              GRANTENDER
+            </p>
+            <div className="detail-list__photo">
+              <img src="/src/assets/image/velievcolor.png" alt=" " />
             </div>
           </div>
           {findTender ? (
-            <div className="col-lg-3 col-md-12 col-sm-12 mb-3 mt-2">
-              <div className="mb-3">
-                <span className="border border-left border-primary border-2 me-2"></span>
-                <span className=" fw-bold fs-5">Elan sahibi</span>
-                <p className="ms-3 mt-2 mb-4">{findTender.owner}</p>
-              </div>
+            <div className="detail-list__item detail-list__rightside">
+              <h3 className="detail-list__title">Elan sahibi</h3>
+              <p className="detail-list__content">
+                <FaUserCircle className="detail-list__icon" />
+                {findTender.owner}
+              </p>
 
-              <div className="mb-3">
-                <span className="border border-left border-primary border-2 me-2"></span>
-                <span className="fw-bold fs-5">Elanın predmeti</span>
-                <p className="ms-3 mt-2 mb-4"> {findTender.subject}</p>
-              </div>
+              <h3 className="detail-list__title">Elanın predmeti</h3>
 
-              <div className="mb-3">
-                <span className="border border-left border-primary border-2 me-2"></span>
-                <span className=" fw-bold fs-5">Təşkilatın ünvanı</span>
-                <p className="ms-3 mt-2 mb-4"> {findTender.address}</p>
-              </div>
+              <p className="detail-list__content">
+                <MdSubject className="detail-list__icon" />
+                {findTender.subject}
+              </p>
 
-              <div className="mb-3">
-                <span className="border border-left border-primary border-2 me-2"></span>
-                <span className=" fw-bold fs-5">Ehtimal olunan qiyməti</span>
-                <p className="ms-3 mt-2 mb-4"> {findTender.price}</p>
-              </div>
+              <h3 className="detail-list__title">Təşkilatın ünvanı</h3>
+              <p className="detail-list__content">
+                <FaLocationDot className="detail-list__icon" />
+                {findTender.address}
+              </p>
 
-              <div className="mb-3">
-                <span className="border border-left border-primary border-2 me-2"></span>
-                <span className=" fw-bold fs-5">Elanın yaradılma tarixi</span>
-                <p className="ms-3 mt-2 mb-4"> {findTender.creationDate}</p>
-              </div>
+              <h3 className="detail-list__title">Ehtimal olunan qiyməti </h3>
+              <p className="detail-list__content">
+                <RiMoneyEuroBoxFill className="detail-list__icon" />
+                {findTender.price + " AZN"}
+              </p>
 
-              <div className="mb-3">
-                <span className="border border-left border-primary border-2 me-2"></span>
-                <span className=" fw-bold fs-5">Elanın bitmə tarixi</span>
-                <p className="ms-3 mt-2 mb-5"> {findTender.expirationDate}</p>
-              </div>
+              <h3 className="detail-list__title">
+                Elanın yaradılış tarixi ve vaxtı
+              </h3>
+              <p className="detail-list__content">
+                <FaCalendarCheck className="detail-list__icon" />
+                {findTender.creationDate}
+              </p>
 
+              <h3 className="detail-list__title">Elanın bitmə tarixi </h3>
+              <p className="detail-list__content">
+                <FaCalendarXmark className="detail-list__icon" />
+                {findTender.expirationDate}
+              </p>
               <Button
-                variant="primary"
-                className="w-100 fw-bold fs-5 mt-5"
+                className="detail-list__apply mt-3"
                 onClick={!isLoading ? handleClick : null}
               >
                 {isLoading ? "Loading…" : "Müraciət et"}
@@ -128,8 +126,8 @@ const Detail = () => {
           ) : (
             <p>No tender found</p>
           )}
-        </div>
-      </div>
+        </Row>
+      </Container>
     </div>
   );
 };

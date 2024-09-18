@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home/Home";
 import Detail from "./pages/detail/Detail";
@@ -10,8 +10,10 @@ import ScrollToTop from "./components/scrolltotop/ScrollToTop";
 import { useDispatch } from "react-redux";
 import { setLoggedInUser } from "./features/usersSlice.js";
 import { useEffect } from "react";
+import Navbar  from "../src/components/navbar/Navbar.jsx";
 const App = () => {
   const dispatch = useDispatch();
+ const location = useLocation()
 
   useEffect(() => {
     const savedUser = localStorage.getItem("loggedInUser");
@@ -22,16 +24,15 @@ const App = () => {
 
   return (
     <>
-      <Router>
         <ScrollToTop />
+        {location.pathname !== '/authorization' && <Navbar/>}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/detail/:id" element={<Detail />} />
           <Route path="/authorization" element={<Authorization />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
-        <Footer />
-      </Router>
+        {location.pathname !== "/authorization" && <Footer/>}
     </>
   );
 };

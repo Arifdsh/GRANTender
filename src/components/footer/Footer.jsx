@@ -10,8 +10,8 @@ import './footer.scss'
 const Footer = () => {
   return (
     <>
-    <footer className="footer">
-        <div className="footer__top"></div>
+    <footer className="footer" id='/footer.htm'>
+        <div className="footer__top"><h1 className="footer__heading">Bizimlə əlaqə</h1></div>
         <ul className="footer-cards">
             <li className="footer-cards__item footer-cards--telegram">
                 <Link className="footer-cards__link" target="_blank">

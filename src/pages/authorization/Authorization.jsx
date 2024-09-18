@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateUser, setLoggedInUser, fetchAllUsers } from '../../features/usersSlice.js';
 import Navbar from '../../components/navbar/Navbar.jsx';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { IoCloseCircle } from "react-icons/io5";
 import { IoIosLogIn } from "react-icons/io";
 import { MdOutlineDocumentScanner } from "react-icons/md";
@@ -13,6 +14,11 @@ import { MdOutlineDocumentScanner } from "react-icons/md";
 const Authorization = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loginError, setLoginError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const navigate = useNavigate();
 
@@ -87,7 +93,7 @@ const Authorization = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <section className='authorization'>
         <ul className="login">
           <li className="login__leftside">
@@ -96,8 +102,17 @@ const Authorization = () => {
           <li className="login__rightside">
             <form onSubmit={handleLogin} className="login__form">
               <input type="email" name="email" placeholder="Email" className="login__username input" />
-              <input type="password" name="password" placeholder="Password" className="login__password input" />
+              <div className="passwordArea">
+                <input type={showPassword ? "text" : "password"} name="password" placeholder="Password" className="login__password input" />
+                {!showPassword ? (
+                  <IoMdEyeOff className="eye closeEye" onClick={togglePasswordVisibility} />
+                ) : (
+                  <IoMdEye className="eye showEye" onClick={togglePasswordVisibility} />
+                )}
+                
+              </div>
               {loginError && <div className="error">{loginError}</div>}
+
               <button type="submit" className="login__logIn">Daxil ol</button>
               <a href="" className="login__forgetPassword">Şifrəni unutmusan?</a>
               <hr />
@@ -117,9 +132,16 @@ const Authorization = () => {
             {errors.email && touched.email && <div className='error'>{errors.email}</div>}
             <input name='age' className="register__dateTime input" type="date" placeholder="Birth date" value={values.age} onChange={handleChange} />
             {errors.age && touched.age && <div className='error'>{errors.age}</div>}
-            <input name='password' className="register__password input" type="password" placeholder=" Set password" value={values.password} onChange={handleChange} />
-            {errors.password && touched.password && <div className='error'>{errors.password}</div>}
-            <input name='confirmPassword' className="register__confirmPassword input" type="password" placeholder=" Confirm password" value={values.confirmPassword} onChange={handleChange} />
+            <div className="passwordArea">
+              <input name='password' className="register__password input" type={showPassword ? "text" : "password"} placeholder=" Set password" value={values.password} onChange={handleChange} />
+              {!showPassword ? (
+                  <IoMdEyeOff className="eye closeEye" onClick={togglePasswordVisibility} />
+                ) : (
+                  <IoMdEye className="eye showEye" onClick={togglePasswordVisibility} />
+                )}
+              {errors.password && touched.password && <div className='error'>{errors.password}</div>}
+            </div>
+            <input name='confirmPassword' className="register__confirmPassword input" type={showPassword ? "text" : "password"} placeholder=" Confirm password" value={values.confirmPassword} onChange={handleChange} />
             {errors.confirmPassword && touched.confirmPassword && <div className='error'>{errors.confirmPassword}</div>}
             <button type='submit' className="register__button">Qeydiyyat</button>
           </form>

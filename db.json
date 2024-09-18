@@ -5,7 +5,7 @@
       "owner": "'Su Meliorasiya Xidməti'Publik Hüquqi Şəxsi",
       "subject": "“Şərur rayonunun Məmmədsabir, Aşağı Aralıq, Yuxarı Aralıq, Qarxun, Muğancıq Mehrab, Muğancıq Müslüm, Xələc, Çərçiboğan, Çomaxtur və Arıbatan kəndlərinin su təchizatı və kanalizasiya sistemlərinin tikintisinin texniki-iqtisadi əsaslandırılma və layihə-smeta sənədlərinin hazırlanması” nın satınalınması",
       "address": "Naxçıvan şəhər Xətai məhəlləsi",
-      "price": "118.100,30 AZN",
+      "price": 118100,
       "imgUrl": "src/assets/image/crocuscolor.png",
       "creationDate": "09.09.2024 15:44",
       "expirationDate": "30.09.2024 17:00",
@@ -270,7 +270,10 @@
       "email": "dsds@ghgh",
       "age": "2000-02-02",
       "password": "123",
-      "bookmarked": []
+      "bookmarked": [
+        "4257",
+        "1116"
+      ]
     },
     {
       "id": "ca39",
@@ -372,14 +375,15 @@
       ]
     },
     {
-      "id": "5fcc",
+      "id": "28cb",
       "name": "Nurlan",
       "surname": "Mahmudov",
-      "email": "nurlanm@gmail.com",
-      "age": "2001-03-07",
-      "password": "123",
+      "email": "mahmudovnurlan301@gmail.com",
+      "age": "2000-09-11",
+      "password": "nurlan2001",
       "bookmarked": [
-        "1116"
+        "9973",
+        "c12c"
       ]
     }
   ]

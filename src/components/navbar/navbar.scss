@@ -27,7 +27,11 @@
     border-color: none !important;
 }
 .navList{
-    padding-left: 80px !important;
+    padding-left: 80px;
+}
+.personIcon{
+    width:25px;
+    height:25px;
 }
 .nav-item {
     a {
@@ -89,7 +93,7 @@
         }
     }
 }
-@media (max-width: 768px){
+@media (max-width: 1024px){
     .navList{
         padding-left:0;
     }

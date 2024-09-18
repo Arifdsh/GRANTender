@@ -1,7 +1,7 @@
 import React from 'react';
 import '../confirm/confirm.scss';
 import { IoCloseSharp } from "react-icons/io5";
-function confirm() {
+function Confirm() {
   return (
     <div className='confirmContainer'>
         <div className="confirmMain">
@@ -21,4 +21,4 @@ function confirm() {
   )
 }
 
-export default confirm
+export default Confirm
