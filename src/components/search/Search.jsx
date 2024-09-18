@@ -3,6 +3,8 @@ import { useState } from "react";
 import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
 import { IoIosSearch } from "react-icons/io";
 import { FiRefreshCcw } from "react-icons/fi";
+import { useDispatch } from "react-redux";
+import { setFilters, resetFilters } from "../../features/searchSlice";
 
 function Search() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,20 +15,36 @@ function Search() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
+  const dispatch = useDispatch()
+
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
-  const resetFilters = () => {
+  const handleSearch = () =>{
+    dispatch(
+      setFilters({
+        city,
+        all,
+        minPrice,
+        maxPrice,
+        startDate,
+        endDate,
+      })
+    )
+  }
+
+  const handleReset = () => {
+    dispatch(resetFilters());
     setCity("");
+    setAll("");
     setMinPrice("");
     setMaxPrice("");
     setStartDate("");
     setEndDate("");
-    setAll("");
   };
 
   return (
     <>
-    <h1 className="tendersHeading">TENDERLƏR</h1>
+    <h1 className="tendersHeading" id="/cards.htm">TENDERLƏR</h1>
       <div className="searchContainer">
         <div className="filter">
           <div className="myInput">
@@ -41,10 +59,10 @@ function Search() {
             )}
           </div>
           <div className="buttons">
-            <button>
+            <button onClick={handleSearch}>
               <IoIosSearch />
             </button>
-            <button onClick={resetFilters}>
+            <button onClick={handleReset}>
               <FiRefreshCcw  />
             </button>
           </div>

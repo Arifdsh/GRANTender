@@ -1,9 +1,10 @@
 @import '../../styles/global';
 
 .hero {
-    box-shadow: 0 0 5px $neutral-color-gray;
+    // box-shadow: 0 0 5px $neutral-color-gray;
+    background-image: linear-gradient(to right,$neutral-color-ultraLightGray ,$boxShadow-ultraLightPrimaryColor);
     margin-top:82px;
-    height: 80vh;
+    height: 100vh;
 
     .container {
         display: flex;

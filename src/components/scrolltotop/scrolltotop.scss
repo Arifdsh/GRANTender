@@ -6,7 +6,7 @@
 
 .icon-position {
   position: fixed;
-  bottom: 120px;
+  bottom: 100px;
   right: 25px;
   z-index: 20;
 }
@@ -20,7 +20,7 @@
   color: #fff;
   cursor: pointer;
   animation: movebtn 3s ease-in-out infinite;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.1s ease-in-out;
   &:hover {
     animation: none;
     background: #fff;
@@ -28,7 +28,7 @@
     border: 2px solid $primary-color;
 
     &::after {
-      content: " Yuxari";
+      content:"Yuxari";
     }
   }
 
