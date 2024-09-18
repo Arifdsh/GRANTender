@@ -4,7 +4,7 @@ import { FaBookmark, FaRegBookmark, FaCalendarCheck } from "react-icons/fa";
 import { FaCalendarXmark } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTender, fetchTenders } from "../../features/tendersSlice";
+import { deleteTender, fetchTenders, setTenderToEdit, showCreateTenderForm } from "../../features/tendersSlice";
 import { toggleBookmark } from '../../features/usersSlice.js'
 
 function Cards({ userId, filterType }) {
@@ -15,7 +15,7 @@ function Cards({ userId, filterType }) {
 
   const user = useSelector((state) => state.user.user);
   const tenders = useSelector((state) => state.tenders.tenders)
-  const searchFilters = useSelector((state)=> state.search)
+  const searchFilters = useSelector((state) => state.search)
 
   const filteredTenders = useMemo(() => {
     let result = tenders;
@@ -88,8 +88,13 @@ function Cards({ userId, filterType }) {
     navigate(`/detail/${id}`)
   }
 
-  const handelDeleteClick = (id)=>{
-     dispatch(deleteTender(id))
+  const handleDeleteClick = (id) => {
+    dispatch(deleteTender(id))
+  }
+
+  const handleEditClick = (tender) => {
+    dispatch(setTenderToEdit(tender))
+    dispatch(showCreateTenderForm())
   }
 
   return (
@@ -137,8 +142,8 @@ function Cards({ userId, filterType }) {
                 <button className="tenders-list__detail tenders-list__button" onClick={() => goToDetails(tender.id)}>
                   Ətraflı
                 </button>
-                <button style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
-                <button onClick={()=>handelDeleteClick(tender.id)} style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
+                <button onClick={() => handleEditClick(tender)} style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
+                <button onClick={() => handleDeleteClick(tender.id)} style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
               </div>
             </div>
             <div onClick={() => handleBookmarkClick(tender.id)} className="tenders-list__save">

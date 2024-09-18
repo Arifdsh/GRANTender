@@ -19,7 +19,7 @@ function Search() {
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
-  const handleSearch = () =>{
+  const handleSearch = () => {
     dispatch(
       setFilters({
         city,
@@ -63,7 +63,7 @@ function Search() {
               <IoIosSearch />
             </button>
             <button onClick={handleReset}>
-              <FiRefreshCcw  />
+              <FiRefreshCcw />
             </button>
           </div>
         </div>
@@ -72,48 +72,48 @@ function Search() {
         <div className="filterContainer">
           <div className="filterModal">
             <div className="cityAndPrice">
-            <p>Şəhər:</p>
-            <select value={city} onChange={(e) => setCity(e.target.value)}>
-              <option value="" disabled>
-                Seçim edin
-              </option>
-              <option value="Bakı">Bakı</option>
-              <option value="Cəlilabad">Cəlilabad</option>
-              <option value="Gəncə">Gəncə</option>
-              <option value="Kürdəmir">Kürdəmir</option>
-              <option value="Naxçıvan">Naxçıvan</option>
-              <option value="Zaqatala">Zaqatala</option>
-            </select>
-            <p className="priceP">Qiymət:</p>
-            <input
-              className="price"
-              type="number"
-              placeholder="Min"
-              value={minPrice}
-              onChange={(e) => setMinPrice(e.target.value)}
-            />
-            <input
-              className="price"
-              type="number"
-              placeholder="Max"
-              value={maxPrice}
-              onChange={(e) => setMaxPrice(e.target.value)}
-            />
+              <p>Şəhər:</p>
+              <select value={city} onChange={(e) => setCity(e.target.value)}>
+                <option value="" disabled>
+                  Seçim edin
+                </option>
+                <option value="Bakı">Bakı</option>
+                <option value="Cəlilabad">Cəlilabad</option>
+                <option value="Gəncə">Gəncə</option>
+                <option value="Kürdəmir">Kürdəmir</option>
+                <option value="Naxçıvan">Naxçıvan</option>
+                <option value="Zaqatala">Zaqatala</option>
+              </select>
+              <p className="priceP">Qiymət:</p>
+              <input
+                className="price"
+                type="number"
+                placeholder="Min"
+                value={minPrice}
+                onChange={(e) => setMinPrice(e.target.value)}
+              />
+              <input
+                className="price"
+                type="number"
+                placeholder="Max"
+                value={maxPrice}
+                onChange={(e) => setMaxPrice(e.target.value)}
+              />
             </div>
             <div className="dates">
-            <p className="dateP">Tarix:</p>
-            <input
-              type="date"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-            />
-            <input
-              type="date"
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-            />
+              <p className="dateP">Tarix:</p>
+              <input
+                type="date"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+              />
+              <input
+                type="date"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+              />
             </div>
-            
+
           </div>
           <div className="close">
             <div className="close1">
@@ -123,7 +123,7 @@ function Search() {
               <VscChevronUp className="upDown" onClick={toggleModal} />
             </div>
             <div className="close2">
-              <button className="searchReset" onClick={resetFilters}>
+              <button className="searchReset" onClick={handleReset}>
                 Axtarışı sıfırla
               </button>
             </div>
@@ -131,7 +131,7 @@ function Search() {
         </div>
       )}
     </>
-  );    
+  );
 }
 
 export default Search;

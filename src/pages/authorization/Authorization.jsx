@@ -41,7 +41,7 @@ const Authorization = () => {
     if (foundUser) {
       if (foundUser.password == loginData.password) {
         setLoginError('')
-        dispatch(setLoggedInUser({ name: foundUser.name, id: foundUser.id }));
+        dispatch(setLoggedInUser({ name: foundUser.name, id: foundUser.id, surname: foundUser.surname }));
         navigate("/")
       }
       else {
@@ -54,7 +54,6 @@ const Authorization = () => {
   }
 
   const openModal = (e) => {
-    //e.preventDefault();
     setIsModalOpen(true)
   }
 
@@ -147,7 +146,6 @@ const Authorization = () => {
             <button type='submit' className="register__button">Qeydiyyat</button>
           </form>
           <IoCloseCircle onClick={closeModal} className="close" />
-          {/* <button onClick={closeModal} className="close">Bağla</button> */}
         </div>
       </section>
     </div>

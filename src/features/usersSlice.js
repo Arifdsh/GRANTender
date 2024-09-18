@@ -20,9 +20,7 @@ export const updateUser = createAsyncThunk('user/updateUser', async (userData) =
 export const toggleBookmark = createAsyncThunk(
   'users/toggleBookmark',
   async ({ tenderId, userId }, { getState }) => {
-    const { user } = getState().user;
-
-    //if(!user || !user.id) return
+    const { user } = getState().user
 
     const updatedBookmarks = user.bookmarked.includes(tenderId)
       ? user.bookmarked.filter((id) => id !== tenderId)
@@ -47,9 +45,9 @@ const userSlice = createSlice({
   },
   reducers: {
     setLoggedInUser: (state, action) => {
-      const { name, id } = action.payload
-      state.user = { name, id, bookmarked: state.user.bookmarked || []  }
-      localStorage.setItem('loggedInUser', JSON.stringify({ name, id }))
+      const { name, id, surname } = action.payload
+      state.user = { name, id, surname, bookmarked: state.user.bookmarked || []  }
+      localStorage.setItem('loggedInUser', JSON.stringify({ name, id, surname }))
     },
     logout: (state) => {
       state.user = null;
@@ -76,7 +74,7 @@ const userSlice = createSlice({
       })
       .addCase(fetchAllUsers.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.users = action.payload; // Store the list of users in the state
+        state.users = action.payload; 
       })
       .addCase(fetchAllUsers.rejected, (state, action) => {
         state.status = 'failed';

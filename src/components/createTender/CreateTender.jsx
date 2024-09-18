@@ -1,14 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './createTender.scss'
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import validationSchema from './createTenderValidationSchema';
-import { useDispatch } from 'react-redux';
-import { createTender } from '../../features/tendersSlice.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearTenderToEdit, createTender, hideCreateTenderForm, updateTender } from '../../features/tendersSlice.js';
 
 const CreateTender = () => {
   const [files, setFiles] = useState([])
   const [errorMessage, setErrorMessage] = useState('')
+
+
   const dispatch = useDispatch()
+  const tenderToEdit = useSelector((state) => state.tenders.tenderToEdit)
+
+
+  const initialValues = tenderToEdit
+    ? { owner: tenderToEdit.owner, subject: tenderToEdit.subject, endDate: tenderToEdit.expirationDate, address: tenderToEdit.address, price: tenderToEdit.price, city: tenderToEdit.city, files: tenderToEdit.files }
+    : { owner: '', subject: '', endDate: '', address: '', price: '', city: '', files: [] };
+
 
   const handleFileChange = (event) => {
     const allowedTypes = [
@@ -37,12 +46,17 @@ const CreateTender = () => {
     setFiles(prevFiles => [...prevFiles, ...filteredFiles])
   }
 
+  const handleClose = () => {
+    dispatch(hideCreateTenderForm())
+    dispatch(clearTenderToEdit())
+  }
+
 
   return (
     <div className='ct-main-area'>
 
       <Formik
-        initialValues={{ owner: '', subject: '', endDate: '', address: '', price: '', city: '', files: [] }}
+        initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={(values, { resetForm }) => {
 
@@ -55,21 +69,30 @@ const CreateTender = () => {
             subject: values.subject,
             address: values.address,
             price: values.price,
-            creationDate: currentDate,
+            creationDate: tenderToEdit ? tenderToEdit.creationDate : currentDate,
             expirationDate: values.endDate,
             city: values.city,
             userId: userId,
             files: files,
           }
 
-          dispatch(createTender(newTender))
+          if (tenderToEdit) {
+            dispatch(updateTender({ id: tenderToEdit.id, updatedData: newTender }));
+            dispatch(clearTenderToEdit())
+            resetForm()
+            setFiles([])
+          } else {
+            dispatch(createTender(newTender))
+          }
 
           resetForm()
           setFiles([])
+          dispatch(hideCreateTenderForm())
         }}
       >
         {({ setFieldValue }) => (
           <Form className='ct-form'>
+            <button type='button' onClick={handleClose}>bagla</button>
             <div className='ct-input-holder'>
               <label htmlFor="owner">Elan sahibi:</label>
               <Field type="text" id="owner" name="owner" placeholder='Elan sahibi' />
@@ -84,11 +107,12 @@ const CreateTender = () => {
               <label htmlFor="city">Şəhər:</label>
               <Field as="select" id="city" name="city" className='ct-input-city'>
                 <option value="">Şəhər seçin</option>
-                <option value="Baku">Bakı</option>
-                <option value="Ganja">Gəncə</option>
-                <option value="Sumqayit">Sumqayıt</option>
-                <option value="Sheki">Şəki</option>
-                <option value="Shamakhi">Şamaxı</option>
+                <option value="Bakı">Bakı</option>
+                <option value="Cəlilabad">Cəlilabad</option>
+                <option value="Gəncə">Gəncə</option>
+                <option value="Kürdəmir">Kürdəmir</option>
+                <option value="Naxçıvan">Naxçıvan</option>
+                <option value="Zaqatala">Zaqatala</option>
               </Field>
               <ErrorMessage name="city" component="div" className="error" />
             </div>

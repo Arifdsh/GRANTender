@@ -1,25 +1,6 @@
 {
   "cards": [
     {
-      "id": "1",
-      "owner": "'Azərbaycan Respublikası Maliyyə Nazirliyinin Məlumat Hesablama Mərkəzi' Məhdud Məsuliyyətli Cəmiyyəti",
-      "subject": "AR Maliyyə Nazirliyinin 'Məlumat Hesablama Mərkəzi' MMC-nin xidmət göstərdiyi təşkilatlarda istismar olunan elektrotexniki avadanlıqlara ehtiyat hissələrinin satınalınması",
-      "address": "Bakı şəhəri Səməd Vurğun 135",
-      "price": 538000,
-      "imgUrl": "src/assets/image/azinterservicecolor.png",
-      "creationDate": "09.09.2024 15:48",
-      "expirationDate": "02.10.2024 18:00",
-      "files": [
-        {
-          "fileId": 1,
-          "fileName": "",
-          "fileType": "",
-          "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
-          "fileSize": ""
-        }
-      ]
-    },
-    {
       "id": "2",
       "owner": "'Su Meliorasiya Xidməti'Publik Hüquqi Şəxsi",
       "subject": "“Şərur rayonunun Məmmədsabir, Aşağı Aralıq, Yuxarı Aralıq, Qarxun, Muğancıq Mehrab, Muğancıq Müslüm, Xələc, Çərçiboğan, Çomaxtur və Arıbatan kəndlərinin su təchizatı və kanalizasiya sistemlərinin tikintisinin texniki-iqtisadi əsaslandırılma və layihə-smeta sənədlərinin hazırlanması” nın satınalınması",
@@ -37,106 +18,6 @@
           "fileSize": ""
         }
       ]
-    },
-    {
-      "id": "3",
-      "owner": "Zaqatala Rayon İcra Hakimiyyəti Başçısının Zaqatala Şəhət Ərazisi Üzrə Nümayəndəliyi",
-      "subject": "Zaqatala şəhər Aşıq Ələsgər və Həzi Aslanov küçələrində abadlıq işlərinin satın alınması",
-      "address": "M.Əsədov 5",
-      "price": 496030,
-      "imgUrl": "src/assets/image/elsevercolor.png",
-      "creationDate": "09.09.2024 15:31",
-      "expirationDate": "01.10.2024 17:00",
-      "files": [
-        {
-          "fileId": 1,
-          "fileName": "",
-          "fileType": "",
-          "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
-          "fileSize": ""
-        }
-      ]
-    },
-    {
-      "id": "4",
-      "owner": "“Qarabağ Dirçəliş Fondu” Publik Hüquqi Şəxsi",
-      "subject": "Nəqliyyat vasitəsinin satın alınması",
-      "address": "Bakı şəhəri, Nəsimi rayonu, Cəfər Cabbarlı küçəsi 609, Globus Business Center, 14-cü mərtəbə, Qarabağ Dirçəliş Fondu ofisi",
-      "price": 114678,
-      "imgUrl": "src/assets/image/eurooilcolor.png",
-      "creationDate": "09.09.2024 15:05",
-      "expirationDate": "17.09.2024 15:00",
-      "files": [
-        {
-          "fileId": 1,
-          "fileName": "",
-          "fileType": "",
-          "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
-          "fileSize": ""
-        }
-      ]
-    },
-    {
-      "id": "5",
-      "owner": "Kürdəmir Rayon İcra Hakimiyyəti",
-      "subject": "Kürdəmir rayonunda avtomobil yollarının təmiri işlərinin satın alınması",
-      "address": "M.Ə.Sabir küçəsi №15",
-      "price": 1350253,
-      "imgUrl": "src/assets/image/liderqrupcolor.png",
-      "creationDate": "09.09.2024 11:36",
-      "expirationDate": "08.10.2024 12:00",
-      "files": [
-        {
-          "fileId": 1,
-          "fileName": "",
-          "fileType": "",
-          "fileUrl": "http://localhost:5173/uploads/tender-proposal.pdf",
-          "fileSize": ""
-        }
-      ]
-    },
-    {
-      "id": "00b5",
-      "owner": "Agile Solution",
-      "subject": "Rafail ise goturmek",
-      "address": "Neriman nerimanov",
-      "price": 2000,
-      "creationDate": "2024-09-12",
-      "expirationDate": "2024-09-14",
-      "files": [
-        {}
-      ]
-    },
-    {
-      "id": "d9e6",
-      "owner": "Arif",
-      "subject": "is tapmaq",
-      "address": "jasldksdfs",
-      "price": 15000.01,
-      "creationDate": "2024-09-12",
-      "expirationDate": "2024-09-13",
-      "files": []
-    },
-    {
-      "id": "5b11",
-      "owner": "granTender",
-      "subject": "isi bitirmek",
-      "address": "asdasd",
-      "price": 1999,
-      "creationDate": "2024-09-13",
-      "expirationDate": "2024-09-15",
-      "files": []
-    },
-    {
-      "id": "8d36",
-      "owner": "1231",
-      "subject": "1233",
-      "address": "123",
-      "price": 123,
-      "creationDate": "2024-09-13",
-      "expirationDate": "2024-09-14",
-      "userId": "e6be",
-      "files": []
     },
     {
       "id": "4205",
@@ -161,83 +42,6 @@
       "files": []
     },
     {
-      "id": "fbac",
-      "owner": "Nurlan",
-      "subject": "Buiznes creation",
-      "address": "sdjfgkdjhfdjk",
-      "price": 10000000000,
-      "creationDate": "2024-09-14",
-      "expirationDate": "2024-09-17",
-      "userId": "381c",
-      "files": []
-    },
-    {
-      "id": "f1d6",
-      "owner": "sadgasdja",
-      "subject": "asjhgdgshjbfs",
-      "address": "fffffffffffffffffffffffffffffffff",
-      "price": 0.5,
-      "creationDate": "2024-09-14",
-      "expirationDate": "2024-09-15",
-      "userId": "381c",
-      "files": []
-    },
-    {
-      "id": "1cf7",
-      "owner": "44444444444444444",
-      "subject": "44444444444",
-      "address": "44444444444444",
-      "price": 444444444441,
-      "creationDate": "2024-09-15",
-      "expirationDate": "2024-09-16",
-      "userId": "e6be",
-      "files": []
-    },
-    {
-      "id": "90d9",
-      "owner": "rafail",
-      "subject": "redux isle",
-      "address": "fffffffffffffffffffffffffffffffff",
-      "price": 1,
-      "creationDate": "2024-09-15",
-      "expirationDate": "2024-09-16",
-      "userId": "e6be",
-      "files": []
-    },
-    {
-      "id": "8461",
-      "owner": "aaaaaaa",
-      "subject": "aaaaaa",
-      "address": "aaaaaaa",
-      "price": 111111,
-      "creationDate": "2024-09-15",
-      "expirationDate": "2024-09-17",
-      "userId": "8f87",
-      "files": []
-    },
-    {
-      "id": "4257",
-      "owner": "111111111",
-      "subject": "1111111111",
-      "address": "1111111",
-      "price": 111111,
-      "creationDate": "2024-09-15",
-      "expirationDate": "2024-09-16",
-      "userId": "2f5b",
-      "files": []
-    },
-    {
-      "id": "8959",
-      "owner": "rafail",
-      "subject": "asdasd",
-      "address": "ASsaa",
-      "price": 123,
-      "creationDate": "2024-09-15",
-      "expirationDate": "2024-09-17",
-      "userId": "3197",
-      "files": []
-    },
-    {
       "id": "d794",
       "owner": "kubik",
       "subject": "check",
@@ -249,26 +53,146 @@
       "files": []
     },
     {
-      "id": "0eb6",
-      "owner": "fuad",
-      "subject": "ZXx",
-      "address": "ZXZX",
-      "price": 121333,
+      "id": "9973",
+      "owner": "Gullu mmc",
+      "subject": "Biznes ",
+      "address": "Xalqlar dostlugu",
+      "price": 9999,
       "creationDate": "2024-09-16",
-      "expirationDate": "2024-09-12",
-      "userId": "8a53",
+      "expirationDate": "2024-09-18",
+      "userId": "2bf8",
       "files": []
     },
     {
-      "id": "783a",
-      "owner": "rafail",
-      "subject": "asdfsgdhfjg",
-      "address": "sdvfdbgfnhgm",
-      "price": 4852,
-      "creationDate": "2024-09-18",
-      "expirationDate": "5485-05-06",
+      "owner": "granTender",
+      "subject": "work",
+      "address": "test",
+      "price": 124,
+      "creationDate": "2024-09-17",
+      "expirationDate": "2024-09-19",
       "city": "Baku",
-      "userId": "28cb",
+      "userId": "3197",
+      "files": [],
+      "id": "c12c"
+    },
+    {
+      "owner": "work",
+      "subject": "i belive",
+      "address": "aaaaaaaaaaa",
+      "price": 11111111111111,
+      "creationDate": "2024-09-17",
+      "expirationDate": "2024-09-18",
+      "city": "Baku",
+      "userId": "3197",
+      "files": [],
+      "id": "8319"
+    },
+    {
+      "owner": "work",
+      "subject": "i belive you ",
+      "address": "aaaaaaaaaaa",
+      "price": 11111111111111,
+      "creationDate": "2024-09-17",
+      "expirationDate": "2024-09-18",
+      "city": "Baku",
+      "userId": "3197",
+      "files": [],
+      "id": "bb94"
+    },
+    {
+      "owner": "top",
+      "subject": "top jhfhgchcnfcjhchgv",
+      "address": "asda",
+      "price": 123122,
+      "creationDate": "2024-09-17",
+      "expirationDate": "2024-09-20",
+      "city": "Baku",
+      "userId": "3197",
+      "files": [],
+      "id": "75b8"
+    },
+    {
+      "owner": "top",
+      "subject": "up down",
+      "address": "asda",
+      "price": 123122,
+      "creationDate": "2024-09-18",
+      "expirationDate": "2024-09-20",
+      "city": "Baku",
+      "userId": "3197",
+      "files": [],
+      "id": "b4a6"
+    },
+    {
+      "owner": "Agile solution ",
+      "subject": "ehmed",
+      "address": "asfsfs",
+      "price": 10,
+      "creationDate": "2024-09-18",
+      "expirationDate": "2024-09-20",
+      "city": "Shamakhi",
+      "userId": "3197",
+      "files": [],
+      "id": "b347"
+    },
+    {
+      "id": "bbb3",
+      "owner": "Arif",
+      "subject": "Isle grantender",
+      "address": "fffffffffffffffffffffffffffffffff",
+      "price": 499,
+      "creationDate": "2024-09-18",
+      "expirationDate": "2024-09-19",
+      "city": "Baku",
+      "userId": "3197",
+      "files": []
+    },
+    {
+      "owner": "asdasd",
+      "subject": "mmmmmmmmmmmmmmmmm",
+      "address": "asdasd",
+      "price": 123123,
+      "creationDate": "2024-09-18",
+      "expirationDate": "2024-09-19",
+      "city": "Baku",
+      "userId": "5fcc",
+      "files": [],
+      "id": "537b"
+    },
+    {
+      "owner": "Redux",
+      "subject": "Candi iiiiiiiiiiiiiiiii",
+      "address": "aasdasd",
+      "price": 1232123,
+      "creationDate": "2024-09-18",
+      "expirationDate": "2024-09-19",
+      "city": "Baku",
+      "userId": "5fcc",
+      "files": [],
+      "id": "ef81"
+    },
+    {
+      "id": "ebe9",
+      "owner": "1231",
+      "subject": "qweasd",
+      "address": "sadasdas",
+      "price": 11111111,
+      "creationDate": "2024-09-18",
+      "expirationDate": "2024-09-19",
+      "city": "Baku",
+      "userId": "5fcc",
+      "files": []
+    },
+    {
+      "id": "1116",
+      "owner": "aaaaaaaaaaaaaa",
+      "subject": "aaaaaaaaaaaa",
+      "address": "aaaaaaa",
+      "price": 1111111111,
+      "creationDate": "2024-09-18",
+      "expirationDate": "2024-09-18",
+      "city": "Bakı",
+      "userId": "5fcc",
       "files": []
     }
   ],
@@ -347,7 +271,8 @@
       "age": "2000-02-02",
       "password": "123",
       "bookmarked": [
-        "4257"
+        "4257",
+        "1116"
       ]
     },
     {
