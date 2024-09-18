@@ -18,6 +18,17 @@ export const createTender = createAsyncThunk('tender/createTender', async (newTe
   return response.data
 })
 
+//Delete
+export const deleteTender = createAsyncThunk('tender/deleteTender', async (tenderId) => {
+  try {
+    await axios.delete(`http://localhost:5173/cards/${tenderId}`);
+    return tenderId; 
+  } catch (error) {
+    console.error('Failed to delete tender:', error);
+    throw error;
+  }
+});
+
 const tendersSlice = createSlice({
   name: 'tenders',
   initialState: {
@@ -44,6 +55,9 @@ const tendersSlice = createSlice({
       })
       .addCase(createTender.fulfilled, (state, action) => {
         state.tenders.push(action.payload);
+      })
+      .addCase(deleteTender.fulfilled, (state, action) => {
+        state.tenders = state.tenders.filter(tender => tender.id !== action.payload);
       })
   },
 })

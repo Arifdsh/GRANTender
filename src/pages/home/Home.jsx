@@ -13,7 +13,7 @@ const Home = () => {
       <DarkLightMode />
       <Hero />
       <Search />
-      <Cards />
+      <Cards filterType="all" />
       <OwlCarouselComp />
     </div>
   );

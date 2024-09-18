@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { useNavigate } from "react-router-dom";
 import { LiaSignInAltSolid } from "react-icons/lia";
 import { GoPersonFill } from "react-icons/go";
+import { RiLogoutCircleLine } from "react-icons/ri";
 import "./navbar.scss";
 
 function Header() {
@@ -13,13 +14,23 @@ function Header() {
   const navigate = useNavigate();
   const [homePage, setHomePage] = useState(false);
   const [profilePage, setProfilePage] = useState(false);
+  const [signInUpshow, setSignInUpShow] = useState(true);
+  const [logOut, setLogOut] = useState(true);
   const goToHomePage = () => {
     setHomePage(true);
     navigate("/");
   };
   const goToProfilePage = () => {
     setProfilePage(true);
+    setSignInUpShow(false);
     navigate("/profile");
+  };
+  const LogOut = () => {
+    setLogOut(false);
+    window.localStorage.removeItem("loggedInUser");
+    setProfilePage(false);
+    
+    navigate("/");
   };
 
   useEffect(() => {
@@ -112,7 +123,7 @@ function Header() {
             </Nav.Item>
           </Nav>
           <Nav className="my-2">
-            {!userName ? (
+            {!userName || !logOut ? (
               <>
                 <Button
                   onClick={() => navigate("/authorization")}
@@ -128,6 +139,12 @@ function Header() {
                   variant="outline-primary fw-bold fs-5 shadow-lg mx-5"
                 >
                   <GoPersonFill className="personIcon" /> {userName}
+                </Button>
+                <Button
+                  variant="outline-primary fw-bold fs-5 shadow-lg mx-5"
+                  onClick={LogOut}
+                >
+                  <RiLogoutCircleLine className="personIcon" /> Çıxış
                 </Button>
               </>
             )}

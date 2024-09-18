@@ -21,6 +21,9 @@ export const toggleBookmark = createAsyncThunk(
   'users/toggleBookmark',
   async ({ tenderId, userId }, { getState }) => {
     const { user } = getState().user;
+
+    //if(!user || !user.id) return
+
     const updatedBookmarks = user.bookmarked.includes(tenderId)
       ? user.bookmarked.filter((id) => id !== tenderId)
       : [...user.bookmarked, tenderId]

@@ -49,7 +49,7 @@ const Authorization = () => {
   }
 
   const openModal = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     setIsModalOpen(true)
   }
 
