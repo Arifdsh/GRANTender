@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateUser, setLoggedInUser, fetchAllUsers } from '../../features/usersSlice.js';
 import Navbar from '../../components/navbar/Navbar.jsx';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { IoCloseCircle } from "react-icons/io5";
 import { IoIosLogIn } from "react-icons/io";
 import { MdOutlineDocumentScanner } from "react-icons/md";
@@ -97,8 +98,13 @@ const Authorization = () => {
           <li className="login__rightside">
             <form onSubmit={handleLogin} className="login__form">
               <input type="email" name="email" placeholder="Email" className="login__username input" />
-              <input type="password" name="password" placeholder="Password" className="login__password input" />
-              {loginError && <div className="error">{loginError}</div>}
+              <div className="passwordArea">
+                <input type="password" name="password" placeholder="Password" className="login__password input" />
+                <IoMdEye className='eye showEye' />
+                <IoMdEyeOff className='eye closeEye' />
+                {loginError && <div className="error">{loginError}</div>}
+              </div>
+
               <button type="submit" className="login__logIn">Daxil ol</button>
               <a href="" className="login__forgetPassword">Şifrəni unutmusan?</a>
               <hr />
@@ -118,13 +124,17 @@ const Authorization = () => {
             {errors.email && touched.email && <div className='error'>{errors.email}</div>}
             <input name='age' className="register__dateTime input" type="date" placeholder="Birth date" value={values.age} onChange={handleChange} />
             {errors.age && touched.age && <div className='error'>{errors.age}</div>}
-            <input name='password' className="register__password input" type="password" placeholder=" Set password" value={values.password} onChange={handleChange} />
-            {errors.password && touched.password && <div className='error'>{errors.password}</div>}
+            <div className="passwordArea">
+              <input name='password' className="register__password input" type="password" placeholder=" Set password" value={values.password} onChange={handleChange} />
+              <IoMdEye className='eye showEye' />
+              <IoMdEyeOff className='eye closeEye' />
+              {errors.password && touched.password && <div className='error'>{errors.password}</div>}
+            </div>
             <input name='confirmPassword' className="register__confirmPassword input" type="password" placeholder=" Confirm password" value={values.confirmPassword} onChange={handleChange} />
             {errors.confirmPassword && touched.confirmPassword && <div className='error'>{errors.confirmPassword}</div>}
             <button type='submit' className="register__button">Qeydiyyat</button>
           </form>
-          <IoCloseCircle onClick={closeModal} className="close"/>
+          <IoCloseCircle onClick={closeModal} className="close" />
           {/* <button onClick={closeModal} className="close">Bağla</button> */}
         </div>
       </section>
