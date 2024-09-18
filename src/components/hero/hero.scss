@@ -47,25 +47,23 @@
     animation: textChange 10s infinite;
   }
 
-@media screen and (max-width:1439px) and (min-width: 1024px){
-
+@media screen and (max-width:1024px) and (min-width: 768px){
+.hero{
+    &__content{
+        font-size: 1.1em;
+    }
+}
 }
 @media screen and (max-width:767px){
     .hero {
         height: 60vh;
-        &__content {
-            border-left: 3px solid $primary-color;
-            padding-left: 20px;
-            width: 60%;
-            font-size: 1em;
+        .container{
+            flex-direction: column;
         }
-    
-        &__photo {
-            width: 50%;
-    
-            img {
-                width: 100%;
-            }
+        &__content {
+            text-align: center;
+            width: 100%;
+            font-size: 1em;
         }
     }
 }
