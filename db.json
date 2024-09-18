@@ -378,7 +378,9 @@
       "email": "nurlanm@gmail.com",
       "age": "2001-03-07",
       "password": "123",
-      "bookmarked": []
+      "bookmarked": [
+        "1116"
+      ]
     }
   ]
 }
