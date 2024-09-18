@@ -129,8 +129,10 @@
       }
       &__vertical {
         z-index: 1;
-        writing-mode: vertical-rl;
-        text-orientation: upright;
+
+        // writing-mode: vertical-rl;
+        // text-orientation: upright;
+
         font-size: 14px;
         color: $neutral-color-white;
       }

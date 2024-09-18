@@ -29,7 +29,8 @@ function Header() {
     setLogOut(false);
     window.localStorage.removeItem("loggedInUser");
     setProfilePage(false);
-    setSignInUpShow(true);
+    
+    navigate("/");
   };
 
   useEffect(() => {
@@ -122,7 +123,7 @@ function Header() {
             </Nav.Item>
           </Nav>
           <Nav className="my-2">
-            {!userName && logOut ? (
+            {!userName || !logOut ? (
               <>
                 <Button
                   onClick={() => navigate("/authorization")}
