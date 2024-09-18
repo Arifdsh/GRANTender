@@ -2,13 +2,24 @@ import { createAsyncThunk, createSlice, createSelector } from "@reduxjs/toolkit"
 import axios from 'axios'
 
 //GET
-export const fetchTenders = createAsyncThunk('tender/fetchTenders', async () => {
+export const fetchTenders = createAsyncThunk('tender/fetchTenders', async (_, { dispatch }) => {
   try {
     const response = await axios.get('http://localhost:5173/cards');
-    return response.data.reverse()
+    const tenders = response.data.reverse()
+
+    const today = new Date().toISOString().split('T')[0];
+
+    tenders.forEach((tender) => {
+      if (tender.expirationDate && tender.expirationDate < today) {
+        dispatch(deleteTender(tender.id));
+      }
+    })
+
+    return tenders.filter(tender => !tender.expirationDate || tender.expirationDate >= today)
+
   } catch (error) {
     console.error('Failed to fetch tenders:', error);
-    return [];
+    return []
   }
 })
 
@@ -22,7 +33,7 @@ export const createTender = createAsyncThunk('tender/createTender', async (newTe
 export const deleteTender = createAsyncThunk('tender/deleteTender', async (tenderId) => {
   try {
     await axios.delete(`http://localhost:5173/cards/${tenderId}`);
-    return tenderId; 
+    return tenderId;
   } catch (error) {
     console.error('Failed to delete tender:', error);
     throw error;
@@ -72,7 +83,7 @@ const tendersSlice = createSlice({
       .addCase(fetchTenders.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.tenders = action.payload;
-        
+
       })
       .addCase(fetchTenders.rejected, (state, action) => {
         state.status = 'failed';
