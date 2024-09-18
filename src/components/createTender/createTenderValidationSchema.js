@@ -6,6 +6,7 @@ const validationSchema = Yup.object({
   endDate: Yup.date().required('Bitme tarixi is required').nullable(),
   address: Yup.string().required('Ünvan is required'),
   price: Yup.number().required('Qiymət is required').positive('Qiymət must be positive'),
+  city: Yup.string().required('Şəhər is required'),
   files: Yup.mixed().test('fileType', 'Only PDF, Word, and Excel files are allowed', (value) => {
     if (!value || value.length === 0) return true;
     return Array.from(value).every(file => 

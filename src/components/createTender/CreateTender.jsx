@@ -12,11 +12,11 @@ const CreateTender = () => {
 
   const handleFileChange = (event) => {
     const allowedTypes = [
-      'application/pdf', 
+      'application/pdf',
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
       'application/msword',
-      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 
-      'application/vnd.ms-excel', 
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      'application/vnd.ms-excel',
     ]
 
     const uploadedFiles = Array.from(event.target.files)
@@ -38,11 +38,11 @@ const CreateTender = () => {
   }
 
 
-  return ( 
+  return (
     <div className='ct-main-area'>
-       
+
       <Formik
-        initialValues={{ owner: '', subject: '', endDate: '', address: '', price: '', files: [] }}
+        initialValues={{ owner: '', subject: '', endDate: '', address: '', price: '', city: '', files: [] }}
         validationSchema={validationSchema}
         onSubmit={(values, { resetForm }) => {
 
@@ -51,14 +51,15 @@ const CreateTender = () => {
           const userId = user?.id || null
 
           const newTender = {
-             owner: values.owner,
-             subject: values.subject,
-             address: values.address,
-             price: values.price,
-             creationDate: currentDate,
-             expirationDate: values.endDate,
-             userId: userId,
-             files: files,
+            owner: values.owner,
+            subject: values.subject,
+            address: values.address,
+            price: values.price,
+            creationDate: currentDate,
+            expirationDate: values.endDate,
+            city: values.city,
+            userId: userId,
+            files: files,
           }
 
           dispatch(createTender(newTender))
@@ -78,6 +79,18 @@ const CreateTender = () => {
               <label htmlFor="subject">Elanin məqsədi:</label>
               <Field as="textarea" id="subject" name="subject" placeholder='Elanin məqsədi' />
               <ErrorMessage name="subject" component="div" className="error" />
+            </div>
+            <div className='ct-input-holder'>
+              <label htmlFor="city">Şəhər:</label>
+              <Field as="select" id="city" name="city" className='ct-input-city'>
+                <option value="">Şəhər seçin</option>
+                <option value="Baku">Bakı</option>
+                <option value="Ganja">Gəncə</option>
+                <option value="Sumqayit">Sumqayıt</option>
+                <option value="Sheki">Şəki</option>
+                <option value="Shamakhi">Şamaxı</option>
+              </Field>
+              <ErrorMessage name="city" component="div" className="error" />
             </div>
             <div className='ct-input-holder'>
               <label htmlFor="endDate">Bitmə tarixi:</label>
@@ -124,7 +137,7 @@ const CreateTender = () => {
         )}
       </Formik>
     </div>
-    
+
   )
 }
 
