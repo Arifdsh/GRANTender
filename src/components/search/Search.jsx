@@ -26,6 +26,7 @@ function Search() {
 
   return (
     <>
+    <h1 className="tendersHeading">TENDERLƏR</h1>
       <div className="searchContainer">
         <div className="filter">
           <div className="myInput">
