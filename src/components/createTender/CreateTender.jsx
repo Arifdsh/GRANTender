@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './createTender.scss'
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { IoCloseCircle } from "react-icons/io5";
 import validationSchema from './createTenderValidationSchema';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearTenderToEdit, createTender, hideCreateTenderForm, updateTender } from '../../features/tendersSlice.js';
@@ -54,7 +55,8 @@ const CreateTender = () => {
 
   return (
     <div className='ct-main-area'>
-
+      <button className='close' type='button' onClick={handleClose}>bagla</button>
+      <IoCloseCircle onClick={handleClose} className="close" />
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -92,7 +94,6 @@ const CreateTender = () => {
       >
         {({ setFieldValue }) => (
           <Form className='ct-form'>
-            <button type='button' onClick={handleClose}>bagla</button>
             <div className='ct-input-holder'>
               <label htmlFor="owner">Elan sahibi:</label>
               <Field type="text" id="owner" name="owner" placeholder='Elan sahibi' />

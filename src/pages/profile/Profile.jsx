@@ -64,8 +64,7 @@ const Profile = () => {
             </div>
           </div>
           <div className='profile-name-box'>
-            <p className='profile-name'>{profile.name || 'Ad'}</p>
-             <p className='profile-name'>{profile.surname || 'Soyad'}</p>
+            <p className='profile-name'>{profile.name || 'Ad'} {profile.surname || 'Soyad'}</p>
           </div>
           <div className='profile-notification-box'>
             <ul>

@@ -20,17 +20,6 @@
       ]
     },
     {
-      "id": "4205",
-      "owner": "ttttt",
-      "subject": "ttttttttt",
-      "address": "ttttt",
-      "price": 1111111111,
-      "creationDate": "2024-09-14",
-      "expirationDate": "2024-09-18",
-      "userId": "e6be",
-      "files": []
-    },
-    {
       "id": "e8c7",
       "owner": "arif",
       "subject": "Team lead",
@@ -39,28 +28,6 @@
       "creationDate": "2024-09-14",
       "expirationDate": "2024-09-23",
       "userId": "e6be",
-      "files": []
-    },
-    {
-      "id": "d794",
-      "owner": "kubik",
-      "subject": "check",
-      "address": "asdasdasd",
-      "price": 123121,
-      "creationDate": "2024-09-16",
-      "expirationDate": "2024-09-18",
-      "userId": "77c3",
-      "files": []
-    },
-    {
-      "id": "9973",
-      "owner": "Gullu mmc",
-      "subject": "Biznes ",
-      "address": "Xalqlar dostlugu",
-      "price": 9999,
-      "creationDate": "2024-09-16",
-      "expirationDate": "2024-09-18",
-      "userId": "2bf8",
       "files": []
     },
     {
@@ -74,30 +41,6 @@
       "userId": "3197",
       "files": [],
       "id": "c12c"
-    },
-    {
-      "owner": "work",
-      "subject": "i belive",
-      "address": "aaaaaaaaaaa",
-      "price": 11111111111111,
-      "creationDate": "2024-09-17",
-      "expirationDate": "2024-09-18",
-      "city": "Baku",
-      "userId": "3197",
-      "files": [],
-      "id": "8319"
-    },
-    {
-      "owner": "work",
-      "subject": "i belive you ",
-      "address": "aaaaaaaaaaa",
-      "price": 11111111111111,
-      "creationDate": "2024-09-17",
-      "expirationDate": "2024-09-18",
-      "city": "Baku",
-      "userId": "3197",
-      "files": [],
-      "id": "bb94"
     },
     {
       "owner": "top",
@@ -182,18 +125,6 @@
       "city": "Baku",
       "userId": "5fcc",
       "files": []
-    },
-    {
-      "id": "1116",
-      "owner": "aaaaaaaaaaaaaa",
-      "subject": "aaaaaaaaaaaa",
-      "address": "aaaaaaa",
-      "price": 1111111111,
-      "creationDate": "2024-09-18",
-      "expirationDate": "2024-09-18",
-      "city": "Bakı",
-      "userId": "5fcc",
-      "files": []
     }
   ],
   "user": [
@@ -272,7 +203,11 @@
       "password": "123",
       "bookmarked": [
         "4257",
-        "1116"
+        "1116",
+        "ebe9",
+        "ef81",
+        "537b",
+        "bbb3"
       ]
     },
     {

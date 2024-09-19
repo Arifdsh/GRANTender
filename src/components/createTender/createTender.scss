@@ -1,15 +1,36 @@
+@import "../../styles/global";
 .ct-main-area {
-    width: 50%;
+    width: 73%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2rem;
     background-color: #f9f9f9;
-    margin-left: 5%;
+    position: relative;
+    .close {
+        width: 40px;
+        height: 40px;
+        color: $neutral-color-white;
+        border: 1px solid $neutral-color-white;
+        border-radius: 3px;
+        position: absolute;
+        font-size: 1em;
+        top: 15px;
+        right: 15px;
+        z-index: 1;
+        background-color: $primary-color;
+        transition: 0.3s;
+        cursor: pointer;
 
+        &:hover {
+            background-color: $neutral-color-white;
+            color: $primary-color;
+            border-color: $primary-color;
+        }
+    }
     .ct-form {
         background-color: #fff;
-        padding: 2rem;
+        padding: 1rem;
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         max-width: 500px;
@@ -123,12 +144,12 @@
         width: 100%;
         margin-left: 0;
         margin-top: 20px;
-        padding: 0;
+        padding: 20px;
     }
 }
 
 @media (max-width: 480px) {
     .ct-main-area {
-        padding: 10px;
+        padding: 60px 10px;
     }
 }
