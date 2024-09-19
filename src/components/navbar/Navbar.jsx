@@ -29,7 +29,7 @@ const Header = () => {
     setLogOut(false);
     window.localStorage.removeItem("loggedInUser");
     setProfilePage(false);
-    
+
     navigate("/");
   };
 
@@ -65,7 +65,7 @@ const Header = () => {
             </Nav.Item>
 
             <Nav.Item>
-              {profilePage || homePage ? (
+              {!profilePage ? (
                 <>
                   <Nav.Link
                     eventKey="link-1"
@@ -89,7 +89,7 @@ const Header = () => {
               )}
             </Nav.Item>
             <Nav.Item>
-              {profilePage || homePage ? (
+              {!profilePage ? (
                 <>
                   <Nav.Link
                     eventKey="link-2"
@@ -136,12 +136,12 @@ const Header = () => {
               <>
                 <Button
                   onClick={goToProfilePage}
-                  variant="outline-primary fw-bold fs-5 shadow-lg mx-5"
+                  variant="outline-primary fw-bold fs-5 shadow-lg m-2"
                 >
                   <GoPersonFill className="personIcon" /> {userName}
                 </Button>
                 <Button
-                  variant="outline-primary fw-bold fs-5 shadow-lg mx-5"
+                  variant="outline-primary fw-bold fs-5 shadow-lg m-2"
                   onClick={LogOut}
                 >
                   <RiLogoutCircleLine className="personIcon" /> Çıxış
@@ -153,6 +153,6 @@ const Header = () => {
       </Container>
     </Navbar>
   );
-}
+};
 
 export default Header;

@@ -10,11 +10,16 @@ import { MdSubject } from "react-icons/md";
 import { RiMoneyEuroBoxFill } from "react-icons/ri";
 import Button from "react-bootstrap/Button";
 import { Container, Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import Apply from "../../components/apply/Apply.jsx";
+
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const { id } = useParams();
+  const navigate = useNavigate();
+  const [applyshow, setApplyShow] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,21 +45,9 @@ const Detail = () => {
   const findTender = data.find((tender) => tender.id.toString() === id);
   console.log(findTender);
 
-  const [isLoading, setLoading] = useState(false);
-
-  useEffect(() => {
-    function simulateNetworkRequest() {
-      return new Promise((resolve) => setTimeout(resolve, 2000));
-    }
-
-    if (isLoading) {
-      simulateNetworkRequest().then(() => {
-        setLoading(false);
-      });
-    }
-  }, [isLoading]);
-
-  const handleClick = () => setLoading(true);
+  const handleApplyClick = () => {
+    setApplyShow(true);
+  };
 
   return (
     <div>
@@ -69,7 +62,7 @@ const Detail = () => {
         </Row>
         <Row className="detail-list justify-content-center align-items-center shadow">
           <div className="detail-list__item detail-list__leftside">
-            <p className="detail-list__vertical detail-list__light-effect m-2 ">
+            <p className="detail-list__vertical detail-list__light-effect m-2">
               GRANTENDER
             </p>
             <div className="detail-list__photo">
@@ -85,7 +78,6 @@ const Detail = () => {
               </p>
 
               <h3 className="detail-list__title">Elanın predmeti</h3>
-
               <p className="detail-list__content">
                 <MdSubject className="detail-list__icon" />
                 {findTender.subject}
@@ -106,7 +98,7 @@ const Detail = () => {
                 {findTender.address}
               </p>
 
-              <h3 className="detail-list__title">Ehtimal olunan qiyməti </h3>
+              <h3 className="detail-list__title">Ehtimal olunan qiyməti</h3>
               <p className="detail-list__content">
                 <RiMoneyEuroBoxFill className="detail-list__icon" />
                 {findTender.price + " AZN"}
@@ -120,17 +112,20 @@ const Detail = () => {
                 {findTender.creationDate}
               </p>
 
-              <h3 className="detail-list__title">Elanın bitmə tarixi </h3>
+              <h3 className="detail-list__title">Elanın bitmə tarixi</h3>
               <p className="detail-list__content">
                 <FaCalendarXmark className="detail-list__icon" />
                 {findTender.expirationDate}
               </p>
+
               <Button
-                className="detail-list__apply mt-3"
-                onClick={!isLoading ? handleClick : null}
+                className="detail-list__apply my-3"
+                onClick={handleApplyClick}
               >
-                {isLoading ? "Loading…" : "Müraciət et"}
+                Müraciət et
               </Button>
+
+              {applyshow && <Apply />}
             </div>
           ) : (
             <p>No tender found</p>
