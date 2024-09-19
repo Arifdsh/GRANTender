@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './profileEdit.scss';
+import { IoCloseCircle } from "react-icons/io5";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUser, updateUser } from '../../../features/usersSlice';
 
@@ -57,6 +58,7 @@ const ProfileEdit = () => {
 
   return (
     <div className="edit-area">
+      <IoCloseCircle  className="close" />
       <h2> Profili Redaktə et</h2>
       <form onSubmit={handleSubmit} className="profile-edit-form">
         <div className="edit-input-group">

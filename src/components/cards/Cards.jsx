@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import "../cards/cards.scss";
 import { FaBookmark, FaRegBookmark, FaCalendarCheck } from "react-icons/fa";
 import { FaCalendarXmark } from "react-icons/fa6";
+import { LuSearchX } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTender, fetchTenders, setTenderToEdit, showCreateTenderForm } from "../../features/tendersSlice";
@@ -100,58 +101,69 @@ function Cards({ userId, filterType }) {
   return (
     <div className="tenders" >
       <ul className="tenders-list">
-        {currentTenders.map((tender) => (
-          <li key={tender.id} className="tenders-list__item">
-            <div className="tenders-list__photo">
-              <img src={tender.imgUrl} alt="" />
-            </div>
-            <div className="tenders-list__information">
-              <div className="tenders-list__owner">
-                <h6 className="tenders-list__heading">Elan sahibi</h6>
-                <p className="tenders-list__content">
-                  {tender.owner.length > 150
-                    ? `${tender.owner.slice(0, 150)}...`
-                    : tender.owner}
-                </p>
+        {currentTenders.length > 0 ? (
+          currentTenders.map((tender) => (
+            <li key={tender.id} className="tenders-list__item">
+              <div className="tenders-list__photo">
+                {tender.imgUrl ? (
+                  <img src={tender.imgUrl} alt="" />
+                ) : (
+                  <span>{tender.owner[0]}</span>
+                )}
               </div>
-              <div className="tenders-list__purpose">
-                <h6 className="tenders-list__heading">Elanın predmeti</h6>
-                <p className="tenders-list__content">
-                  {tender.subject.length > 150
-                    ? `${tender.subject.slice(0, 150)}...`
-                    : tender.subject}
-                </p>
-              </div>
-              <div className="tenders-list__activateTime">
-                <div className="tenders-list__createTime">
-                  <h6 className="tenders-list__heading">Elanın yaradılış tarixi</h6>
+              <div className="tenders-list__information">
+                <div className="tenders-list__owner">
+                  <h6 className="tenders-list__heading">Elan sahibi</h6>
                   <p className="tenders-list__content">
-                    <FaCalendarCheck className="calendar" />
-                    {tender.creationDate}
+                    {tender.owner.length > 150
+                      ? `${tender.owner.slice(0, 150)}...`
+                      : tender.owner}
                   </p>
                 </div>
-                <div className="tenders-list__expireTime">
-                  <h6 className="tenders-list__heading">Elan bitmə tarixi</h6>
+                <div className="tenders-list__purpose">
+                  <h6 className="tenders-list__heading">Elanın predmeti</h6>
                   <p className="tenders-list__content">
-                    <FaCalendarXmark className="calendar" />
-                    {tender.expirationDate}
+                    {tender.subject.length > 150
+                      ? `${tender.subject.slice(0, 150)}...`
+                      : tender.subject}
                   </p>
                 </div>
+                <div className="tenders-list__activateTime">
+                  <div className="tenders-list__createTime">
+                    <h6 className="tenders-list__heading">Elanın yaradılış tarixi</h6>
+                    <p className="tenders-list__content">
+                      <FaCalendarCheck className="calendar" />
+                      {tender.creationDate}
+                    </p>
+                  </div>
+                  <div className="tenders-list__expireTime">
+                    <h6 className="tenders-list__heading">Elan bitmə tarixi</h6>
+                    <p className="tenders-list__content">
+                      <FaCalendarXmark className="calendar" />
+                      {tender.expirationDate}
+                    </p>
+                  </div>
+                </div>
+                <div className="tenders-list__actions">
+                  <button className="tenders-list__detail tenders-list__button" onClick={() => goToDetails(tender.id)}>
+                    Ətraflı
+                  </button>
+                  <button onClick={() => handleEditClick(tender)} style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
+                  <button onClick={() => handleDeleteClick(tender.id)} style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
+                </div>
               </div>
-              <div className="tenders-list__actions">
-                <button className="tenders-list__detail tenders-list__button" onClick={() => goToDetails(tender.id)}>
-                  Ətraflı
-                </button>
-                <button onClick={() => handleEditClick(tender)} style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
-                <button onClick={() => handleDeleteClick(tender.id)} style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
+              <div onClick={() => handleBookmarkClick(tender.id)} className="tenders-list__save">
+                {isBookmarked(tender.id) ? <FaBookmark className="saveIcon" /> : <FaRegBookmark className="saveIcon" />}
               </div>
-            </div>
-            <div onClick={() => handleBookmarkClick(tender.id)} className="tenders-list__save">
-              {isBookmarked(tender.id) ? <FaBookmark className="saveIcon" /> : <FaRegBookmark className="saveIcon" />}
-            </div>
+            </li>
+          ))
+        ) : (
+          <li className="tenders-list__item tenders-list__notFound">
+            <LuSearchX className="searchX"/> Axtarışınıza uyğun nəticə tapılmadı
           </li>
-        ))}
+        )}
       </ul>
+
       {pageNumbers.length > 1 && (
         <div className="pagination">
           {pageNumbers.map((number) => (

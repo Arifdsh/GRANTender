@@ -11,9 +11,11 @@
     &__heading{
         text-align: center;
         padding:10px;
+        color:$secondary-color-gray;
+        text-shadow: 0 0 3px $neutral-color-white;
         font-weight: bold;
-        font-family: "dancing_in_the_rainbow";
-        font-size:4em; 
+        // font-family: "dancing_in_the_rainbow";
+        font-size:3.5em; 
     }
     &__top {
         height: 190px;
@@ -31,6 +33,7 @@
         justify-content: center;
         align-items: center;
         position: absolute;
+        padding-left:0;
         left: 50%;
         top: 50%;
         width: 100%;
@@ -227,7 +230,7 @@
         }
         &__heading{
             padding:1px;
-            font-size:3em;
+            font-size:2.5em;
         }
         .footer-cards {
             top: 45%;

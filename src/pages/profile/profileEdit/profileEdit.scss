@@ -10,6 +10,28 @@
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border:1px solid $borderColor-lightGray;
+    position:relative;
+    .close {
+        width: 40px;
+        height: 40px;
+        color: $neutral-color-white;
+        border: 1px solid $neutral-color-white;
+        border-radius: 3px;
+        position: absolute;
+        font-size: 1em;
+        top: 15px;
+        right: 15px;
+        z-index: 1;
+        background-color: $primary-color;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $neutral-color-white;
+            color: $primary-color;
+            border-color: $primary-color;
+        }
+    }
 
     h2 {
         text-align: center;
@@ -72,6 +94,7 @@
         }
     }
 }
+
 @media (max-width: 768px){
     .edit-area{
         width:100%;

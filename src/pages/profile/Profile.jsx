@@ -80,7 +80,6 @@ const Profile = () => {
         {showProfileEdit ? (
           <>
             <ProfileEdit />
-            <button onClick={handleEditCancel} className='profile-cancel-btn'>X</button>
           </>
         ) : !showCreateTender ? (
           <div className='profile-control-box'>
