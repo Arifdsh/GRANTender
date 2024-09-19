@@ -6,8 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTender, fetchTenders } from "../../features/tendersSlice";
 import { toggleBookmark } from '../../features/usersSlice.js'
+import { RiMoneyEuroBoxFill} from "react-icons/ri";
+import { MdLocationCity } from "react-icons/md";
 
-function Cards({ userId, filterType }) {
+const Cards = ({ userId, filterType })=> {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const navigate = useNavigate();
@@ -125,13 +127,28 @@ function Cards({ userId, filterType }) {
                     {tender.creationDate}
                   </p>
                 </div>
-                <div className="tenders-list__expireTime">
-                  <h6 className="tenders-list__heading">Elan bitmə tarixi</h6>
+                <div className="tenders-list__expireTime mrg">
+                  <h6 className="tenders-list__heading">Elanın bitmə tarixi</h6>
                   <p className="tenders-list__content">
                     <FaCalendarXmark className="calendar" />
                     {tender.expirationDate}
                   </p>
                 </div>
+                <div className="tenders-list__price mrg">
+                <h6 className="tenders-list__heading">Şəhər</h6>
+                <p className="tenders-list__content">
+                <MdLocationCity className="calendar" />
+                    {tender.city}
+                  </p>
+                </div>
+                <div className="tenders-list__city mrg">
+                <h6 className="tenders-list__heading">Qiymət</h6>
+                <p className="tenders-list__content">
+                <RiMoneyEuroBoxFill className="calendar"/>
+                    {tender.price + " AZN"}
+                  </p>
+                </div>
+
               </div>
               <div className="tenders-list__actions">
                 <button className="tenders-list__detail tenders-list__button" onClick={() => goToDetails(tender.id)}>

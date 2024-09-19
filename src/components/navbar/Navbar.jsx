@@ -9,7 +9,7 @@ import { GoPersonFill } from "react-icons/go";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import "./navbar.scss";
 
-function Header() {
+const Header = () => {
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
   const [homePage, setHomePage] = useState(false);

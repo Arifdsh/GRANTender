@@ -148,7 +148,7 @@
     .close2 {
       width: 50%;
     }
-
+    
     .searchReset {
       margin-top: 10px;
       height: 7vh;
@@ -157,6 +157,7 @@
 
       &:hover {
         background-color: $primary-colorLight;
+        color:$neutral-color-white;
       }
     }
 

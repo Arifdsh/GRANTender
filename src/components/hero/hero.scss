@@ -1,10 +1,9 @@
 @import '../../styles/global';
 
 .hero {
-    // box-shadow: 0 0 5px $neutral-color-gray;
-    background-image: linear-gradient(to right,$neutral-color-ultraLightGray ,$boxShadow-ultraLightPrimaryColor);
     margin-top:82px;
     height: 100vh;
+    background-image: linear-gradient(to right,$neutral-color-ultraLightGray,$boxShadow-ultraLightPrimaryColor);
 
     .container {
         display: flex;
@@ -25,10 +24,8 @@
             color: $primary-color;
         }
     }
-
     &__photo {
         width: 50%;
-
         img {
             width: 100%;
         }
@@ -49,123 +46,24 @@
     display: inline-block;
     animation: textChange 10s infinite;
   }
-// @keyframes slideInFromTop {
-//     0% {
-//       transform: translateY(-100%);
-//       opacity: 0;
-//     }
-//     100% {
-//       transform: translateY(0);
-//       opacity: 1;
-//     }
-//   }
 
-//   .hero__content span {
-//     display: inline-block;
-//     animation: slideInFromTop 1s ease-out infinite;
-//   }
-
-//   .hero__content span::after {
-//     width:600px;
-//     content: "yeni tərəfdaşlıqlar qazanın!";
-//     position: absolute;
-//     animation: textChange 10s infinite;
-//   }
-
-//   @keyframes textChange {
-//     0% { content: "yeni tərəfdaşlıqlar qazanın!"; }
-//     20% { content: "daha çox layihə qazanın!"; }
-//     40% { content: "uğura addımlayın!"; }
-//     60% { content: "müqavilələr bağlayın!"; }
-//     80% { content: "böyük fürsətlərdən yararlanın!"; }
-//     100% { content: "yeni tərəfdaşlıqlar qazanın!"; }
-//   }
-// @keyframes bounceIn {
-//     0% {
-//         transform: scale(0.3);
-//         opacity: 0;
-//     }
-
-//     20% {
-//         transform: scale(1.05);
-//         opacity: 1;
-//     }
-
-//     40% {
-//         transform: scale(1.05);
-//         opacity: 1;
-//     }
-
-//     60% {
-//         transform: scale(1.05);
-//         opacity: 1;
-//     }
-
-//     80% {
-//         transform: scale(0.9);
-//     }
-
-//     100% {
-//         transform: scale(1);
-//     }
-// }
-
-// .hero__content span {
-//     display: inline-block;
-//     animation: bounceIn 1s ease-in-out infinite;
-// }
-
-// .hero__content span::before {
-//     content: "yeni tərəfdaşlıqlar qazanın!";
-//     position: absolute;
-//     animation: textChange 10s infinite;
-// }
-
-// @keyframes textChange {
-//     0% {
-//         content: "yeni tərəfdaşlıqlar qazanın!";
-//     }
-
-//     20% {
-//         content: "daha çox layihə qazanın!";
-//     }
-
-//     40% {
-//         content: "uğura addımlayın!";
-//     }
-
-//     60% {
-//         content: "müqavilələr bağlayın!";
-//     }
-
-//     80% {
-//         content: "böyük fürsətlərdən yararlanın!";
-//     }
-
-//     100% {
-//         content: "yeni tərəfdaşlıqlar qazanın!";
-//     }
-// }
-
-@media screen and (max-width:1439px) and (min-width: 1024px){
-
+@media screen and (max-width:1024px) and (min-width: 768px){
+.hero{
+    &__content{
+        font-size: 1.1em;
+    }
+}
 }
 @media screen and (max-width:767px){
     .hero {
         height: 60vh;
-        &__content {
-            border-left: 3px solid $primary-color;
-            padding-left: 20px;
-            width: 60%;
-            font-size: 1em;
+        .container{
+            flex-direction: column;
         }
-    
-        &__photo {
-            width: 50%;
-    
-            img {
-                width: 100%;
-            }
+        &__content {
+            text-align: center;
+            width: 100%;
+            font-size: 1em;
         }
     }
 }

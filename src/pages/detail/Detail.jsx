@@ -73,7 +73,7 @@ const Detail = () => {
               GRANTENDER
             </p>
             <div className="detail-list__photo">
-              <img src="/src/assets/image/velievcolor.png" alt=" " />
+              <img src={"/"+findTender?.imgUrl} alt="" />
             </div>
           </div>
           {findTender ? (
@@ -91,6 +91,15 @@ const Detail = () => {
                 {findTender.subject}
               </p>
 
+
+              <h3 className="detail-list__title">Şəhər</h3>
+              <p className="detail-list__content">
+                <FaLocationDot className="detail-list__icon" />
+                {findTender.city}
+              </p>
+
+
+
               <h3 className="detail-list__title">Təşkilatın ünvanı</h3>
               <p className="detail-list__content">
                 <FaLocationDot className="detail-list__icon" />
@@ -104,7 +113,7 @@ const Detail = () => {
               </p>
 
               <h3 className="detail-list__title">
-                Elanın yaradılış tarixi ve vaxtı
+                Elanın yaradılış tarixi
               </h3>
               <p className="detail-list__content">
                 <FaCalendarCheck className="detail-list__icon" />
