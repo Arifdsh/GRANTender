@@ -9,7 +9,7 @@ import { GoPersonFill } from "react-icons/go";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import "./navbar.scss";
 
-function Header() {
+const Header = () => {
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
   const [homePage, setHomePage] = useState(false);
@@ -29,7 +29,7 @@ function Header() {
     setLogOut(false);
     window.localStorage.removeItem("loggedInUser");
     setProfilePage(false);
-    
+
     navigate("/");
   };
 
@@ -65,7 +65,7 @@ function Header() {
             </Nav.Item>
 
             <Nav.Item>
-              {!profilePage  ? (
+              {!profilePage ? (
                 <>
                   <Nav.Link
                     eventKey="link-1"
@@ -89,7 +89,7 @@ function Header() {
               )}
             </Nav.Item>
             <Nav.Item>
-              {!profilePage? (
+              {!profilePage ? (
                 <>
                   <Nav.Link
                     eventKey="link-2"
@@ -136,12 +136,12 @@ function Header() {
               <>
                 <Button
                   onClick={goToProfilePage}
-                  variant="outline-primary fw-bold fs-5 shadow-lg mx-3"
+                  variant="outline-primary fw-bold fs-5 shadow-lg m-2"
                 >
                   <GoPersonFill className="personIcon" /> {userName}
                 </Button>
                 <Button
-                  variant="outline-primary fw-bold fs-5 shadow-lg me-3"
+                  variant="outline-primary fw-bold fs-5 shadow-lg m-2"
                   onClick={LogOut}
                 >
                   <RiLogoutCircleLine className="personIcon" /> Çıxış
@@ -153,6 +153,6 @@ function Header() {
       </Container>
     </Navbar>
   );
-}
+};
 
 export default Header;
