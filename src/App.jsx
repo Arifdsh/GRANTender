@@ -11,7 +11,6 @@ import { useDispatch } from "react-redux";
 import { setLoggedInUser } from "./features/usersSlice.js";
 import { useEffect } from "react";
 import Navbar  from "../src/components/navbar/Navbar.jsx";
-import NotFound from "./pages/notFound/notFound.jsx";
 const App = () => {
   const dispatch = useDispatch();
  const location = useLocation()
@@ -26,16 +25,14 @@ const App = () => {
   return (
     <>
         <ScrollToTop />
-        {location.pathname !== '/authorization' || location.pathname !== '/*'  && <Navbar/>}
+        {location.pathname !== '/authorization' && <Navbar/>}
         <Routes>
-          <Route path="/*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           <Route path="/detail/:id" element={<Detail />} />
           <Route path="/authorization" element={<Authorization />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
-        {(location.pathname !== "/authorization" || location.pathname !== '/*') && <Footer/>}
-        
+        {location.pathname !== "/authorization" && <Footer/>}
     </>
   );
 };

@@ -51,7 +51,6 @@ const Detail = () => {
 
   return (
     <div>
-      <Navbar />
       <DarkLightMode />
 
       <Container fluid className="detail mt-5 py-5">
