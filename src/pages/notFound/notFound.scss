@@ -1,0 +1,11 @@
+@import "../../styles/global";
+.notFoundContainer{
+    height: 100vh;
+    text-align: center;
+    font-size: 200px;
+    background-color: $borderColor-lightGray;
+    color: $neutral-color-gray;
+    p{
+        font-size: 50px;
+    }
+}

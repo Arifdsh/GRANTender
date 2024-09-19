@@ -7,8 +7,10 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTender, fetchTenders, setTenderToEdit, showCreateTenderForm } from "../../features/tendersSlice";
 import { toggleBookmark } from '../../features/usersSlice.js'
+import { RiMoneyEuroBoxFill} from "react-icons/ri";
+import { MdLocationCity } from "react-icons/md";
 
-function Cards({ userId, filterType }) {
+const Cards = ({ userId, filterType })=> {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const navigate = useNavigate();
@@ -112,49 +114,64 @@ function Cards({ userId, filterType }) {
                 )}
               </div>
               <div className="tenders-list__information">
-                <div className="tenders-list__owner">
-                  <h6 className="tenders-list__heading">Elan sahibi</h6>
+              <div className="tenders-list__owner">
+                <h6 className="tenders-list__heading">Elan sahibi</h6>
+                <p className="tenders-list__content">
+                  {tender.owner.length > 150
+                    ? `${tender.owner.slice(0, 150)}...`
+                    : tender.owner}
+                </p>
+              </div>
+              <div className="tenders-list__purpose">
+                <h6 className="tenders-list__heading">Elanın predmeti</h6>
+                <p className="tenders-list__content">
+                  {tender.subject.length > 150
+                    ? `${tender.subject.slice(0, 150)}...`
+                    : tender.subject}
+                </p>
+              </div>
+              <div className="tenders-list__activateTime">
+                <div className="tenders-list__createTime">
+                  <h6 className="tenders-list__heading">Elanın yaradılış tarixi</h6>
                   <p className="tenders-list__content">
-                    {tender.owner.length > 150
-                      ? `${tender.owner.slice(0, 150)}...`
-                      : tender.owner}
+                    <FaCalendarCheck className="calendar" />
+                    {tender.creationDate}
                   </p>
                 </div>
-                <div className="tenders-list__purpose">
-                  <h6 className="tenders-list__heading">Elanın predmeti</h6>
+                <div className="tenders-list__expireTime mrg">
+                  <h6 className="tenders-list__heading">Elanın bitmə tarixi</h6>
                   <p className="tenders-list__content">
-                    {tender.subject.length > 150
-                      ? `${tender.subject.slice(0, 150)}...`
-                      : tender.subject}
+                    <FaCalendarXmark className="calendar" />
+                    {tender.expirationDate}
                   </p>
                 </div>
-                <div className="tenders-list__activateTime">
-                  <div className="tenders-list__createTime">
-                    <h6 className="tenders-list__heading">Elanın yaradılış tarixi</h6>
-                    <p className="tenders-list__content">
-                      <FaCalendarCheck className="calendar" />
-                      {tender.creationDate}
-                    </p>
-                  </div>
-                  <div className="tenders-list__expireTime">
-                    <h6 className="tenders-list__heading">Elan bitmə tarixi</h6>
-                    <p className="tenders-list__content">
-                      <FaCalendarXmark className="calendar" />
-                      {tender.expirationDate}
-                    </p>
-                  </div>
+                <div className="tenders-list__price mrg">
+                <h6 className="tenders-list__heading">Şəhər</h6>
+                <p className="tenders-list__content">
+                <MdLocationCity className="calendar" />
+                    {tender.city}
+                  </p>
                 </div>
-                <div className="tenders-list__actions">
-                  <button className="tenders-list__detail tenders-list__button" onClick={() => goToDetails(tender.id)}>
-                    Ətraflı
-                  </button>
-                  <button onClick={() => handleEditClick(tender)} style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
-                  <button onClick={() => handleDeleteClick(tender.id)} style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
+                <div className="tenders-list__city mrg">
+                <h6 className="tenders-list__heading">Qiymət</h6>
+                <p className="tenders-list__content">
+                <RiMoneyEuroBoxFill className="calendar"/>
+                    {tender.price + " AZN"}
+                  </p>
                 </div>
+
               </div>
-              <div onClick={() => handleBookmarkClick(tender.id)} className="tenders-list__save">
-                {isBookmarked(tender.id) ? <FaBookmark className="saveIcon" /> : <FaRegBookmark className="saveIcon" />}
+              <div className="tenders-list__actions">
+                <button className="tenders-list__detail tenders-list__button" onClick={() => goToDetails(tender.id)}>
+                  Ətraflı
+                </button>
+                <button style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
+                <button onClick={()=>handelDeleteClick(tender.id)} style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
               </div>
+            </div>
+            <div onClick={() => handleBookmarkClick(tender.id)} className="tenders-list__save">
+              {isBookmarked(tender.id) ? <FaBookmark className="saveIcon" /> : <FaRegBookmark className="saveIcon" />}
+            </div>
             </li>
           ))
         ) : (
