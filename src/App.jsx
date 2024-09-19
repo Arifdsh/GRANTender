@@ -34,7 +34,7 @@ const App = () => {
           <Route path="/authorization" element={<Authorization />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
-        {location.pathname !== "/authorization" || location.pathname !== '/*' && <Footer/>}
+        {(location.pathname !== "/authorization" || location.pathname !== '/*') && <Footer/>}
         
     </>
   );
