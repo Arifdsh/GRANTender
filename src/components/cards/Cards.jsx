@@ -2,12 +2,15 @@ import { useState, useEffect, useMemo } from "react";
 import "../cards/cards.scss";
 import { FaBookmark, FaRegBookmark, FaCalendarCheck } from "react-icons/fa";
 import { FaCalendarXmark } from "react-icons/fa6";
+import { LuSearchX } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTender, fetchTenders, setTenderToEdit, showCreateTenderForm } from "../../features/tendersSlice";
 import { toggleBookmark } from '../../features/usersSlice.js'
+import { RiMoneyEuroBoxFill} from "react-icons/ri";
+import { MdLocationCity } from "react-icons/md";
 
-function Cards({ filterType }) {
+const Cards = ({ filterType })=> {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const navigate = useNavigate();
@@ -99,12 +102,17 @@ function Cards({ filterType }) {
   return (
     <div className="tenders" >
       <ul className="tenders-list">
-        {currentTenders.map((tender) => (
-          <li key={tender.id} className="tenders-list__item">
-            <div className="tenders-list__photo">
-              <img src={tender.imgUrl} alt="" />
-            </div>
-            <div className="tenders-list__information">
+        {currentTenders.length > 0 ? (
+          currentTenders.map((tender) => (
+            <li key={tender.id} className="tenders-list__item">
+              <div className="tenders-list__photo">
+                {tender.imgUrl ? (
+                  <img src={tender.imgUrl} alt="" />
+                ) : (
+                  <span>{tender.owner[0]}</span>
+                )}
+              </div>
+              <div className="tenders-list__information">
               <div className="tenders-list__owner">
                 <h6 className="tenders-list__heading">Elan sahibi</h6>
                 <p className="tenders-list__content">
@@ -129,13 +137,28 @@ function Cards({ filterType }) {
                     {tender.creationDate}
                   </p>
                 </div>
-                <div className="tenders-list__expireTime">
-                  <h6 className="tenders-list__heading">Elan bitmə tarixi</h6>
+                <div className="tenders-list__expireTime mrg">
+                  <h6 className="tenders-list__heading">Elanın bitmə tarixi</h6>
                   <p className="tenders-list__content">
                     <FaCalendarXmark className="calendar" />
                     {tender.expirationDate}
                   </p>
                 </div>
+                <div className="tenders-list__price mrg">
+                <h6 className="tenders-list__heading">Şəhər</h6>
+                <p className="tenders-list__content">
+                <MdLocationCity className="calendar" />
+                    {tender.city}
+                  </p>
+                </div>
+                <div className="tenders-list__city mrg">
+                <h6 className="tenders-list__heading">Qiymət</h6>
+                <p className="tenders-list__content">
+                <RiMoneyEuroBoxFill className="calendar"/>
+                    {tender.price + " AZN"}
+                  </p>
+                </div>
+
               </div>
               <div className="tenders-list__actions">
                 <button className="tenders-list__detail tenders-list__button" onClick={() => goToDetails(tender.id)}>
@@ -148,9 +171,15 @@ function Cards({ filterType }) {
             <div onClick={() => handleBookmarkClick(tender.id)} className="tenders-list__save">
               {isBookmarked(tender.id) ? <FaBookmark className="saveIcon" /> : <FaRegBookmark className="saveIcon" />}
             </div>
+            </li>
+          ))
+        ) : (
+          <li className="tenders-list__item tenders-list__notFound">
+            <LuSearchX className="searchX"/> Axtarışınıza uyğun nəticə tapılmadı
           </li>
-        ))}
+        )}
       </ul>
+
       {pageNumbers.length > 1 && (
         <div className="pagination">
           {pageNumbers.map((number) => (

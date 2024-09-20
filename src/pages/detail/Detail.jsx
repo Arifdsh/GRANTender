@@ -10,59 +10,42 @@ import { MdSubject } from "react-icons/md";
 import { RiMoneyEuroBoxFill } from "react-icons/ri";
 import Button from "react-bootstrap/Button";
 import { Container, Row, Col } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import Apply from '../../components/apply/Apply.jsx'
+import { fetchTenders, selectAllTenders, setSelectedTenderId } from "../../features/tendersSlice.js";
 
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const { id } = useParams();
-
-  const userId = useSelector((state) => state.user.user?.id)
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(baseApiUrl);
-        console.log("Full API response:", response.data);
-
-        if (response.data && Array.isArray(response.data)) {
-          setData(response.data);
-        } else {
-          console.error("Unexpected data structure:", response.data);
-          setError("Unexpected data structure");
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setError("Error fetching data");
-      }
-    };
-
-    fetchData();
-  }, [baseApiUrl]);
-
-  const findTender = data.find((tender) => tender.id.toString() === id);
-  console.log(findTender);
-
-  const [isLoading, setLoading] = useState(false);
+  const userId = useSelector((state) => state.user.user?.id);
+  const navigate = useNavigate();
+  const [applyshow, setApplyShow] = useState(false);
+  const dispatch = useDispatch()
+  const tenders = useSelector(selectAllTenders)
+  
 
   useEffect(() => {
-    function simulateNetworkRequest() {
-      return new Promise((resolve) => setTimeout(resolve, 2000));
-    }
-
-    if (isLoading) {
-      simulateNetworkRequest().then(() => {
-        setLoading(false);
+    dispatch(fetchTenders())
+      .then(() => {
+      })
+      .catch((error) => {
+        console.error("Error fetching tenders:", error);
       });
-    }
-  }, [isLoading]);
+  }, [dispatch]);
 
-  const handleClick = () => setLoading(true);
+  const findTender = tenders.find((tender) => tender.id.toString() === id);
+  
+
+  const handleApplyClick = () => {
+    dispatch(setSelectedTenderId(findTender.id));
+    setApplyShow(true);
+  };
 
   return (
     <div>
-      <Navbar />
       <DarkLightMode />
 
       <Container fluid className="detail mt-5 py-5">
@@ -73,11 +56,11 @@ const Detail = () => {
         </Row>
         <Row className="detail-list justify-content-center align-items-center shadow">
           <div className="detail-list__item detail-list__leftside">
-            <p className="detail-list__vertical detail-list__light-effect m-2 ">
+            <p className="detail-list__vertical detail-list__light-effect m-2">
               GRANTENDER
             </p>
             <div className="detail-list__photo">
-              <img src="/src/assets/image/velievcolor.png" alt=" " />
+              <img src={"/"+findTender?.imgUrl} alt="" />
             </div>
           </div>
           {findTender ? (
@@ -89,11 +72,19 @@ const Detail = () => {
               </p>
 
               <h3 className="detail-list__title">Elanın predmeti</h3>
-
               <p className="detail-list__content">
                 <MdSubject className="detail-list__icon" />
                 {findTender.subject}
               </p>
+
+
+              <h3 className="detail-list__title">Şəhər</h3>
+              <p className="detail-list__content">
+                <FaLocationDot className="detail-list__icon" />
+                {findTender.city}
+              </p>
+
+
 
               <h3 className="detail-list__title">Təşkilatın ünvanı</h3>
               <p className="detail-list__content">
@@ -101,33 +92,29 @@ const Detail = () => {
                 {findTender.address}
               </p>
 
-              <h3 className="detail-list__title">Ehtimal olunan qiyməti </h3>
+              <h3 className="detail-list__title">Ehtimal olunan qiyməti</h3>
               <p className="detail-list__content">
                 <RiMoneyEuroBoxFill className="detail-list__icon" />
                 {findTender.price + " AZN"}
               </p>
 
               <h3 className="detail-list__title">
-                Elanın yaradılış tarixi ve vaxtı
+                Elanın yaradılış tarixi
               </h3>
               <p className="detail-list__content">
                 <FaCalendarCheck className="detail-list__icon" />
                 {findTender.creationDate}
               </p>
 
-              <h3 className="detail-list__title">Elanın bitmə tarixi </h3>
+              <h3 className="detail-list__title">Elanın bitmə tarixi</h3>
               <p className="detail-list__content">
                 <FaCalendarXmark className="detail-list__icon" />
                 {findTender.expirationDate}
               </p>
               {findTender.userId !== userId && (
-                <Button
-                  className="detail-list__apply mt-3"
-                  onClick={!isLoading ? handleClick : null}
-                >
-                  {isLoading ? "Loading…" : "Müraciət et"}
-                </Button>
+                <Button className="detail-list__apply mt-3" onClick={handleApplyClick} >Müraciət et</Button>
               )}
+              {applyshow && <Apply />}
             </div>
           ) : (
             <p>No tender found</p>

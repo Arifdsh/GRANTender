@@ -1,4 +1,5 @@
 @import '../../styles/global';
+
 .profile-area {
   width: 100%;
   margin: 20px auto;
@@ -6,11 +7,13 @@
   justify-content: space-between;
   margin-top: 82px;
   padding: 30px;
+  position: relative;
+  min-height: 90vh;
 }
 
 .profile-decoration-top {
   width: 100%;
-  padding-top: 10%;
+  padding-top: 5%;
   background-color: $primary-color;
   text-align: center;
   border-bottom-left-radius: 35%;
@@ -18,8 +21,11 @@
 }
 
 .profile-information-box {
+  position: sticky;
+  top: 112px;
+  z-index: 10;
   width: 25%;
-  max-height: 100%;
+  height: max-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,10 +46,11 @@
 
 .profile-name-box {
   text-align: center;
-  margin: 30% 0 10% 0;
+  margin: 18% 0 0;
   color: black;
 
   .profile-name {
+    padding-top: 10px;
     font-size: 1.5rem;
     font-weight: bold;
   }
@@ -56,17 +63,18 @@
 .profile-notification-box {
   width: 80%;
   background-color: $primary-color;
-  padding: 20px;
+  padding: 10px;
   align-items: center;
   border-radius: 8px;
 
   ul {
     padding: 0;
+    margin: 0;
   }
 
   li {
     list-style: none;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
   }
 }
 
@@ -76,14 +84,13 @@
   justify-content: center;
   align-items: center;
   margin-top: 7%;
-  padding:10px;
+  padding: 10px;
 }
 
 .profile-edit-btn {
   transition: 0.3s;
   padding: 5px;
   border: 1px solid $primary-color;
-  // width: 30%;
   border-radius: 3px;
   background-color: $primary-color;
   color: white;
@@ -98,15 +105,14 @@
 
 .profile-control-box {
   width: 73%;
-  // height: 100vh;
- // margin-left: 5%;
 
   .profile-tabs {
     list-style: none;
     display: flex;
     gap: 15px;
     padding: 0;
-    .profile-tab.active{
+
+    .profile-tab.active {
       background-color: $primary-color;
     }
   }
@@ -122,8 +128,8 @@
     cursor: pointer;
 
     &:hover {
-      background-color:$neutral-color-white;
-      color:$primary-color;
+      background-color: $neutral-color-white;
+      color: $primary-color;
     }
   }
 
@@ -136,8 +142,8 @@
     transition: background-color 0.3s;
 
     &:hover {
-      background-color:$neutral-color-white;
-      color:$primary-color;
+      background-color: $neutral-color-white;
+      color: $primary-color;
     }
   }
 
@@ -161,7 +167,8 @@
     background-color: #fafafa;
     border: 1px solid #ddd;
     border-radius: 5px;
-    .tenders{
+
+    .tenders {
       margin-inline: 0;
     }
   }
@@ -179,21 +186,131 @@
   }
 }
 
-@media (max-width: 1024px){
-  .profile-control-box{
-    .profile-tab{
-      padding:10px 6px;
-      font-size:0.9em;
+
+.appeal {
+  &-list {
+    padding: 10px;
+
+    &__item {
+      border: 1px solid $neutral-color-gray;
+      padding: 5px;
+      margin-bottom: 5px;
+    }
+
+    &__profile {
+      display: flex;
+      align-items: center;
+
+      &--box {
+        width: 60%;
+        display: flex;
+        align-items: center;
+      }
+
+      &--icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      &--name {
+        margin: 0;
+        font-size: 1em;
+        font-weight: bold;
+        padding-left: 15px;
+      }
+
+      &--tender {
+        width: 30%;
+        margin: 0;
+      }
+
+      &--detail {
+        border: none;
+        padding: 4px;
+        background-color: $primary-color;
+        color: $neutral-color-white;
+        border-radius: 3px;
+        width: 10%;
+        transition: 0.3s;
+
+        &:hover {
+          background-color: $primary-colorLight;
+        }
+      }
+    }
+
+    &__information {
+      height:0;
+      overflow: hidden;
+      transition:0.5s;
+      &.activeAccordion{
+        height:300px;
+      }
+    }
+
+    &__company {
+      padding:20px;
+      
+      &--title {
+        font-weight: bold;
+        font-size: 1.2em;
+        border-left: 3px solid $primary-color;
+        padding-left: 10px;
+        margin-top: 30px;
+      }
+
+      &--content {
+        font-size: 15px;
+        padding-left: 13px;
+      }
     }
   }
 }
+
+
+@media (max-width: 1024px) and (min-width:769px) {
+  .profile-decoration-top {
+    padding: 0;
+  }
+
+  .profile-name-box {
+    .profile-name {
+      padding-top: 10px;
+      font-size: 1em;
+    }
+  }
+
+  .profile-img img {
+    width: 150px;
+    height: 150px;
+    top: 30px;
+  }
+
+  .profile-notification-box {
+    li {
+      font-size: 0.9em;
+    }
+  }
+
+  .profile-control-box {
+    .profile-tab {
+      padding: 10px 6px;
+      font-size: 0.9em;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .profile-area {
     flex-direction: column;
-    padding:10px 0;
+    padding: 10px 0;
   }
+
   .profile-information-box {
+    position: static;
+    top: 0;
     width: 100%;
+    height: auto;
   }
 
 
@@ -205,6 +322,7 @@
 
   .profile-notification-box {
     width: 50%;
+
     li {
       padding: 5px;
     }
@@ -222,27 +340,32 @@
   .profile-tabs {
     flex-direction: column;
     align-items: center;
-    padding:30px;
+    padding: 30px;
   }
-  .profile-control-box{
-    padding:20px;
-    width:100%;
-    margin:0;
-    .profile-tab{
-      width:100%;
+
+  .profile-control-box {
+    padding: 20px;
+    width: 100%;
+    margin: 0;
+
+    .profile-tab {
+      width: 100%;
       text-align: center;
     }
-    .profile-add-tender{
-      margin:0;
-      order:-1;
+
+    .profile-add-tender {
+      margin: 0;
+      order: -1;
     }
   }
 }
+
 @media (max-width: 480px) {
-  .profile-notification-box{
-    width:90%;
+  .profile-notification-box {
+    width: 90%;
   }
-  .profile-name-box{
-    width:40%;
+
+  .profile-name-box {
+    width: 40%;
   }
 }

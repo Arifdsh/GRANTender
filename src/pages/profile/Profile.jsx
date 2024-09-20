@@ -9,6 +9,7 @@ import { clearTenderToEdit, fetchTenders, hideCreateTenderForm, showCreateTender
 import { checkLoggedInUser, fetchUser, loginUser, selectIsUserLoggedIn } from '../../features/usersSlice.js'
 import DarkLightMode from '../../components/navbar/DarkLightMode.jsx'
 import { useLocation, useNavigate } from 'react-router-dom'
+import ApplyCard from '../../components/applyCard/ApplyCard.jsx'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
@@ -78,7 +79,6 @@ const Profile = () => {
         {showProfileEdit ? (
           <>
             <ProfileEdit />
-            <button onClick={handleEditCancel} className='profile-cancel-btn'>X</button>
           </>
         ) : !showCreateTender ? (
           <div className='profile-control-box'>
@@ -94,12 +94,9 @@ const Profile = () => {
                 <Cards filterType="created" />
               </div>
               <div className={activeTab == 2 ? 'profile-active-content' : 'profile-content'}>
-                <h2>Lorem ipsum dolor sit amet.</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, ullam?</p>
               </div>
               <div className={activeTab == 3 ? 'profile-active-content' : 'profile-content'}>
-                <h2>Lorem ipsum dolor sit amet.</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis asperiores, sit illo ipsa fugiat facilis.</p>
+                <ApplyCard/>
               </div>
               <div className={activeTab == 4 ? 'profile-active-content' : 'profile-content'}>
                 <Cards filterType="bookmarked" />

@@ -45,7 +45,7 @@
         display: flex;
         height: 100vh;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
         margin:0 !important;
         padding:20px !important;
 
@@ -70,7 +70,12 @@
         }
 
         &__rightside {
-            width: 50%;
+            width: 370px;
+            background-color: $neutral-color-white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 3px 5px $neutral-color-gray;
+            text-align: center;
         }
 
         &__content {
@@ -84,11 +89,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            padding: 20px;
-            width: 370px;
-            border-radius: 10px;
-            box-shadow: 0px 3px 5px $neutral-color-gray;
-            background-color: $neutral-color-white;
 
         }
         &__logIn {
@@ -289,11 +289,6 @@
             flex-direction: column;
             flex-wrap: nowrap;
             justify-content: center;
-            align-items: center;
-
-            &__form {
-                width: 100%;
-            }
 
             &__leftside {
                 width: 100%;

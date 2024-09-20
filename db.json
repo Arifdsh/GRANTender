@@ -6,6 +6,7 @@
       "subject": "“Şərur rayonunun Məmmədsabir, Aşağı Aralıq, Yuxarı Aralıq, Qarxun, Muğancıq Mehrab, Muğancıq Müslüm, Xələc, Çərçiboğan, Çomaxtur və Arıbatan kəndlərinin su təchizatı və kanalizasiya sistemlərinin tikintisinin texniki-iqtisadi əsaslandırılma və layihə-smeta sənədlərinin hazırlanması” nın satınalınması",
       "address": "Naxçıvan şəhər Xətai məhəlləsi",
       "price": 118100,
+      "city": "Naxçıvan",
       "imgUrl": "src/assets/image/crocuscolor.png",
       "creationDate": "09.09.2024 15:44",
       "expirationDate": "30.09.2024 17:00",
@@ -125,6 +126,18 @@
       "city": "Gəncə",
       "userId": "3197",
       "files": []
+    },
+    {
+      "id": "011e",
+      "owner": "aaaaaaaa",
+      "subject": "aaaaaaaaaaaaaaa",
+      "address": "aaaaaaaaaaaaaa",
+      "price": 2222222222222219,
+      "creationDate": "2024-09-20",
+      "expirationDate": "2024-09-21",
+      "city": "Cəlilabad",
+      "userId": "3197",
+      "files": []
     }
   ],
   "user": [
@@ -206,8 +219,16 @@
       "password": "123",
       "bookmarked": [
         "4257",
-        "1116"
-      ]
+        "1116",
+        "ebe9",
+        "ef81",
+        "537b",
+        "bbb3",
+        "4393",
+        "19c5",
+        "d688"
+      ],
+      "loggedIn": false
     },
     {
       "id": "ca39",
@@ -337,6 +358,62 @@
       "bookmarked": [
         "a9f3"
       ]
+    }
+  ],
+  "applyList": [
+    {
+      "id": "eeb3",
+      "name": "rafail",
+      "description": "test",
+      "details": "test",
+      "userId": "",
+      "cardId": "",
+      "file": null
+    },
+    {
+      "id": "62ef",
+      "name": "Nurlan",
+      "description": "test",
+      "details": "test",
+      "userId": "",
+      "cardId": "",
+      "file": null
+    },
+    {
+      "id": "64a4",
+      "name": "d688",
+      "description": "zzzzzzzzzzzzz",
+      "details": "zzzzzzzzzzzzzz",
+      "userId": "",
+      "cardId": "d688",
+      "file": null
+    },
+    {
+      "id": "c97d",
+      "name": "Rafail",
+      "description": "ssssssssssss",
+      "details": "dfffffffffffffffff",
+      "userId": "",
+      "cardId": "d688",
+      "file": null
+    },
+    {
+      "id": "26c7",
+      "name": "5555555555555",
+      "description": "55555555555555555555",
+      "details": "55555555555555555",
+      "userId": "3197",
+      "cardId": "d688",
+      "file": null
+    },
+    {
+      "id": "2d0d",
+      "name": "sdkjfhsdkjhf",
+      "description": "shdgfhjsfd",
+      "details": "sdhgfshdf",
+      "userId": "3197",
+      "cardId": "d688",
+      "file": null
     }
   ]
 }

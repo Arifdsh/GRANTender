@@ -11,7 +11,7 @@ import "./navbar.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { checkLoggedInUser, logoutUser } from "../../features/usersSlice";
 
-function Header() {
+const Header = () => {
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
   const [homePage, setHomePage] = useState(false);
@@ -36,7 +36,6 @@ function Header() {
     setSignInUpShow(false);
     navigate("/profile");
   };
-
   const handleLogout = () => {
     if (loggedInUser) {
       dispatch(logoutUser(loggedInUser.id));
@@ -94,7 +93,7 @@ function Header() {
               )}
             </Nav.Item>
             <Nav.Item>
-              {!profilePage  ? (
+            {!profilePage  ? (
                 <>
                   <Nav.Link
                     eventKey="link-2"
@@ -141,7 +140,7 @@ function Header() {
               <>
                 <Button
                   onClick={goToProfilePage}
-                  variant="outline-primary fw-bold fs-5 shadow-lg mx-5"
+                  variant="outline-primary fw-bold fs-5 shadow-lg m-2"
                 >
                   <GoPersonFill className="personIcon" /> {loggedInUser.name}
                 </Button>
@@ -158,6 +157,6 @@ function Header() {
       </Container>
     </Navbar>
   );
-}
+};
 
 export default Header;
