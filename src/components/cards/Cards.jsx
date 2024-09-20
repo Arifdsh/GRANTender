@@ -56,6 +56,10 @@ const Cards = ({ filterType })=> {
       result = result.filter((tender) => user?.bookmarked?.includes(tender.id));
     }
 
+    if(filterType === "applied"){
+      result = result.filter((tender) => user?.applied?.includes(tender.id))
+    }
+
     return result;
   }, [tenders, user?.id, user?.bookmarked, searchFilters, filterType]);
 

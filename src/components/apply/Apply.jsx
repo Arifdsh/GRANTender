@@ -5,7 +5,7 @@ import './apply.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { submitApplyList } from '../../features/applySlice.js';
 import { selectSelectedTenderId } from '../../features/tendersSlice.js';
-import { checkLoggedInUser } from '../../features/usersSlice.js';
+import { applyForTender, checkLoggedInUser } from '../../features/usersSlice.js';
 
 const Apply = () => {
   const dispatch = useDispatch()
@@ -34,6 +34,7 @@ const Apply = () => {
     }
 
     dispatch(submitApplyList(formData))
+    dispatch(applyForTender({ userId: loggedInUser?.id, tenderId: selectedTenderId }))
     resetForm()
   }
 

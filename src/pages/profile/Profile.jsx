@@ -94,6 +94,7 @@ const Profile = () => {
                 <Cards filterType="created" />
               </div>
               <div className={activeTab == 2 ? 'profile-active-content' : 'profile-content'}>
+                <Cards filterType="applied"/>
               </div>
               <div className={activeTab == 3 ? 'profile-active-content' : 'profile-content'}>
                 <ApplyCard/>
