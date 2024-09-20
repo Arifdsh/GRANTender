@@ -10,7 +10,7 @@ import { toggleBookmark } from '../../features/usersSlice.js'
 import { RiMoneyEuroBoxFill} from "react-icons/ri";
 import { MdLocationCity } from "react-icons/md";
 
-const Cards = ({ userId, filterType })=> {
+const Cards = ({ filterType })=> {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Cards = ({ userId, filterType })=> {
   const searchFilters = useSelector((state) => state.search)
 
   const filteredTenders = useMemo(() => {
-    let result = tenders;
+    let result = tenders || [];
 
     if (filterType === "all") {
       if (searchFilters.city) {
@@ -49,20 +49,20 @@ const Cards = ({ userId, filterType })=> {
     }
 
     if (filterType === "created") {
-      result = result.filter((tender) => tender.userId === userId);
+      result = result.filter((tender) => tender.userId === user?.id);
     }
 
     if (filterType === "bookmarked") {
-      result = result.filter((tender) => user.bookmarked.includes(tender.id));
+      result = result.filter((tender) => user?.bookmarked?.includes(tender.id));
     }
 
     return result;
-  }, [tenders, userId, user?.bookmarked, searchFilters, filterType]);
+  }, [tenders, user?.id, user?.bookmarked, searchFilters, filterType]);
 
 
   useEffect(() => {
-    dispatch(fetchTenders());
-  }, [dispatch]);
+      dispatch(fetchTenders());
+  }, [dispatch, filterType]);
 
 
   const paginate = (items, currentPage, itemsPerPage) => {
@@ -79,13 +79,12 @@ const Cards = ({ userId, filterType })=> {
   }
 
   const handleBookmarkClick = (id) => {
-    dispatch(toggleBookmark({ tenderId: id, userId: user.id }));
+    if (user?.id) {
+      dispatch(toggleBookmark({ tenderId: id, userId: user.id }));
+    }
   }
 
-
-  const isBookmarked = (id) => {
-    return user?.bookmarked?.includes(id)
-  }
+  const isBookmarked = (id) => Array.isArray(user?.bookmarked) && user?.bookmarked.includes(id);
 
   const goToDetails = (id) => {
     navigate(`/detail/${id}`)
@@ -165,8 +164,8 @@ const Cards = ({ userId, filterType })=> {
                 <button className="tenders-list__detail tenders-list__button" onClick={() => goToDetails(tender.id)}>
                   Ətraflı
                 </button>
-                <button style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
-                <button onClick={()=>handelDeleteClick(tender.id)} style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
+                <button onClick={() => handleEditClick(tender)} style={{ display: (filterType === "created" && user.id) ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
+                <button onClick={() => handleDeleteClick(tender.id)} style={{ display: (filterType === "created" && user.id) ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
               </div>
             </div>
             <div onClick={() => handleBookmarkClick(tender.id)} className="tenders-list__save">

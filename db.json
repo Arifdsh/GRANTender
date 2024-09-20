@@ -56,7 +56,7 @@
       "id": "b4a6"
     },
     {
-      "owner": "Agile solution ",
+      "owner": "Agile solutionnn",
       "subject": "ehmed",
       "address": "asfsfs",
       "price": 10,
@@ -66,6 +66,66 @@
       "userId": "3197",
       "files": [],
       "id": "b347"
+    },
+    {
+      "id": "7ea2",
+      "owner": "rafail",
+      "subject": "sdfsdfsd",
+      "address": "asdasd",
+      "price": 1111111111111,
+      "creationDate": "2024-09-19",
+      "expirationDate": "2024-09-21",
+      "city": "Cəlilabad",
+      "userId": null,
+      "files": []
+    },
+    {
+      "id": "1c78",
+      "owner": "rafail",
+      "subject": "asdasd",
+      "address": "asdsad",
+      "price": 22222222,
+      "creationDate": "2024-09-19",
+      "expirationDate": "2024-09-21",
+      "city": "Cəlilabad",
+      "userId": null,
+      "files": []
+    },
+    {
+      "id": "bba6",
+      "owner": "rrrrrrrrrrrr",
+      "subject": "rrrrrrrrrr",
+      "address": "rrrrrr",
+      "price": 11111111,
+      "creationDate": "2024-09-19",
+      "expirationDate": "2024-09-20",
+      "city": "Bakı",
+      "userId": null,
+      "files": []
+    },
+    {
+      "id": "d688",
+      "owner": "555555555",
+      "subject": "5555555555",
+      "address": "555555555",
+      "price": 5555555555,
+      "creationDate": "2024-09-19",
+      "expirationDate": "2024-09-21",
+      "city": "Bakı",
+      "userId": null,
+      "files": []
+    },
+    {
+      "id": "19c5",
+      "owner": "rafail",
+      "subject": "asssssssssssss",
+      "address": "ssssssss",
+      "price": 22222222222222,
+      "creationDate": "2024-09-20",
+      "expirationDate": "2024-09-21",
+      "city": "Gəncə",
+      "userId": "3197",
+      "files": []
     }
   ],
   "user": [
@@ -125,7 +185,10 @@
       "email": "aaa@aaaa",
       "age": "1111-01-01",
       "password": "123",
-      "bookmarked": []
+      "bookmarked": [
+        "d688"
+      ],
+      "loggedIn": false
     },
     {
       "id": "f857",
@@ -148,8 +211,12 @@
         "ebe9",
         "ef81",
         "537b",
-        "bbb3"
-      ]
+        "bbb3",
+        "4393",
+        "19c5",
+        "d688"
+      ],
+      "loggedIn": false
     },
     {
       "id": "ca39",
@@ -202,9 +269,13 @@
       "email": "raf242@yandex.ru",
       "age": "1994-06-05",
       "password": "123",
+      "loggedIn": true,
       "bookmarked": [
         "8d36",
-        "c12c"
+        "c12c",
+        "bbb3",
+        "ebe9",
+        "d688"
       ]
     },
     {
@@ -214,6 +285,7 @@
       "email": "k@k",
       "age": "1111-11-11",
       "password": "123",
+      "loggedIn": false,
       "bookmarked": []
     },
     {
@@ -257,9 +329,22 @@
       "email": "mahmudovnurlan301@gmail.com",
       "age": "2000-09-11",
       "password": "nurlan2001",
+      "loggedIn": false,
       "bookmarked": [
         "9973",
         "c12c"
+      ]
+    },
+    {
+      "id": "b920",
+      "name": "rafael",
+      "surname": "abiyev",
+      "email": "rafael.2000@mail.ru",
+      "age": "2000-05-12",
+      "password": "123456",
+      "loggedIn": false,
+      "bookmarked": [
+        "a9f3"
       ]
     }
   ]

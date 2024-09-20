@@ -8,6 +8,8 @@ import { LiaSignInAltSolid } from "react-icons/lia";
 import { GoPersonFill } from "react-icons/go";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import "./navbar.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { checkLoggedInUser, logoutUser } from "../../features/usersSlice";
 
 const Header = () => {
   const [userName, setUserName] = useState("");
@@ -16,6 +18,15 @@ const Header = () => {
   const [profilePage, setProfilePage] = useState(false);
   const [signInUpshow, setSignInUpShow] = useState(true);
   const [logOut, setLogOut] = useState(true);
+
+  const dispatch = useDispatch()
+
+  const loggedInUser = useSelector((state)=>(state.user.user))
+
+  useEffect(()=>{
+     dispatch(checkLoggedInUser())
+  }, [dispatch])
+
   const goToHomePage = () => {
     setHomePage(true);
     navigate("/");
@@ -25,21 +36,14 @@ const Header = () => {
     setSignInUpShow(false);
     navigate("/profile");
   };
-  const LogOut = () => {
-    setLogOut(false);
-    window.localStorage.removeItem("loggedInUser");
-    setProfilePage(false);
-
-    navigate("/");
-  };
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem("loggedInUser");
-    if (storedUser) {
-      const user = JSON.parse(storedUser);
-      setUserName(user.name);
+  const handleLogout = () => {
+    if (loggedInUser) {
+      dispatch(logoutUser(loggedInUser.id));
+      localStorage.setItem('UserLoggedIn', false )
+      setProfilePage(false);
+      navigate("/");
     }
-  }, []);
+  };
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -89,7 +93,7 @@ const Header = () => {
               )}
             </Nav.Item>
             <Nav.Item>
-              {!profilePage ? (
+            {!profilePage  ? (
                 <>
                   <Nav.Link
                     eventKey="link-2"
@@ -123,7 +127,7 @@ const Header = () => {
             </Nav.Item>
           </Nav>
           <Nav className="my-2">
-            {!userName || !logOut ? (
+            {!loggedInUser || !logOut ? (
               <>
                 <Button
                   onClick={() => navigate("/authorization")}
@@ -138,11 +142,11 @@ const Header = () => {
                   onClick={goToProfilePage}
                   variant="outline-primary fw-bold fs-5 shadow-lg m-2"
                 >
-                  <GoPersonFill className="personIcon" /> {userName}
+                  <GoPersonFill className="personIcon" /> {loggedInUser.name}
                 </Button>
                 <Button
-                  variant="outline-primary fw-bold fs-5 shadow-lg m-2"
-                  onClick={LogOut}
+                  variant="outline-primary fw-bold fs-5 shadow-lg mx-5"
+                  onClick={handleLogout}
                 >
                   <RiLogoutCircleLine className="personIcon" /> Çıxış
                 </Button>

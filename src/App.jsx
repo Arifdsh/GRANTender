@@ -15,12 +15,6 @@ const App = () => {
   const dispatch = useDispatch();
  const location = useLocation()
 
-  useEffect(() => {
-    const savedUser = localStorage.getItem("loggedInUser");
-    if (savedUser) {
-      dispatch(setLoggedInUser(JSON.parse(savedUser)));
-    }
-  }, [dispatch]);
 
   return (
     <>

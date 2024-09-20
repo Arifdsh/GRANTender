@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import './profile.scss'
 import CreateTender from '../../components/createTender/CreateTender'
 import Navbar from '../../components/navbar/Navbar.jsx'
@@ -6,7 +6,7 @@ import ProfileEdit from './profileEdit/ProfileEdit.jsx'
 import Cards from '../../components/cards/Cards.jsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearTenderToEdit, fetchTenders, hideCreateTenderForm, showCreateTenderForm } from '../../features/tendersSlice.js'
-import { fetchUser } from '../../features/usersSlice.js'
+import { checkLoggedInUser, fetchUser, loginUser, selectIsUserLoggedIn } from '../../features/usersSlice.js'
 import DarkLightMode from '../../components/navbar/DarkLightMode.jsx'
 import { useLocation, useNavigate } from 'react-router-dom'
 import ApplyCard from '../../components/applyCard/ApplyCard.jsx'
@@ -14,58 +14,56 @@ import ApplyCard from '../../components/applyCard/ApplyCard.jsx'
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
   const [showProfileEdit, setShowProfileEdit] = useState(false)
-  const [localUserId, setLocalUserId] = useState(null)
-  const [profile, setProfile] = useState({ name: '', surname: '', picture: '' })
 
   const navigate = useNavigate()
   const location = useLocation()
   const dispatch = useDispatch()
 
   const showCreateTender = useSelector((state) => state.tenders.showCreateTender)
-  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
-
-
+  const loggedInUser = useSelector((state) => (state.user.user))
+  const userCheck = localStorage.getItem('UserLoggedIn')
+  
   useEffect(() => {
-
-    if (!loggedInUser) {
-      navigate("/authorization")
-      return
+    
+    if (!userCheck || userCheck === 'false') {
+      navigate('/authorization');
+    } else {
+      dispatch(fetchTenders());
+      dispatch(fetchUser(loggedInUser?.id));
+  
+      if (!location.state?.openCreateTender) {
+        dispatch(hideCreateTenderForm());
+        dispatch(clearTenderToEdit());
+      }
     }
+  }, [ navigate, location.state]);
 
-    dispatch(fetchTenders())
-    const user = JSON.parse(localStorage.getItem('loggedInUser'))
-    if (user) {
-      dispatch(fetchUser(user.id))
-      setLocalUserId(user.id)
-      setProfile({ name: user.name, surname: user.surname, picture: user.picture || '' })
-    }
 
-    if (!location.state || !location.state.openCreateTender) {
-      dispatch(hideCreateTenderForm());
-      dispatch(clearTenderToEdit())
-    }
+  const handleTabClick = useCallback((index) => setActiveTab(index), []);
+  const handleNavigate = useCallback(() => {
+    dispatch(showCreateTenderForm());
+  }, [dispatch]);
+  const handleProfileEdit = useCallback(() => {
+    dispatch(hideCreateTenderForm());
+  }, [dispatch]);
 
-  }, [dispatch, location.state])
-
-  const handleTabClick = (index) => setActiveTab(index)
-  const handleNavigate = () => dispatch(showCreateTenderForm())
-  const handleCancel = () => dispatch(hideCreateTenderForm())
-  const handleProfileEdit = () => setShowProfileEdit(true)
   const handleEditCancel = () => setShowProfileEdit(false)
 
+  
   return (
     <>
       <Navbar />
-      <DarkLightMode />
+      {/* <DarkLightMode /> */}
       <div className='profile-area'>
         <div className='profile-information-box'>
           <div className='profile-decoration-top'>
             <div className='profile-img'>
-              <img src={profile.picture} alt="" />
+              <img src={loggedInUser?.picture || ''} alt="" />
             </div>
           </div>
           <div className='profile-name-box'>
-            <p className='profile-name'>{profile.name || 'Ad'} {profile.surname || 'Soyad'}</p>
+            <p className='profile-name'>{loggedInUser?.name || 'Ad'}</p>
+            <p className='profile-name'>{loggedInUser?.surname || 'Soyad'}</p>
           </div>
           <div className='profile-notification-box'>
             <ul>
@@ -93,7 +91,7 @@ const Profile = () => {
             </ul>
             <div className='profile-content-tabs'>
               <div className={activeTab == 1 ? 'profile-active-content' : 'profile-content'}>
-                <Cards userId={localUserId} filterType="created" />
+                <Cards filterType="created" />
               </div>
               <div className={activeTab == 2 ? 'profile-active-content' : 'profile-content'}>
               </div>
@@ -101,8 +99,9 @@ const Profile = () => {
                 <ApplyCard/>
               </div>
               <div className={activeTab == 4 ? 'profile-active-content' : 'profile-content'}>
-                <Cards userId={localUserId} filterType="bookmarked" />
+                <Cards filterType="bookmarked" />
               </div>
+              {/* {profileContent} */}
             </div>
           </div>
         ) : (

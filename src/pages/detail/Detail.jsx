@@ -11,16 +11,15 @@ import { RiMoneyEuroBoxFill } from "react-icons/ri";
 import Button from "react-bootstrap/Button";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import Apply from "../../components/apply/Apply.jsx";
-
+import { useSelector } from "react-redux";
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const { id } = useParams();
+  const userId = useSelector((state) => state.user.user?.id);
   const navigate = useNavigate();
   const [applyshow, setApplyShow] = useState(false);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -116,7 +115,6 @@ const Detail = () => {
                 <FaCalendarXmark className="detail-list__icon" />
                 {findTender.expirationDate}
               </p>
-
               <Button
                 className="detail-list__apply my-3"
                 onClick={handleApplyClick}
