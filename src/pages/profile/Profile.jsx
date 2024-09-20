@@ -4,11 +4,12 @@ import CreateTender from '../../components/createTender/CreateTender'
 import Navbar from '../../components/navbar/Navbar.jsx'
 import ProfileEdit from './profileEdit/ProfileEdit.jsx'
 import Cards from '../../components/cards/Cards.jsx'
-import { useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { clearTenderToEdit, fetchTenders, hideCreateTenderForm, showCreateTenderForm } from '../../features/tendersSlice.js'
 import { fetchUser } from '../../features/usersSlice.js'
 import DarkLightMode from '../../components/navbar/DarkLightMode.jsx'
 import { useLocation, useNavigate } from 'react-router-dom'
+import ApplyCard from '../../components/applyCard/ApplyCard.jsx'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
@@ -20,7 +21,7 @@ const Profile = () => {
   const location = useLocation()
   const dispatch = useDispatch()
 
-  const showCreateTender = useSelector((state)=>state.tenders.showCreateTender)
+  const showCreateTender = useSelector((state) => state.tenders.showCreateTender)
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
 
 
@@ -95,15 +96,12 @@ const Profile = () => {
                 <Cards userId={localUserId} filterType="created" />
               </div>
               <div className={activeTab == 2 ? 'profile-active-content' : 'profile-content'}>
-                <h2>Lorem ipsum dolor sit amet.</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, ullam?</p>
               </div>
               <div className={activeTab == 3 ? 'profile-active-content' : 'profile-content'}>
-                <h2>Lorem ipsum dolor sit amet.</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis asperiores, sit illo ipsa fugiat facilis.</p>
+                <ApplyCard/>
               </div>
               <div className={activeTab == 4 ? 'profile-active-content' : 'profile-content'}>
-                <Cards userId={localUserId} filterType="bookmarked"/>
+                <Cards userId={localUserId} filterType="bookmarked" />
               </div>
             </div>
           </div>
