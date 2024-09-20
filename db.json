@@ -189,7 +189,7 @@
       "password": "123",
       "confirmPassword": "123",
       "bookmarked": [],
-      "loggedIn": true
+      "loggedIn": false
     },
     {
       "id": "381c",
@@ -282,7 +282,7 @@
       "email": "raf242@yandex.ru",
       "age": "1994-06-05",
       "password": "123",
-      "loggedIn": true,
+      "loggedIn": false,
       "bookmarked": [
         "8d36",
         "c12c",
