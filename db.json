@@ -31,18 +31,6 @@
       "files": []
     },
     {
-      "owner": "granTender",
-      "subject": "work",
-      "address": "test",
-      "price": 124,
-      "creationDate": "2024-09-17",
-      "expirationDate": "2024-09-19",
-      "city": "Baku",
-      "userId": "3197",
-      "files": [],
-      "id": "c12c"
-    },
-    {
       "owner": "top",
       "subject": "top jhfhgchcnfcjhchgv",
       "address": "asda",
@@ -77,54 +65,6 @@
       "userId": "3197",
       "files": [],
       "id": "b347"
-    },
-    {
-      "id": "bbb3",
-      "owner": "Arif",
-      "subject": "Isle grantender",
-      "address": "fffffffffffffffffffffffffffffffff",
-      "price": 499,
-      "creationDate": "2024-09-18",
-      "expirationDate": "2024-09-19",
-      "city": "Baku",
-      "userId": "3197",
-      "files": []
-    },
-    {
-      "owner": "asdasd",
-      "subject": "mmmmmmmmmmmmmmmmm",
-      "address": "asdasd",
-      "price": 123123,
-      "creationDate": "2024-09-18",
-      "expirationDate": "2024-09-19",
-      "city": "Baku",
-      "userId": "5fcc",
-      "files": [],
-      "id": "537b"
-    },
-    {
-      "owner": "Redux",
-      "subject": "Candi iiiiiiiiiiiiiiiii",
-      "address": "aasdasd",
-      "price": 1232123,
-      "creationDate": "2024-09-18",
-      "expirationDate": "2024-09-19",
-      "city": "Baku",
-      "userId": "5fcc",
-      "files": [],
-      "id": "ef81"
-    },
-    {
-      "id": "ebe9",
-      "owner": "1231",
-      "subject": "qweasd",
-      "address": "sadasdas",
-      "price": 11111111,
-      "creationDate": "2024-09-18",
-      "expirationDate": "2024-09-19",
-      "city": "Baku",
-      "userId": "5fcc",
-      "files": []
     }
   ],
   "user": [
