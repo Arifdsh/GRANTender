@@ -14,7 +14,8 @@
       &__profile {
         display: flex;
         align-items: center;
-  
+        justify-content: space-between;
+        background-color: $neutral-color-ultraLightGray;
         &--box {
           width: 60%;
           display: flex;
@@ -36,19 +37,22 @@
         &--tender {
           width: 30%;
           margin: 0;
+          padding-right:10px;
         }
   
         &--detail {
+          text-align: right;
+          width: 35px;
+          height:35px;
           border: none;
           padding: 4px;
-          background-color: $primary-color;
-          color: $neutral-color-white;
+          color: $primary-color;
           border-radius: 3px;
-          width: 10%;
           transition: 0.3s;
   
           &:hover {
-            background-color: $primary-colorLight;
+            cursor:pointer;
+            color:$primary-colorLight;
           }
         }
       }
@@ -80,3 +84,20 @@
       }
     }
   }
+
+@media (max-width: 767px){
+.appeal{
+    &-list{
+        &__profile{
+            &--box{
+                width:20%;
+            }
+            &--tender{
+                font-size:0.7em;
+                text-align: right;
+                width:70%;
+            }
+        }
+    }
+}
+}
