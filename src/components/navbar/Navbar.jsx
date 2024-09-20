@@ -49,7 +49,7 @@ const Header = () => {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
         <Navbar.Brand onClick={goToHomePage} className="py-0 my-0">
-          <img className="logo" src="/src/assets/logo-tender.png" alt="Logo" />
+          <img className="logo" src="/src/assets/image/logo-tender.png" alt="Logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse className="gap-5">

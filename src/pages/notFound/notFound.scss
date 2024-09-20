@@ -9,3 +9,13 @@
         font-size: 50px;
     }
 }
+@media (max-width:480px) {
+    .notFoundContainer{
+        .smile{
+            font-size: 180px;
+        }
+        p{
+            font-size: 40px;
+        }
+    }   
+}

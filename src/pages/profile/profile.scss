@@ -48,10 +48,14 @@
   text-align: center;
   margin: 18% 0 0;
   color: black;
+  width:100%;
+  display:flex;
+  justify-content: center;
 
   .profile-name {
     padding-top: 10px;
     font-size: 1.5rem;
+    margin-inline: 10px;
     font-weight: bold;
   }
 
@@ -185,7 +189,6 @@
     background-color: #599a5d;
   }
 }
-
 
 
 @media (max-width: 1024px) and (min-width:769px) {

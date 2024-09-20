@@ -116,15 +116,27 @@
       "files": []
     },
     {
-      "id": "19c5",
-      "owner": "rafail",
-      "subject": "asssssssssssss",
-      "address": "ssssssss",
-      "price": 22222222222222,
+      "id": "b303",
+      "owner": "Fuad Holding",
+      "subject": "Binaların tikintisi",
+      "address": "28 May",
+      "price": 100000000,
       "creationDate": "2024-09-20",
-      "expirationDate": "2024-09-21",
-      "city": "Gəncə",
-      "userId": "3197",
+      "expirationDate": "2024-10-16",
+      "city": "Baku",
+      "userId": "8234",
+      "files": []
+    },
+    {
+      "id": "8a73",
+      "owner": "svsdvdfsdsd",
+      "subject": "sddvsdv",
+      "address": "gfvdc",
+      "price": 86525,
+      "creationDate": "2024-09-20",
+      "expirationDate": "8658-05-04",
+      "city": "Ganja",
+      "userId": "28cb",
       "files": []
     }
   ],
@@ -330,22 +342,17 @@
       "email": "mahmudovnurlan301@gmail.com",
       "age": "2000-09-11",
       "password": "nurlan2001",
-      "loggedIn": false,
-      "bookmarked": [
-        "9973",
-        "c12c"
-      ]
+      "bookmarked": []
     },
     {
-      "id": "b920",
-      "name": "rafael",
-      "surname": "abiyev",
-      "email": "rafael.2000@mail.ru",
-      "age": "2000-05-12",
-      "password": "123456",
-      "loggedIn": false,
+      "id": "8234",
+      "name": "Fuad",
+      "surname": "Beybutov",
+      "email": "fuad@mail.ru",
+      "age": "1999-10-21",
+      "password": "asdf123",
       "bookmarked": [
-        "a9f3"
+        "3"
       ]
     }
   ]

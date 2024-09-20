@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="footer__top"><h1 className="footer__heading">Bizimlə əlaqə</h1></div>
         <ul className="footer-cards">
             <li className="footer-cards__item footer-cards--telegram">
-                <Link className="footer-cards__link" target="_blank">
+                <Link className="footer-cards__link">
                     <div className="footer-cards__logo">
                     <FaTelegram className="fab fa-telegram-plane" /> 
                     </div>
@@ -23,7 +23,7 @@ const Footer = () => {
                 </Link>
             </li>
             <li className="footer-cards__item footer-cards--whatsapp">
-                <Link className="footer-cards__link" target="_blank">
+                <Link className="footer-cards__link">
                     <div className="footer-cards__logo">
                     <FaWhatsapp className="fab fa-whatsapp"/>
                     </div>
@@ -32,7 +32,7 @@ const Footer = () => {
                 </Link>
             </li>
             <li className="footer-cards__item footer-cards--instagram">
-                <Link className="footer-cards__link" target="_blank">
+                <Link className="footer-cards__link">
                     <div className="footer-cards__logo">
                     <FaInstagram className="fab fa-instagram"/>
                     </div>
@@ -41,7 +41,7 @@ const Footer = () => {
                 </Link>
             </li>
             <li className="footer-cards__item footer-cards--facebook">
-                <Link className="footer-cards__link" target="_blank">
+                <Link className="footer-cards__link">
                     <div className="footer-cards__logo">
                     <FaFacebookF className="fab fa-facebook-f"/>
                     </div>
