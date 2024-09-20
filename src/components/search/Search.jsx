@@ -6,7 +6,7 @@ import { FiRefreshCcw } from "react-icons/fi";
 import { useDispatch } from "react-redux";
 import { setFilters, resetFilters } from "../../features/searchSlice";
 
-function Search() {
+const Search = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [city, setCity] = useState("");
   const [all, setAll] = useState("");

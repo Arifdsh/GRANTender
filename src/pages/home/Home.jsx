@@ -8,7 +8,6 @@ import DarkLightMode from "../../components/navbar/DarkLightMode.jsx";
 const Home = () => {  
   return (
     <div>
-      <Navbar />
       <DarkLightMode />
       <Hero />
       <Search />

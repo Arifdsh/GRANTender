@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, createSelector  } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const fetchUser = createAsyncThunk('user/fetchUser', async (userId) => {
@@ -34,69 +34,78 @@ export const toggleBookmark = createAsyncThunk(
   }
 );
 
+export const loginUser = createAsyncThunk('user/loginUser', async (userId) => {
+  const response = await axios.patch(`http://localhost:5173/user/${userId}`, { loggedIn: true });
+  return response.data;
+});
+
+export const checkLoggedInUser = createAsyncThunk('user/checkLoggedInUser', async () => {
+  const response = await axios.get('http://localhost:5173/user');
+  const loggedInUser = response.data.find((user) => user.loggedIn === true);
+  return loggedInUser || null;
+});
+
+export const logoutUser = createAsyncThunk('user/logoutUser', async (userId, { dispatch }) => {
+  await axios.patch(`http://localhost:5173/user/${userId}`, { loggedIn: false });
+  dispatch(clearUserState())
+});
+
+
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    user: {},
+    user: null,
     users:[],
     status: 'idle',
     error: null,
     bookmarked: [],
   },
   reducers: {
-    setLoggedInUser: (state, action) => {
-      const { name, id, surname } = action.payload
-      state.user = { name, id, surname, bookmarked: state.user.bookmarked || []  }
-      localStorage.setItem('loggedInUser', JSON.stringify({ name, id, surname }))
-    },
-    logout: (state) => {
+    clearUserState: (state) => {
       state.user = null;
-      localStorage.removeItem('loggedInUser')
+      state.bookmarked = [];
     },
   },
   extraReducers: (builder) => {
     builder
-      // Handle GET request
-      .addCase(fetchUser.pending, (state) => {
-        state.status = 'loading';
+       // Handle user login
+       .addCase(loginUser.fulfilled, (state, action) => {
+        state.user = action.payload;
       })
+      // Check for logged-in user during app initialization
+      .addCase(checkLoggedInUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+      })
+      // Handle user logout
+      .addCase(logoutUser.fulfilled, (state) => {
+        state.user = null;
+        state.bookmarked = [];
+      })
+      // Fetch user details
       .addCase(fetchUser.fulfilled, (state, action) => {
-        state.status = 'succeeded';
         state.user = action.payload;
       })
-      .addCase(fetchUser.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.error.message;
-      })
-       // Handle fetch all users
-       .addCase(fetchAllUsers.pending, (state) => {
-        state.status = 'loading';
-      })
+      // Fetch all users
       .addCase(fetchAllUsers.fulfilled, (state, action) => {
-        state.status = 'succeeded';
-        state.users = action.payload; 
+        state.users = action.payload;
       })
-      .addCase(fetchAllUsers.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.error.message;
-      })
-      // Handle POST request
-      .addCase(updateUser.pending, (state) => {
-        state.status = 'loading';
-      })
+      // Update user details
       .addCase(updateUser.fulfilled, (state, action) => {
-        state.status = 'succeeded';
         state.user = action.payload;
       })
-      .addCase(updateUser.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.error.message;
-      })
+      // Toggle bookmarks
       .addCase(toggleBookmark.fulfilled, (state, action) => {
-        state.user.bookmarked = action.payload.updatedBookmarks
+        state.user.bookmarked = action.payload.updatedBookmarks;
       });
   },
 });
 
-export const { setLoggedInUser, logout, addBookmark, removeBookmark } = userSlice.actions;
+
+
+export const selectIsUserLoggedIn = createSelector(
+  (state) => state.user,
+  (user) => user.loggedIn
+);
+
+export const { setLoggedInUser, addBookmark, removeBookmark, clearUserState,  } = userSlice.actions;
 export default userSlice.reducer

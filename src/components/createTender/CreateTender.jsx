@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './createTender.scss'
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { IoCloseCircle } from "react-icons/io5";
 import validationSchema from './createTenderValidationSchema';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearTenderToEdit, createTender, hideCreateTenderForm, updateTender } from '../../features/tendersSlice.js';
@@ -12,7 +13,7 @@ const CreateTender = () => {
 
   const dispatch = useDispatch()
   const tenderToEdit = useSelector((state) => state.tenders.tenderToEdit)
-
+  const loggedInUser = useSelector((state)=>(state.user.user))
 
   const initialValues = tenderToEdit
     ? { owner: tenderToEdit.owner, subject: tenderToEdit.subject, endDate: tenderToEdit.expirationDate, address: tenderToEdit.address, price: tenderToEdit.price, city: tenderToEdit.city, files: tenderToEdit.files }
@@ -54,15 +55,16 @@ const CreateTender = () => {
 
   return (
     <div className='ct-main-area'>
-
+      <button className='close' type='button' onClick={handleClose}>bagla</button>
+      <IoCloseCircle onClick={handleClose} className="close" />
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={(values, { resetForm }) => {
 
           const currentDate = new Date().toISOString().split('T')[0]
-          const user = JSON.parse(localStorage.getItem('loggedInUser'))
-          const userId = user?.id || null
+         
+          const userId = loggedInUser?.id || null
 
           const newTender = {
             owner: values.owner,
@@ -92,7 +94,6 @@ const CreateTender = () => {
       >
         {({ setFieldValue }) => (
           <Form className='ct-form'>
-            <button type='button' onClick={handleClose}>bagla</button>
             <div className='ct-input-holder'>
               <label htmlFor="owner">Elan sahibi:</label>
               <Field type="text" id="owner" name="owner" placeholder='Elan sahibi' />
@@ -156,7 +157,7 @@ const CreateTender = () => {
                 </ul>
               )}
             </div>
-            <button type="submit">Əlavə et</button>
+            <button type="submit">{tenderToEdit ?  'Yenilənmə' : 'Əlavə et' }</button>
           </Form>
         )}
       </Formik>

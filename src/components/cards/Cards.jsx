@@ -2,12 +2,15 @@ import { useState, useEffect, useMemo } from "react";
 import "../cards/cards.scss";
 import { FaBookmark, FaRegBookmark, FaCalendarCheck } from "react-icons/fa";
 import { FaCalendarXmark } from "react-icons/fa6";
+import { LuSearchX } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTender, fetchTenders, setTenderToEdit, showCreateTenderForm } from "../../features/tendersSlice";
 import { toggleBookmark } from '../../features/usersSlice.js'
+import { RiMoneyEuroBoxFill} from "react-icons/ri";
+import { MdLocationCity } from "react-icons/md";
 
-function Cards({ userId, filterType }) {
+const Cards = ({ filterType })=> {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const navigate = useNavigate();
@@ -18,7 +21,7 @@ function Cards({ userId, filterType }) {
   const searchFilters = useSelector((state) => state.search)
 
   const filteredTenders = useMemo(() => {
-    let result = tenders;
+    let result = tenders || [];
 
     if (filterType === "all") {
       if (searchFilters.city) {
@@ -46,20 +49,20 @@ function Cards({ userId, filterType }) {
     }
 
     if (filterType === "created") {
-      result = result.filter((tender) => tender.userId === userId);
+      result = result.filter((tender) => tender.userId === user?.id);
     }
 
     if (filterType === "bookmarked") {
-      result = result.filter((tender) => user.bookmarked.includes(tender.id));
+      result = result.filter((tender) => user?.bookmarked?.includes(tender.id));
     }
 
     return result;
-  }, [tenders, userId, user?.bookmarked, searchFilters, filterType]);
+  }, [tenders, user?.id, user?.bookmarked, searchFilters, filterType]);
 
 
   useEffect(() => {
-    dispatch(fetchTenders());
-  }, [dispatch]);
+      dispatch(fetchTenders());
+  }, [dispatch, filterType]);
 
 
   const paginate = (items, currentPage, itemsPerPage) => {
@@ -76,13 +79,12 @@ function Cards({ userId, filterType }) {
   }
 
   const handleBookmarkClick = (id) => {
-    dispatch(toggleBookmark({ tenderId: id, userId: user.id }));
+    if (user?.id) {
+      dispatch(toggleBookmark({ tenderId: id, userId: user.id }));
+    }
   }
 
-
-  const isBookmarked = (id) => {
-    return user?.bookmarked?.includes(id)
-  }
+  const isBookmarked = (id) => Array.isArray(user?.bookmarked) && user?.bookmarked.includes(id);
 
   const goToDetails = (id) => {
     navigate(`/detail/${id}`)
@@ -100,12 +102,17 @@ function Cards({ userId, filterType }) {
   return (
     <div className="tenders" >
       <ul className="tenders-list">
-        {currentTenders.map((tender) => (
-          <li key={tender.id} className="tenders-list__item">
-            <div className="tenders-list__photo">
-              <img src={tender.imgUrl} alt="" />
-            </div>
-            <div className="tenders-list__information">
+        {currentTenders.length > 0 ? (
+          currentTenders.map((tender) => (
+            <li key={tender.id} className="tenders-list__item">
+              <div className="tenders-list__photo">
+                {tender.imgUrl ? (
+                  <img src={tender.imgUrl} alt="" />
+                ) : (
+                  <span>{tender.owner[0]}</span>
+                )}
+              </div>
+              <div className="tenders-list__information">
               <div className="tenders-list__owner">
                 <h6 className="tenders-list__heading">Elan sahibi</h6>
                 <p className="tenders-list__content">
@@ -130,28 +137,49 @@ function Cards({ userId, filterType }) {
                     {tender.creationDate}
                   </p>
                 </div>
-                <div className="tenders-list__expireTime">
-                  <h6 className="tenders-list__heading">Elan bitmə tarixi</h6>
+                <div className="tenders-list__expireTime mrg">
+                  <h6 className="tenders-list__heading">Elanın bitmə tarixi</h6>
                   <p className="tenders-list__content">
                     <FaCalendarXmark className="calendar" />
                     {tender.expirationDate}
                   </p>
                 </div>
+                <div className="tenders-list__price mrg">
+                <h6 className="tenders-list__heading">Şəhər</h6>
+                <p className="tenders-list__content">
+                <MdLocationCity className="calendar" />
+                    {tender.city}
+                  </p>
+                </div>
+                <div className="tenders-list__city mrg">
+                <h6 className="tenders-list__heading">Qiymət</h6>
+                <p className="tenders-list__content">
+                <RiMoneyEuroBoxFill className="calendar"/>
+                    {tender.price + " AZN"}
+                  </p>
+                </div>
+
               </div>
               <div className="tenders-list__actions">
                 <button className="tenders-list__detail tenders-list__button" onClick={() => goToDetails(tender.id)}>
                   Ətraflı
                 </button>
-                <button onClick={() => handleEditClick(tender)} style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
-                <button onClick={() => handleDeleteClick(tender.id)} style={{ display: userId ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
+                <button onClick={() => handleEditClick(tender)} style={{ display: (filterType === "created" && user.id) ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
+                <button onClick={() => handleDeleteClick(tender.id)} style={{ display: (filterType === "created" && user.id) ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
               </div>
             </div>
             <div onClick={() => handleBookmarkClick(tender.id)} className="tenders-list__save">
               {isBookmarked(tender.id) ? <FaBookmark className="saveIcon" /> : <FaRegBookmark className="saveIcon" />}
             </div>
+            </li>
+          ))
+        ) : (
+          <li className="tenders-list__item tenders-list__notFound">
+            <LuSearchX className="searchX"/> Axtarışınıza uyğun nəticə tapılmadı
           </li>
-        ))}
+        )}
       </ul>
+
       {pageNumbers.length > 1 && (
         <div className="pagination">
           {pageNumbers.map((number) => (
