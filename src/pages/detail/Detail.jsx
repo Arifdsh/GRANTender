@@ -12,6 +12,7 @@ import Button from "react-bootstrap/Button";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Apply from "../../components/apply/Apply.jsx";
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([]);
@@ -64,7 +65,7 @@ const Detail = () => {
               GRANTENDER
             </p>
             <div className="detail-list__photo">
-              <img src={"/"+findTender?.imgUrl} alt="" />
+              <img src={"/" + findTender?.imgUrl} alt="" />
             </div>
           </div>
           {findTender ? (
@@ -115,14 +116,17 @@ const Detail = () => {
                 <FaCalendarXmark className="detail-list__icon" />
                 {findTender.expirationDate}
               </p>
-              <Button
-                className="detail-list__apply my-3"
-                onClick={handleApplyClick}
-              >
-                Müraciət et
-              </Button>
+              {findTender.userId !== userId && (
+                <Button
+                  className="detail-list__apply my-3"
+                  onClick={handleApplyClick}
+                >
+                  Müraciət et
+                </Button>
 
+              )}
               {applyshow && <Apply />}
+
             </div>
           ) : (
             <p>No tender found</p>
