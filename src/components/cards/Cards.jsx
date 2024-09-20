@@ -9,6 +9,7 @@ import { deleteTender, fetchTenders, setTenderToEdit, showCreateTenderForm } fro
 import { toggleBookmark } from '../../features/usersSlice.js'
 import { RiMoneyEuroBoxFill} from "react-icons/ri";
 import { MdLocationCity } from "react-icons/md";
+import NotResult from "../notResult/NotResult.jsx";
 
 function Cards({ filterType }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -180,9 +181,7 @@ function Cards({ filterType }) {
             </li>
           ))
         ) : (
-          <li className="tenders-list__item tenders-list__notFound">
-            <LuSearchX className="searchX"/> Axtarışınıza uyğun nəticə tapılmadı
-          </li>
+          <NotResult/>
         )}
       </ul>
 
