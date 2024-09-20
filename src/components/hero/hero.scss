@@ -59,8 +59,10 @@
         height: 60vh;
         .container{
             flex-direction: column;
+            width: 80%;
         }
         &__content {
+            padding: 0;
             text-align: center;
             width: 100%;
             font-size: 1em;

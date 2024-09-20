@@ -63,19 +63,26 @@ const Cards = ({ userId, filterType })=> {
     dispatch(fetchTenders());
   }, [dispatch]);
 
-
+  
+  
   const paginate = (items, currentPage, itemsPerPage) => {
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     return items.slice(indexOfFirstItem, indexOfLastItem);
   };
-
-  const currentTenders = paginate(filteredTenders, currentPage, itemsPerPage);
-
+  
+  
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(filteredTenders.length / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
+  useEffect(() => {
+    setCurrentPage(1); 
+  }, [searchFilters, filterType]);
+
+  const currentTenders = useMemo(() => {
+    return paginate(filteredTenders, currentPage, itemsPerPage);
+  }, [filteredTenders, currentPage, itemsPerPage]);
 
   const handleBookmarkClick = (id) => {
     dispatch(toggleBookmark({ tenderId: id, userId: user.id }));

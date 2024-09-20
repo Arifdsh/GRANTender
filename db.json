@@ -46,7 +46,7 @@
       "subject": "Zaqatala şəhər Aşıq Ələsgər və Həzi Aslanov küçələrində abadlıq işlərinin satın alınması",
       "address": "M.Əsədov 5",
       "price": 496030,
-      "city":"Zaqatala",
+      "city": "Zaqatala",
       "imgUrl": "src/assets/image/elsevercolor.png",
       "creationDate": "09.09.2024 15:31",
       "expirationDate": "01.10.2024 17:00",
@@ -66,7 +66,7 @@
       "subject": "Nəqliyyat vasitəsinin satın alınması",
       "address": "Bakı şəhəri, Nəsimi rayonu, Cəfər Cabbarlı küçəsi 609, Globus Business Center, 14-cü mərtəbə, Qarabağ Dirçəliş Fondu ofisi",
       "price": 114678,
-      "city":"Bakı",
+      "city": "Bakı",
       "imgUrl": "src/assets/image/eurooilcolor.png",
       "creationDate": "09.09.2024 15:05",
       "expirationDate": "17.09.2024 15:00",
@@ -86,7 +86,7 @@
       "subject": "Kürdəmir rayonunda avtomobil yollarının təmiri işlərinin satın alınması",
       "address": "M.Ə.Sabir küçəsi №15",
       "price": 1350253,
-      "city":"Kürdəmir",
+      "city": "Kürdəmir",
       "imgUrl": "src/assets/image/liderqrupcolor.png",
       "creationDate": "09.09.2024 11:36",
       "expirationDate": "08.10.2024 12:00",
@@ -265,14 +265,26 @@
       "files": []
     },
     {
-      "id": "783a",
-      "owner": "rafail",
-      "subject": "asdfsgdhfjg",
-      "address": "sdvfdbgfnhgm",
-      "price": 4852,
-      "creationDate": "2024-09-18",
-      "expirationDate": "5485-05-06",
+      "id": "b303",
+      "owner": "Fuad Holding",
+      "subject": "Binaların tikintisi",
+      "address": "28 May",
+      "price": 100000000,
+      "creationDate": "2024-09-20",
+      "expirationDate": "2024-10-16",
       "city": "Baku",
+      "userId": "8234",
+      "files": []
+    },
+    {
+      "id": "8a73",
+      "owner": "svsdvdfsdsd",
+      "subject": "sddvsdv",
+      "address": "gfvdc",
+      "price": 86525,
+      "creationDate": "2024-09-20",
+      "expirationDate": "8658-05-04",
+      "city": "Ganja",
       "userId": "28cb",
       "files": []
     }
@@ -461,9 +473,17 @@
       "email": "mahmudovnurlan301@gmail.com",
       "age": "2000-09-11",
       "password": "nurlan2001",
+      "bookmarked": []
+    },
+    {
+      "id": "8234",
+      "name": "Fuad",
+      "surname": "Beybutov",
+      "email": "fuad@mail.ru",
+      "age": "1999-10-21",
+      "password": "asdf123",
       "bookmarked": [
-        "9973",
-        "c12c"
+        "3"
       ]
     }
   ]

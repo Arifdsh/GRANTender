@@ -89,6 +89,7 @@ const CreateTender = () => {
                 <option value="Sumqayit">Sumqayıt</option>
                 <option value="Sheki">Şəki</option>
                 <option value="Shamakhi">Şamaxı</option>
+                <option value="Zaqatala">Zaqatala</option>
               </Field>
               <ErrorMessage name="city" component="div" className="error" />
             </div>

@@ -26,7 +26,7 @@ const App = () => {
   return (
     <>
         <ScrollToTop />
-        {location.pathname !== '/authorization' || location.pathname !== '/*'  && <Navbar/>}
+        {location.pathname !== '/authorization' || location.pathname == '/*'  && <Navbar/>}
         <Routes>
           <Route path="/*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
@@ -34,7 +34,7 @@ const App = () => {
           <Route path="/authorization" element={<Authorization />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
-        {(location.pathname !== "/authorization" || location.pathname !== '/*') && <Footer/>}
+        {(location.pathname !== "/authorization" || location.pathname == '/*') && <Footer/>}
         
     </>
   );

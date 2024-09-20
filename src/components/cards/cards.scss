@@ -1,22 +1,5 @@
 @import "../../styles/global";
 
-@mixin flexCenter($justify: unset, $align: unset) {
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
-}
-@mixin boxShadow($color: rgb(233, 233, 233), $size: 5px) {
-  box-shadow: 0 0 $size $color;
-}
-@mixin transition($time: 0.3s) {
-  transition: $time;
-}
-@mixin headingStyle{
-  font-weight: bold;
-  border-left: 3px solid $primary-color;
-  padding-left: 5px;
-}
-
 %flexCenter {
   @include flexCenter;
 }
