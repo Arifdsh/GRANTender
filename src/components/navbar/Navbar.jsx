@@ -52,7 +52,7 @@ const Header = () => {
           <img className="logo" src="/src/assets/image/logo-tender.png" alt="Logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse className="gap-5">
+        <Navbar.Collapse className="gap-2">
           <Nav
             fill
             variant="tabs"
@@ -140,12 +140,12 @@ const Header = () => {
               <>
                 <Button
                   onClick={goToProfilePage}
-                  variant="outline-primary fw-bold fs-5 shadow-lg m-2"
+                  variant="outline-primary fw-bold fs-5 shadow-lg mx-2"
                 >
                   <GoPersonFill className="personIcon" /> {loggedInUser.name}
                 </Button>
                 <Button
-                  variant="outline-primary fw-bold fs-5 shadow-lg mx-5"
+                  variant="outline-primary fw-bold fs-5 shadow-lg mx-2"
                   onClick={handleLogout}
                 >
                   <RiLogoutCircleLine className="personIcon" /> Çıxış
