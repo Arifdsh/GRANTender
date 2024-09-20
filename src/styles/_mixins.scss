@@ -1,0 +1,51 @@
+@mixin flexCenter($justify: unset, $align: unset) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+  }
+  @mixin boxShadow($color: rgb(233, 233, 233), $size: 5px) {
+    box-shadow: 0 0 $size $color;
+  }
+  @mixin transition($time: 0.3s) {
+    transition: $time;
+  }
+  @mixin headingStyle{
+    font-weight: bold;
+    border-left: 3px solid $primary-color;
+    padding-left: 5px;
+  }
+  @mixin border-radius($radius) {
+    border-radius: $radius;
+  }
+  @mixin button-style($bg-color, $hover-color) {
+    background-color: $bg-color;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
+  @mixin button-styles($bg-color, $text-color, $border-color: transparent) {
+    background-color: $bg-color;
+    color: $text-color;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    padding: 1% 1.5%;
+    @include transition(0.3s);
+  }
+  @mixin gradient-bg($start-color, $end-color) {
+    background-image: linear-gradient($start-color, $end-color);
+  }
+  @mixin input-style {
+    background-color: $neutral-color-white;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }

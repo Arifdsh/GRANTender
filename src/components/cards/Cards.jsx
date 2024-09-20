@@ -10,7 +10,7 @@ import { toggleBookmark } from '../../features/usersSlice.js'
 import { RiMoneyEuroBoxFill} from "react-icons/ri";
 import { MdLocationCity } from "react-icons/md";
 
-const Cards = ({ filterType })=> {
+function Cards({ filterType }) {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const navigate = useNavigate();
@@ -61,8 +61,8 @@ const Cards = ({ filterType })=> {
 
 
   useEffect(() => {
-      dispatch(fetchTenders());
-  }, [dispatch, filterType]);
+    dispatch(fetchTenders());
+  }, [dispatch,filterType]);
 
 
   const paginate = (items, currentPage, itemsPerPage) => {
@@ -70,13 +70,19 @@ const Cards = ({ filterType })=> {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     return items.slice(indexOfFirstItem, indexOfLastItem);
   };
-
-  const currentTenders = paginate(filteredTenders, currentPage, itemsPerPage);
-
+  
+  
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(filteredTenders.length / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
+  useEffect(() => {
+    setCurrentPage(1); 
+  }, [searchFilters, filterType]);
+
+  const currentTenders = useMemo(() => {
+    return paginate(filteredTenders, currentPage, itemsPerPage);
+  }, [filteredTenders, currentPage, itemsPerPage]);
 
   const handleBookmarkClick = (id) => {
     if (user?.id) {

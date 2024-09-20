@@ -42,13 +42,25 @@ const Search = () => {
     setEndDate("");
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <>
-    <h1 className="tendersHeading" id="/cards.htm">TENDERLƏR</h1>
+      <h1 className="tendersHeading" id="/cards.htm">TENDERLƏR</h1>
       <div className="searchContainer">
         <div className="filter">
           <div className="myInput">
-            <input type="text" placeholder="Satınalma predmeti" value={all} onChange={(e) => setAll(e.target.value)} />
+            <input 
+              type="text" 
+              placeholder="Satınalma predmeti" 
+              value={all} 
+              onChange={(e) => setAll(e.target.value)}
+              onKeyDown={handleKeyPress} 
+            />
           </div>
           <div className="more" onClick={toggleModal}>
             <span>Filter</span>
@@ -113,7 +125,6 @@ const Search = () => {
                 onChange={(e) => setEndDate(e.target.value)}
               />
             </div>
-
           </div>
           <div className="close">
             <div className="close1">

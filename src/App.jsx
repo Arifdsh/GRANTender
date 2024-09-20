@@ -7,13 +7,9 @@ import Apply from "./components/apply/Apply";
 import Profile from "./pages/profile/Profile";
 import Footer from "./components/footer/Footer";
 import ScrollToTop from "./components/scrolltotop/ScrollToTop";
-import { useDispatch } from "react-redux";
-import { setLoggedInUser } from "./features/usersSlice.js";
-import { useEffect } from "react";
 import Navbar from "../src/components/navbar/Navbar.jsx";
 import NotFound from "./pages/notFound/NotFound.jsx";
 const App = () => {
-  const dispatch = useDispatch();
   const location = useLocation()
 
 

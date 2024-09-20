@@ -65,7 +65,7 @@ const Detail = () => {
               GRANTENDER
             </p>
             <div className="detail-list__photo">
-              <img src={"/" + findTender?.imgUrl} alt="" />
+            <img src={"/"+findTender?.imgUrl} alt="" />
             </div>
           </div>
           {findTender ? (
