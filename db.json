@@ -20,17 +20,6 @@
       ]
     },
     {
-      "id": "4205",
-      "owner": "ttttt",
-      "subject": "ttttttttt",
-      "address": "ttttt",
-      "price": 1111111111,
-      "creationDate": "2024-09-14",
-      "expirationDate": "2024-09-18",
-      "userId": "e6be",
-      "files": []
-    },
-    {
       "id": "e8c7",
       "owner": "arif",
       "subject": "Team lead",
@@ -40,64 +29,6 @@
       "expirationDate": "2024-09-23",
       "userId": "e6be",
       "files": []
-    },
-    {
-      "id": "d794",
-      "owner": "kubik",
-      "subject": "check",
-      "address": "asdasdasd",
-      "price": 123121,
-      "creationDate": "2024-09-16",
-      "expirationDate": "2024-09-18",
-      "userId": "77c3",
-      "files": []
-    },
-    {
-      "id": "9973",
-      "owner": "Gullu mmc",
-      "subject": "Biznes ",
-      "address": "Xalqlar dostlugu",
-      "price": 9999,
-      "creationDate": "2024-09-16",
-      "expirationDate": "2024-09-18",
-      "userId": "2bf8",
-      "files": []
-    },
-    {
-      "owner": "granTender",
-      "subject": "work",
-      "address": "test",
-      "price": 124,
-      "creationDate": "2024-09-17",
-      "expirationDate": "2024-09-19",
-      "city": "Baku",
-      "userId": "3197",
-      "files": [],
-      "id": "c12c"
-    },
-    {
-      "owner": "work",
-      "subject": "i belive",
-      "address": "aaaaaaaaaaa",
-      "price": 11111111111111,
-      "creationDate": "2024-09-17",
-      "expirationDate": "2024-09-18",
-      "city": "Baku",
-      "userId": "3197",
-      "files": [],
-      "id": "8319"
-    },
-    {
-      "owner": "work",
-      "subject": "i belive you ",
-      "address": "aaaaaaaaaaa",
-      "price": 11111111111111,
-      "creationDate": "2024-09-17",
-      "expirationDate": "2024-09-18",
-      "city": "Baku",
-      "userId": "3197",
-      "files": [],
-      "id": "bb94"
     },
     {
       "owner": "top",
@@ -124,7 +55,7 @@
       "id": "b4a6"
     },
     {
-      "owner": "Agile solution ",
+      "owner": "Agile solutionnn",
       "subject": "ehmed",
       "address": "asfsfs",
       "price": 10,
@@ -136,63 +67,63 @@
       "id": "b347"
     },
     {
-      "id": "bbb3",
-      "owner": "Arif",
-      "subject": "Isle grantender",
-      "address": "fffffffffffffffffffffffffffffffff",
-      "price": 499,
-      "creationDate": "2024-09-18",
-      "expirationDate": "2024-09-19",
-      "city": "Baku",
-      "userId": "3197",
-      "files": []
-    },
-    {
-      "owner": "asdasd",
-      "subject": "mmmmmmmmmmmmmmmmm",
+      "id": "7ea2",
+      "owner": "rafail",
+      "subject": "sdfsdfsd",
       "address": "asdasd",
-      "price": 123123,
-      "creationDate": "2024-09-18",
-      "expirationDate": "2024-09-19",
-      "city": "Baku",
-      "userId": "5fcc",
-      "files": [],
-      "id": "537b"
-    },
-    {
-      "owner": "Redux",
-      "subject": "Candi iiiiiiiiiiiiiiiii",
-      "address": "aasdasd",
-      "price": 1232123,
-      "creationDate": "2024-09-18",
-      "expirationDate": "2024-09-19",
-      "city": "Baku",
-      "userId": "5fcc",
-      "files": [],
-      "id": "ef81"
-    },
-    {
-      "id": "ebe9",
-      "owner": "1231",
-      "subject": "qweasd",
-      "address": "sadasdas",
-      "price": 11111111,
-      "creationDate": "2024-09-18",
-      "expirationDate": "2024-09-19",
-      "city": "Baku",
-      "userId": "5fcc",
+      "price": 1111111111111,
+      "creationDate": "2024-09-19",
+      "expirationDate": "2024-09-21",
+      "city": "Cəlilabad",
+      "userId": null,
       "files": []
     },
     {
-      "id": "1116",
-      "owner": "aaaaaaaaaaaaaa",
-      "subject": "aaaaaaaaaaaa",
-      "address": "aaaaaaa",
-      "price": 1111111111,
-      "creationDate": "2024-09-18",
-      "expirationDate": "2024-09-18",
+      "id": "1c78",
+      "owner": "rafail",
+      "subject": "asdasd",
+      "address": "asdsad",
+      "price": 22222222,
+      "creationDate": "2024-09-19",
+      "expirationDate": "2024-09-21",
+      "city": "Cəlilabad",
+      "userId": null,
+      "files": []
+    },
+    {
+      "id": "bba6",
+      "owner": "rrrrrrrrrrrr",
+      "subject": "rrrrrrrrrr",
+      "address": "rrrrrr",
+      "price": 11111111,
+      "creationDate": "2024-09-19",
+      "expirationDate": "2024-09-20",
       "city": "Bakı",
-      "userId": "5fcc",
+      "userId": null,
+      "files": []
+    },
+    {
+      "id": "d688",
+      "owner": "555555555",
+      "subject": "5555555555",
+      "address": "555555555",
+      "price": 5555555555,
+      "creationDate": "2024-09-19",
+      "expirationDate": "2024-09-21",
+      "city": "Bakı",
+      "userId": null,
+      "files": []
+    },
+    {
+      "id": "19c5",
+      "owner": "rafail",
+      "subject": "asssssssssssss",
+      "address": "ssssssss",
+      "price": 22222222222222,
+      "creationDate": "2024-09-20",
+      "expirationDate": "2024-09-21",
+      "city": "Gəncə",
+      "userId": "3197",
       "files": []
     }
   ],
@@ -253,7 +184,10 @@
       "email": "aaa@aaaa",
       "age": "1111-01-01",
       "password": "123",
-      "bookmarked": []
+      "bookmarked": [
+        "d688"
+      ],
+      "loggedIn": false
     },
     {
       "id": "f857",
@@ -326,10 +260,13 @@
       "email": "raf242@yandex.ru",
       "age": "1994-06-05",
       "password": "123",
+      "loggedIn": true,
       "bookmarked": [
         "8d36",
         "c12c",
-        "bbb3"
+        "bbb3",
+        "ebe9",
+        "d688"
       ]
     },
     {
@@ -339,6 +276,7 @@
       "email": "k@k",
       "age": "1111-11-11",
       "password": "123",
+      "loggedIn": false,
       "bookmarked": []
     },
     {
@@ -382,9 +320,22 @@
       "email": "mahmudovnurlan301@gmail.com",
       "age": "2000-09-11",
       "password": "nurlan2001",
+      "loggedIn": false,
       "bookmarked": [
         "9973",
         "c12c"
+      ]
+    },
+    {
+      "id": "b920",
+      "name": "rafael",
+      "surname": "abiyev",
+      "email": "rafael.2000@mail.ru",
+      "age": "2000-05-12",
+      "password": "123456",
+      "loggedIn": false,
+      "bookmarked": [
+        "a9f3"
       ]
     }
   ]

@@ -3,7 +3,7 @@ import { Formik, useFormik } from 'formik';
 import { AuthorizationSchema } from './AuthorizationSchema.js'
 import './authorization.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUser, setLoggedInUser, fetchAllUsers } from '../../features/usersSlice.js';
+import { updateUser, setLoggedInUser, fetchAllUsers, loginUser } from '../../features/usersSlice.js';
 import Navbar from '../../components/navbar/Navbar.jsx';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
@@ -21,6 +21,7 @@ const Authorization = () => {
   };
 
   const navigate = useNavigate();
+
 
   const dispatch = useDispatch();
   const { users, loading, error } = useSelector((state) => state.user)
@@ -41,7 +42,8 @@ const Authorization = () => {
     if (foundUser) {
       if (foundUser.password == loginData.password) {
         setLoginError('')
-        dispatch(setLoggedInUser({ name: foundUser.name, id: foundUser.id, surname: foundUser.surname }));
+        localStorage.setItem('UserLoggedIn', true)
+        dispatch(loginUser(foundUser.id))
         navigate("/")
       }
       else {
@@ -67,6 +69,7 @@ const Authorization = () => {
       age: "",
       password: "",
       confirmPassword: "",
+      loggedIn: false,
       bookmarked: []
     },
     onSubmit: (values, actions) => {

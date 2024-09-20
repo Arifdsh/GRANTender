@@ -12,7 +12,7 @@ const CreateTender = () => {
 
   const dispatch = useDispatch()
   const tenderToEdit = useSelector((state) => state.tenders.tenderToEdit)
-
+  const loggedInUser = useSelector((state)=>(state.user.user))
 
   const initialValues = tenderToEdit
     ? { owner: tenderToEdit.owner, subject: tenderToEdit.subject, endDate: tenderToEdit.expirationDate, address: tenderToEdit.address, price: tenderToEdit.price, city: tenderToEdit.city, files: tenderToEdit.files }
@@ -61,8 +61,8 @@ const CreateTender = () => {
         onSubmit={(values, { resetForm }) => {
 
           const currentDate = new Date().toISOString().split('T')[0]
-          const user = JSON.parse(localStorage.getItem('loggedInUser'))
-          const userId = user?.id || null
+         
+          const userId = loggedInUser?.id || null
 
           const newTender = {
             owner: values.owner,
