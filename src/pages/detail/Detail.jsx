@@ -65,7 +65,11 @@ const Detail = () => {
               GRANTENDER
             </p>
             <div className="detail-list__photo">
-              <img src={"/" + findTender?.imgUrl} alt="" />
+              {findTender?.imgUrl? (
+                  <img src={"/"+findTender.imgUrl} alt="" />
+                ) : (
+                  <span>{findTender?.owner[0]}</span>
+                )}
             </div>
           </div>
           {applyshow && <Apply />}
