@@ -6,6 +6,7 @@ import { fetchUser, updateUser } from '../../../features/usersSlice';
 
 const ProfileEdit = () => {
   const [name, setName] = useState('');
+  const [surname , setSurname] = useState('');
   const [picture, setPicture] = useState(null);
   const [preview, setPreview] = useState(null);
 
@@ -21,6 +22,7 @@ const ProfileEdit = () => {
   useEffect(() => {
     if (user) {
       setName(user.name || '');
+      setSurname(user.surname || '');
       setPicture(user.picture || null);
       setPreview(user.picture ? URL.createObjectURL(new Blob([user.picture], { type: 'image/jpeg' })) : null);
     }
@@ -59,6 +61,27 @@ const ProfileEdit = () => {
       <IoCloseCircle  className="close" />
       <h2> Profili Redaktə et</h2>
       <form onSubmit={handleSubmit} className="profile-edit-form">
+      <div className="edit-input-group">
+  <label htmlFor="profile-name">Adınızı dəyişin:</label>
+  <input
+    type="text"
+    id="profile-name"
+    value={name}
+    onChange={(e) => setName(e.target.value)}
+    placeholder="Adınızı daxil edin"
+  />
+</div>
+<div className="edit-input-group">
+  <label htmlFor="profile-surname">Soyadınızı dəyişin:</label>
+  <input
+    type="text"
+    id="profile-surname"
+    value={surname}
+    onChange={(e) => setSurname(e.target.value)}
+    placeholder="Soyadınızı daxil edin"
+  />
+</div>
+
         <div className="edit-input-group">
           <label htmlFor="profile-picture">Şəklinizi dəyişin:</label>
           <input
@@ -70,16 +93,7 @@ const ProfileEdit = () => {
           {preview && <img src={preview} alt="Preview" className="image-preview" />}
         </div>
 
-        <div className="edit-input-group">
-          <label htmlFor="profile-name">Adınızı dəyişin:</label>
-          <input
-            type="text"
-            id="profile-name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Adınızı daxil edin"
-          />
-        </div>
+     
 
         <button type="submit" className="edit-submit-btn">Yadda saxla</button>
       </form>

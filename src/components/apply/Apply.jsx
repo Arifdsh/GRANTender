@@ -1,4 +1,3 @@
-import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import './apply.scss'
 
@@ -46,7 +45,7 @@ const Apply = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="file" className='fileLabel'>Upload File</label>
+              <label htmlFor="file" className='fileLabel'>Fayl Yüklə</label>
               <input
                 type="file"
                 id="file"
@@ -56,7 +55,7 @@ const Apply = () => {
               <ErrorMessage name="file" component="div" className="error-message" />
             </div>
 
-            <button type="submit" className="submit-button">Submit</button>
+            <button type="submit" className="submit-button">Göndər</button>
           </Form>
         )}
       </Formik>
