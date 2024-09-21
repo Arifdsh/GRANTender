@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './profileEdit.scss';
 import { IoCloseCircle } from "react-icons/io5";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUser, updateUser } from '../../../features/usersSlice';
+import { fetchUser, updateUser, editUser } from '../../../features/usersSlice';
+
 
 const ProfileEdit = () => {
   const [name, setName] = useState('');
+  const [surname, setSurname] = useState(''); // Add surname state
   const [picture, setPicture] = useState(null);
   const [preview, setPreview] = useState(null);
 
@@ -21,6 +23,7 @@ const ProfileEdit = () => {
   useEffect(() => {
     if (user) {
       setName(user.name || '');
+      setSurname(user.surname || ''); // Set surname from user data
       setPicture(user.picture || null);
       setPreview(user.picture ? URL.createObjectURL(new Blob([user.picture], { type: 'image/jpeg' })) : null);
     }
@@ -42,13 +45,14 @@ const ProfileEdit = () => {
     e.preventDefault();
 
     const userData = {
-      name,
-      picture, 
+      id: user.id, 
+      name,        
+      surname,    
+      picture,     
     };
 
     try {
-      dispatch(updateUser(userData)); 
-      console.log('Profile updated successfully');
+      dispatch(editUser(userData)); 
     } catch (error) {
       console.error('Error updating profile:', error);
     }
@@ -56,7 +60,7 @@ const ProfileEdit = () => {
 
   return (
     <div className="edit-area">
-      <IoCloseCircle  className="close" />
+      <IoCloseCircle className="close" />
       <h2> Profili Redaktə et</h2>
       <form onSubmit={handleSubmit} className="profile-edit-form">
         <div className="edit-input-group">
@@ -78,6 +82,16 @@ const ProfileEdit = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Adınızı daxil edin"
+          />
+        </div>
+        <div className="edit-input-group">
+          <label htmlFor="profile-surname">Soyadınzı dəyişin:</label>
+          <input
+            type="text"
+            id="profile-surname"
+            value={surname} // Set surname value
+            onChange={(e) => setSurname(e.target.value)} // Use setSurname
+            placeholder="Soyadınızı daxil edin"
           />
         </div>
 

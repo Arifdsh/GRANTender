@@ -17,6 +17,12 @@ export const updateUser = createAsyncThunk('user/updateUser', async (userData) =
   return response.data;
 });
 
+export const editUser = createAsyncThunk('user/editUser', async (userData) => {
+  // Use PATCH to update only the provided fields
+  const response = await axios.patch(`http://localhost:5173/user/${userData.id}`, userData);
+  return response.data;
+});
+
 export const toggleBookmark = createAsyncThunk(
   'users/toggleBookmark',
   async ({ tenderId, userId }, { getState }) => {
@@ -106,6 +112,10 @@ const userSlice = createSlice({
       })
       // Update user details
       .addCase(updateUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+      })
+      //Edit user
+      .addCase(editUser.fulfilled, (state, action) => {
         state.user = action.payload;
       })
       // Toggle bookmarks

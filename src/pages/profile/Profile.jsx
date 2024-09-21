@@ -18,6 +18,7 @@ const Profile = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const dispatch = useDispatch()
+  
 
   const showCreateTender = useSelector((state) => state.tenders.showCreateTender)
   const loggedInUser = useSelector((state) => (state.user.user))
@@ -50,6 +51,7 @@ const Profile = () => {
   }, [dispatch]);
   const handleProfileEdit = useCallback(() => {
     dispatch(hideCreateTenderForm());
+    setShowProfileEdit(true)
   }, [dispatch]);
 
   const handleEditCancel = () => setShowProfileEdit(false)
