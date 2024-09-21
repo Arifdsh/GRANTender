@@ -174,6 +174,18 @@
       "city": "Gəncə",
       "userId": "207f",
       "files": []
+    },
+    {
+      "id": "36ec",
+      "owner": "xxxxxxxxxxxxxxx",
+      "subject": "xxxxxxxxxxxxxxxx",
+      "address": "xxxxxxxxxxxxx",
+      "price": 44444444443,
+      "creationDate": "2024-09-21",
+      "expirationDate": "2024-09-22",
+      "city": "Kürdəmir",
+      "userId": "3197",
+      "files": []
     }
   ],
   "user": [
@@ -249,7 +261,7 @@
     },
     {
       "id": "207f",
-      "name": "aaaa",
+      "name": "AAAA",
       "surname": "aaaa",
       "email": "dsds@ghgh",
       "age": "2000-02-02",
@@ -265,7 +277,8 @@
         "19c5",
         "d688"
       ],
-      "loggedIn": true
+      "loggedIn": false,
+      "picture": null
     },
     {
       "id": "ca39",
@@ -318,7 +331,7 @@
       "email": "raf242@yandex.ru",
       "age": "1994-06-05",
       "password": "123",
-      "loggedIn": false,
+      "loggedIn": true,
       "bookmarked": [
         "8d36",
         "c12c",
