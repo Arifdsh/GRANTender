@@ -22,24 +22,26 @@ const Profile = () => {
   const showCreateTender = useSelector((state) => state.tenders.showCreateTender)
   const loggedInUser = useSelector((state) => (state.user.user))
   const userCheck = localStorage.getItem('UserLoggedIn')
-  
+
   useEffect(() => {
-    
+
     if (!userCheck || userCheck === 'false') {
       navigate('/authorization');
     } else {
-      dispatch(fetchTenders());
       dispatch(fetchUser(loggedInUser?.id));
-  
+
       if (!location.state?.openCreateTender) {
         dispatch(hideCreateTenderForm());
         dispatch(clearTenderToEdit());
       }
     }
-  }, [ navigate, location.state]);
+  }, [navigate, location.state]);
 
+  const handleTabClick = useCallback((index) => {
+    setActiveTab(index);
+    dispatch(fetchTenders()); 
+  }, [dispatch]);
 
-  const handleTabClick = useCallback((index) => setActiveTab(index), []);
   const handleNavigate = useCallback(() => {
     dispatch(showCreateTenderForm());
   }, [dispatch]);
@@ -49,7 +51,7 @@ const Profile = () => {
 
   const handleEditCancel = () => setShowProfileEdit(false)
 
-  
+
   return (
     <>
       <Navbar />
@@ -94,10 +96,10 @@ const Profile = () => {
                 <Cards filterType="created" />
               </div>
               <div className={activeTab == 2 ? 'profile-active-content' : 'profile-content'}>
-                <Cards filterType="applied"/>
+                <Cards filterType="applied" />
               </div>
               <div className={activeTab == 3 ? 'profile-active-content' : 'profile-content'}>
-                <ApplyCard/>
+                <ApplyCard />
               </div>
               <div className={activeTab == 4 ? 'profile-active-content' : 'profile-content'}>
                 <Cards filterType="bookmarked" />

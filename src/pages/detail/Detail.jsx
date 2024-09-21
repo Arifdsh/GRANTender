@@ -13,7 +13,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Apply from '../../components/apply/Apply.jsx'
-import { fetchTenders, selectAllTenders, setSelectedTenderId } from "../../features/tendersSlice.js";
+import { fetchTenders, selectAllTenders, setSelectedTenderId, setSelectedTenderUserId } from "../../features/tendersSlice.js";
 
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
@@ -41,6 +41,7 @@ const Detail = () => {
 
   const handleApplyClick = () => {
     dispatch(setSelectedTenderId(findTender.id));
+    dispatch(setSelectedTenderUserId(findTender.userId))
     setApplyShow(true);
   };
 

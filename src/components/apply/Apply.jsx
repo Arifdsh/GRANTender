@@ -4,14 +4,14 @@ import applyShema from './applySchema.js'
 import './apply.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { submitApplyList } from '../../features/applySlice.js';
-import { selectSelectedTenderId } from '../../features/tendersSlice.js';
+import { selectSelectedTenderId, selectSelectedTenderOwnerId } from '../../features/tendersSlice.js';
 import { applyForTender, checkLoggedInUser } from '../../features/usersSlice.js';
 
 const Apply = () => {
   const dispatch = useDispatch()
 
   const selectedTenderId = useSelector(selectSelectedTenderId);
-
+  const tenderOwnerId = useSelector(selectSelectedTenderOwnerId)
   const loggedInUser = useSelector((state)=> state.user.user)
 
   useEffect(()=>{
@@ -24,6 +24,7 @@ const Apply = () => {
     details: '',
     userId: loggedInUser?.id || '',
     cardId: selectedTenderId || '',
+    tenderOwnerId: tenderOwnerId || '',
     file: null,
   };
 
