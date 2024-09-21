@@ -32,42 +32,6 @@
       "files": []
     },
     {
-      "owner": "top",
-      "subject": "top jhfhgchcnfcjhchgv",
-      "address": "asda",
-      "price": 123122,
-      "creationDate": "2024-09-17",
-      "expirationDate": "2024-09-20",
-      "city": "Baku",
-      "userId": "3197",
-      "files": [],
-      "id": "75b8"
-    },
-    {
-      "owner": "top",
-      "subject": "up down",
-      "address": "asda",
-      "price": 123122,
-      "creationDate": "2024-09-18",
-      "expirationDate": "2024-09-20",
-      "city": "Baku",
-      "userId": "3197",
-      "files": [],
-      "id": "b4a6"
-    },
-    {
-      "owner": "Agile solutionnn",
-      "subject": "ehmed",
-      "address": "asfsfs",
-      "price": 10,
-      "creationDate": "2024-09-18",
-      "expirationDate": "2024-09-20",
-      "city": "Shamakhi",
-      "userId": "3197",
-      "files": [],
-      "id": "b347"
-    },
-    {
       "id": "7ea2",
       "owner": "rafail",
       "subject": "sdfsdfsd",
@@ -88,18 +52,6 @@
       "creationDate": "2024-09-19",
       "expirationDate": "2024-09-21",
       "city": "Cəlilabad",
-      "userId": null,
-      "files": []
-    },
-    {
-      "id": "bba6",
-      "owner": "rrrrrrrrrrrr",
-      "subject": "rrrrrrrrrr",
-      "address": "rrrrrr",
-      "price": 11111111,
-      "creationDate": "2024-09-19",
-      "expirationDate": "2024-09-20",
-      "city": "Bakı",
       "userId": null,
       "files": []
     },
@@ -228,7 +180,7 @@
         "19c5",
         "d688"
       ],
-      "loggedIn": true
+      "loggedIn": false
     },
     {
       "id": "ca39",
@@ -281,7 +233,7 @@
       "email": "raf242@yandex.ru",
       "age": "1994-06-05",
       "password": "123",
-      "loggedIn": true,
+      "loggedIn": false,
       "bookmarked": [
         "8d36",
         "c12c",
@@ -341,7 +293,8 @@
       "email": "mahmudovnurlan301@gmail.com",
       "age": "2000-09-11",
       "password": "nurlan2001",
-      "bookmarked": []
+      "bookmarked": [],
+      "loggedIn": false
     },
     {
       "id": "8234",
@@ -353,6 +306,16 @@
       "bookmarked": [
         "3"
       ]
+    },
+    {
+      "id": "2635",
+      "name": "umid",
+      "surname": "isayev",
+      "email": "umidisayev05@gmail.com",
+      "age": "2001-12-10",
+      "password": "umidisayev",
+      "loggedIn": false,
+      "bookmarked": []
     }
   ]
 }
