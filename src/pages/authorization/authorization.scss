@@ -300,6 +300,18 @@
         box-shadow: 0 0 10px 2px rgb(214, 123, 123);
     }
 }
+@media screen and (max-width:768px){
+    .authorization{
+        .modal{
+            &__heading{
+                width:33%;
+            }
+            .register{
+                width:50%;
+            }
+        }
+    }
+}
 
 //Responsive design
 @media screen and (max-width:767px) {
@@ -332,6 +344,17 @@
             .register{
                 width:100%;
             }
+        }
+    }
+}
+@media screen and (max-width:375px){
+    .authorization{
+        .modal{
+            &__heading{
+                font-size:1.6em;
+                padding:5px;
+            }
+            
         }
     }
 }
