@@ -10,6 +10,7 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { IoCloseCircle } from "react-icons/io5";
 import { IoIosLogIn } from "react-icons/io";
 import { MdOutlineDocumentScanner } from "react-icons/md";
+import { FaAngleDoubleLeft } from 'react-icons/fa';
 
 const Authorization = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -99,6 +100,7 @@ const Authorization = () => {
     <div>
       {/* <Navbar /> */}
       <section className='authorization'>
+        <button onClick={() => navigate("/")} className="goHome"> <FaAngleDoubleLeft className='goHome__icon' /><span>Əsas səhifə</span></button>
         <ul className="login">
           <li className="login__leftside">
             <h1 className="login__leftside__heading"><IoIosLogIn className='login__icon' />Giriş</h1>
