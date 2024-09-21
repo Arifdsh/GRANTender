@@ -12,14 +12,12 @@ const ProfileEdit = () => {
   const dispatch = useDispatch();
   const { user, status, error } = useSelector((state) => state.user);
 
-  // Fetch profile data on component mount
   useEffect(() => {
     if (status === 'idle') {
       dispatch(fetchUser());
     }
   }, [status, dispatch]);
 
-  // Update local state with fetched profile data
   useEffect(() => {
     if (user) {
       setName(user.name || '');
@@ -33,10 +31,10 @@ const ProfileEdit = () => {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setPicture(reader.result); // base64 string
-        setPreview(URL.createObjectURL(file)); // For preview
+        setPicture(reader.result); 
+        setPreview(URL.createObjectURL(file)); 
       };
-      reader.readAsDataURL(file); // Convert image to base64
+      reader.readAsDataURL(file); 
     }
   };
 
@@ -45,11 +43,11 @@ const ProfileEdit = () => {
 
     const userData = {
       name,
-      picture, // base64 image
+      picture, 
     };
 
     try {
-      dispatch(updateUser(userData)); // Corrected to use updateUser
+      dispatch(updateUser(userData)); 
       console.log('Profile updated successfully');
     } catch (error) {
       console.error('Error updating profile:', error);

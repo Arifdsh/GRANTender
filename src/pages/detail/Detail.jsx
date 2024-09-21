@@ -13,6 +13,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Apply from "../../components/apply/Apply.jsx";
+
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([]);
@@ -21,6 +22,7 @@ const Detail = () => {
   const userId = useSelector((state) => state.user.user?.id);
   const navigate = useNavigate();
   const [applyshow, setApplyShow] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -46,7 +48,13 @@ const Detail = () => {
   console.log(findTender);
 
   const handleApplyClick = () => {
-    setApplyShow(true);
+    const userLoggedIn = localStorage.getItem("UserLoggedIn");
+
+    if (userLoggedIn === "true" && userLoggedIn) {
+      setApplyShow(true);
+    } else {
+      navigate("/authorization");
+    }
   };
 
   return (
@@ -130,4 +138,3 @@ const Detail = () => {
 };
 
 export default Detail;
-
