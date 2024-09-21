@@ -23,13 +23,15 @@ const Profile = () => {
   const loggedInUser = useSelector((state) => (state.user.user))
   const userCheck = localStorage.getItem('UserLoggedIn')
 
+
   useEffect(() => {
+
 
     if (!userCheck || userCheck === 'false') {
       navigate('/authorization');
     } else {
-      dispatch(fetchTenders());
       dispatch(fetchUser(loggedInUser?.id));
+
 
       if (!location.state?.openCreateTender) {
         dispatch(hideCreateTenderForm());
@@ -38,8 +40,11 @@ const Profile = () => {
     }
   }, [navigate, location.state]);
 
+  const handleTabClick = useCallback((index) => {
+    setActiveTab(index);
+    dispatch(fetchTenders()); 
+  }, [dispatch]);
 
-  const handleTabClick = useCallback((index) => setActiveTab(index), []);
   const handleNavigate = useCallback(() => {
     dispatch(showCreateTenderForm());
   }, [dispatch]);
@@ -100,6 +105,7 @@ const Profile = () => {
                 <Cards filterType="created" />
               </div>
               <div className={activeTab == 2 ? 'profile-active-content' : 'profile-content'}>
+                <Cards filterType="applied" />
               </div>
               <div className={activeTab == 3 ? 'profile-active-content' : 'profile-content'}>
                 <ApplyCard />

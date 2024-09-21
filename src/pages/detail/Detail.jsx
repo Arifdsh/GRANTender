@@ -11,8 +11,9 @@ import { RiMoneyEuroBoxFill } from "react-icons/ri";
 import Button from "react-bootstrap/Button";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import Apply from "../../components/apply/Apply.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import Apply from '../../components/apply/Apply.jsx'
+import { fetchTenders, selectAllTenders, setSelectedTenderId, setSelectedTenderUserId } from "../../features/tendersSlice.js";
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([]);
@@ -21,31 +22,25 @@ const Detail = () => {
   const userId = useSelector((state) => state.user.user?.id);
   const navigate = useNavigate();
   const [applyshow, setApplyShow] = useState(false);
+  const dispatch = useDispatch()
+  const tenders = useSelector(selectAllTenders)
+
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(baseApiUrl);
-        console.log("Full API response:", response.data);
+    dispatch(fetchTenders())
+      .then(() => {
+      })
+      .catch((error) => {
+        console.error("Error fetching tenders:", error);
+      });
+  }, [dispatch]);
 
-        if (response.data && Array.isArray(response.data)) {
-          setData(response.data);
-        } else {
-          console.error("Unexpected data structure:", response.data);
-          setError("Unexpected data structure");
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setError("Error fetching data");
-      }
-    };
+  const findTender = tenders.find((tender) => tender.id.toString() === id);
 
-    fetchData();
-  }, [baseApiUrl]);
-
-  const findTender = data.find((tender) => tender.id.toString() === id);
-  console.log(findTender);
 
   const handleApplyClick = () => {
+    dispatch(setSelectedTenderId(findTender.id));
+    dispatch(setSelectedTenderUserId(findTender.userId))
     setApplyShow(true);
   };
 
@@ -65,11 +60,11 @@ const Detail = () => {
               GRANTENDER
             </p>
             <div className="detail-list__photo">
-              {findTender?.imgUrl? (
-                  <img src={"/"+findTender.imgUrl} alt="" />
-                ) : (
-                  <span>{findTender?.owner[0]}</span>
-                )}
+              {findTender?.imgUrl ? (
+                <img src={"/" + findTender.imgUrl} alt="" />
+              ) : (
+                <span>{findTender?.owner[0]}</span>
+              )}
             </div>
           </div>
           {applyshow && <Apply />}
@@ -118,13 +113,9 @@ const Detail = () => {
                 {findTender.expirationDate}
               </p>
               {findTender.userId !== userId && (
-                <Button
-                  className="detail-list__apply my-3"
-                  onClick={handleApplyClick}
-                >
-                  Müraciət et
-                </Button>
+                <Button className="detail-list__apply mt-3" onClick={handleApplyClick} >Müraciət et</Button>
               )}
+              {applyshow && <Apply />}
             </div>
           ) : null}
         </Row>

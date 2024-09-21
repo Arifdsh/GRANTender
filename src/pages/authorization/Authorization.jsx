@@ -70,7 +70,8 @@ const Authorization = () => {
       password: "",
       confirmPassword: "",
       loggedIn: false,
-      bookmarked: []
+      bookmarked: [],
+      applied: []
     },
     onSubmit: (values, actions) => {
       const { confirmPassword, ...userData } = values

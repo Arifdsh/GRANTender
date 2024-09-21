@@ -51,6 +51,17 @@ export const updateTender = createAsyncThunk('tender/updateTender', async ({ id,
   }
 });
 
+// fetch tenders created by the logged in user
+export const fetchTendersByCreator = createAsyncThunk('cards/fetchTendersByCreator', async (userId, { rejectWithValue }) => {
+  try {
+    const response = await axios.get('http://localhost:5173/cards');
+    const tenders = response.data.filter((tender) => tender.userId === userId);
+    return tenders;
+  } catch (error) {
+    return rejectWithValue(error.response.data);
+  }
+});
+
 const tendersSlice = createSlice({
   name: 'tenders',
   initialState: {
@@ -60,6 +71,8 @@ const tendersSlice = createSlice({
     status: 'idle',
     error: null,
     showCreateTender: false,
+    selectedTenderId: null,
+    selectedTenderUserId: null,
   },
   reducers: {
     setTenderToEdit: (state, action) => {
@@ -73,6 +86,12 @@ const tendersSlice = createSlice({
     },
     hideCreateTenderForm: (state) => {
       state.showCreateTender = false;
+    },
+    setSelectedTenderId: (state, action) => {
+      state.selectedTenderId = action.payload;
+    },
+    setSelectedTenderUserId: (state, action) => {
+      state.selectedTenderUserId = action.payload
     },
   },
   extraReducers: (builder) => {
@@ -102,10 +121,27 @@ const tendersSlice = createSlice({
         }
         state.tenderToEdit = null
       })
+      // fetchTendersByCreator
+      .addCase(fetchTendersByCreator.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchTendersByCreator.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.tenders = action.payload;
+      })
+      .addCase(fetchTendersByCreator.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.payload;
+      });
   },
 })
 
 export default tendersSlice.reducer;
+
+export const { setSelectedTenderId, setSelectedTenderUserId } = tendersSlice.actions;
+
+export const selectSelectedTenderId = (state) => state.tenders.selectedTenderId;
+export const selectSelectedTenderOwnerId = (state) => state.tenders.selectedTenderUserId;
 
 export const { showCreateTenderForm, hideCreateTenderForm } = tendersSlice.actions
 

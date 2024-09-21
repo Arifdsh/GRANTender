@@ -90,6 +90,90 @@
       "city": "Ganja",
       "userId": "28cb",
       "files": []
+    },
+    {
+      "id": "011e",
+      "owner": "aaaaaaaa",
+      "subject": "aaaaaaaaaaaaaaa",
+      "address": "aaaaaaaaaaaaaa",
+      "price": 2222222222222219,
+      "creationDate": "2024-09-20",
+      "expirationDate": "2024-09-21",
+      "city": "Cəlilabad",
+      "userId": "3197",
+      "files": []
+    },
+    {
+      "id": "4ee5",
+      "owner": "Tom",
+      "subject": "Check result",
+      "address": "ajhdbs jsdkasmld",
+      "price": 111111111111,
+      "creationDate": "2024-09-20",
+      "expirationDate": "2024-09-27",
+      "city": "Cəlilabad",
+      "userId": "864e",
+      "files": []
+    },
+    {
+      "owner": "Jhon ",
+      "subject": "hjhjhvhj kuhjknlknl jnkjnlkm",
+      "address": "jhvkkkvjkb,",
+      "price": 2655,
+      "creationDate": "2024-09-21",
+      "expirationDate": "2024-09-28",
+      "city": "Zaqatala",
+      "userId": "c942",
+      "files": [],
+      "id": "9a55"
+    },
+    {
+      "id": "c641",
+      "owner": "Adam ",
+      "subject": "Adam test",
+      "address": "aaaaaaaaaaa",
+      "price": 22222222222222224,
+      "creationDate": "2024-09-21",
+      "expirationDate": "2024-09-28",
+      "city": "Cəlilabad",
+      "userId": "8c46",
+      "files": []
+    },
+    {
+      "id": "0faa",
+      "owner": "Hello Adam",
+      "subject": "sasasasas",
+      "address": "BAku",
+      "price": 11111,
+      "creationDate": "2024-09-21",
+      "expirationDate": "2024-09-25",
+      "city": "Cəlilabad",
+      "userId": "55b2",
+      "files": []
+    },
+    {
+      "id": "25f9",
+      "owner": "Goodbye",
+      "subject": "ssddsdsd",
+      "address": "dsdsd",
+      "price": 111,
+      "creationDate": "2024-09-21",
+      "expirationDate": "2024-09-28",
+      "city": "Bakı",
+      "userId": "55b2",
+      "files": []
+    },
+    {
+      "id": "0ed5",
+      "owner": "Aqrar MMC",
+      "subject": "Aqrarr",
+      "address": "Aqrar",
+      "price": 1000,
+      "creationDate": "2024-09-21",
+      "expirationDate": "2024-09-27",
+      "city": "Gəncə",
+      "userId": "207f",
+      "files": []
     }
   ],
   "user": [
@@ -181,7 +265,7 @@
         "19c5",
         "d688"
       ],
-      "loggedIn": true
+      "loggedIn": false
     },
     {
       "id": "ca39",
@@ -240,7 +324,11 @@
         "c12c",
         "bbb3",
         "ebe9",
-        "d688"
+        "d688",
+        "011e"
+      ],
+      "applied": [
+        "2"
       ]
     },
     {
@@ -306,6 +394,341 @@
       "bookmarked": [
         "3"
       ]
+    },
+    {
+      "id": "864e",
+      "name": "Tom",
+      "surname": "Tomas",
+      "email": "tom@tom",
+      "age": "1990-11-11",
+      "password": "123",
+      "loggedIn": false,
+      "bookmarked": [
+        "d688"
+      ],
+      "applied": [
+        "19c5",
+        "9a55"
+      ]
+    },
+    {
+      "id": "c942",
+      "name": "Jhon",
+      "surname": "Jhonas",
+      "email": "jhon@jhon",
+      "age": "1990-11-11",
+      "password": "123",
+      "loggedIn": false,
+      "bookmarked": [
+        "011e",
+        "d688"
+      ],
+      "applied": [
+        "4ee5",
+        "4ee5"
+      ]
+    },
+    {
+      "id": "f1df",
+      "name": "Dog",
+      "surname": "Bigdog",
+      "email": "dog@dog",
+      "age": "1990-11-11",
+      "password": "123",
+      "loggedIn": false,
+      "bookmarked": [],
+      "applied": [
+        {
+          "owner": "Jhon ",
+          "subject": "hjhjhvhj kuhjknlknl jnkjnlkm",
+          "address": "jhvkkkvjkb,",
+          "price": 2655,
+          "creationDate": "2024-09-21",
+          "expirationDate": "2024-09-28",
+          "city": "Zaqatala",
+          "userId": "c942",
+          "files": [],
+          "id": "9a55"
+        },
+        "9a55",
+        "c942",
+        "9a55"
+      ]
+    },
+    {
+      "id": "8c46",
+      "name": "Adam",
+      "surname": "Adams",
+      "email": "adam@adam",
+      "age": "1990-11-11",
+      "password": "123",
+      "loggedIn": false,
+      "bookmarked": [
+        "9a55",
+        "4ee5"
+      ],
+      "applied": [
+        "0faa",
+        "25f9",
+        "0faa"
+      ]
+    },
+    {
+      "id": "55b2",
+      "name": "Eva",
+      "surname": "eva",
+      "email": "eva@eva",
+      "age": "1990-11-11",
+      "password": "123",
+      "loggedIn": false,
+      "bookmarked": [],
+      "applied": [
+        "c641",
+        "c641"
+      ]
+    },
+    {
+      "id": "477f",
+      "name": "Charlie",
+      "surname": "Dickens",
+      "email": "char@char",
+      "age": "1111-01-01",
+      "password": "123",
+      "loggedIn": false,
+      "bookmarked": [],
+      "applied": [
+        "0faa"
+      ]
+    }
+  ],
+  "applyList": [
+    {
+      "id": "eeb3",
+      "name": "rafail",
+      "description": "test",
+      "details": "test",
+      "userId": "",
+      "cardId": "",
+      "file": null
+    },
+    {
+      "id": "62ef",
+      "name": "Nurlan",
+      "description": "test",
+      "details": "test",
+      "userId": "",
+      "cardId": "",
+      "file": null
+    },
+    {
+      "id": "64a4",
+      "name": "d688",
+      "description": "zzzzzzzzzzzzz",
+      "details": "zzzzzzzzzzzzzz",
+      "userId": "",
+      "cardId": "d688",
+      "file": null
+    },
+    {
+      "id": "c97d",
+      "name": "Rafail",
+      "description": "ssssssssssss",
+      "details": "dfffffffffffffffff",
+      "userId": "",
+      "cardId": "d688",
+      "file": null
+    },
+    {
+      "id": "26c7",
+      "name": "5555555555555",
+      "description": "55555555555555555555",
+      "details": "55555555555555555",
+      "userId": "3197",
+      "cardId": "d688",
+      "file": null
+    },
+    {
+      "id": "2d0d",
+      "name": "sdkjfhsdkjhf",
+      "description": "shdgfhjsfd",
+      "details": "sdhgfshdf",
+      "userId": "3197",
+      "cardId": "d688",
+      "file": null
+    },
+    {
+      "id": "bd1f",
+      "name": "asdas",
+      "description": "aaaaaaaaaa",
+      "details": "aaaaaaaaaa",
+      "userId": "3197",
+      "cardId": "d688",
+      "file": null
+    },
+    {
+      "id": "0d1d",
+      "name": "Rafail",
+      "description": "asdasdsd asdpvofkknfuivheniuw wefijwkmw w jfkewm w weefklwme",
+      "details": "sdckkfnfwmfl wekdmwkelfmwl  dwedwed",
+      "userId": "3197",
+      "cardId": "2",
+      "file": null
+    },
+    {
+      "id": "3cfb",
+      "name": "aaaaaa",
+      "description": "aaaaaaaaaaaa",
+      "details": "aaaaaaaaaaaaaaa",
+      "userId": "381c",
+      "cardId": "19c5",
+      "file": null
+    },
+    {
+      "id": "b71a",
+      "name": "Tom",
+      "description": "test",
+      "details": "test",
+      "userId": "864e",
+      "cardId": "19c5",
+      "file": null
+    },
+    {
+      "id": "0401",
+      "name": "Jhon",
+      "description": "jjjjjjjjjjjjj",
+      "details": "jjjjjjjjjjjjjjjj",
+      "userId": "c942",
+      "cardId": "4ee5",
+      "file": null
+    },
+    {
+      "id": "acfb",
+      "name": "Tom Jhona muraciyyet",
+      "description": "Tom Jhona muraciyyet",
+      "details": "Tom Jhona muraciyyet",
+      "userId": "864e",
+      "cardId": "9a55",
+      "file": null
+    },
+    {
+      "id": "1953",
+      "name": "Jhon apply to Tom",
+      "description": "aaaaaaaaaaaaaasdsd",
+      "details": "sfffsfsffffffffffffffffff",
+      "userId": "c942",
+      "cardId": "4ee5",
+      "file": null
+    },
+    {
+      "id": "aa75",
+      "name": "dog apply to Jhon",
+      "description": "dog",
+      "details": "dog",
+      "userId": "f1df",
+      "cardId": {
+        "owner": "Jhon ",
+        "subject": "hjhjhvhj kuhjknlknl jnkjnlkm",
+        "address": "jhvkkkvjkb,",
+        "price": 2655,
+        "creationDate": "2024-09-21",
+        "expirationDate": "2024-09-28",
+        "city": "Zaqatala",
+        "userId": "c942",
+        "files": [],
+        "id": "9a55"
+      },
+      "tenderOwnerId": "c942",
+      "file": null
+    },
+    {
+      "id": "ef22",
+      "name": "dog to jhon",
+      "description": "sadasd",
+      "details": "asdasd",
+      "userId": "f1df",
+      "cardId": "9a55",
+      "tenderOwnerId": "",
+      "file": null
+    },
+    {
+      "id": "c1f5",
+      "name": "dog to  jhon 2",
+      "description": "aaaaaaaaaaaaaaa",
+      "details": "aaaaaaaaaaaaa",
+      "userId": "f1df",
+      "cardId": "c942",
+      "tenderOwnerId": "",
+      "file": null
+    },
+    {
+      "id": "fb2d",
+      "name": "dog to jhon 3",
+      "description": "aaaaaaaaaa",
+      "details": "aaaaaaaaaaaaaaa",
+      "userId": "f1df",
+      "cardId": "9a55",
+      "tenderOwnerId": "c942",
+      "file": null
+    },
+    {
+      "id": "3c36",
+      "name": "Eva to Adam",
+      "description": "aaaaaaa",
+      "details": "aaaaaaaaaaa",
+      "userId": "55b2",
+      "cardId": "c641",
+      "tenderOwnerId": "8c46",
+      "file": null
+    },
+    {
+      "id": "8a4f",
+      "name": "Hello Eva",
+      "description": "aasasasasassaasas",
+      "details": "sasasassas",
+      "userId": "8c46",
+      "cardId": "0faa",
+      "tenderOwnerId": "55b2",
+      "file": null
+    },
+    {
+      "id": "2530",
+      "name": "Goodbye",
+      "description": "dsdsdsdsdsddsdsds",
+      "details": "sdsdsd",
+      "userId": "8c46",
+      "cardId": "25f9",
+      "tenderOwnerId": "55b2",
+      "file": null
+    },
+    {
+      "id": "a9cd",
+      "name": "new",
+      "description": "sasas",
+      "details": "sasas",
+      "userId": "8c46",
+      "cardId": "0faa",
+      "tenderOwnerId": "55b2",
+      "file": null
+    },
+    {
+      "id": "65aa",
+      "name": "Hello Eva im charlie",
+      "description": "sasdds",
+      "details": "dsdsdsd",
+      "userId": "477f",
+      "cardId": "0faa",
+      "tenderOwnerId": "55b2",
+      "file": null
+    },
+    {
+      "id": "d7c2",
+      "name": "Eva im coming",
+      "description": "sasasasasasssa",
+      "details": "sasasasasasa",
+      "userId": "55b2",
+      "cardId": "c641",
+      "tenderOwnerId": "8c46",
+      "file": null
     }
   ]
 }

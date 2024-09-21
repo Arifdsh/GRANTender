@@ -1,28 +1,50 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import applyShema from './applySchema.js'
 import './apply.scss'
+import { useDispatch, useSelector } from 'react-redux';
+import { submitApplyList } from '../../features/applySlice.js';
+import { selectSelectedTenderId, selectSelectedTenderOwnerId } from '../../features/tendersSlice.js';
+import { applyForTender, checkLoggedInUser } from '../../features/usersSlice.js';
 
 const Apply = () => {
+  const dispatch = useDispatch()
 
-  
+  const selectedTenderId = useSelector(selectSelectedTenderId);
+  const tenderOwnerId = useSelector(selectSelectedTenderOwnerId)
+  const loggedInUser = useSelector((state)=> state.user.user)
+
+  useEffect(()=>{
+    dispatch(checkLoggedInUser())
+  }, [])
 
   const initialValues = {
     name: '',
     description: '',
     details: '',
+    userId: loggedInUser?.id || '',
+    cardId: selectedTenderId || '',
+    tenderOwnerId: tenderOwnerId || '',
     file: null,
   };
 
-  const handleSubmit = (values) => {
-    console.log('Form values:', values);
-  };
+  const handleSubmit = (values, {resetForm}) => {
+    const formData = {
+      ...values,
+      file: values.file ? values.file.name : null,
+    }
+
+    dispatch(submitApplyList(formData))
+    dispatch(applyForTender({ userId: loggedInUser?.id, tenderId: selectedTenderId }))
+    resetForm()
+  }
 
   return (
     <div className="apply-tender">
       <h2>MÜRACİƏT FORMU</h2>
       <Formik
         initialValues={initialValues}
-        // validationSchema={validationSchema}
+        validationSchema={applyShema}
         onSubmit={handleSubmit}
       >
         {({ setFieldValue }) => (
@@ -55,7 +77,6 @@ const Apply = () => {
               />
               <ErrorMessage name="file" component="div" className="error-message" />
             </div>
-
             <button type="submit" className="submit-button">Submit</button>
           </Form>
         )}
@@ -63,5 +84,5 @@ const Apply = () => {
     </div>
   );
 };
- 
+
 export default Apply
