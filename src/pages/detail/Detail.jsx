@@ -59,16 +59,18 @@ const Detail = () => {
             <h2>Ətraflı</h2>
           </Col>
         </Row>
-        <Row className="detail-list justify-content-center align-items-center shadow">
+        <Row className="detail-list justify-content-center align-items-center shadow ">
           <div className="detail-list__item detail-list__leftside">
             <p className="detail-list__vertical detail-list__light-effect m-2">
               GRANTENDER
             </p>
             <div className="detail-list__photo">
-            <img src={"/"+findTender?.imgUrl} alt="" />
+              <img src={"/" + findTender?.imgUrl} alt="" />
             </div>
           </div>
-          {findTender ? (
+          {applyshow && <Apply />}
+
+          {findTender && !applyshow ? (
             <div className="detail-list__item detail-list__rightside">
               <h3 className="detail-list__title">Elan sahibi</h3>
               <p className="detail-list__content">
@@ -82,14 +84,11 @@ const Detail = () => {
                 {findTender.subject}
               </p>
 
-
               <h3 className="detail-list__title">Şəhər</h3>
               <p className="detail-list__content">
                 <FaLocationDot className="detail-list__icon" />
                 {findTender.city}
               </p>
-
-
 
               <h3 className="detail-list__title">Təşkilatın ünvanı</h3>
               <p className="detail-list__content">
@@ -103,9 +102,7 @@ const Detail = () => {
                 {findTender.price + " AZN"}
               </p>
 
-              <h3 className="detail-list__title">
-                Elanın yaradılış tarixi
-              </h3>
+              <h3 className="detail-list__title">Elanın yaradılış tarixi</h3>
               <p className="detail-list__content">
                 <FaCalendarCheck className="detail-list__icon" />
                 {findTender.creationDate}
@@ -123,14 +120,9 @@ const Detail = () => {
                 >
                   Müraciət et
                 </Button>
-
               )}
-              {applyshow && <Apply />}
-
             </div>
-          ) : (
-            <p>No tender found</p>
-          )}
+          ) : null}
         </Row>
       </Container>
     </div>
@@ -138,3 +130,4 @@ const Detail = () => {
 };
 
 export default Detail;
+

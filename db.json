@@ -140,7 +140,8 @@
       "age": "1111-01-01",
       "password": "123",
       "confirmPassword": "123",
-      "bookmarked": []
+      "bookmarked": [],
+      "loggedIn": false
     },
     {
       "id": "381c",

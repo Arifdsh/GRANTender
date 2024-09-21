@@ -19,7 +19,7 @@ const Apply = () => {
 
   return (
     <div className="apply-tender">
-      <h2>Apply for Tender</h2>
+      <h2>MÜRACİƏT FORMU</h2>
       <Formik
         initialValues={initialValues}
         // validationSchema={validationSchema}
@@ -28,19 +28,19 @@ const Apply = () => {
         {({ setFieldValue }) => (
           <Form className="form-container">
             <div className="form-group">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name">Şirkət adı</label>
               <Field type="text" id="name" name="name" />
               <ErrorMessage name="name" component="div" className="error-message" />
             </div>
 
             <div className="form-group">
-              <label htmlFor="description">Description</label>
+              <label htmlFor="description">Şirkət haqqında</label>
               <Field as="textarea" id="description" name="description" rows="4" />
               <ErrorMessage name="description" component="div" className="error-message" />
             </div>
 
             <div className="form-group">
-              <label htmlFor="details">Details</label>
+              <label htmlFor="details">Komanda üzvləri</label>
               <Field as="textarea" id="details" name="details" rows="4" />
               <ErrorMessage name="details" component="div" className="error-message" />
             </div>

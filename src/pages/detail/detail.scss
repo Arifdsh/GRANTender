@@ -9,7 +9,7 @@
     padding: 10px;
     width: 150px;
     margin: 0 auto 20px;
-    h2{
+    h2 {
       font-weight: bold;
     }
   }
@@ -131,11 +131,8 @@
         border-bottom-right-radius: 50%;
       }
       &__vertical {
+        // display: none;
         z-index: 1;
-
-        // writing-mode: vertical-rl;
-        // text-orientation: upright;
-
         font-size: 14px;
         color: $neutral-color-white;
       }
@@ -144,6 +141,7 @@
         width: 100%;
         padding: 35px 30px;
       }
+
       &__title {
         font-size: 1em;
       }

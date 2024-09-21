@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <>
     <footer className="footer" id='/footer.htm'>
-        <div className="footer__top"><h1 className="footer__heading">Bizimlə əlaqə</h1></div>
+        <div className="footer__top"><h1 className="footer__heading text-decoration-underline fs-2">BİZİMLƏ ƏLAQƏ</h1></div>
         <ul className="footer-cards">
             <li className="footer-cards__item footer-cards--telegram">
                 <Link className="footer-cards__link">
