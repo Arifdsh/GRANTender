@@ -318,7 +318,7 @@
       "email": "raf242@yandex.ru",
       "age": "1994-06-05",
       "password": "123",
-      "loggedIn": false,
+      "loggedIn": true,
       "bookmarked": [
         "8d36",
         "c12c",
