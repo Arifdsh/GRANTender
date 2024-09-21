@@ -265,7 +265,7 @@
         "19c5",
         "d688"
       ],
-      "loggedIn": false
+      "loggedIn": true
     },
     {
       "id": "ca39",
@@ -465,7 +465,7 @@
       "email": "adam@adam",
       "age": "1990-11-11",
       "password": "123",
-      "loggedIn": true,
+      "loggedIn": false,
       "bookmarked": [
         "9a55",
         "4ee5"

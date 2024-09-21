@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { submitApplyList } from '../../features/applySlice.js';
 import { selectSelectedTenderId, selectSelectedTenderOwnerId } from '../../features/tendersSlice.js';
 import { applyForTender, checkLoggedInUser } from '../../features/usersSlice.js';
+import { IoCloseCircle } from 'react-icons/io5';
 
 const Apply = () => {
   const dispatch = useDispatch()
@@ -41,6 +42,7 @@ const Apply = () => {
 
   return (
     <div className="apply-tender">
+      <IoCloseCircle className="close" />
       <h2>MÜRACİƏT FORMU</h2>
       <Formik
         initialValues={initialValues}
