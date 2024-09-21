@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Apply from '../../components/apply/Apply.jsx'
 import { fetchTenders, selectAllTenders, setSelectedTenderId, setSelectedTenderUserId } from "../../features/tendersSlice.js";
+import { fetchAllUsers } from "../../features/usersSlice.js";
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([]);
@@ -24,7 +25,12 @@ const Detail = () => {
   const [applyshow, setApplyShow] = useState(false);
   const dispatch = useDispatch()
   const tenders = useSelector(selectAllTenders)
+  const users = useSelector((state) => state.user.users);
 
+
+  useEffect(() => {
+    dispatch(fetchAllUsers());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchTenders())
@@ -36,7 +42,7 @@ const Detail = () => {
   }, [dispatch]);
 
   const findTender = tenders.find((tender) => tender.id.toString() === id);
-
+  const findUser = users.find((user) => user.id === findTender?.userId);
 
   const handleApplyClick = () => {
     const userLoggedIn = localStorage.getItem("UserLoggedIn");
@@ -64,8 +70,8 @@ const Detail = () => {
               GRANTENDER
             </p>
             <div className="detail-list__photo">
-              {findTender?.imgUrl ? (
-                <img src={"/" + findTender.imgUrl} alt="" />
+              {findUser?.picture ? (
+                <img src={findUser.picture} alt="Profile" />
               ) : (
                 <span>{findTender?.owner[0]}</span>
               )}

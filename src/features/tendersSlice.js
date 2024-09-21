@@ -73,6 +73,7 @@ const tendersSlice = createSlice({
     showCreateTender: false,
     selectedTenderId: null,
     selectedTenderUserId: null,
+    isEditing: false,
   },
   reducers: {
     setTenderToEdit: (state, action) => {
@@ -137,6 +138,7 @@ const tendersSlice = createSlice({
 })
 
 export default tendersSlice.reducer;
+
 
 export const { setSelectedTenderId, setSelectedTenderUserId } = tendersSlice.actions;
 
