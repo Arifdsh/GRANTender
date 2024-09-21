@@ -39,9 +39,13 @@ const Detail = () => {
 
 
   const handleApplyClick = () => {
-    dispatch(setSelectedTenderId(findTender.id));
-    dispatch(setSelectedTenderUserId(findTender.userId))
-    setApplyShow(true);
+    const userLoggedIn = localStorage.getItem("UserLoggedIn");
+
+    if (userLoggedIn === "true" && userLoggedIn) {
+      setApplyShow(true);
+    } else {
+      navigate("/authorization");
+    }
   };
 
   return (
@@ -125,4 +129,3 @@ const Detail = () => {
 };
 
 export default Detail;
-

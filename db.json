@@ -382,7 +382,8 @@
       "email": "mahmudovnurlan301@gmail.com",
       "age": "2000-09-11",
       "password": "nurlan2001",
-      "bookmarked": []
+      "bookmarked": [],
+      "loggedIn": false
     },
     {
       "id": "8234",
