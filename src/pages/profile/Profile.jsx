@@ -22,21 +22,21 @@ const Profile = () => {
   const showCreateTender = useSelector((state) => state.tenders.showCreateTender)
   const loggedInUser = useSelector((state) => (state.user.user))
   const userCheck = localStorage.getItem('UserLoggedIn')
-  
+
   useEffect(() => {
-    
+
     if (!userCheck || userCheck === 'false') {
       navigate('/authorization');
     } else {
       dispatch(fetchTenders());
       dispatch(fetchUser(loggedInUser?.id));
-  
+
       if (!location.state?.openCreateTender) {
         dispatch(hideCreateTenderForm());
         dispatch(clearTenderToEdit());
       }
     }
-  }, [ navigate, location.state]);
+  }, [navigate, location.state]);
 
 
   const handleTabClick = useCallback((index) => setActiveTab(index), []);
@@ -49,7 +49,6 @@ const Profile = () => {
 
   const handleEditCancel = () => setShowProfileEdit(false)
 
-  
   return (
     <>
       <Navbar />
@@ -57,9 +56,16 @@ const Profile = () => {
       <div className='profile-area'>
         <div className='profile-information-box'>
           <div className='profile-decoration-top'>
-            <div className='profile-img'>
-              <img src={loggedInUser?.picture || ''} alt="" />
+            <div className="profile-img">
+              {loggedInUser?.picture ? (
+                <img src={loggedInUser.picture} alt="" />
+              ) : (
+                <span>{loggedInUser?.name[0]}</span>
+              )}
             </div>
+            {/* <div className='profile-img'>
+              <img src={loggedInUser?.picture || ''} alt="" />
+            </div> */}
           </div>
           <div className='profile-name-box'>
             <p className='profile-name'>{loggedInUser?.name || 'Ad'}</p>
@@ -96,7 +102,7 @@ const Profile = () => {
               <div className={activeTab == 2 ? 'profile-active-content' : 'profile-content'}>
               </div>
               <div className={activeTab == 3 ? 'profile-active-content' : 'profile-content'}>
-                <ApplyCard/>
+                <ApplyCard />
               </div>
               <div className={activeTab == 4 ? 'profile-active-content' : 'profile-content'}>
                 <Cards filterType="bookmarked" />
