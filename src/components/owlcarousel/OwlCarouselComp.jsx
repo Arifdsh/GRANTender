@@ -24,72 +24,86 @@ const OwlCarouselComp = () => {
   };
   return (
     <>
-      <section  className="content_carousel bg-light mt-5" id="/section-partnyor.htm">
+      <section
+        className="content_carousel bg-light mt-5"
+        id="/section-partnyor.htm"
+      >
         <h1 className="d-flex justify-content-center align-items-center fw-bold py-5 fs-2 carousel-heading text-decoration-underline">
-       PARTNYORLARIMIZ
+          PARTNYORLARIMIZ
         </h1>
         <div className="d-flex justify-content-center align-items-center mx-5 ">
           <OwlCarousel className="owl-theme " {...options}>
             <div className="item">
-             
-                <img src="./src/assets/image/azinterservicecolor.png" className="border carousel-border rounded"/>
-               
+              <img
+                src="./src/assets/image/azinterservicecolor.png"
+                className="border carousel-border rounded"
+              />
             </div>
             <div className="item">
-              
-                <img src="./src/assets/image/crocuscolor.png" className="border carousel-border rounded"/>
-                
+              <img
+                src="./src/assets/image/crocuscolor.png"
+                className="border carousel-border rounded"
+              />
             </div>
             <div className="item">
-              
-                <img src="./src/assets/image/velievcolor.png" className="border carousel-border rounded"/>
-                
+              <img
+                src="./src/assets/image/velievcolor.png"
+                className="border carousel-border rounded"
+              />
             </div>
             <div className="item">
-              
-                <img src="./src/assets/image/eurooilcolor.png" className="border carousel-border rounded"/>
-               
+              <img
+                src="./src/assets/image/eurooilcolor.png"
+                className="border carousel-border rounded"
+              />
             </div>
             <div className="item">
-              
-                <img src="./src/assets/image/liderqrupcolor.png" className="border carousel-border rounded"/>
-               
+              <img
+                src="./src/assets/image/liderqrupcolor.png"
+                className="border carousel-border rounded"
+              />
             </div>
             <div className="item">
-             
-                <img src="./src/assets/image/logo-Zahidandzakircolor.png" className="border carousel-border rounded"/>
-               
-                
+              <img
+                src="./src/assets/image/logo-Zahidandzakircolor.png"
+                className="border carousel-border rounded"
+              />
             </div>
             <div className="item">
-              
-                <img src="./src/assets/image/lubristarcolor.png" className="border carousel-border  rounded"/>
-                
+              <img
+                src="./src/assets/image/lubristarcolor.png"
+                className="border carousel-border  rounded"
+              />
             </div>
             <div className="item">
-              
-                <img src="./src/assets/image/retroholdingcolor.png" className="border carousel-border rounded"/>
-                
+              <img
+                src="./src/assets/image/retroholdingcolor.png"
+                className="border carousel-border rounded"
+              />
             </div>
             <div className="item">
-             
-                <img src="./src/assets/image/velievcolor.png"  className="border carousel-border rounded"/>
-               
+              <img
+                src="./src/assets/image/velievcolor.png"
+                className="border carousel-border rounded"
+              />
             </div>
             <div className="item">
-             
-                <img src="./src/assets/image/zzmotorscolor.png" className="border carousel-border rounded"/>
-                
+              <img
+                src="./src/assets/image/zzmotorscolor.png"
+                className="border carousel-border rounded"
+              />
             </div>
             <div className="item">
-             
-                <img src="./src/assets/image/retroholdingcolor.png" className="border carousel-border rounded"/>
-               
+              <img
+                src="./src/assets/image/retroholdingcolor.png"
+                className="border carousel-border rounded"
+              />
             </div>
             <div className="item">
-             
-                <img src="./src/assets/image/eurooilcolor.png" className="border carousel-border rounded"/>
-               
+              <img
+                src="./src/assets/image/eurooilcolor.png"
+                className="border carousel-border rounded"
+              />
             </div>
           </OwlCarousel>
         </div>

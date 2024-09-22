@@ -12,8 +12,13 @@ import Button from "react-bootstrap/Button";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Apply from '../../components/apply/Apply.jsx'
-import { fetchTenders, selectAllTenders, setSelectedTenderId, setSelectedTenderUserId } from "../../features/tendersSlice.js";
+import Apply from "../../components/apply/Apply.jsx";
+import {
+  fetchTenders,
+  selectAllTenders,
+  setSelectedTenderId,
+  setSelectedTenderUserId,
+} from "../../features/tendersSlice.js";
 import { fetchAllUsers } from "../../features/usersSlice.js";
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
@@ -23,10 +28,9 @@ const Detail = () => {
   const userId = useSelector((state) => state.user.user?.id);
   const navigate = useNavigate();
   const [applyshow, setApplyShow] = useState(false);
-  const dispatch = useDispatch()
-  const tenders = useSelector(selectAllTenders)
+  const dispatch = useDispatch();
+  const tenders = useSelector(selectAllTenders);
   const users = useSelector((state) => state.user.users);
-
 
   useEffect(() => {
     dispatch(fetchAllUsers());
@@ -34,8 +38,7 @@ const Detail = () => {
 
   useEffect(() => {
     dispatch(fetchTenders())
-      .then(() => {
-      })
+      .then(() => {})
       .catch((error) => {
         console.error("Error fetching tenders:", error);
       });
@@ -123,7 +126,12 @@ const Detail = () => {
                 {findTender.expirationDate}
               </p>
               {findTender.userId !== userId && (
-                <Button className="detail-list__apply mt-3" onClick={handleApplyClick} >Müraciət et</Button>
+                <Button
+                  className="detail-list__apply mt-3"
+                  onClick={handleApplyClick}
+                >
+                  Müraciət et
+                </Button>
               )}
               {applyshow && <Apply />}
             </div>
