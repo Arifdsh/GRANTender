@@ -15,6 +15,7 @@ const Apply = () => {
   const tenderOwnerId = useSelector(selectSelectedTenderOwnerId)
   const loggedInUser = useSelector((state)=> state.user.user)
 
+  console.log(selectedTenderId);
   useEffect(()=>{
     dispatch(checkLoggedInUser())
   }, [])

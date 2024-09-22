@@ -50,6 +50,8 @@ const Detail = () => {
   const handleApplyClick = () => {
     const userLoggedIn = localStorage.getItem("UserLoggedIn");
 
+    dispatch(setSelectedTenderId(findTender.id));
+    dispatch(setSelectedTenderUserId(findTender.userId))
     if (userLoggedIn === "true" && userLoggedIn) {
       setApplyShow(true);
     } else {

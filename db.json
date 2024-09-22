@@ -150,6 +150,18 @@
       "city": "Gəncə",
       "userId": "ce6b",
       "files": []
+    },
+    {
+      "id": "6173",
+      "owner": "Samir2",
+      "subject": "Samir2",
+      "address": "sasasa",
+      "price": 1111111,
+      "creationDate": "2024-09-22",
+      "expirationDate": "2024-09-28",
+      "city": "Cəlilabad",
+      "userId": "ce6b",
+      "files": []
     }
   ],
   "user": [
@@ -514,10 +526,12 @@
       "email": "ak@ak",
       "age": "1111-11-11",
       "password": "123",
-      "loggedIn": true,
+      "loggedIn": false,
       "bookmarked": [],
       "applied": [
-        null
+        null,
+        null,
+        "8570"
       ]
     }
   ],
@@ -778,6 +792,26 @@
       "userId": "7628",
       "cardId": "",
       "tenderOwnerId": "",
+      "file": null
+    },
+    {
+      "id": "a3a3",
+      "name": "Akif",
+      "description": "Akif",
+      "details": "Akif",
+      "userId": "7628",
+      "cardId": "",
+      "tenderOwnerId": "",
+      "file": null
+    },
+    {
+      "id": "dcc3",
+      "name": "Akif",
+      "description": "Akif",
+      "details": "Akif",
+      "userId": "7628",
+      "cardId": "8570",
+      "tenderOwnerId": "ce6b",
       "file": null
     }
   ]
