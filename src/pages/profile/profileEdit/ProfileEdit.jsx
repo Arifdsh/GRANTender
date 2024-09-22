@@ -100,6 +100,7 @@ const ProfileEdit = () => {
       <div className="edit-input-group">
         <label htmlFor="profile-name">Adınızı dəyişin:</label>
         <input
+        placeholder='Adınızı daxil edin'
           type="text"
           id="profile-name"
           {...formik.getFieldProps('name')}
@@ -110,6 +111,7 @@ const ProfileEdit = () => {
       <div className="edit-input-group">
         <label htmlFor="profile-surname">Soyadınızı dəyişin:</label>
         <input
+        placeholder='Soyadınızı daxil edin'
           type="text"
           id="profile-surname"
           {...formik.getFieldProps('surname')}
@@ -120,6 +122,7 @@ const ProfileEdit = () => {
       <div className="edit-input-group">
         <label htmlFor="old-password">Köhnə şifrənizi daxil edin:</label>
         <input
+        placeholder='Şifrə'
           type="password"
           id="old-password"
           {...formik.getFieldProps('oldPassword')}
@@ -130,6 +133,7 @@ const ProfileEdit = () => {
       <div className="edit-input-group">
         <label htmlFor="new-password">Yeni şifrəni daxil edin:</label>
         <input
+        placeholder='Yeni şifrə'
           type="password"
           id="new-password"
           {...formik.getFieldProps('newPassword')}
@@ -140,6 +144,7 @@ const ProfileEdit = () => {
       <div className="edit-input-group">
         <label htmlFor="confirm-password">Yeni şifrəni təsdiqləyin:</label>
         <input
+        placeholder='Yeni şifrə'
           type="password"
           id="confirm-password"
           {...formik.getFieldProps('confirmPassword')}

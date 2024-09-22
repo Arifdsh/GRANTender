@@ -1,12 +1,13 @@
 @import '../../../styles/global.scss';
 
 .edit-area {
-    width: 68%;
+    width: 60%;
     display: flex;
     align-items: center;
+    margin-right: 50px;
     flex-direction: column;
-    padding: 20px;
-    background-color: #f8f8f8;
+    padding-block: 20px;
+    background-color: rgba($primary-colorLight,0.5);
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border:1px solid $borderColor-lightGray;
@@ -39,7 +40,7 @@
     }
 
     .profile-edit-form {
-        background-color: white;
+        background-color: $neutral-color-white;
         width: 80%;
         padding: 5%;
         border-radius: 8px;
@@ -47,7 +48,14 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-
+input{ 
+    @include input-style();
+    @include transition();
+    cursor: pointer;
+    &:hover{
+        background-color: rgba($primary-colorLight,0.5);
+    }
+}
         .edit-input-group {
             display: flex;
             flex-direction: column;
@@ -59,13 +67,11 @@
             }
 
             input[type="file"] {
-                padding: 10px;
                 border: 1px solid #ccc;
                 border-radius: 4px;
             }
 
             input[type="text"] {
-                padding: 10px;
                 font-size: 1rem;
                 border: 1px solid #ccc;
                 border-radius: 4px;
@@ -88,8 +94,8 @@
             transition: background-color 0.3s ease;
 
             &:hover {
-                background-color: $neutral-color-white;
-                color: $primary-color;
+                background-color: $primary-colorLight;
+                color: $neutral-color-white;
             }
         }
     }

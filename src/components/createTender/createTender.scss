@@ -57,7 +57,6 @@
                 color: #333;
             }
 
-            /* For Chrome, Safari, Edge, Opera */
             input[type="number"]::-webkit-inner-spin-button,
             input[type="number"]::-webkit-outer-spin-button {
                 -webkit-appearance: none;
@@ -94,7 +93,7 @@
 
         button[type='submit'] {
             padding: 0.75rem 1.5rem;
-            background-color: #099314;
+            background-color:$primary-color;
             color: #fff;
             border: none;
             border-radius: 4px;
@@ -103,17 +102,10 @@
             transition: background-color 0.3s ease;
 
             &:hover {
-                background-color: #1ca60f;
+                background-color:$primary-colorLight;
             }
         }
 
-        input[type="file"] {
-            padding: 0.5rem;
-            background-color: #f1f1f1;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            cursor: pointer;
-        }
 
         .file-names-list {
             margin-top: 0.5rem;
@@ -137,7 +129,6 @@
     }
 }
 
-//Responsive start Here
 
 @media (max-width: 768px) {
     .ct-main-area {

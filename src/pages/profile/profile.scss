@@ -124,8 +124,8 @@
   cursor: pointer;
 
   &:hover {
-    background-color: $neutral-color-white;
-    color: $primary-color;
+    background-color: $primary-colorLight;
+    color: $neutral-color-white;
   }
 }
 
@@ -144,6 +144,7 @@
   }
 
   .profile-add-tender {
+    @include transition();
     padding: 8px 15px;
     margin-left: auto;
     width: 150px;
