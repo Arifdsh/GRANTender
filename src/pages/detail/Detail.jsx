@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Navbar from "../../components/navbar/Navbar.jsx";
 import DarkLightMode from "../../components/navbar/DarkLightMode.jsx";
 import axios from "axios";
 import "../detail/detail.scss";
@@ -20,14 +19,14 @@ import {
   setSelectedTenderUserId,
 } from "../../features/tendersSlice.js";
 import { fetchAllUsers } from "../../features/usersSlice.js";
+
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
+  const [setError] = useState(null);
   const { id } = useParams();
   const userId = useSelector((state) => state.user.user?.id);
   const navigate = useNavigate();
-  const [applyshow, setApplyShow] = useState(false);
+  const [applyShow, setApplyShow] = useState(false); // Müraciət komponenti göstərilsin ya yox
   const dispatch = useDispatch();
   const tenders = useSelector(selectAllTenders);
   const users = useSelector((state) => state.user.users);
@@ -53,10 +52,14 @@ const Detail = () => {
     dispatch(setSelectedTenderId(findTender.id));
     dispatch(setSelectedTenderUserId(findTender.userId))
     if (userLoggedIn === "true" && userLoggedIn) {
-      setApplyShow(true);
+      setApplyShow(true); // Müraciət formunu açırıq
     } else {
       navigate("/authorization");
     }
+  };
+
+  const handleCloseApplyForm = () => {
+    setApplyShow(false); // Müraciət formunu bağlayırıq, detail səhifəsini göstəririk
   };
 
   return (
@@ -70,6 +73,8 @@ const Detail = () => {
           </Col>
         </Row>
         <Row className="detail-list justify-content-center align-items-center shadow ">
+
+          {/* Sol tərəfdəki logo, şəkil */}
           <div className="detail-list__item detail-list__leftside">
             <p className="detail-list__vertical detail-list__light-effect m-2">
               GRANTENDER
@@ -82,62 +87,71 @@ const Detail = () => {
               )}
             </div>
           </div>
-          {applyshow && <Apply />}
 
-          {findTender && !applyshow ? (
-            <div className="detail-list__item detail-list__rightside">
-              <h3 className="detail-list__title">Elan sahibi</h3>
-              <p className="detail-list__content">
-                <FaUserCircle className="detail-list__icon" />
-                {findTender.owner}
-              </p>
+          {/* Sağ tərəfdəki məlumatlar və müraciət formu */}
+          <div className="detail-list__item detail-list__rightside">
 
-              <h3 className="detail-list__title">Elanın predmeti</h3>
-              <p className="detail-list__content">
-                <MdSubject className="detail-list__icon" />
-                {findTender.subject}
-              </p>
+            {/* Müraciət formu yoxsa detalları göstərmək üçün şərt */}
+            {applyShow ? (
+              <Apply onClose={handleCloseApplyForm} />
+            ) : (
+              findTender && (
+                <>
+                  <h3 className="detail-list__title">Elan sahibi</h3>
+                  <p className="detail-list__content">
+                    <FaUserCircle className="detail-list__icon" />
+                    {findTender.owner}
+                  </p>
 
-              <h3 className="detail-list__title">Şəhər</h3>
-              <p className="detail-list__content">
-                <FaLocationDot className="detail-list__icon" />
-                {findTender.city}
-              </p>
+                  <h3 className="detail-list__title">Elanın predmeti</h3>
+                  <p className="detail-list__content">
+                    <MdSubject className="detail-list__icon" />
+                    {findTender.subject}
+                  </p>
 
-              <h3 className="detail-list__title">Təşkilatın ünvanı</h3>
-              <p className="detail-list__content">
-                <FaLocationDot className="detail-list__icon" />
-                {findTender.address}
-              </p>
+                  <h3 className="detail-list__title">Şəhər</h3>
+                  <p className="detail-list__content">
+                    <FaLocationDot className="detail-list__icon" />
+                    {findTender.city}
+                  </p>
 
-              <h3 className="detail-list__title">Ehtimal olunan qiyməti</h3>
-              <p className="detail-list__content">
-                <RiMoneyEuroBoxFill className="detail-list__icon" />
-                {findTender.price + " AZN"}
-              </p>
+                  <h3 className="detail-list__title">Təşkilatın ünvanı</h3>
+                  <p className="detail-list__content">
+                    <FaLocationDot className="detail-list__icon" />
+                    {findTender.address}
+                  </p>
 
-              <h3 className="detail-list__title">Elanın yaradılış tarixi</h3>
-              <p className="detail-list__content">
-                <FaCalendarCheck className="detail-list__icon" />
-                {findTender.creationDate}
-              </p>
+                  <h3 className="detail-list__title">Ehtimal olunan qiyməti</h3>
+                  <p className="detail-list__content">
+                    <RiMoneyEuroBoxFill className="detail-list__icon" />
+                    {findTender.price + " AZN"}
+                  </p>
 
-              <h3 className="detail-list__title">Elanın bitmə tarixi</h3>
-              <p className="detail-list__content">
-                <FaCalendarXmark className="detail-list__icon" />
-                {findTender.expirationDate}
-              </p>
-              {findTender.userId !== userId && (
-                <Button
-                  className="detail-list__apply mt-3"
-                  onClick={handleApplyClick}
-                >
-                  Müraciət et
-                </Button>
-              )}
-              {applyshow && <Apply />}
-            </div>
-          ) : null}
+                  <h3 className="detail-list__title">Elanın yaradılış tarixi</h3>
+                  <p className="detail-list__content">
+                    <FaCalendarCheck className="detail-list__icon" />
+                    {findTender.creationDate}
+                  </p>
+
+                  <h3 className="detail-list__title">Elanın bitmə tarixi</h3>
+                  <p className="detail-list__content">
+                    <FaCalendarXmark className="detail-list__icon" />
+                    {findTender.expirationDate}
+                  </p>
+
+                  {/* Müraciət et düyməsi */}
+                  {findTender.userId !== userId && (
+                    <Button
+                      className="detail-list__apply mt-3"
+                      onClick={handleApplyClick}
+                    >
+                      Müraciət et
+                    </Button>
+                  )}
+                </>
+              )
+            )}
+          </div>
         </Row>
       </Container>
     </div>

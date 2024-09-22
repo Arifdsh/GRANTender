@@ -3,9 +3,8 @@ import "./DarkLightMode.scss";
 
 const DarkLightMode = () => {
   const options = {
-    bottom: "64px",
-    right: "unset",
-    left: "32px",
+    bottom: "30px",
+    right: "30px",
     time: "0.5s",
     mixColor: "#fff",
     backgroundColor: "#fff",

@@ -44,18 +44,6 @@
       "files": []
     },
     {
-      "id": "8a73",
-      "owner": "svsdvdfsdsd",
-      "subject": "sddvsdv",
-      "address": "gfvdc",
-      "price": 86525,
-      "creationDate": "2024-09-20",
-      "expirationDate": "8658-05-04",
-      "city": "Ganja",
-      "userId": "28cb",
-      "files": []
-    },
-    {
       "id": "4ee5",
       "owner": "Tom",
       "subject": "Check result",
@@ -762,56 +750,6 @@
       "userId": "55b2",
       "cardId": "c641",
       "tenderOwnerId": "8c46",
-      "file": null
-    },
-    {
-      "id": "8e65",
-      "name": "Charlie",
-      "description": "char",
-      "details": "char",
-      "userId": "477f",
-      "cardId": "",
-      "tenderOwnerId": "",
-      "file": null
-    },
-    {
-      "id": "560a",
-      "name": "char",
-      "description": "char",
-      "details": "char",
-      "userId": "477f",
-      "cardId": "",
-      "tenderOwnerId": "",
-      "file": null
-    },
-    {
-      "id": "3283",
-      "name": "Akif",
-      "description": "Akif",
-      "details": "Akif",
-      "userId": "7628",
-      "cardId": "",
-      "tenderOwnerId": "",
-      "file": null
-    },
-    {
-      "id": "a3a3",
-      "name": "Akif",
-      "description": "Akif",
-      "details": "Akif",
-      "userId": "7628",
-      "cardId": "",
-      "tenderOwnerId": "",
-      "file": null
-    },
-    {
-      "id": "dcc3",
-      "name": "Akif",
-      "description": "Akif",
-      "details": "Akif",
-      "userId": "7628",
-      "cardId": "8570",
-      "tenderOwnerId": "ce6b",
       "file": null
     }
   ]

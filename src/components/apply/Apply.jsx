@@ -1,24 +1,23 @@
-import React, { useEffect } from 'react'
+import { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import applyShema from './applySchema.js'
-import './apply.scss'
+import applyShema from './applySchema.js';
+import './apply.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { submitApplyList } from '../../features/applySlice.js';
 import { selectSelectedTenderId, selectSelectedTenderOwnerId } from '../../features/tendersSlice.js';
 import { applyForTender, checkLoggedInUser } from '../../features/usersSlice.js';
 import { IoCloseCircle } from 'react-icons/io5';
 
-const Apply = () => {
-  const dispatch = useDispatch()
+const Apply = ({ onClose }) => {
+  const dispatch = useDispatch();
 
   const selectedTenderId = useSelector(selectSelectedTenderId);
-  const tenderOwnerId = useSelector(selectSelectedTenderOwnerId)
-  const loggedInUser = useSelector((state)=> state.user.user)
+  const tenderOwnerId = useSelector(selectSelectedTenderOwnerId);
+  const loggedInUser = useSelector((state) => state.user.user);
 
-  console.log(selectedTenderId);
-  useEffect(()=>{
-    dispatch(checkLoggedInUser())
-  }, [])
+  useEffect(() => {
+    dispatch(checkLoggedInUser());
+  }, [dispatch]);
 
   const initialValues = {
     name: '',
@@ -30,20 +29,22 @@ const Apply = () => {
     file: null,
   };
 
-  const handleSubmit = (values, {resetForm}) => {
+  const handleSubmit = (values, { resetForm }) => {
     const formData = {
       ...values,
       file: values.file ? values.file.name : null,
-    }
+    };
 
-    dispatch(submitApplyList(formData))
-    dispatch(applyForTender({ userId: loggedInUser?.id, tenderId: selectedTenderId }))
-    resetForm()
-  }
+    dispatch(submitApplyList(formData));
+    dispatch(applyForTender({ userId: loggedInUser?.id, tenderId: selectedTenderId }));
+    resetForm();
+    // Close the form after submitting
+    onClose(); // onClose funksiyası formu bağlamaq üçün çağırılır
+  };
 
   return (
     <div className="apply-tender">
-      <IoCloseCircle className="close" />
+      <IoCloseCircle className="close" onClick={onClose} />
       <h2>MÜRACİƏT FORMU</h2>
       <Formik
         initialValues={initialValues}
@@ -71,7 +72,7 @@ const Apply = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="file" className='fileLabel'>Upload File</label>
+              <label htmlFor="file" className="fileLabel">Fayl Yüklə</label>
               <input
                 type="file"
                 id="file"
@@ -80,7 +81,7 @@ const Apply = () => {
               />
               <ErrorMessage name="file" component="div" className="error-message" />
             </div>
-            <button type="submit" className="submit-button">Submit</button>
+            <button type="submit" className="submit-button">Göndər</button>
           </Form>
         )}
       </Formik>
@@ -88,4 +89,4 @@ const Apply = () => {
   );
 };
 
-export default Apply
+export default Apply;

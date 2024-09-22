@@ -15,8 +15,8 @@ const Chat = () => {
     useEffect(() => {
         if (isOpen) {
             const initialMessage = user?.name
-                ? `Hello ${user.name}, how can I assist you today?`
-                : 'Hello, please provide your phone number and describe the problem.'
+                ? `Salam ${user.name}, bu gün sizə necə kömək edə bilərəm?`
+                : 'Salam, zəhmət olmasa telefon nömrənizi yazın və problemi təsvir edin.'
             setMessages([{ text: initialMessage }]);
         }
     }, [isOpen, user])
@@ -70,7 +70,7 @@ const Chat = () => {
             {isOpen && (
                 <div className="chat-window">
                     <div className="chat-header">
-                        <span>Chat</span>
+                        <span>Söhbət</span>
                         <button onClick={toggleChat}>x</button>
                     </div>
                     <div className="chat-body">
@@ -90,9 +90,9 @@ const Chat = () => {
                         <textarea
                             value={problemDescription}
                             onChange={handleProblemDescriptionChange}
-                            placeholder="Describe your problem"
+                            placeholder="Probleminizi təsvir edin"
                         ></textarea>
-                        <button type="submit">Send</button>
+                        <button type="submit">Göndər</button>
                     </form>
                 </div>
             )}
