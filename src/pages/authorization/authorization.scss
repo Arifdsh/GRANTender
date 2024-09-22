@@ -3,6 +3,26 @@
 .authorization {
     position: relative;
     background-image: linear-gradient(to right, $borderColor-lightGray, $primary-color);
+    .goHome{
+        background-color: $neutral-color-white;
+        color:$primary-color;
+        padding:7px;
+        border: 1px solid $primary-color;
+        position: absolute;
+        left:2%;
+        top:2%;
+        z-index: 1;
+        transition: 0.3s;
+        cursor: pointer;
+        &:hover{
+            background-color: $primary-color;
+            color: $neutral-color-white;
+        }
+        &__icon{
+            width:30px;
+            margin-top:-2px;
+        }
+    }
     .passwordArea{
         position: relative;
         .input{
@@ -280,11 +300,23 @@
         box-shadow: 0 0 10px 2px rgb(214, 123, 123);
     }
 }
+@media screen and (max-width:768px){
+    .authorization{
+        .modal{
+            &__heading{
+                width:33%;
+            }
+            .register{
+                width:50%;
+            }
+        }
+    }
+}
 
 //Responsive design
 @media screen and (max-width:767px) {
     .authorization {
-        padding:40px 0;
+        padding:40px 0px;
         .login {
             flex-direction: column;
             flex-wrap: nowrap;
@@ -312,6 +344,17 @@
             .register{
                 width:100%;
             }
+        }
+    }
+}
+@media screen and (max-width:375px){
+    .authorization{
+        .modal{
+            &__heading{
+                font-size:1.6em;
+                padding:5px;
+            }
+            
         }
     }
 }

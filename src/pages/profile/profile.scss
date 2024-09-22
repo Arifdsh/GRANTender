@@ -44,6 +44,27 @@
   position: relative;
   top: 50px;
 }
+.profile-img{
+  span{
+    border-radius: 50%;
+    position: relative;
+    outline: 5px solid rgb(13, 81, 144);
+    background-color: $neutral-color-white;
+    width:200px;
+    height:200px;
+    top:50px;
+    display:block;
+    font-size:7em;
+    text-align: center;
+    line-height: 180px;
+    margin: 0 auto;
+    color:$primary-color;
+    font-weight: bold;
+    box-shadow: 0 0 5px $neutral-color-gray;
+    text-transform: uppercase;
+    text-shadow: 0 0 2px $neutral-color-black;
+  }
+}
 
 .profile-name-box {
   text-align: center;

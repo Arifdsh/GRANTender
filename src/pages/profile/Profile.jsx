@@ -6,50 +6,58 @@ import ProfileEdit from './profileEdit/ProfileEdit.jsx'
 import Cards from '../../components/cards/Cards.jsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearTenderToEdit, fetchTenders, hideCreateTenderForm, showCreateTenderForm } from '../../features/tendersSlice.js'
-import { checkLoggedInUser, fetchUser, loginUser, selectIsUserLoggedIn } from '../../features/usersSlice.js'
+import { checkLoggedInUser, fetchUser, hideProfileEditForm, loginUser, selectIsUserLoggedIn, showProfileEditForm } from '../../features/usersSlice.js'
 import DarkLightMode from '../../components/navbar/DarkLightMode.jsx'
 import { useLocation, useNavigate } from 'react-router-dom'
 import ApplyCard from '../../components/applyCard/ApplyCard.jsx'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
-  const [showProfileEdit, setShowProfileEdit] = useState(false)
 
   const navigate = useNavigate()
   const location = useLocation()
   const dispatch = useDispatch()
 
+
   const showCreateTender = useSelector((state) => state.tenders.showCreateTender)
+  const showProfileEdit = useSelector((state) => state.user.showProfileEdit);
   const loggedInUser = useSelector((state) => (state.user.user))
   const userCheck = localStorage.getItem('UserLoggedIn')
-  
+
+
   useEffect(() => {
-    
     if (!userCheck || userCheck === 'false') {
       navigate('/authorization');
     } else {
-      dispatch(fetchTenders());
       dispatch(fetchUser(loggedInUser?.id));
-  
+
+
       if (!location.state?.openCreateTender) {
         dispatch(hideCreateTenderForm());
         dispatch(clearTenderToEdit());
       }
     }
-  }, [ navigate, location.state]);
+  }, [dispatch, navigate, location.state]);
 
+  const handleTabClick = useCallback((index) => {
+    setActiveTab(index);
+    dispatch(fetchTenders());
+  }, [dispatch]);
 
-  const handleTabClick = useCallback((index) => setActiveTab(index), []);
   const handleNavigate = useCallback(() => {
     dispatch(showCreateTenderForm());
   }, [dispatch]);
+
   const handleProfileEdit = useCallback(() => {
     dispatch(hideCreateTenderForm());
+    dispatch(showProfileEditForm());
   }, [dispatch]);
 
-  const handleEditCancel = () => setShowProfileEdit(false)
+  useEffect(() => {
+    dispatch(hideProfileEditForm());
+  }, [location.pathname, dispatch]); 
 
-  
+
   return (
     <>
       <Navbar />
@@ -57,8 +65,12 @@ const Profile = () => {
       <div className='profile-area'>
         <div className='profile-information-box'>
           <div className='profile-decoration-top'>
-            <div className='profile-img'>
-              <img src={loggedInUser?.picture || ''} alt="" />
+            <div className="profile-img">
+              {loggedInUser?.picture ? (
+                <img src={loggedInUser.picture} alt="" />
+              ) : (
+                <span>{loggedInUser?.name[0]}</span>
+              )}
             </div>
           </div>
           <div className='profile-name-box'>
@@ -94,9 +106,10 @@ const Profile = () => {
                 <Cards filterType="created" />
               </div>
               <div className={activeTab == 2 ? 'profile-active-content' : 'profile-content'}>
+                <Cards filterType="applied" />
               </div>
               <div className={activeTab == 3 ? 'profile-active-content' : 'profile-content'}>
-                <ApplyCard/>
+                <ApplyCard />
               </div>
               <div className={activeTab == 4 ? 'profile-active-content' : 'profile-content'}>
                 <Cards filterType="bookmarked" />

@@ -1,86 +1,119 @@
+@import "../../styles/global";
 .chat-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-  
-    .chat-icon {
-      background-color: #007bff;
-      color: white;
-      padding: 30px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 24px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 30px;
+  left: 20px;
+  z-index: 1000;
+
+  .chat-icon {
+    width: 50px;
+    height: 50px;
+    background-color: $primary-color;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: $neutral-color-white;
+    font-size: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $primary-colorLight;
     }
-  
-    .chat-window {
-      position: fixed;
-      bottom: 60px;
-      right: 20px;
-      width: 300px;
-      background-color: white;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .chat-window {
+    position: fixed;
+    bottom: 100px;
+    left: 20px;
+    width: 300px;
+    max-width: 100%;
+    background-color: $neutral-color-white;
+    border: 1px solid $borderColor-lightGray;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px $boxShadow-ultraLightPrimaryColor;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    @media (max-width: 600px) {
+      width: 100%;
+      right: 0;
+      bottom: 0;
+      border-radius: 0;
+    }
+
+    .chat-header {
+      background-color: $primary-color;
+      padding: 15px;
+      color: $neutral-color-white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+
+      button {
+        background-color: $primary-color;
+        background: none;
+        border: none;
+        color: $neutral-color-white;
+        font-size: 18px;
+        cursor: pointer;
+      }
+    }
+
+    .chat-body {
+      padding: 10px;
+      flex-grow: 1;
+      overflow-y: auto;
+      max-height: 200px;
+
+      .messages {
+        p {
+          background-color: $neutral-color-ultraLightGray;
+          padding: 10px;
+          border-radius: 5px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .chat-input {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-  
-      .chat-header {
-        display: flex;
-        justify-content: space-between;
-        background-color: #007bff;
-        color: white;
+      padding: 10px;
+      input,
+      textarea {
+        width: 100%;
         padding: 10px;
-        border-radius: 10px 10px 0 0;
+        margin-bottom: 10px;
+        border: 1px solid $borderColor-lightGray;
+        border-radius: 5px;
+        font-size: 16px;
       }
-  
-      .chat-body {
-        padding: 10px;
-        height: 200px;
-        overflow-y: auto;
-        flex-grow: 1;
-  
-        .messages {
-          display: flex;
-          flex-direction: column;
-  
-          p {
-            margin: 0 0 10px;
-            padding: 8px;
-            background-color: #f1f1f1;
-            border-radius: 5px;
-          }
-        }
+
+      textarea {
+        height: 70px; 
+        resize: none;  
       }
-  
-      .chat-input {
-        display: flex;
+    
+
+      button {
+        background-color: $primary-color;
+        color: $neutral-color-white;
+        border: none;
         padding: 10px;
-        border-top: 1px solid #ccc;
-  
-        textarea {
-          flex-grow: 1;
-          padding: 8px;
-          border-radius: 5px;
-          border: 1px solid #ccc;
-          resize: none;
-        }
-  
-        button {
-          margin-left: 10px;
-          padding: 8px 12px;
-          background-color: #007bff;
-          color: white;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-  
-          &:hover {
-            background-color: #0056b3;
-          }
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $primary-colorLight;
         }
       }
     }
   }
-  
+}

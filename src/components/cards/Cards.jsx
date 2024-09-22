@@ -6,10 +6,12 @@ import { LuSearchX } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTender, fetchTenders, setTenderToEdit, showCreateTenderForm } from "../../features/tendersSlice";
-import { toggleBookmark } from '../../features/usersSlice.js'
+import { fetchAllUsers, toggleBookmark } from '../../features/usersSlice.js'
 import { RiMoneyEuroBoxFill} from "react-icons/ri";
 import { MdLocationCity } from "react-icons/md";
 import NotResult from "../notResult/NotResult.jsx";
+import Confirm from "../confirm/confirm.jsx";
+import { showConfirm, hideConfirm } from "../../features/confirmSlice";
 
 function Cards({ filterType }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,9 +19,26 @@ function Cards({ filterType }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  
+  const users = useSelector((state) => state.user.users);
   const user = useSelector((state) => state.user.user);
   const tenders = useSelector((state) => state.tenders.tenders)
   const searchFilters = useSelector((state) => state.search)
+
+  const { isVisible, selectedTenderId } = useSelector((state) => state.confirm);
+  
+  const handleDeleteClick = (id) => {
+    dispatch(showConfirm(id)); 
+  };
+
+  const handleConfirmYes = () => {
+    dispatch(deleteTender(selectedTenderId)); 
+    dispatch(hideConfirm()); 
+  };
+
+  const handleConfirmNo = () => {
+    dispatch(hideConfirm()); 
+  };
 
   const filteredTenders = useMemo(() => {
     let result = tenders || [];
@@ -57,12 +76,17 @@ function Cards({ filterType }) {
       result = result.filter((tender) => user?.bookmarked?.includes(tender.id));
     }
 
+    if(filterType === "applied"){
+      result = result.filter((tender) => user?.applied?.includes(tender.id))
+    }
+
     return result;
   }, [tenders, user?.id, user?.bookmarked, searchFilters, filterType]);
 
 
   useEffect(() => {
     dispatch(fetchTenders());
+    dispatch(fetchAllUsers()); 
   }, [dispatch,filterType]);
 
 
@@ -97,14 +121,14 @@ function Cards({ filterType }) {
     navigate(`/detail/${id}`)
   }
 
-  const handleDeleteClick = (id) => {
-    dispatch(deleteTender(id))
-  }
-
   const handleEditClick = (tender) => {
     dispatch(setTenderToEdit(tender))
     dispatch(showCreateTenderForm())
   }
+
+  const getTenderOwner = (userId) => {
+    return users?.find((user) => user.id === userId);  
+  };
 
   return (
     <div className="tenders" >
@@ -113,11 +137,13 @@ function Cards({ filterType }) {
           currentTenders.map((tender) => (
             <li key={tender.id} className="tenders-list__item">
               <div className="tenders-list__photo">
-                {tender.imgUrl ? (
-                  <img src={tender.imgUrl} alt="" />
+                {
+                getTenderOwner(tender.userId)?.picture ? (
+                  <img src={getTenderOwner(tender.userId)?.picture} alt="" />
                 ) : (
                   <span>{tender.owner[0]}</span>
-                )}
+                )
+                }
               </div>
               <div className="tenders-list__information">
               <div className="tenders-list__owner">
@@ -171,8 +197,8 @@ function Cards({ filterType }) {
                 <button className="tenders-list__detail tenders-list__button" onClick={() => goToDetails(tender.id)}>
                   Ətraflı
                 </button>
-                <button onClick={() => handleEditClick(tender)} style={{ display: (filterType === "created" && user.id) ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
-                <button onClick={() => handleDeleteClick(tender.id)} style={{ display: (filterType === "created" && user.id) ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
+                <button onClick={() => handleEditClick(tender)} style={{ display: (filterType === "created" && user?.id) ? 'inline' : 'none' }} className="tenders-list__edit tenders-list__button">Düzəliş et</button>
+                <button onClick={() => handleDeleteClick(tender.id)} style={{ display: (filterType === "created" && user?.id) ? 'inline' : 'none' }} className="tenders-list__delete tenders-list__button">Sil</button>
               </div>
             </div>
             <div onClick={() => handleBookmarkClick(tender.id)} className="tenders-list__save">
@@ -184,6 +210,13 @@ function Cards({ filterType }) {
           <NotResult/>
         )}
       </ul>
+
+      {isVisible && (
+        <Confirm
+          onConfirmYes={handleConfirmYes}
+          onConfirmNo={handleConfirmNo}
+        />
+      )}     
 
       {pageNumbers.length > 1 && (
         <div className="pagination">

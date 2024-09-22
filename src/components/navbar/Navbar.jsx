@@ -19,13 +19,13 @@ const Header = () => {
   const [signInUpshow, setSignInUpShow] = useState(true);
   const [logOut, setLogOut] = useState(true);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const loggedInUser = useSelector((state)=>(state.user.user))
+  const loggedInUser = useSelector((state) => state.user.user);
 
-  useEffect(()=>{
-     dispatch(checkLoggedInUser())
-  }, [dispatch])
+  useEffect(() => {
+    dispatch(checkLoggedInUser());
+  }, [dispatch]);
 
   const goToHomePage = () => {
     setHomePage(true);
@@ -39,7 +39,7 @@ const Header = () => {
   const handleLogout = () => {
     if (loggedInUser) {
       dispatch(logoutUser(loggedInUser.id));
-      localStorage.setItem('UserLoggedIn', false )
+      localStorage.setItem("UserLoggedIn", false);
       setProfilePage(false);
       navigate("/");
     }
@@ -49,7 +49,11 @@ const Header = () => {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
         <Navbar.Brand onClick={goToHomePage} className="py-0 my-0">
-          <img className="logo" src="/src/assets/image/logo-tender.png" alt="Logo" />
+          <img
+            className="logo"
+            src="/src/assets/image/logo-tender.png"
+            alt="Logo"
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse className="gap-2">
@@ -93,7 +97,7 @@ const Header = () => {
               )}
             </Nav.Item>
             <Nav.Item>
-            {!profilePage  ? (
+              {!profilePage ? (
                 <>
                   <Nav.Link
                     eventKey="link-2"
@@ -140,12 +144,12 @@ const Header = () => {
               <>
                 <Button
                   onClick={goToProfilePage}
-                  variant="outline-primary fw-bold fs-5 shadow-lg mx-2"
+                  variant="outline-primary fw-bold fs-4 shadow-lg mx-2 my-1"
                 >
                   <GoPersonFill className="personIcon" /> {loggedInUser.name}
                 </Button>
                 <Button
-                  variant="outline-primary fw-bold fs-5 shadow-lg mx-2"
+                  variant="outline-primary fw-bold fs-4 shadow-lg mx-2 my-1"
                   onClick={handleLogout}
                 >
                   <RiLogoutCircleLine className="personIcon" /> Çıxış

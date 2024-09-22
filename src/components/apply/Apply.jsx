@@ -1,27 +1,59 @@
+import { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import './apply.scss'
+import applyShema from './applySchema.js';
+import './apply.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { submitApplyList } from '../../features/applySlice.js';
+import { selectSelectedTenderId, selectSelectedTenderOwnerId } from '../../features/tendersSlice.js';
+import { applyForTender, checkLoggedInUser } from '../../features/usersSlice.js';
+import { IoCloseCircle } from 'react-icons/io5';
 
 const Apply = () => {
-
+  const dispatch = useDispatch();
   
+  // State to control visibility of the Apply form
+  const [showApplyForm, setShowApplyForm] = useState(true);
+
+  const selectedTenderId = useSelector(selectSelectedTenderId);
+  const tenderOwnerId = useSelector(selectSelectedTenderOwnerId);
+  const loggedInUser = useSelector((state) => state.user.user);
+
+  useEffect(() => {
+    dispatch(checkLoggedInUser());
+  }, [dispatch]);
 
   const initialValues = {
     name: '',
     description: '',
     details: '',
+    userId: loggedInUser?.id || '',
+    cardId: selectedTenderId || '',
+    tenderOwnerId: tenderOwnerId || '',
     file: null,
   };
 
-  const handleSubmit = (values) => {
-    console.log('Form values:', values);
+  const handleSubmit = (values, { resetForm }) => {
+    const formData = {
+      ...values,
+      file: values.file ? values.file.name : null,
+    };
+
+    dispatch(submitApplyList(formData));
+    dispatch(applyForTender({ userId: loggedInUser?.id, tenderId: selectedTenderId }));
+    resetForm();
+    // Close the form after submitting
+    setShowApplyForm(false);
   };
+
+  if (!showApplyForm) return null; // If form is closed, return null to hide it
 
   return (
     <div className="apply-tender">
+      <IoCloseCircle className="close" onClick={() => setShowApplyForm(false)} />
       <h2>MÜRACİƏT FORMU</h2>
       <Formik
         initialValues={initialValues}
-        // validationSchema={validationSchema}
+        validationSchema={applyShema}
         onSubmit={handleSubmit}
       >
         {({ setFieldValue }) => (
@@ -45,7 +77,7 @@ const Apply = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="file" className='fileLabel'>Fayl Yüklə</label>
+              <label htmlFor="file" className="fileLabel">Fayl Yüklə</label>
               <input
                 type="file"
                 id="file"
@@ -54,13 +86,12 @@ const Apply = () => {
               />
               <ErrorMessage name="file" component="div" className="error-message" />
             </div>
-
-            <button type="submit" className="submit-button">Göndər</button>
+            <button type="submit" className="submit-button">Submit</button>
           </Form>
         )}
       </Formik>
     </div>
   );
 };
- 
-export default Apply
+
+export default Apply;
