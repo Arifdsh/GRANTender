@@ -32,42 +32,6 @@
       "files": []
     },
     {
-      "id": "7ea2",
-      "owner": "rafail",
-      "subject": "sdfsdfsd",
-      "address": "asdasd",
-      "price": 1111111111111,
-      "creationDate": "2024-09-19",
-      "expirationDate": "2024-09-21",
-      "city": "Cəlilabad",
-      "userId": null,
-      "files": []
-    },
-    {
-      "id": "1c78",
-      "owner": "rafail",
-      "subject": "asdasd",
-      "address": "asdsad",
-      "price": 22222222,
-      "creationDate": "2024-09-19",
-      "expirationDate": "2024-09-21",
-      "city": "Cəlilabad",
-      "userId": null,
-      "files": []
-    },
-    {
-      "id": "d688",
-      "owner": "555555555",
-      "subject": "5555555555",
-      "address": "555555555",
-      "price": 5555555555,
-      "creationDate": "2024-09-19",
-      "expirationDate": "2024-09-21",
-      "city": "Bakı",
-      "userId": null,
-      "files": []
-    },
-    {
       "id": "b303",
       "owner": "Fuad Holding",
       "subject": "Binaların tikintisi",
@@ -89,18 +53,6 @@
       "expirationDate": "8658-05-04",
       "city": "Ganja",
       "userId": "28cb",
-      "files": []
-    },
-    {
-      "id": "011e",
-      "owner": "aaaaaaaa",
-      "subject": "aaaaaaaaaaaaaaa",
-      "address": "aaaaaaaaaaaaaa",
-      "price": 2222222222222219,
-      "creationDate": "2024-09-20",
-      "expirationDate": "2024-09-21",
-      "city": "Cəlilabad",
-      "userId": "3197",
       "files": []
     },
     {
@@ -530,7 +482,7 @@
       "description": "zzzzzzzzzzzzz",
       "details": "zzzzzzzzzzzzzz",
       "userId": "",
-      "cardId": "d688",
+      "cardId": null,
       "file": null
     },
     {
@@ -539,7 +491,7 @@
       "description": "ssssssssssss",
       "details": "dfffffffffffffffff",
       "userId": "",
-      "cardId": "d688",
+      "cardId": null,
       "file": null
     },
     {
@@ -548,7 +500,7 @@
       "description": "55555555555555555555",
       "details": "55555555555555555",
       "userId": "3197",
-      "cardId": "d688",
+      "cardId": null,
       "file": null
     },
     {
@@ -557,7 +509,7 @@
       "description": "shdgfhjsfd",
       "details": "sdhgfshdf",
       "userId": "3197",
-      "cardId": "d688",
+      "cardId": null,
       "file": null
     },
     {
@@ -566,7 +518,7 @@
       "description": "aaaaaaaaaa",
       "details": "aaaaaaaaaa",
       "userId": "3197",
-      "cardId": "d688",
+      "cardId": null,
       "file": null
     },
     {

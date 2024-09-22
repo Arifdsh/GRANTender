@@ -29,7 +29,7 @@ const Authorization = () => {
 
   useEffect(() => {
     dispatch(fetchAllUsers());
-  }, [dispatch, users]);
+  }, [dispatch]);
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -38,22 +38,7 @@ const Authorization = () => {
       password: e.target.password.value,
     }
 
-    const foundUser = users.find((user) => user.email == loginData.email)
-
-    if (foundUser) {
-      if (foundUser.password == loginData.password) {
-        setLoginError('')
-        localStorage.setItem('UserLoggedIn', true)
-        dispatch(loginUser(foundUser.id))
-        navigate("/")
-      }
-      else {
-        setLoginError('Yanlış şifrə')
-      }
-    }
-    else {
-      setLoginError('İstifadəçi tapılmadı')
-    }
+    
   }
 
   const openModal = (e) => {
