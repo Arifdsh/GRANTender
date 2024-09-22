@@ -46,11 +46,34 @@ const Detail = () => {
 
   const handleApplyClick = () => {
     const userLoggedIn = localStorage.getItem("UserLoggedIn");
+    dispatch(setSelectedTenderId(findTender.id))
+    dispatch(setSelectedTenderUserId(findTender.userId))
 
     if (userLoggedIn === "true" && userLoggedIn) {
       setApplyShow(true);
     } else {
       navigate("/authorization");
+    }
+  };
+
+  const renderTenderFile = () => {
+    if (findTender?.files?.length > 0) {
+      return findTender.files.map((file, index) => {
+        const fileUrl = file.base64;
+
+        return (
+          <div key={index} className="file-item">
+            <p>{file.name} ({Math.round(file.size / 1024)} KB)</p>
+
+            {/* Create a download link for the base64 file */}
+            <a href={fileUrl} download={file.name} className="btn btn-primary">
+              Download {file.name}
+            </a>
+          </div>
+        );
+      });
+    } else {
+      return <p>No files available for this tender.</p>;
     }
   };
 
@@ -122,11 +145,15 @@ const Detail = () => {
                 <FaCalendarXmark className="detail-list__icon" />
                 {findTender.expirationDate}
               </p>
+              {applyshow && <Apply />}
+              <h3 className="detail-list__title">Tender Files</h3>
+              {renderTenderFile()}
               {findTender.userId !== userId && (
-                <Button className="detail-list__apply mt-3" onClick={handleApplyClick} >Müraciət et</Button>
+                <Button className="detail-list__apply " onClick={handleApplyClick} >Müraciət et</Button>
               )}
               {applyshow && <Apply />}
             </div>
+
           ) : null}
         </Row>
       </Container>

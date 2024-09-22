@@ -20,7 +20,16 @@ const CreateTender = () => {
     : { owner: '', subject: '', endDate: '', address: '', price: '', city: '', files: [] };
 
 
-  const handleFileChange = (event) => {
+    const convertFileToBase64 = (file) => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve({ name: file.name, size: file.size, type: file.type, base64: reader.result });
+        reader.onerror = (error) => reject(error);
+      });
+    };
+
+  const handleFileChange = async (event) => {
     const allowedTypes = [
       'application/pdf',
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
@@ -44,7 +53,11 @@ const CreateTender = () => {
       setErrorMessage('')
     }
 
-    setFiles(prevFiles => [...prevFiles, ...filteredFiles])
+    const base64Files = await Promise.all(
+      filteredFiles.map(file => convertFileToBase64(file))
+    );
+    
+    setFiles(prevFiles => [...prevFiles, ...base64Files]);
   }
 
   const handleClose = () => {
@@ -81,8 +94,6 @@ const CreateTender = () => {
           if (tenderToEdit) {
             dispatch(updateTender({ id: tenderToEdit.id, updatedData: newTender }));
             dispatch(clearTenderToEdit())
-            resetForm()
-            setFiles([])
           } else {
             dispatch(createTender(newTender))
           }
@@ -149,7 +160,7 @@ const CreateTender = () => {
                 <ul className='file-names-list'>
                   {files.map((file, index) => (
                     <li key={index}>
-                      <strong>Name:</strong> {file.name} <br />
+                      <strong>Name:</strong> {file.name || 'File'} <br />
                       <strong>Size:</strong> {(file.size / 1024).toFixed(2)} KB <br />
                       <strong>Type:</strong> {file.type}
                     </li>

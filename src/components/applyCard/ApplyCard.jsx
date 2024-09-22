@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchTendersByCreator } from '../../features/tendersSlice';
 import { fetchApplyListForTenders } from '../../features/applySlice';
 import NotResult from '../notResult/NotResult';
+// import { Button } from 'react-bootstrap';
 
 const ApplyCard = () => {
 
@@ -31,6 +32,27 @@ const ApplyCard = () => {
     const toggleAccordion = (index) => {
         setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
     };
+
+    const renderApplyFiles = (apply) => {
+        if (apply?.file?.length > 0) {
+          return apply.file.map((file, index) => {
+            const fileUrl = file.base64;
+      
+            return (
+              <div key={index} className="file-item">
+                <p>{file.name} ({Math.round(file.size / 1024)} KB)</p>
+      
+                {/* Create a download link for the base64 file */}
+                <a href={fileUrl} download={file.name} className="btn btn-primary">
+                  Download {file.name}
+                </a>
+              </div>
+            );
+          });
+        } else {
+          return <p>No files attached to this application.</p>;
+        }
+      };
 
     return (
         <div className="appeal">
@@ -63,6 +85,8 @@ const ApplyCard = () => {
                                         Gördüyümüz işlər
                                     </h6>
                                     <p className="appeal-list__content">{apply.details} </p>
+                                    <h6 className="appeal-list__company--title mt-3">Əlavə edilən fayllar</h6>
+                                    {renderApplyFiles(apply)}                                    
                                 </div>
                             </div>
                         </li>
