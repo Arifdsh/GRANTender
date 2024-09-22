@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Navbar from "../../components/navbar/Navbar.jsx";
 import DarkLightMode from "../../components/navbar/DarkLightMode.jsx";
 import axios from "axios";
 import "../detail/detail.scss";
@@ -17,7 +16,7 @@ import Apply from "../../components/apply/Apply.jsx";
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
+  const [ setError] = useState(null);
   const { id } = useParams();
   const userId = useSelector((state) => state.user.user?.id);
   const navigate = useNavigate();

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import './profileEdit.scss';
 import { IoCloseCircle } from "react-icons/io5";
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,7 +11,7 @@ const ProfileEdit = () => {
   const [preview, setPreview] = useState(null);
 
   const dispatch = useDispatch();
-  const { user, status, error } = useSelector((state) => state.user);
+  const { user, status } = useSelector((state) => state.user);
 
   useEffect(() => {
     if (status === 'idle') {
