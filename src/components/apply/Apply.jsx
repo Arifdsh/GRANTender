@@ -4,7 +4,7 @@ import applyShema from './applySchema.js';
 import './apply.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { submitApplyList } from '../../features/applySlice.js';
-import { selectSelectedTenderId, selectSelectedTenderOwnerId } from '../../features/tendersSlice.js';
+import { selectSelectedTenderId, selectSelectedTenderOwnerId, hideApplyForm  } from '../../features/tendersSlice.js';
 import { applyForTender, checkLoggedInUser } from '../../features/usersSlice.js';
 import { IoCloseCircle } from 'react-icons/io5';
 
@@ -18,6 +18,9 @@ const Apply = () => {
   const tenderOwnerId = useSelector(selectSelectedTenderOwnerId)
   const loggedInUser = useSelector((state) => state.user.user)
   
+  const handleClose = () => {
+    dispatch(hideApplyForm())
+  };
 
   useEffect(() => {
     dispatch(checkLoggedInUser())
@@ -42,17 +45,6 @@ const Apply = () => {
     });
   };
 
-
-// const handleSubmit =  (values, { resetForm }) => {
-//   const formData = {
-//     ...values,
-//     // file: values.file ? await convertFileToBase64(values.file) : null,
-//   };
-//   dispatch(submitApplyList(formData))
-//   dispatch(applyForTender({ userId: loggedInUser?.id, tenderId: selectedTenderId }))
-//   resetForm()
-// }
-
 const handleFileChange = async (event) => {
   const allowedTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/msword'];
   const uploadedFiles = Array.from(event.target.files);
@@ -72,12 +64,11 @@ const handleFileChange = async (event) => {
 
 return (
   <div className="apply-tender">
-    <IoCloseCircle className="close" />
+    <IoCloseCircle className="close" onClick={handleClose}/>
     <h2>MÜRACİƏT FORMU</h2>
     <Formik
       initialValues={initialValues}
       validationSchema={applyShema}
-      //onSubmit={handleSubmit}
       onSubmit={(values, { resetForm }) => {
         const formData = {
           ...values,
@@ -88,6 +79,7 @@ return (
         dispatch(applyForTender({ userId: loggedInUser?.id, tenderId: selectedTenderId }));
         setFiles([]);
         resetForm();
+        dispatch(hideApplyForm())
       }}
     >
       {({ setFieldValue }) => (

@@ -74,6 +74,7 @@ const tendersSlice = createSlice({
     selectedTenderId: null,
     selectedTenderUserId: null,
     isEditing: false,
+    applyShow: false,
   },
   reducers: {
     setTenderToEdit: (state, action) => {
@@ -93,6 +94,12 @@ const tendersSlice = createSlice({
     },
     setSelectedTenderUserId: (state, action) => {
       state.selectedTenderUserId = action.payload
+    },
+    showApplyForm: (state) => {  
+      state.applyShow = true;
+    },
+    hideApplyForm: (state) => {  
+      state.applyShow = false;
     },
   },
   extraReducers: (builder) => {
@@ -139,6 +146,7 @@ const tendersSlice = createSlice({
 
 export default tendersSlice.reducer;
 
+export const { showApplyForm, hideApplyForm } = tendersSlice.actions;
 
 export const { setSelectedTenderId, setSelectedTenderUserId } = tendersSlice.actions;
 

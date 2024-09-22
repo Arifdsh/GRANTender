@@ -13,7 +13,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Apply from '../../components/apply/Apply.jsx'
-import { fetchTenders, selectAllTenders, setSelectedTenderId, setSelectedTenderUserId } from "../../features/tendersSlice.js";
+import { fetchTenders, selectAllTenders, setSelectedTenderId, setSelectedTenderUserId, showApplyForm, hideApplyForm } from "../../features/tendersSlice.js";
 import { fetchAllUsers } from "../../features/usersSlice.js";
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
@@ -22,7 +22,6 @@ const Detail = () => {
   const { id } = useParams();
   const userId = useSelector((state) => state.user.user?.id);
   const navigate = useNavigate();
-  const [applyshow, setApplyShow] = useState(false);
   const dispatch = useDispatch()
   const tenders = useSelector(selectAllTenders)
   const users = useSelector((state) => state.user.users);
@@ -41,6 +40,8 @@ const Detail = () => {
       });
   }, [dispatch]);
 
+  const applyShow = useSelector((state) => state.tenders.applyShow)
+
   const findTender = tenders.find((tender) => tender.id.toString() === id);
   const findUser = users.find((user) => user.id === findTender?.userId);
 
@@ -50,11 +51,16 @@ const Detail = () => {
     dispatch(setSelectedTenderUserId(findTender.userId))
 
     if (userLoggedIn === "true" && userLoggedIn) {
-      setApplyShow(true);
+      dispatch(showApplyForm())
     } else {
       navigate("/authorization");
     }
   };
+
+
+  useEffect(()=>{
+     dispatch(hideApplyForm())
+  }, [dispatch, location.pathname])
 
   const renderTenderFile = () => {
     if (findTender?.files?.length > 0) {
@@ -100,9 +106,10 @@ const Detail = () => {
               )}
             </div>
           </div>
-          {applyshow && <Apply />}
-
-          {findTender && !applyshow ? (
+          {applyShow ? (
+          <Apply  />
+        ) : (
+          findTender && (
             <div className="detail-list__item detail-list__rightside">
               <h3 className="detail-list__title">Elan sahibi</h3>
               <p className="detail-list__content">
@@ -145,16 +152,15 @@ const Detail = () => {
                 <FaCalendarXmark className="detail-list__icon" />
                 {findTender.expirationDate}
               </p>
-              {applyshow && <Apply />}
               <h3 className="detail-list__title">Tender Files</h3>
               {renderTenderFile()}
               {findTender.userId !== userId && (
                 <Button className="detail-list__apply " onClick={handleApplyClick} >Müraciət et</Button>
               )}
-              {applyshow && <Apply />}
             </div>
 
-          ) : null}
+          ) 
+          )}
         </Row>
       </Container>
     </div>
