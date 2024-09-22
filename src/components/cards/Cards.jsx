@@ -10,6 +10,8 @@ import { fetchAllUsers, toggleBookmark } from '../../features/usersSlice.js'
 import { RiMoneyEuroBoxFill} from "react-icons/ri";
 import { MdLocationCity } from "react-icons/md";
 import NotResult from "../notResult/NotResult.jsx";
+import Confirm from "../confirm/confirm.jsx";
+import { showConfirm, hideConfirm } from "../../features/confirmSlice";
 
 function Cards({ filterType }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,10 +19,26 @@ function Cards({ filterType }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  
   const users = useSelector((state) => state.user.users);
   const user = useSelector((state) => state.user.user);
   const tenders = useSelector((state) => state.tenders.tenders)
   const searchFilters = useSelector((state) => state.search)
+
+  const { isVisible, selectedTenderId } = useSelector((state) => state.confirm);
+  
+  const handleDeleteClick = (id) => {
+    dispatch(showConfirm(id)); 
+  };
+
+  const handleConfirmYes = () => {
+    dispatch(deleteTender(selectedTenderId)); 
+    dispatch(hideConfirm()); 
+  };
+
+  const handleConfirmNo = () => {
+    dispatch(hideConfirm()); 
+  };
 
   const filteredTenders = useMemo(() => {
     let result = tenders || [];
@@ -101,10 +119,6 @@ function Cards({ filterType }) {
 
   const goToDetails = (id) => {
     navigate(`/detail/${id}`)
-  }
-
-  const handleDeleteClick = (id) => {
-    dispatch(deleteTender(id))
   }
 
   const handleEditClick = (tender) => {
@@ -196,6 +210,13 @@ function Cards({ filterType }) {
           <NotResult/>
         )}
       </ul>
+
+      {isVisible && (
+        <Confirm
+          onConfirmYes={handleConfirmYes}
+          onConfirmNo={handleConfirmNo}
+        />
+      )}     
 
       {pageNumbers.length > 1 && (
         <div className="pagination">

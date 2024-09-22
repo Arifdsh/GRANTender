@@ -1,9 +1,16 @@
 import { createSlice, createAsyncThunk, createSelector } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const fetchUser = createAsyncThunk('user/fetchUser', async (userId) => {
-  const response = await axios.get(`http://localhost:5173/user/${userId}`);
-  return response.data;
+export const fetchUser = createAsyncThunk('user/fetchUser', async (userId, { rejectWithValue }) => {
+  if (!userId) {
+    return rejectWithValue('User ID is undefined');
+  }
+  try {
+    const response = await axios.get(`http://localhost:5173/user/${userId}`);
+    return response.data;
+  } catch (error) {
+    return rejectWithValue(error.response?.data || 'Failed to fetch user');
+  }
 });
 
 export const fetchAllUsers = createAsyncThunk('user/fetchAllUsers', async () => {
@@ -80,11 +87,18 @@ const userSlice = createSlice({
     status: 'idle',
     error: null,
     bookmarked: [],
+    showProfileEdit: false,
   },
   reducers: {
     clearUserState: (state) => {
       state.user = null;
       state.bookmarked = [];
+    },
+    showProfileEditForm: (state) => {
+      state.showProfileEdit = true;
+    },
+    hideProfileEditForm: (state) => {
+      state.showProfileEdit = false;
     },
   },
   extraReducers: (builder) => {
@@ -136,5 +150,8 @@ export const selectIsUserLoggedIn = createSelector(
   (user) => user.loggedIn
 );
 
-export const { setLoggedInUser, addBookmark, removeBookmark, clearUserState, } = userSlice.actions;
 export default userSlice.reducer
+
+export const { setLoggedInUser, addBookmark, removeBookmark, clearUserState, } = userSlice.actions;
+
+export const { showProfileEditForm, hideProfileEditForm } = userSlice.actions;
