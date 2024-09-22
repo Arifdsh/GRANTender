@@ -412,12 +412,12 @@
     },
     {
       "id": "8c46",
-      "name": "Rafail",
+      "name": "Rafael",
       "surname": "Mursukayev",
       "email": "adam@adam",
       "age": "1990-11-11",
       "password": "123",
-      "loggedIn": false,
+      "loggedIn": true,
       "bookmarked": [
         "9a55",
         "4ee5"
@@ -436,7 +436,7 @@
       "email": "eva@eva",
       "age": "1990-11-11",
       "password": "123",
-      "loggedIn": false,
+      "loggedIn": true,
       "bookmarked": [],
       "applied": [
         "c641",
