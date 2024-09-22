@@ -3,6 +3,26 @@
 .authorization {
     position: relative;
     background-image: linear-gradient(to right, $borderColor-lightGray, $primary-color);
+    .goHome{
+        background-color: $neutral-color-white;
+        color:$primary-color;
+        padding:7px;
+        border: 1px solid $primary-color;
+        position: absolute;
+        left:2%;
+        top:2%;
+        z-index: 1;
+        transition: 0.3s;
+        cursor: pointer;
+        &:hover{
+            background-color: $primary-color;
+            color: $neutral-color-white;
+        }
+        &__icon{
+            width:30px;
+            margin-top:-2px;
+        }
+    }
     .passwordArea{
         position: relative;
         .input{
@@ -284,7 +304,7 @@
 //Responsive design
 @media screen and (max-width:767px) {
     .authorization {
-        padding:40px 0;
+        padding:40px 0px;
         .login {
             flex-direction: column;
             flex-wrap: nowrap;

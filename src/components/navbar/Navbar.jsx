@@ -97,7 +97,7 @@ const Header = () => {
               )}
             </Nav.Item>
             <Nav.Item>
-              {!profilePage  ? (
+              {!profilePage ? (
                 <>
                   <Nav.Link
                     eventKey="link-2"

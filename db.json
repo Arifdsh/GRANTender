@@ -54,6 +54,78 @@
       "city": "Ganja",
       "userId": "28cb",
       "files": []
+    },
+    {
+      "id": "4ee5",
+      "owner": "Tom",
+      "subject": "Check result",
+      "address": "ajhdbs jsdkasmld",
+      "price": 111111111111,
+      "creationDate": "2024-09-20",
+      "expirationDate": "2024-09-27",
+      "city": "Cəlilabad",
+      "userId": "864e",
+      "files": []
+    },
+    {
+      "owner": "Jhon ",
+      "subject": "hjhjhvhj kuhjknlknl jnkjnlkm",
+      "address": "jhvkkkvjkb,",
+      "price": 2655,
+      "creationDate": "2024-09-21",
+      "expirationDate": "2024-09-28",
+      "city": "Zaqatala",
+      "userId": "c942",
+      "files": [],
+      "id": "9a55"
+    },
+    {
+      "id": "c641",
+      "owner": "Adam ",
+      "subject": "Adam test",
+      "address": "aaaaaaaaaaa",
+      "price": 22222222222222224,
+      "creationDate": "2024-09-21",
+      "expirationDate": "2024-09-28",
+      "city": "Cəlilabad",
+      "userId": "8c46",
+      "files": []
+    },
+    {
+      "id": "0faa",
+      "owner": "Hello Adam",
+      "subject": "sasasasas",
+      "address": "BAku",
+      "price": 11111,
+      "creationDate": "2024-09-21",
+      "expirationDate": "2024-09-25",
+      "city": "Cəlilabad",
+      "userId": "55b2",
+      "files": []
+    },
+    {
+      "id": "25f9",
+      "owner": "Goodbye",
+      "subject": "ssddsdsd",
+      "address": "dsdsd",
+      "price": 111,
+      "creationDate": "2024-09-21",
+      "expirationDate": "2024-09-28",
+      "city": "Bakı",
+      "userId": "55b2",
+      "files": []
+    },
+    {
+      "id": "0ed5",
+      "owner": "Aqrar MMC",
+      "subject": "Aqrarr",
+      "address": "Aqrar",
+      "price": 1000,
+      "creationDate": "2024-09-21",
+      "expirationDate": "2024-09-27",
+      "city": "Gəncə",
+      "userId": "207f",
+      "files": []
     }
   ],
   "user": [
@@ -198,14 +270,20 @@
       "email": "raf242@yandex.ru",
       "age": "1994-06-05",
       "password": "123",
-      "loggedIn": true,
+      "loggedIn": false,
       "bookmarked": [
         "8d36",
         "c12c",
         "bbb3",
         "ebe9",
-        "d688"
-      ]
+        "d688",
+        "011e",
+        "c641"
+      ],
+      "applied": [
+        "2"
+      ],
+      "picture": "data:image/png;base64,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"
     },
     {
       "id": "eb30",
@@ -258,7 +336,8 @@
       "email": "mahmudovnurlan301@gmail.com",
       "age": "2000-09-11",
       "password": "nurlan2001",
-      "bookmarked": []
+      "bookmarked": [],
+      "loggedIn": false
     },
     {
       "id": "8234",
@@ -270,6 +349,342 @@
       "bookmarked": [
         "3"
       ]
+    },
+    {
+      "id": "864e",
+      "name": "Tom",
+      "surname": "Tomas",
+      "email": "tom@tom",
+      "age": "1990-11-11",
+      "password": "123",
+      "loggedIn": false,
+      "bookmarked": [
+        "d688"
+      ],
+      "applied": [
+        "19c5",
+        "9a55"
+      ]
+    },
+    {
+      "id": "c942",
+      "name": "Jhon",
+      "surname": "Jhonas",
+      "email": "jhon@jhon",
+      "age": "1990-11-11",
+      "password": "123",
+      "loggedIn": false,
+      "bookmarked": [
+        "011e",
+        "d688"
+      ],
+      "applied": [
+        "4ee5",
+        "4ee5"
+      ]
+    },
+    {
+      "id": "f1df",
+      "name": "Dog",
+      "surname": "Bigdog",
+      "email": "dog@dog",
+      "age": "1990-11-11",
+      "password": "123",
+      "loggedIn": false,
+      "bookmarked": [],
+      "applied": [
+        {
+          "owner": "Jhon ",
+          "subject": "hjhjhvhj kuhjknlknl jnkjnlkm",
+          "address": "jhvkkkvjkb,",
+          "price": 2655,
+          "creationDate": "2024-09-21",
+          "expirationDate": "2024-09-28",
+          "city": "Zaqatala",
+          "userId": "c942",
+          "files": [],
+          "id": "9a55"
+        },
+        "9a55",
+        "c942",
+        "9a55"
+      ]
+    },
+    {
+      "id": "8c46",
+      "name": "Rafael",
+      "surname": "Mursukayev",
+      "email": "adam@adam",
+      "age": "1990-11-11",
+      "password": "123",
+      "loggedIn": true,
+      "bookmarked": [
+        "9a55",
+        "4ee5"
+      ],
+      "applied": [
+        "0faa",
+        "25f9",
+        "0faa"
+      ],
+      "picture": "data:image/png;base64,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"
+    },
+    {
+      "id": "55b2",
+      "name": "Eva",
+      "surname": "eva",
+      "email": "eva@eva",
+      "age": "1990-11-11",
+      "password": "123",
+      "loggedIn": true,
+      "bookmarked": [],
+      "applied": [
+        "c641",
+        "c641"
+      ]
+    },
+    {
+      "id": "477f",
+      "name": "Charlie",
+      "surname": "Dickens",
+      "email": "char@char",
+      "age": "1111-01-01",
+      "password": "123",
+      "loggedIn": false,
+      "bookmarked": [],
+      "applied": [
+        "0faa"
+      ]
+    }
+  ],
+  "applyList": [
+    {
+      "id": "eeb3",
+      "name": "rafail",
+      "description": "test",
+      "details": "test",
+      "userId": "",
+      "cardId": "",
+      "file": null
+    },
+    {
+      "id": "62ef",
+      "name": "Nurlan",
+      "description": "test",
+      "details": "test",
+      "userId": "",
+      "cardId": "",
+      "file": null
+    },
+    {
+      "id": "64a4",
+      "name": "d688",
+      "description": "zzzzzzzzzzzzz",
+      "details": "zzzzzzzzzzzzzz",
+      "userId": "",
+      "cardId": null,
+      "file": null
+    },
+    {
+      "id": "c97d",
+      "name": "Rafail",
+      "description": "ssssssssssss",
+      "details": "dfffffffffffffffff",
+      "userId": "",
+      "cardId": null,
+      "file": null
+    },
+    {
+      "id": "26c7",
+      "name": "5555555555555",
+      "description": "55555555555555555555",
+      "details": "55555555555555555",
+      "userId": "3197",
+      "cardId": null,
+      "file": null
+    },
+    {
+      "id": "2d0d",
+      "name": "sdkjfhsdkjhf",
+      "description": "shdgfhjsfd",
+      "details": "sdhgfshdf",
+      "userId": "3197",
+      "cardId": null,
+      "file": null
+    },
+    {
+      "id": "bd1f",
+      "name": "asdas",
+      "description": "aaaaaaaaaa",
+      "details": "aaaaaaaaaa",
+      "userId": "3197",
+      "cardId": null,
+      "file": null
+    },
+    {
+      "id": "0d1d",
+      "name": "Rafail",
+      "description": "asdasdsd asdpvofkknfuivheniuw wefijwkmw w jfkewm w weefklwme",
+      "details": "sdckkfnfwmfl wekdmwkelfmwl  dwedwed",
+      "userId": "3197",
+      "cardId": "2",
+      "file": null
+    },
+    {
+      "id": "3cfb",
+      "name": "aaaaaa",
+      "description": "aaaaaaaaaaaa",
+      "details": "aaaaaaaaaaaaaaa",
+      "userId": "381c",
+      "cardId": "19c5",
+      "file": null
+    },
+    {
+      "id": "b71a",
+      "name": "Tom",
+      "description": "test",
+      "details": "test",
+      "userId": "864e",
+      "cardId": "19c5",
+      "file": null
+    },
+    {
+      "id": "0401",
+      "name": "Jhon",
+      "description": "jjjjjjjjjjjjj",
+      "details": "jjjjjjjjjjjjjjjj",
+      "userId": "c942",
+      "cardId": "4ee5",
+      "file": null
+    },
+    {
+      "id": "acfb",
+      "name": "Tom Jhona muraciyyet",
+      "description": "Tom Jhona muraciyyet",
+      "details": "Tom Jhona muraciyyet",
+      "userId": "864e",
+      "cardId": "9a55",
+      "file": null
+    },
+    {
+      "id": "1953",
+      "name": "Jhon apply to Tom",
+      "description": "aaaaaaaaaaaaaasdsd",
+      "details": "sfffsfsffffffffffffffffff",
+      "userId": "c942",
+      "cardId": "4ee5",
+      "file": null
+    },
+    {
+      "id": "aa75",
+      "name": "dog apply to Jhon",
+      "description": "dog",
+      "details": "dog",
+      "userId": "f1df",
+      "cardId": {
+        "owner": "Jhon ",
+        "subject": "hjhjhvhj kuhjknlknl jnkjnlkm",
+        "address": "jhvkkkvjkb,",
+        "price": 2655,
+        "creationDate": "2024-09-21",
+        "expirationDate": "2024-09-28",
+        "city": "Zaqatala",
+        "userId": "c942",
+        "files": [],
+        "id": "9a55"
+      },
+      "tenderOwnerId": "c942",
+      "file": null
+    },
+    {
+      "id": "ef22",
+      "name": "dog to jhon",
+      "description": "sadasd",
+      "details": "asdasd",
+      "userId": "f1df",
+      "cardId": "9a55",
+      "tenderOwnerId": "",
+      "file": null
+    },
+    {
+      "id": "c1f5",
+      "name": "dog to  jhon 2",
+      "description": "aaaaaaaaaaaaaaa",
+      "details": "aaaaaaaaaaaaa",
+      "userId": "f1df",
+      "cardId": "c942",
+      "tenderOwnerId": "",
+      "file": null
+    },
+    {
+      "id": "fb2d",
+      "name": "dog to jhon 3",
+      "description": "aaaaaaaaaa",
+      "details": "aaaaaaaaaaaaaaa",
+      "userId": "f1df",
+      "cardId": "9a55",
+      "tenderOwnerId": "c942",
+      "file": null
+    },
+    {
+      "id": "3c36",
+      "name": "Eva to Adam",
+      "description": "aaaaaaa",
+      "details": "aaaaaaaaaaa",
+      "userId": "55b2",
+      "cardId": "c641",
+      "tenderOwnerId": "8c46",
+      "file": null
+    },
+    {
+      "id": "8a4f",
+      "name": "Hello Eva",
+      "description": "aasasasasassaasas",
+      "details": "sasasassas",
+      "userId": "8c46",
+      "cardId": "0faa",
+      "tenderOwnerId": "55b2",
+      "file": null
+    },
+    {
+      "id": "2530",
+      "name": "Goodbye",
+      "description": "dsdsdsdsdsddsdsds",
+      "details": "sdsdsd",
+      "userId": "8c46",
+      "cardId": "25f9",
+      "tenderOwnerId": "55b2",
+      "file": null
+    },
+    {
+      "id": "a9cd",
+      "name": "new",
+      "description": "sasas",
+      "details": "sasas",
+      "userId": "8c46",
+      "cardId": "0faa",
+      "tenderOwnerId": "55b2",
+      "file": null
+    },
+    {
+      "id": "65aa",
+      "name": "Hello Eva im charlie",
+      "description": "sasdds",
+      "details": "dsdsdsd",
+      "userId": "477f",
+      "cardId": "0faa",
+      "tenderOwnerId": "55b2",
+      "file": null
+    },
+    {
+      "id": "d7c2",
+      "name": "Eva im coming",
+      "description": "sasasasasasssa",
+      "details": "sasasasasasa",
+      "userId": "55b2",
+      "cardId": "c641",
+      "tenderOwnerId": "8c46",
+      "file": null
     }
   ]
 }

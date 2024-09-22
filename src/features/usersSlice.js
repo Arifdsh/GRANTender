@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, createSelector  } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, createSelector } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const fetchUser = createAsyncThunk('user/fetchUser', async (userId) => {
@@ -17,6 +17,12 @@ export const updateUser = createAsyncThunk('user/updateUser', async (userData) =
   return response.data;
 });
 
+export const editUser = createAsyncThunk('user/editUser', async (userData) => {
+  // Use PATCH to update only the provided fields
+  const response = await axios.patch(`http://localhost:5173/user/${userData.id}`, userData);
+  return response.data;
+});
+
 export const toggleBookmark = createAsyncThunk(
   'users/toggleBookmark',
   async ({ tenderId, userId }, { getState }) => {
@@ -32,7 +38,22 @@ export const toggleBookmark = createAsyncThunk(
 
     return { tenderId, updatedBookmarks: response.data.bookmarked };
   }
-);
+)
+
+export const applyForTender = createAsyncThunk(
+  'user/applyForTender',
+  async ({ tenderId, userId }, { getState }) => {
+    const { user } = getState().user;
+
+    const updatedApplied = [...user.applied, tenderId];
+
+    const response = await axios.patch(`http://localhost:5173/user/${userId}`, {
+      applied: updatedApplied,
+    });
+
+    return { tenderId, updatedApplied: response.data.applied };
+  }
+)
 
 export const loginUser = createAsyncThunk('user/loginUser', async (userId) => {
   const response = await axios.patch(`http://localhost:5173/user/${userId}`, { loggedIn: true });
@@ -55,7 +76,7 @@ const userSlice = createSlice({
   name: 'user',
   initialState: {
     user: null,
-    users:[],
+    users: [],
     status: 'idle',
     error: null,
     bookmarked: [],
@@ -68,8 +89,8 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-       // Handle user login
-       .addCase(loginUser.fulfilled, (state, action) => {
+      // Handle user login
+      .addCase(loginUser.fulfilled, (state, action) => {
         state.user = action.payload;
       })
       // Check for logged-in user during app initialization
@@ -93,9 +114,17 @@ const userSlice = createSlice({
       .addCase(updateUser.fulfilled, (state, action) => {
         state.user = action.payload;
       })
+      //Edit user
+      .addCase(editUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+      })
       // Toggle bookmarks
       .addCase(toggleBookmark.fulfilled, (state, action) => {
         state.user.bookmarked = action.payload.updatedBookmarks;
+      })
+      // Apply for tender
+      .addCase(applyForTender.fulfilled, (state, action) => {
+        state.user.applied = action.payload.updatedApplied;
       });
   },
 });
@@ -107,5 +136,5 @@ export const selectIsUserLoggedIn = createSelector(
   (user) => user.loggedIn
 );
 
-export const { setLoggedInUser, addBookmark, removeBookmark, clearUserState,  } = userSlice.actions;
+export const { setLoggedInUser, addBookmark, removeBookmark, clearUserState, } = userSlice.actions;
 export default userSlice.reducer

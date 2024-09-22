@@ -34,23 +34,12 @@
       &:hover {
         @include boxShadow($primary-colorLight);
         left: 10px;
-        background-image: linear-gradient(to right, $neutral-color-white,$neutral-color-white, $primary-colorGradient);
-      }
-    }
-    &__notFound{
-      height:60px;
-      justify-content: center;
-      align-items: center;
-      line-height: 60px;
-      font-weight: bold;
-      font-size:1.5em;
-      color:$primary-color;
-      text-shadow:0 0 1px $neutral-color-gray;
-      
-      .searchX{
-        width:40px;
-        height:40px;
-        margin-right:20px;
+        background-image: linear-gradient(
+          to right,
+          $neutral-color-white,
+          $neutral-color-white,
+          $primary-colorGradient
+        );
       }
     }
     &__photo {
@@ -61,13 +50,13 @@
       border-radius: 10px;
       background-color: $neutral-color-white;
       padding: 5px;
-      span{
-        display:block;
-        font-size:7em;
+      span {
+        display: block;
+        font-size: 7em;
         text-align: center;
         line-height: 180px;
         margin: 0 auto;
-        color:$primary-color;
+        color: $primary-color;
         font-weight: bold;
         box-shadow: 0 0 5px $neutral-color-gray;
         text-transform: uppercase;
@@ -82,7 +71,7 @@
     }
     &__information {
       width: 80%;
-      padding:10px;
+      padding: 10px;
     }
     &__save {
       position: absolute;
@@ -100,7 +89,7 @@
       color: $primary-color;
     }
     &__heading {
-      @include headingStyle(); 
+      @include headingStyle();
     }
     &__content {
       font-size: 14px;
@@ -108,7 +97,7 @@
     }
     &__activateTime {
       @extend %flexCenter;
-      .mrg{
+      .mrg {
         margin-left: 50px;
       }
     }
@@ -137,7 +126,7 @@
   .pagination {
     margin-top: 20px;
     text-align: center;
-    padding:15px;
+    padding: 15px;
     button {
       margin: 0 5px;
       padding: 5px 10px;
@@ -162,8 +151,8 @@
   }
 
   @media (max-width: 1200px) {
-    .tenders-list__activateTime{
-      .mrg{
+    .tenders-list__activateTime {
+      .mrg {
         margin-left: 33px;
       }
     }
@@ -186,8 +175,7 @@
   }
 
   @media (max-width: 768px) {
-    
-    .tenders-list__heading{
+    .tenders-list__heading {
       margin-top: 10px;
     }
     margin-inline: 2%;
@@ -196,9 +184,9 @@
       align-items: flex-start;
     }
     &-list__photo {
-      width:100%;
+      width: 100%;
       height: 300px;
-      span{
+      span {
         line-height: 280px;
       }
     }
@@ -209,35 +197,26 @@
   }
 
   @media (max-width: 576px) {
-    .tenders{
-      &-list{
-        &__actions{
+    .tenders {
+      &-list {
+        &__actions {
           display: flex;
           flex-direction: column;
         }
-        &__button{
+        &__button {
           margin-bottom: 5px;
           width: 150px;
         }
         &__photo {
-          span{
+          span {
             line-height: 180px;
-          }
-        }
-        &__notFound{
-          width:100%;
-          font-size:0.8em;
-          .searchX{
-            width:40px;
-            height:40px;
-            margin-right:20px;
           }
         }
       }
     }
-    .tenders-list__activateTime{
+    .tenders-list__activateTime {
       flex-direction: column;
-      .mrg{
+      .mrg {
         margin: 0;
       }
     }

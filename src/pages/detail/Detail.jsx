@@ -11,8 +11,15 @@ import { RiMoneyEuroBoxFill } from "react-icons/ri";
 import Button from "react-bootstrap/Button";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Apply from "../../components/apply/Apply.jsx";
+import {
+  fetchTenders,
+  selectAllTenders,
+  setSelectedTenderId,
+  setSelectedTenderUserId,
+} from "../../features/tendersSlice.js";
+import { fetchAllUsers } from "../../features/usersSlice.js";
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([]);
@@ -21,32 +28,33 @@ const Detail = () => {
   const userId = useSelector((state) => state.user.user?.id);
   const navigate = useNavigate();
   const [applyshow, setApplyShow] = useState(false);
+  const dispatch = useDispatch();
+  const tenders = useSelector(selectAllTenders);
+  const users = useSelector((state) => state.user.users);
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(baseApiUrl);
-        console.log("Full API response:", response.data);
+    dispatch(fetchAllUsers());
+  }, [dispatch]);
 
-        if (response.data && Array.isArray(response.data)) {
-          setData(response.data);
-        } else {
-          console.error("Unexpected data structure:", response.data);
-          setError("Unexpected data structure");
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setError("Error fetching data");
-      }
-    };
+  useEffect(() => {
+    dispatch(fetchTenders())
+      .then(() => {})
+      .catch((error) => {
+        console.error("Error fetching tenders:", error);
+      });
+  }, [dispatch]);
 
-    fetchData();
-  }, [baseApiUrl]);
-
-  const findTender = data.find((tender) => tender.id.toString() === id);
-  console.log(findTender);
+  const findTender = tenders.find((tender) => tender.id.toString() === id);
+  const findUser = users.find((user) => user.id === findTender?.userId);
 
   const handleApplyClick = () => {
-    setApplyShow(true);
+    const userLoggedIn = localStorage.getItem("UserLoggedIn");
+
+    if (userLoggedIn === "true" && userLoggedIn) {
+      setApplyShow(true);
+    } else {
+      navigate("/authorization");
+    }
   };
 
   return (
@@ -65,7 +73,11 @@ const Detail = () => {
               GRANTENDER
             </p>
             <div className="detail-list__photo">
-              <img src={"/" + findTender?.imgUrl} alt="" />
+              {findUser?.picture ? (
+                <img src={findUser.picture} alt="Profile" />
+              ) : (
+                <span>{findTender?.owner[0]}</span>
+              )}
             </div>
           </div>
           {applyshow && <Apply />}
@@ -115,12 +127,13 @@ const Detail = () => {
               </p>
               {findTender.userId !== userId && (
                 <Button
-                  className="detail-list__apply my-3"
+                  className="detail-list__apply mt-3"
                   onClick={handleApplyClick}
                 >
                   Müraciət et
                 </Button>
               )}
+              {applyshow && <Apply />}
             </div>
           ) : null}
         </Row>
