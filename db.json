@@ -515,7 +515,7 @@
       "email": "sam@sam",
       "age": "1111-11-11",
       "password": "123",
-      "loggedIn": false,
+      "loggedIn": true,
       "bookmarked": [],
       "applied": []
     },
