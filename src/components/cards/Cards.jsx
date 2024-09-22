@@ -69,15 +69,15 @@ function Cards({ filterType }) {
     }
 
     if (filterType === "created") {
-      result = result.filter((tender) => tender.userId === user?.id);
+      result = result.filter((tender) => tender.userId === user?.id).reverse();
     }
 
     if (filterType === "bookmarked") {
-      result = result.filter((tender) => user?.bookmarked?.includes(tender.id));
+      result = result.filter((tender) => user?.bookmarked?.includes(tender.id)).reverse();
     }
 
     if(filterType === "applied"){
-      result = result.filter((tender) => user?.applied?.includes(tender.id))
+      result = result.filter((tender) => user?.applied?.includes(tender.id)).reverse()
     }
 
     return result;
