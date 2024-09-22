@@ -22,12 +22,11 @@ import { fetchAllUsers } from "../../features/usersSlice.js";
 
 const Detail = () => {
   const baseApiUrl = import.meta.env.VITE_API_URL;
-  const [data, setData] = useState([]);
   const [setError] = useState(null);
   const { id } = useParams();
   const userId = useSelector((state) => state.user.user?.id);
   const navigate = useNavigate();
-  const [applyShow, setApplyShow] = useState(false);
+  const [applyShow, setApplyShow] = useState(false); // Müraciət komponenti göstərilsin ya yox
   const dispatch = useDispatch();
   const tenders = useSelector(selectAllTenders);
   const users = useSelector((state) => state.user.users);
@@ -51,14 +50,14 @@ const Detail = () => {
     const userLoggedIn = localStorage.getItem("UserLoggedIn");
 
     if (userLoggedIn === "true" && userLoggedIn) {
-      setApplyShow(true);
+      setApplyShow(true); // Müraciət formunu açırıq
     } else {
       navigate("/authorization");
     }
   };
 
   const handleCloseApplyForm = () => {
-    setApplyShow(false); // Apply formunu bağlayırıq
+    setApplyShow(false); // Müraciət formunu bağlayırıq, detail səhifəsini göstəririk
   };
 
   return (
@@ -72,6 +71,8 @@ const Detail = () => {
           </Col>
         </Row>
         <Row className="detail-list justify-content-center align-items-center shadow ">
+
+          {/* Sol tərəfdəki logo, şəkil */}
           <div className="detail-list__item detail-list__leftside">
             <p className="detail-list__vertical detail-list__light-effect m-2">
               GRANTENDER
@@ -85,10 +86,14 @@ const Detail = () => {
             </div>
           </div>
 
-          {/* Əsas detallar göstərilir və applyShow true olduqda bu div gizlənir */}
-          {!applyShow && (
-            <div className="detail-list__item detail-list__rightside">
-              {findTender && (
+          {/* Sağ tərəfdəki məlumatlar və müraciət formu */}
+          <div className="detail-list__item detail-list__rightside">
+
+            {/* Müraciət formu yoxsa detalları göstərmək üçün şərt */}
+            {applyShow ? (
+              <Apply onClose={handleCloseApplyForm} />
+            ) : (
+              findTender && (
                 <>
                   <h3 className="detail-list__title">Elan sahibi</h3>
                   <p className="detail-list__content">
@@ -131,6 +136,8 @@ const Detail = () => {
                     <FaCalendarXmark className="detail-list__icon" />
                     {findTender.expirationDate}
                   </p>
+
+                  {/* Müraciət et düyməsi */}
                   {findTender.userId !== userId && (
                     <Button
                       className="detail-list__apply mt-3"
@@ -140,12 +147,9 @@ const Detail = () => {
                     </Button>
                   )}
                 </>
-              )}
-            </div>
-          )}
-
-          {/* Apply componenti burada göstərilir */}
-          {applyShow && <Apply onClose={handleCloseApplyForm} />}
+              )
+            )}
+          </div>
         </Row>
       </Container>
     </div>

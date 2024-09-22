@@ -8,11 +8,8 @@ import { selectSelectedTenderId, selectSelectedTenderOwnerId } from '../../featu
 import { applyForTender, checkLoggedInUser } from '../../features/usersSlice.js';
 import { IoCloseCircle } from 'react-icons/io5';
 
-const Apply = () => {
+const Apply = ({ onClose }) => {
   const dispatch = useDispatch();
-  
-  // State to control visibility of the Apply form
-  const [showApplyForm, setShowApplyForm] = useState(true);
 
   const selectedTenderId = useSelector(selectSelectedTenderId);
   const tenderOwnerId = useSelector(selectSelectedTenderOwnerId);
@@ -42,14 +39,12 @@ const Apply = () => {
     dispatch(applyForTender({ userId: loggedInUser?.id, tenderId: selectedTenderId }));
     resetForm();
     // Close the form after submitting
-    setShowApplyForm(false);
+    onClose(); // onClose funksiyası formu bağlamaq üçün çağırılır
   };
-
-  if (!showApplyForm) return null; // If form is closed, return null to hide it
 
   return (
     <div className="apply-tender">
-      <IoCloseCircle className="close" onClick={() => setShowApplyForm(false)} />
+      <IoCloseCircle className="close" onClick={onClose} />
       <h2>MÜRACİƏT FORMU</h2>
       <Formik
         initialValues={initialValues}
@@ -86,7 +81,7 @@ const Apply = () => {
               />
               <ErrorMessage name="file" component="div" className="error-message" />
             </div>
-            <button type="submit" className="submit-button">Submit</button>
+            <button type="submit" className="submit-button">Göndər</button>
           </Form>
         )}
       </Formik>
