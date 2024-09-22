@@ -116,7 +116,6 @@
       "files": []
     },
     {
-      "id": "0ed5",
       "owner": "Aqrar MMC",
       "subject": "Aqrarr",
       "address": "Aqrar",
@@ -125,7 +124,8 @@
       "expirationDate": "2024-09-27",
       "city": "Gəncə",
       "userId": "207f",
-      "files": []
+      "files": [],
+      "id": "0ed5"
     },
     {
       "id": "36ec",
@@ -137,6 +137,18 @@
       "expirationDate": "2024-09-22",
       "city": "Kürdəmir",
       "userId": "3197",
+      "files": []
+    },
+    {
+      "id": "8570",
+      "owner": "Samir",
+      "subject": "Samir",
+      "address": "sasasasassa",
+      "price": 1111111,
+      "creationDate": "2024-09-22",
+      "expirationDate": "2024-09-28",
+      "city": "Gəncə",
+      "userId": "ce6b",
       "files": []
     }
   ],
@@ -229,7 +241,7 @@
         "19c5",
         "d688"
       ],
-      "loggedIn": true
+      "loggedIn": false
     },
     {
       "id": "ca39",
@@ -468,7 +480,9 @@
       "loggedIn": false,
       "bookmarked": [],
       "applied": [
-        "0faa"
+        "0faa",
+        null,
+        null
       ]
     },
     {
@@ -481,6 +495,30 @@
       "loggedIn": false,
       "bookmarked": [],
       "applied": []
+    },
+    {
+      "id": "ce6b",
+      "name": "Samir",
+      "surname": "Samir",
+      "email": "sam@sam",
+      "age": "1111-11-11",
+      "password": "123",
+      "loggedIn": false,
+      "bookmarked": [],
+      "applied": []
+    },
+    {
+      "id": "7628",
+      "name": "Akif",
+      "surname": "Akif",
+      "email": "ak@ak",
+      "age": "1111-11-11",
+      "password": "123",
+      "loggedIn": true,
+      "bookmarked": [],
+      "applied": [
+        null
+      ]
     }
   ],
   "applyList": [
@@ -710,6 +748,36 @@
       "userId": "55b2",
       "cardId": "c641",
       "tenderOwnerId": "8c46",
+      "file": null
+    },
+    {
+      "id": "8e65",
+      "name": "Charlie",
+      "description": "char",
+      "details": "char",
+      "userId": "477f",
+      "cardId": "",
+      "tenderOwnerId": "",
+      "file": null
+    },
+    {
+      "id": "560a",
+      "name": "char",
+      "description": "char",
+      "details": "char",
+      "userId": "477f",
+      "cardId": "",
+      "tenderOwnerId": "",
+      "file": null
+    },
+    {
+      "id": "3283",
+      "name": "Akif",
+      "description": "Akif",
+      "details": "Akif",
+      "userId": "7628",
+      "cardId": "",
+      "tenderOwnerId": "",
       "file": null
     }
   ]
