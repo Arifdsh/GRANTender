@@ -29,7 +29,9 @@ const Authorization = () => {
 
   useEffect(() => {
     dispatch(fetchAllUsers());
-  }, [dispatch, users]);
+    
+  }, [dispatch]);
+  
 
   const handleLogin = (e) => {
     e.preventDefault()
