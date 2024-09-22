@@ -32,90 +32,6 @@
       "files": []
     },
     {
-      "owner": "top",
-      "subject": "top jhfhgchcnfcjhchgv",
-      "address": "asda",
-      "price": 123122,
-      "creationDate": "2024-09-17",
-      "expirationDate": "2024-09-20",
-      "city": "Baku",
-      "userId": "3197",
-      "files": [],
-      "id": "75b8"
-    },
-    {
-      "owner": "top",
-      "subject": "up down",
-      "address": "asda",
-      "price": 123122,
-      "creationDate": "2024-09-18",
-      "expirationDate": "2024-09-20",
-      "city": "Baku",
-      "userId": "3197",
-      "files": [],
-      "id": "b4a6"
-    },
-    {
-      "owner": "Agile solutionnn",
-      "subject": "ehmed",
-      "address": "asfsfs",
-      "price": 10,
-      "creationDate": "2024-09-18",
-      "expirationDate": "2024-09-20",
-      "city": "Shamakhi",
-      "userId": "3197",
-      "files": [],
-      "id": "b347"
-    },
-    {
-      "id": "7ea2",
-      "owner": "rafail",
-      "subject": "sdfsdfsd",
-      "address": "asdasd",
-      "price": 1111111111111,
-      "creationDate": "2024-09-19",
-      "expirationDate": "2024-09-21",
-      "city": "Cəlilabad",
-      "userId": null,
-      "files": []
-    },
-    {
-      "id": "1c78",
-      "owner": "rafail",
-      "subject": "asdasd",
-      "address": "asdsad",
-      "price": 22222222,
-      "creationDate": "2024-09-19",
-      "expirationDate": "2024-09-21",
-      "city": "Cəlilabad",
-      "userId": null,
-      "files": []
-    },
-    {
-      "id": "bba6",
-      "owner": "rrrrrrrrrrrr",
-      "subject": "rrrrrrrrrr",
-      "address": "rrrrrr",
-      "price": 11111111,
-      "creationDate": "2024-09-19",
-      "expirationDate": "2024-09-20",
-      "city": "Bakı",
-      "userId": null,
-      "files": []
-    },
-    {
-      "id": "d688",
-      "owner": "555555555",
-      "subject": "5555555555",
-      "address": "555555555",
-      "price": 5555555555,
-      "creationDate": "2024-09-19",
-      "expirationDate": "2024-09-21",
-      "city": "Bakı",
-      "userId": null,
-      "files": []
-    },
-    {
       "id": "b303",
       "owner": "Fuad Holding",
       "subject": "Binaların tikintisi",
@@ -189,7 +105,7 @@
       "password": "123",
       "confirmPassword": "123",
       "bookmarked": [],
-      "loggedIn": true
+      "loggedIn": false
     },
     {
       "id": "381c",
