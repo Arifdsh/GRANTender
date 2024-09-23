@@ -74,7 +74,7 @@ const Detail = () => {
             </p>
             <div className="detail-list__photo">
               {findUser?.picture ? (
-                <img src={findUser.picture} alt="Profile" />
+                <img  src={findUser.picture} alt="Profile" />
               ) : (
                 <span>{findTender?.owner[0]}</span>
               )}
@@ -133,7 +133,7 @@ const Detail = () => {
                   Müraciət et
                 </Button>
               )}
-              {applyshow && <Apply />}
+              {/* {applyshow && <Apply />} */}
             </div>
           ) : null}
         </Row>

@@ -177,7 +177,7 @@
       "password": "123",
       "confirmPassword": "123",
       "bookmarked": [],
-      "loggedIn": false
+      "loggedIn": true
     },
     {
       "id": "381c",
@@ -417,7 +417,7 @@
       "email": "adam@adam",
       "age": "1990-11-11",
       "password": "123",
-      "loggedIn": true,
+      "loggedIn": false,
       "bookmarked": [
         "9a55",
         "4ee5"
@@ -436,7 +436,7 @@
       "email": "eva@eva",
       "age": "1990-11-11",
       "password": "123",
-      "loggedIn": true,
+      "loggedIn": false,
       "bookmarked": [],
       "applied": [
         "c641",
@@ -685,6 +685,26 @@
       "cardId": "c641",
       "tenderOwnerId": "8c46",
       "file": null
+    },
+    {
+      "id": "23f6",
+      "name": "fvgbhn",
+      "description": "rtyhujkhl;",
+      "details": "kjl;/;",
+      "userId": "4194",
+      "cardId": "",
+      "tenderOwnerId": "",
+      "file": null
+    },
+    {
+      "id": "b9cc",
+      "name": "sdfgh",
+      "description": "eryitouip'p;\n",
+      "details": "yjkjl;/l'",
+      "userId": "4194",
+      "cardId": "",
+      "tenderOwnerId": "",
+      "file": "8.png.png"
     }
   ]
 }
