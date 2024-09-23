@@ -39,7 +39,6 @@ const ProfileEdit = () => {
         
         
         const userData = {
-          id: user.id,
           name: values.name,
           surname: values.surname,
           password: values.newPassword || user.password, 
