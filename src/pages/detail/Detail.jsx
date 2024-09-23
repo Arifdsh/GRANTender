@@ -63,7 +63,7 @@ const Detail = () => {
 
       <Container fluid className="detail mt-5 py-5">
         <Row className="justify-content-center">
-          <Col xs={12} className="detail__heading">
+          <Col xs={12} className="detail__heading text-decoration-underline">
             <h2>Ətraflı</h2>
           </Col>
         </Row>
@@ -74,7 +74,7 @@ const Detail = () => {
             </p>
             <div className="detail-list__photo">
               {findUser?.picture ? (
-                <img  src={findUser.picture} alt="Profile" />
+                <img src={findUser.picture} alt="Profile" />
               ) : (
                 <span>{findTender?.owner[0]}</span>
               )}
@@ -133,7 +133,7 @@ const Detail = () => {
                   Müraciət et
                 </Button>
               )}
-              {/* {applyshow && <Apply />} */}
+              {applyshow && <Apply />}
             </div>
           ) : null}
         </Row>

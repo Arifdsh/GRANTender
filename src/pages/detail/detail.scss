@@ -5,7 +5,6 @@
   padding: 50px;
 
   &__heading {
-    border-bottom: 2px solid $primary-color;
     text-align: center;
     color: $primary-color;
     padding: 10px;
@@ -74,7 +73,7 @@
       border-radius: 50%;
       background-color: $neutral-color-white;
       padding: 5px;
-      z-index: 20;
+      z-index: 2;
 
       span {
         position: absolute;
@@ -162,7 +161,6 @@
       }
 
       &__vertical {
-        // display: none;
         z-index: 1;
         font-size: 14px;
         color: $neutral-color-white;
