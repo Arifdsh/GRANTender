@@ -48,8 +48,7 @@ const Apply = () => {
 const handleFileChange = async (event) => {
   const allowedTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/msword'];
   const uploadedFiles = Array.from(event.target.files);
-
-  // Filter and convert files to base64
+  
   const filteredFiles = uploadedFiles.filter((file) => allowedTypes.includes(file.type));
 
   if (filteredFiles.length < uploadedFiles.length) {

@@ -5,10 +5,7 @@ import { IoCloseSharp } from "react-icons/io5";
 
 const Confirm = ({ onConfirmYes, onConfirmNo })=> {
   useEffect(() => {
-    // When modal opens, set overflow to hidden
     document.body.style.overflow = "hidden";
-
-    // Cleanup function: when the modal closes, reset the overflow
     return () => {
       document.body.style.overflow = "auto";
     };

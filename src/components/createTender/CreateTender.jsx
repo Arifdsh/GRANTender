@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './createTender.scss'
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { IoCloseCircle } from "react-icons/io5";
@@ -13,21 +13,23 @@ const CreateTender = () => {
 
   const dispatch = useDispatch()
   const tenderToEdit = useSelector((state) => state.tenders.tenderToEdit)
-  const loggedInUser = useSelector((state)=>(state.user.user))
+  const loggedInUser = useSelector((state) => (state.user.user))
+
+
 
   const initialValues = tenderToEdit
     ? { owner: tenderToEdit.owner, subject: tenderToEdit.subject, endDate: tenderToEdit.expirationDate, address: tenderToEdit.address, price: tenderToEdit.price, city: tenderToEdit.city, files: tenderToEdit.files }
     : { owner: '', subject: '', endDate: '', address: '', price: '', city: '', files: [] };
 
 
-    const convertFileToBase64 = (file) => {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve({ name: file.name, size: file.size, type: file.type, base64: reader.result });
-        reader.onerror = (error) => reject(error);
-      });
-    };
+  const convertFileToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve({ name: file.name, size: file.size, type: file.type, base64: reader.result });
+      reader.onerror = (error) => reject(error);
+    });
+  };
 
   const handleFileChange = async (event) => {
     const allowedTypes = [
@@ -56,7 +58,7 @@ const CreateTender = () => {
     const base64Files = await Promise.all(
       filteredFiles.map(file => convertFileToBase64(file))
     );
-    
+
     setFiles(prevFiles => [...prevFiles, ...base64Files]);
   }
 
@@ -64,7 +66,6 @@ const CreateTender = () => {
     dispatch(hideCreateTenderForm())
     dispatch(clearTenderToEdit())
   }
-
 
   return (
     <div className='ct-main-area'>
@@ -76,7 +77,7 @@ const CreateTender = () => {
         onSubmit={(values, { resetForm }) => {
 
           const currentDate = new Date().toISOString().split('T')[0]
-         
+
           const userId = loggedInUser?.id || null
 
           const newTender = {
@@ -168,7 +169,7 @@ const CreateTender = () => {
                 </ul>
               )}
             </div>
-            <button type="submit">{tenderToEdit ?  'Yadda saxla' : 'Əlavə et' }</button>
+            <button type="submit">{tenderToEdit ? 'Yadda saxla' : 'Əlavə et'}</button>
           </Form>
         )}
       </Formik>
