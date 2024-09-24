@@ -22,8 +22,8 @@ const Detail = () => {
   const { id } = useParams();
   const userId = useSelector((state) => state.user.user?.id);
   const navigate = useNavigate();
-  const dispatch = useDispatch()
-  const tenders = useSelector(selectAllTenders)
+  const dispatch = useDispatch();
+  const tenders = useSelector(selectAllTenders);
   const users = useSelector((state) => state.user.users);
 
 
