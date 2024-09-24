@@ -35,7 +35,7 @@ export const fetchApplyListForTenders = createAsyncThunk('apply/fetchApplyListFo
 
 export const submitApplyList = createAsyncThunk('apply/submitApplyList', async (formData, { rejectWithValue }) => {
   try {
-    const response = await axios.post('apiUrlApplyList', formData);
+    const response = await axios.post(apiUrlApplyList, formData);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response.data);
