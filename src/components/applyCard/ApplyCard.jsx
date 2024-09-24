@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchTendersByCreator } from '../../features/tendersSlice';
 import { fetchApplyListForTenders } from '../../features/applySlice';
 import NotResult from '../notResult/NotResult';
-// import { Button } from 'react-bootstrap';
 
 const ApplyCard = () => {
 
@@ -41,8 +40,6 @@ const ApplyCard = () => {
             return (
               <div key={index} className="file-item">
                 <p>{file.name} ({Math.round(file.size / 1024)} KB)</p>
-      
-                {/* Create a download link for the base64 file */}
                 <a href={fileUrl} download={file.name} className="btn btn-primary">
                   Download {file.name}
                 </a>
@@ -67,7 +64,6 @@ const ApplyCard = () => {
                                     <h6 className="appeal-list__profile--name">{apply.applicantName} </h6>
                                 </div>
                                 <p className="appeal-list__profile--tender">Tender adı: {apply.tenderOwnerName}</p>
-                                {/* <button onClick={() => toggleAccordion(index)} className="appeal-list__profile--detail">Ətraflı</button> */}
                               {activeIndex == index ? 
                              <FaChevronCircleDown onClick={() => toggleAccordion(index)} className="appeal-list__profile--detail" /> : <FaChevronCircleLeft onClick={() => toggleAccordion(index)} className="appeal-list__profile--detail" />}
                             </div>

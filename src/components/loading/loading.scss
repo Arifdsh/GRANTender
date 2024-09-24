@@ -1,6 +1,10 @@
 @import '../../styles/global';
 /* HTML: <div class="loader"></div> */
 .loader {
+    position:absolute;
+    top:40%;
+    left:50%;
+    transform: translate(-50%-50%);
     width: 50px;
     aspect-ratio: 1.154;
     display: grid;

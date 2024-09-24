@@ -6,21 +6,26 @@ import {
   Navigate,
 } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/home/Home";
-import Detail from "./pages/detail/Detail";
-import Authorization from "./pages/authorization/Authorization";
-import Apply from "./components/apply/Apply";
-import Profile from "./pages/profile/Profile";
 import Footer from "./components/footer/Footer";
 import ScrollToTop from "./components/scrolltotop/ScrollToTop";
 import Navbar from "../src/components/navbar/Navbar.jsx";
-import NotFound from "./pages/notFound/NotFound.jsx";
+import { Suspense, lazy } from "react";
+import Loading from "../src/components/loading/Loading.jsx";
+
+const Home = lazy(() => import("./pages/home/Home"));
+const Detail = lazy(() => import("./pages/detail/Detail"));
+const Authorization = lazy(() => import("./pages/authorization/Authorization"));
+const Apply = lazy(() => import("./components/apply/Apply"));
+const Profile = lazy(() => import("./pages/profile/Profile"));
+const NotFound = lazy(() => import("./pages/notFound/NotFound"));
+
 const App = () => {
   const location = useLocation();
 
   return (
     <>
       <ScrollToTop />
+      <Suspense fallback={<Loading />}>
       {location.pathname !== "/authorization" &&
         !location.pathname.includes("/not-found") && <Navbar />}
       <Routes>
@@ -33,6 +38,7 @@ const App = () => {
       </Routes>
       {location.pathname !== "/authorization" &&
         !location.pathname.includes("/not-found") && <Footer />}
+        </Suspense>
     </>
   );
 };

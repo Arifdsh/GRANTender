@@ -6,10 +6,10 @@ import ProfileEdit from './profileEdit/ProfileEdit.jsx'
 import Cards from '../../components/cards/Cards.jsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearTenderToEdit, fetchTenders, hideCreateTenderForm, showCreateTenderForm } from '../../features/tendersSlice.js'
-import { checkLoggedInUser, fetchUser, hideProfileEditForm, loginUser, selectIsUserLoggedIn, showProfileEditForm } from '../../features/usersSlice.js'
-import DarkLightMode from '../../components/navbar/DarkLightMode.jsx'
+import { fetchUser, hideProfileEditForm, showProfileEditForm } from '../../features/usersSlice.js'
 import { useLocation, useNavigate } from 'react-router-dom'
 import ApplyCard from '../../components/applyCard/ApplyCard.jsx'
+import { selectIncomingApplicationsCount } from '../../features/applySlice.js'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
@@ -24,11 +24,13 @@ const Profile = () => {
   const loggedInUser = useSelector((state) => (state.user.user))
   const userCheck = localStorage.getItem('UserLoggedIn')
 
+  const tenders = useSelector((state) => state.tenders.tenders)
 
   useEffect(() => {
     if (!userCheck || userCheck === 'false') {
       navigate('/authorization');
     } else {
+      dispatch(fetchTenders())
       dispatch(fetchUser(loggedInUser?.id));
 
 
@@ -40,7 +42,7 @@ const Profile = () => {
   }, [dispatch, navigate, location.state]);
 
   const handleTabClick = useCallback((index) => {
-    setActiveTab(index);
+    setActiveTab(index)
     dispatch(fetchTenders());
   }, [dispatch]);
 
@@ -55,13 +57,23 @@ const Profile = () => {
 
   useEffect(() => {
     dispatch(hideProfileEditForm());
-  }, [location.pathname, dispatch]); 
+  }, [location.pathname, dispatch]);
+
+  const createdTendersCount = useMemo(() => {
+    return tenders.filter((tender) => tender.userId === loggedInUser?.id).length;
+  }, [tenders, loggedInUser?.id]);
+
+  const appliedTendersCount = useMemo(() => {
+    return tenders.filter((tender) => loggedInUser?.applied?.includes(tender.id)).length;
+  }, [tenders, loggedInUser?.applied]);
+
+
+  const incomingApplicationsCount = useSelector(selectIncomingApplicationsCount);
 
 
   return (
     <>
       <Navbar />
-      {/* <DarkLightMode /> */}
       <div className='profile-area'>
         <div className='profile-information-box'>
           <div className='profile-decoration-top'>
@@ -79,9 +91,9 @@ const Profile = () => {
           </div>
           <div className='profile-notification-box'>
             <ul>
-              <li>Müraciət edənlər: <span>0</span></li>
-              <li>Yaradilan tenderlər: <span>0</span></li>
-              <li>Sorğu: <span>0</span></li>
+              <li>Müraciət edənlər: <span>{appliedTendersCount}</span></li>
+              <li>Yaradilan tenderlər: <span>{createdTendersCount}</span></li>
+              <li>Sorğu: <span>{incomingApplicationsCount}</span></li>
             </ul>
           </div>
           <div className='profile-edit-box'>
@@ -114,7 +126,6 @@ const Profile = () => {
               <div className={activeTab == 4 ? 'profile-active-content' : 'profile-content'}>
                 <Cards filterType="bookmarked" />
               </div>
-              {/* {profileContent} */}
             </div>
           </div>
         ) : (

@@ -8,7 +8,10 @@ const Chat = () => {
     const [phoneNumber, setPhoneNumber] = useState('')
     const [problemDescription, setProblemDescription] = useState('')
     const [messages, setMessages] = useState([])
-
+    
+    const apiUrlChat = import.meta.env.VITE_CHAT_URL
+    const chatIdKey = import.meta.env.VITE_CHAT_ID
+    const botTokenKey = import.meta.env.VITE_CHAT_BOT_TOKEN
     
     const user = useSelector((state) => state.user.user)
 
@@ -46,9 +49,9 @@ const Chat = () => {
     }
 
     const sendMessageToTelegram = async (message) => {
-        const chatId = '225661115'
-        const botToken = '7399931571:AAEHSCz6u5yN4kuATMy0yj7iJVSHM_fNMHI'
-        const url = `https://api.telegram.org/bot${botToken}/sendMessage`
+        const chatId = chatIdKey
+        const botToken = botTokenKey
+        const url = `${apiUrlChat}${botToken}/sendMessage`
 
         await fetch(url, {
             method: 'POST',
