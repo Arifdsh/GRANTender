@@ -21,17 +21,6 @@
       ]
     },
     {
-      "id": "e8c7",
-      "owner": "arif",
-      "subject": "Team lead",
-      "address": "asjdhgashdjas",
-      "price": 0.5,
-      "creationDate": "2024-09-14",
-      "expirationDate": "2024-09-23",
-      "userId": "e6be",
-      "files": []
-    },
-    {
       "id": "b303",
       "owner": "Fuad Holding",
       "subject": "Binaların tikintisi",
@@ -177,7 +166,7 @@
       "password": "123",
       "confirmPassword": "123",
       "bookmarked": [],
-      "loggedIn": true
+      "loggedIn": false
     },
     {
       "id": "381c",
