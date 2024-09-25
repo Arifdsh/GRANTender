@@ -73,7 +73,7 @@ const Header = () => {
             </Nav.Item>
 
             <Nav.Item>
-              {!profilePage ? (
+              {homePage ? (
                 <>
                   <Nav.Link
                     eventKey="link-1"
@@ -97,7 +97,7 @@ const Header = () => {
               )}
             </Nav.Item>
             <Nav.Item>
-              {!profilePage ? (
+              {homePage ? (
                 <>
                   <Nav.Link
                     eventKey="link-2"
