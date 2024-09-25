@@ -2,15 +2,15 @@
 .confirmContainer{
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(to right, $neutral-color-black-opacity, $primary-color-opacity);
     // display: none;
-    z-index: 10;
-    position: absolute;
+    z-index: 10000;
+    position: fixed;
     .confirmMain{
         border-radius: 7px;
         box-shadow: 0 0 5px $primary-color;

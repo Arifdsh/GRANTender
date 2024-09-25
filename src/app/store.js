@@ -3,7 +3,7 @@ import userReducer from "../features/usersSlice"
 import tendersReducer from "../features/tendersSlice"
 import searchReducer from "../features/searchSlice"
 import applyReducer from "../features/applySlice"
-import confirmReducer from '../features/confirmSlice';
+import confirmReducer from '../features/confirmSlice'
 
 
 const store = configureStore({

@@ -14,9 +14,9 @@ const is18YearsOld = (value) => {
 
 export const AuthorizationSchema=Yup.object().shape({
 
-    name:Yup.string().min(3).max(15).required().matches(/^[A-Za-z]+$/, 'Ancaq hərif daxil edilməlidir'),
-    surname:Yup.string().min(3).max(20).required().matches(/^[A-Za-z]+$/, 'Ancaq hərif daxil edilməlidir'),
-    email: Yup.string().email('invalid email').required(),
+    name:Yup.string().trim().min(3).max(15).required().matches(/^[A-Za-z]+$/, 'Ancaq hərif daxil edilməlidir'),
+    surname:Yup.string().trim().min(3).max(20).required().matches(/^[A-Za-z]+$/, 'Ancaq hərif daxil edilməlidir'),
+    email: Yup.string().trim().email('invalid email').required(),
     age : Yup.date().required().test('18 yaş və ya üzəri olmalıdır', value=>is18YearsOld(value)),
     password : Yup.string().required().min(3).max(10),
     confirmPassword : Yup.string().required().oneOf([Yup.ref('password') ,] , 'Şifrə eyni deyil')

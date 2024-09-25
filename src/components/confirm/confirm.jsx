@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../confirm/confirm.scss';
 import { IoCloseSharp } from "react-icons/io5";
 
 
 const Confirm = ({ onConfirmYes, onConfirmNo })=> {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []); 
   return (
     <div className='confirmContainer'>
         <div className="confirmMain">
