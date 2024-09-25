@@ -38,8 +38,7 @@ const Apply = ({ onClose }) => {
     dispatch(submitApplyList(formData));
     dispatch(applyForTender({ userId: loggedInUser?.id, tenderId: selectedTenderId }));
     resetForm();
-    // Close the form after submitting
-    onClose(); // onClose funksiyası formu bağlamaq üçün çağırılır
+    onClose(); 
   };
 
   return (

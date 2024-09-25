@@ -21,17 +21,6 @@
       ]
     },
     {
-      "id": "e8c7",
-      "owner": "arif",
-      "subject": "Team lead",
-      "address": "asjdhgashdjas",
-      "price": 0.5,
-      "creationDate": "2024-09-14",
-      "expirationDate": "2024-09-23",
-      "userId": "e6be",
-      "files": []
-    },
-    {
       "id": "b303",
       "owner": "Fuad Holding",
       "subject": "Binaların tikintisi",
@@ -116,15 +105,15 @@
       "files": []
     },
     {
-      "id": "36ec",
-      "owner": "xxxxxxxxxxxxxxx",
-      "subject": "xxxxxxxxxxxxxxxx",
-      "address": "xxxxxxxxxxxxx",
-      "price": 44444444443,
-      "creationDate": "2024-09-21",
-      "expirationDate": "2024-09-22",
-      "city": "Kürdəmir",
-      "userId": "3197",
+      "id": "1cca",
+      "owner": "Adammmmmm",
+      "subject": "Adamam",
+      "address": "ddddddddd",
+      "price": 1111111,
+      "creationDate": "2024-09-23",
+      "expirationDate": "2024-10-04",
+      "city": "Gəncə",
+      "userId": "8c46",
       "files": []
     }
   ],
@@ -337,7 +326,7 @@
       "age": "2000-09-11",
       "password": "nurlan2001",
       "bookmarked": [],
-      "loggedIn": true
+      "loggedIn": false
     },
     {
       "id": "8234",
@@ -418,10 +407,7 @@
       "age": "1990-11-11",
       "password": "123",
       "loggedIn": false,
-      "bookmarked": [
-        "9a55",
-        "4ee5"
-      ],
+      "bookmarked": [],
       "applied": [
         "0faa",
         "25f9",

@@ -26,7 +26,7 @@ const Detail = () => {
   const { id } = useParams();
   const userId = useSelector((state) => state.user.user?.id);
   const navigate = useNavigate();
-  const [applyShow, setApplyShow] = useState(false); // Müraciət komponenti göstərilsin ya yox
+  const [applyShow, setApplyShow] = useState(false); 
   const dispatch = useDispatch();
   const tenders = useSelector(selectAllTenders);
   const users = useSelector((state) => state.user.users);
@@ -50,14 +50,14 @@ const Detail = () => {
     const userLoggedIn = localStorage.getItem("UserLoggedIn");
 
     if (userLoggedIn === "true" && userLoggedIn) {
-      setApplyShow(true); // Müraciət formunu açırıq
+      setApplyShow(true); 
     } else {
       navigate("/authorization");
     }
   };
 
   const handleCloseApplyForm = () => {
-    setApplyShow(false); // Müraciət formunu bağlayırıq, detail səhifəsini göstəririk
+    setApplyShow(false);
   };
 
   return (
@@ -72,7 +72,6 @@ const Detail = () => {
         </Row>
         <Row className="detail-list justify-content-center align-items-center shadow ">
 
-          {/* Sol tərəfdəki logo, şəkil */}
           <div className="detail-list__item detail-list__leftside">
             <p className="detail-list__vertical detail-list__light-effect m-2">
               GRANTENDER
@@ -86,10 +85,8 @@ const Detail = () => {
             </div>
           </div>
 
-          {/* Sağ tərəfdəki məlumatlar və müraciət formu */}
           <div className="detail-list__item detail-list__rightside">
 
-            {/* Müraciət formu yoxsa detalları göstərmək üçün şərt */}
             {applyShow ? (
               <Apply onClose={handleCloseApplyForm} />
             ) : (
@@ -137,7 +134,6 @@ const Detail = () => {
                     {findTender.expirationDate}
                   </p>
 
-                  {/* Müraciət et düyməsi */}
                   {findTender.userId !== userId && (
                     <Button
                       className="detail-list__apply mt-3"
