@@ -73,7 +73,8 @@ const Authorization = () => {
       confirmPassword: "",
       loggedIn: false,
       bookmarked: [],
-      applied: []
+      applied: [],
+      picture:null
     },
     onSubmit: (values, actions) => {
       const { confirmPassword, ...userData } = values
@@ -149,8 +150,8 @@ const Authorization = () => {
               ) : (
                 <IoMdEye className="eye showEye" onClick={togglePasswordVisibility} />
               )}
-              {errors.password && touched.password && <div className='error'>{errors.password}</div>}
             </div>
+            {errors.password && touched.password && <div className='error'>{errors.password}</div>}
             <input name='confirmPassword' className="register__confirmPassword input" type={showPassword ? "text" : "password"} placeholder=" Confirm password" value={values.confirmPassword} onChange={handleChange} />
             {errors.confirmPassword && touched.confirmPassword && <div className='error'>{errors.confirmPassword}</div>}
             <button type='submit' className="register__button" disabled={isLoading}>{isLoading ? 'Qeydiyyat davam edir...' : 'Qeydiyyat'}
