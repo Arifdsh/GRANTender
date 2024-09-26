@@ -3,7 +3,17 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import "./owlcarouselcomp.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllUsers } from "../../features/usersSlice";
+import { useEffect } from "react";
 const OwlCarouselComp = () => {
+  const dispatch =useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchAllUsers());
+  }, [dispatch]);
+
+  const users = useSelector((state) => state.user.users||[]);
   const options = {
     items: 6,
     loop: true,
@@ -33,78 +43,20 @@ const OwlCarouselComp = () => {
         </h1>
         <div className="d-flex justify-content-center align-items-center mx-5 ">
           <OwlCarousel className="owl-theme " {...options}>
-            <div className="item">
-              <img
-                src="./src/assets/image/azinterservicecolor.png"
-                className="border carousel-border rounded"
-              />
-            </div>
-            <div className="item">
-              <img
-                src="./src/assets/image/crocuscolor.png"
-                className="border carousel-border rounded"
-              />
-            </div>
-            <div className="item">
-              <img
-                src="./src/assets/image/velievcolor.png"
-                className="border carousel-border rounded"
-              />
-            </div>
-            <div className="item">
-              <img
-                src="./src/assets/image/eurooilcolor.png"
-                className="border carousel-border rounded"
-              />
-            </div>
-            <div className="item">
-              <img
-                src="./src/assets/image/liderqrupcolor.png"
-                className="border carousel-border rounded"
-              />
-            </div>
-            <div className="item">
-              <img
-                src="./src/assets/image/logo-Zahidandzakircolor.png"
-                className="border carousel-border rounded"
-              />
-            </div>
-            <div className="item">
-              <img
-                src="./src/assets/image/lubristarcolor.png"
-                className="border carousel-border  rounded"
-              />
-            </div>
-            <div className="item">
-              <img
-                src="./src/assets/image/retroholdingcolor.png"
-                className="border carousel-border rounded"
-              />
-            </div>
-            <div className="item">
-              <img
-                src="./src/assets/image/velievcolor.png"
-                className="border carousel-border rounded"
-              />
-            </div>
-            <div className="item">
-              <img
-                src="./src/assets/image/zzmotorscolor.png"
-                className="border carousel-border rounded"
-              />
-            </div>
-            <div className="item">
-              <img
-                src="./src/assets/image/retroholdingcolor.png"
-                className="border carousel-border rounded"
-              />
-            </div>
-            <div className="item">
-              <img
-                src="./src/assets/image/eurooilcolor.png"
-                className="border carousel-border rounded"
-              />
-            </div>
+          {users && users.length > 0 ? (
+            users?.filter((user) => user.picture !== null)
+            .map((user) => (
+                <div key={user.id} className="item">
+                  <img
+                    src={user?.picture}
+                    className="border carousel-border rounded"
+                    alt={user.name}
+                  />
+                </div>
+              ))
+            ) : (
+              <p>No users available</p> 
+            )}
           </OwlCarousel>
         </div>
       </section>

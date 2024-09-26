@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom"; // useLocation əlavə etdik
 import { LiaSignInAltSolid } from "react-icons/lia";
 import { GoPersonFill } from "react-icons/go";
 import { RiLogoutCircleLine } from "react-icons/ri";
@@ -15,32 +15,35 @@ const Header = () => {
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
   const [homePage, setHomePage] = useState(false);
-  const [profilePage, setProfilePage] = useState(false);
-  const [signInUpshow, setSignInUpShow] = useState(true);
-  const [logOut, setLogOut] = useState(true);
-
+  const [isProfilePage, setIsProfilePage] = useState(false); // Profil səhifəsini izləyirik
   const dispatch = useDispatch();
-
   const loggedInUser = useSelector((state) => state.user.user);
+  const location = useLocation(); // URL-i izləmək üçün useLocation istifadə edirik
 
   useEffect(() => {
     dispatch(checkLoggedInUser());
   }, [dispatch]);
 
+  // URL dəyişdikdə profil səhifəsi olub olmadığını yoxlayırıq
+  useEffect(() => {
+    setIsProfilePage(location.pathname === "/profile"); // Səhifənin URL-nə uyğun olaraq isProfilePage-i yeniləyirik
+  }, [location]);
+
   const goToHomePage = () => {
     setHomePage(true);
     navigate("/");
   };
+  
   const goToProfilePage = () => {
-    setProfilePage(true);
-    setSignInUpShow(false);
+    setIsProfilePage(true);
     navigate("/profile");
   };
+
   const handleLogout = () => {
     if (loggedInUser) {
       dispatch(logoutUser(loggedInUser.id));
       localStorage.setItem("UserLoggedIn", false);
-      setProfilePage(false);
+      setIsProfilePage(false);
       navigate("/");
     }
   };
@@ -57,12 +60,7 @@ const Header = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse className="gap-2">
-          <Nav
-            fill
-            variant="tabs"
-            defaultActiveKey="/home"
-            className="gap-2 navList"
-          >
+          <Nav fill variant="tabs" className="gap-2 navList">
             <Nav.Item>
               <Nav.Link
                 onClick={goToHomePage}
@@ -73,56 +71,27 @@ const Header = () => {
             </Nav.Item>
 
             <Nav.Item>
-              {homePage ? (
-                <>
-                  <Nav.Link
-                    eventKey="link-1"
-                    href="#/cards.htm"
-                    className="nav-color fw-bold fs-4"
-                  >
-                    Tenderlər
-                  </Nav.Link>
-                </>
-              ) : (
-                <>
-                  <Nav.Link
-                    eventKey="link-1"
-                    href="#/cards.htm"
-                    className="nav-color fw-bold fs-4"
-                    disabled
-                  >
-                    Tenderlər
-                  </Nav.Link>
-                </>
-              )}
+              <Nav.Link
+                href="#/cards.htm"
+                className="nav-color fw-bold fs-4"
+                disabled={isProfilePage} // Profil səhifəsində disabled olacaq
+              >
+                Tenderlər
+              </Nav.Link>
             </Nav.Item>
-            <Nav.Item>
-              {homePage ? (
-                <>
-                  <Nav.Link
-                    eventKey="link-2"
-                    href="#/section-partnyor.htm"
-                    className="nav-color fw-bold fs-4"
-                  >
-                    Partnyorlarımız
-                  </Nav.Link>
-                </>
-              ) : (
-                <>
-                  <Nav.Link
-                    eventKey="link-2"
-                    href="#/section-partnyor.htm"
-                    className="nav-color fw-bold fs-4"
-                    disabled
-                  >
-                    Partnyorlarımız
-                  </Nav.Link>
-                </>
-              )}
-            </Nav.Item>
+
             <Nav.Item>
               <Nav.Link
-                eventKey="link-3"
+                href="#/section-partnyor.htm"
+                className="nav-color fw-bold fs-4"
+                disabled={isProfilePage} // Profil səhifəsində disabled olacaq
+              >
+                Partnyorlarımız
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
                 href="#/footer.htm"
                 className="nav-color fw-bold fs-4"
               >
@@ -130,16 +99,15 @@ const Header = () => {
               </Nav.Link>
             </Nav.Item>
           </Nav>
+
           <Nav className="my-2">
-            {!loggedInUser || !logOut ? (
-              <>
-                <Button
-                  onClick={() => navigate("/authorization")}
-                  variant="outline-primary fw-bold fs-4 shadow-lg mx-5"
-                >
-                  <LiaSignInAltSolid className="signInUp" /> Giriş | Qeydiyyat
-                </Button>
-              </>
+            {!loggedInUser ? (
+              <Button
+                onClick={() => navigate("/authorization")}
+                variant="outline-primary fw-bold fs-4 shadow-lg mx-5"
+              >
+                <LiaSignInAltSolid className="signInUp" /> Giriş | Qeydiyyat
+              </Button>
             ) : (
               <>
                 <Button
