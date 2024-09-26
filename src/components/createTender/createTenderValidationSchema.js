@@ -7,7 +7,7 @@ const validationSchema = Yup.object({
   address: Yup.string().required('Ünvan bildirilməlidir'),
   price: Yup.number().required('Qiymət bildirilməlidir').positive('Təyin edə bilməzsiniz'),
   city: Yup.string().required('Şəhər gostərilməlidir'),
-  files: Yup.mixed().test('fileType', 'Ancaq PDF, Word və Excel fayllara iczə verilir', (value) => {
+  files: Yup.mixed().test('fileType', 'Ancaq PDF, Word və Excel fayllara icazə verilir', (value) => {
     if (!value || value.length === 0) return true;
     return Array.from(value).every(file => 
       ['application/pdf', 
