@@ -1,14 +1,13 @@
 @import '../../styles/global';
-/* HTML: <div class="loader"></div> */
 .loader {
     position:absolute;
     top:40%;
     left:50%;
     transform: translate(-50%-50%);
-    width: 50px;
+    width: 60px;
     aspect-ratio: 1.154;
     display: grid;
-    color: #000;
+    color: $primary-color;
     background:
       linear-gradient(to bottom left ,#0000 calc(50% - 1px),currentColor 0 calc(50% + 1px),#0000 0) right/50% 100%,
       linear-gradient(to bottom right,#0000 calc(50% - 1px),currentColor 0 calc(50% + 1px),#0000 0) left /50% 100%,

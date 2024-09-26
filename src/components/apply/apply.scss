@@ -71,7 +71,7 @@
 
       .fileLabel {
         background-color: $primary-colorLight;
-        color: white;
+        color: $neutral-color-white;
         padding: 10px 20px;
         font-size: 16px;
         cursor: pointer;
@@ -86,7 +86,7 @@
       }
 
       .error-message {
-        color: red;
+        color: $neutral-color-red;
         font-size: 0.9rem;
         margin-top: 5px;
       }

@@ -8,7 +8,6 @@
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(to right, $neutral-color-black-opacity, $primary-color-opacity);
-    // display: none;
     z-index: 10000;
     position: fixed;
     .confirmMain{
@@ -16,10 +15,10 @@
         box-shadow: 0 0 5px $primary-color;
         width: 30%;
         height: 40vh;
-        background-color: rgba($color: #00000098, $alpha: 0.7);
+        background-color: rgba($color: $neutral-color-black, $alpha: 0.7);
         .textClose{
             h5{
-                color: aquamarine;
+                color: $neutral-color-aquamarine;
                 margin: 10px;
                 font-weight: bold;
             }
