@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice, createSelector } from "@reduxjs/toolkit";
 import axios from 'axios'
+const apiUrlCards = import.meta.env.VITE_API_URL_CARDS
 
 //GET
 export const fetchTenders = createAsyncThunk('tender/fetchTenders', async (_, { dispatch }) => {
   try {
-    const response = await axios.get('http://localhost:5173/cards');
+    const response = await axios.get(apiUrlCards);
     const tenders = response.data.reverse()
 
     const today = new Date().toISOString().split('T')[0];
@@ -25,16 +26,26 @@ export const fetchTenders = createAsyncThunk('tender/fetchTenders', async (_, { 
 
 //POST
 export const createTender = createAsyncThunk('tender/createTender', async (newTender) => {
-  const response = await axios.post('http://localhost:5173/cards', newTender)
-  return response.data
+  try {
+    const response = await axios.post(apiUrlCards, newTender)
+    return response.data
+
+  } catch (error) {
+    console.error('Failed to post tender:', error);
+    throw error;
+  }
 })
 
 //Delete
-export const deleteTender = createAsyncThunk('tender/deleteTender', async (tenderId) => {
+export const deleteTender = createAsyncThunk('tender/deleteTender', async (tenderId, { rejectWithValue }) => {
   try {
-    await axios.delete(`http://localhost:5173/cards/${tenderId}`);
+    await axios.delete(`${apiUrlCards}/${tenderId}`);
     return tenderId;
   } catch (error) {
+    if (error.response && error.response.status === 404) {
+      console.warn('Tender not found for deletion:', tenderId);
+      return rejectWithValue('Tender not found');
+    }
     console.error('Failed to delete tender:', error);
     throw error;
   }
@@ -43,7 +54,7 @@ export const deleteTender = createAsyncThunk('tender/deleteTender', async (tende
 // PUT - to update a tender
 export const updateTender = createAsyncThunk('tender/updateTender', async ({ id, updatedData }) => {
   try {
-    const response = await axios.put(`http://localhost:5173/cards/${id}`, updatedData);
+    const response = await axios.put(`${apiUrlCards}/${id}`, updatedData);
     return response.data
   } catch (error) {
     console.error('Failed to update tender:', error);
@@ -54,13 +65,14 @@ export const updateTender = createAsyncThunk('tender/updateTender', async ({ id,
 // fetch tenders created by the logged in user
 export const fetchTendersByCreator = createAsyncThunk('cards/fetchTendersByCreator', async (userId, { rejectWithValue }) => {
   try {
-    const response = await axios.get('http://localhost:5173/cards');
+    const response = await axios.get(apiUrlCards);
     const tenders = response.data.filter((tender) => tender.userId === userId);
     return tenders;
   } catch (error) {
     return rejectWithValue(error.response.data);
   }
 });
+
 
 const tendersSlice = createSlice({
   name: 'tenders',
@@ -74,6 +86,7 @@ const tendersSlice = createSlice({
     selectedTenderId: null,
     selectedTenderUserId: null,
     isEditing: false,
+    applyShow: false,
   },
   reducers: {
     setTenderToEdit: (state, action) => {
@@ -93,6 +106,12 @@ const tendersSlice = createSlice({
     },
     setSelectedTenderUserId: (state, action) => {
       state.selectedTenderUserId = action.payload
+    },
+    showApplyForm: (state) => {
+      state.applyShow = true;
+    },
+    hideApplyForm: (state) => {
+      state.applyShow = false;
     },
   },
   extraReducers: (builder) => {
@@ -139,15 +158,16 @@ const tendersSlice = createSlice({
 
 export default tendersSlice.reducer;
 
+export const { showApplyForm, hideApplyForm } = tendersSlice.actions;
 
 export const { setSelectedTenderId, setSelectedTenderUserId } = tendersSlice.actions;
-
-export const selectSelectedTenderId = (state) => state.tenders.selectedTenderId;
-export const selectSelectedTenderOwnerId = (state) => state.tenders.selectedTenderUserId;
 
 export const { showCreateTenderForm, hideCreateTenderForm } = tendersSlice.actions
 
 export const { setTenderToEdit, clearTenderToEdit } = tendersSlice.actions
+
+export const selectSelectedTenderId = (state) => state.tenders.selectedTenderId;
+export const selectSelectedTenderOwnerId = (state) => state.tenders.selectedTenderUserId;
 
 export const selectAllTenders = (state) => state.tenders.tenders;
 

@@ -6,31 +6,31 @@ import ProfileEdit from './profileEdit/ProfileEdit.jsx'
 import Cards from '../../components/cards/Cards.jsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearTenderToEdit, fetchTenders, hideCreateTenderForm, showCreateTenderForm } from '../../features/tendersSlice.js'
-import { checkLoggedInUser, fetchUser, loginUser, selectIsUserLoggedIn } from '../../features/usersSlice.js'
-import DarkLightMode from '../../components/navbar/DarkLightMode.jsx'
+import { fetchUser, hideProfileEditForm, showProfileEditForm } from '../../features/usersSlice.js'
 import { useLocation, useNavigate } from 'react-router-dom'
 import ApplyCard from '../../components/applyCard/ApplyCard.jsx'
+import { selectIncomingApplicationsCount } from '../../features/applySlice.js'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1)
-  const [showProfileEdit, setShowProfileEdit] = useState(false)
 
   const navigate = useNavigate()
   const location = useLocation()
   const dispatch = useDispatch()
-  
+
 
   const showCreateTender = useSelector((state) => state.tenders.showCreateTender)
+  const showProfileEdit = useSelector((state) => state.user.showProfileEdit);
   const loggedInUser = useSelector((state) => (state.user.user))
   const userCheck = localStorage.getItem('UserLoggedIn')
 
+  const tenders = useSelector((state) => state.tenders.tenders)
 
   useEffect(() => {
-
-
     if (!userCheck || userCheck === 'false') {
       navigate('/authorization');
     } else {
+      dispatch(fetchTenders())
       dispatch(fetchUser(loggedInUser?.id));
 
 
@@ -39,27 +39,41 @@ const Profile = () => {
         dispatch(clearTenderToEdit());
       }
     }
-  }, [navigate, location.state]);
+  }, [dispatch, navigate, location.state]);
 
   const handleTabClick = useCallback((index) => {
-    setActiveTab(index);
-    dispatch(fetchTenders()); 
+    setActiveTab(index)
+    dispatch(fetchTenders());
   }, [dispatch]);
 
   const handleNavigate = useCallback(() => {
     dispatch(showCreateTenderForm());
   }, [dispatch]);
+
   const handleProfileEdit = useCallback(() => {
     dispatch(hideCreateTenderForm());
-    setShowProfileEdit(true)
+    dispatch(showProfileEditForm());
   }, [dispatch]);
 
-  const handleEditCancel = () => setShowProfileEdit(false)
+  useEffect(() => {
+    dispatch(hideProfileEditForm());
+  }, [location.pathname, dispatch]);
+
+  const createdTendersCount = useMemo(() => {
+    return tenders.filter((tender) => tender.userId === loggedInUser?.id).length;
+  }, [tenders, loggedInUser?.id]);
+
+  const appliedTendersCount = useMemo(() => {
+    return tenders.filter((tender) => loggedInUser?.applied?.includes(tender.id)).length;
+  }, [tenders, loggedInUser?.applied]);
+
+
+  const incomingApplicationsCount = useSelector(selectIncomingApplicationsCount);
+
 
   return (
     <>
       <Navbar />
-      {/* <DarkLightMode /> */}
       <div className='profile-area'>
         <div className='profile-information-box'>
           <div className='profile-decoration-top'>
@@ -70,9 +84,6 @@ const Profile = () => {
                 <span>{loggedInUser?.name[0]}</span>
               )}
             </div>
-            {/* <div className='profile-img'>
-              <img src={loggedInUser?.picture || ''} alt="" />
-            </div> */}
           </div>
           <div className='profile-name-box'>
             <p className='profile-name'>{loggedInUser?.name || 'Ad'}</p>
@@ -80,9 +91,9 @@ const Profile = () => {
           </div>
           <div className='profile-notification-box'>
             <ul>
-              <li>Müraciət edənlər: <span>0</span></li>
-              <li>Yaradilan tenderlər: <span>0</span></li>
-              <li>Sorğu: <span>0</span></li>
+              <li>Müraciət edənlər: <span>{appliedTendersCount}</span></li>
+              <li>Yaradilan tenderlər: <span>{createdTendersCount}</span></li>
+              <li>Sorğu: <span>{incomingApplicationsCount}</span></li>
             </ul>
           </div>
           <div className='profile-edit-box'>
@@ -115,7 +126,6 @@ const Profile = () => {
               <div className={activeTab == 4 ? 'profile-active-content' : 'profile-content'}>
                 <Cards filterType="bookmarked" />
               </div>
-              {/* {profileContent} */}
             </div>
           </div>
         ) : (

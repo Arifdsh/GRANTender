@@ -32,6 +32,25 @@ const ApplyCard = () => {
         setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
     };
 
+    const renderApplyFiles = (apply) => {
+        if (apply?.file?.length > 0) {
+          return apply.file.map((file, index) => {
+            const fileUrl = file.base64;
+      
+            return (
+              <div key={index} className="file-item">
+                <p>{file.name} ({Math.round(file.size / 1024)} KB)</p>
+                <a href={fileUrl} download={file.name} className="btn btn-primary">
+                  Download {file.name}
+                </a>
+              </div>
+            );
+          });
+        } else {
+          return <p>No files attached to this application.</p>;
+        }
+      };
+
     return (
         <div className="appeal">
             <ul className="appeal-list">
@@ -45,7 +64,6 @@ const ApplyCard = () => {
                                     <h6 className="appeal-list__profile--name">{apply.applicantName} </h6>
                                 </div>
                                 <p className="appeal-list__profile--tender">Tender adı: {apply.tenderOwnerName}</p>
-                                {/* <button onClick={() => toggleAccordion(index)} className="appeal-list__profile--detail">Ətraflı</button> */}
                               {activeIndex == index ? 
                              <FaChevronCircleDown onClick={() => toggleAccordion(index)} className="appeal-list__profile--detail" /> : <FaChevronCircleLeft onClick={() => toggleAccordion(index)} className="appeal-list__profile--detail" />}
                             </div>
@@ -63,6 +81,8 @@ const ApplyCard = () => {
                                         Gördüyümüz işlər
                                     </h6>
                                     <p className="appeal-list__content">{apply.details} </p>
+                                    <h6 className="appeal-list__company--title mt-3">Əlavə edilən fayllar</h6>
+                                    {renderApplyFiles(apply)}                                    
                                 </div>
                             </div>
                         </li>

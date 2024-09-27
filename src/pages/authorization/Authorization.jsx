@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
-import { Formik, useFormik } from 'formik';
+import { useFormik } from 'formik';
 import { AuthorizationSchema } from './AuthorizationSchema.js'
 import './authorization.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUser, setLoggedInUser, fetchAllUsers, loginUser } from '../../features/usersSlice.js';
-import Navbar from '../../components/navbar/Navbar.jsx';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { updateUser, fetchAllUsers, loginUser } from '../../features/usersSlice.js';
+import { useNavigate } from 'react-router-dom';
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { IoCloseCircle } from "react-icons/io5";
 import { IoIosLogIn } from "react-icons/io";
@@ -16,28 +15,26 @@ const Authorization = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loginError, setLoginError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const navigate = useNavigate();
-
+  const [isLoading, setIsLoading] = useState(false);
 
   const dispatch = useDispatch();
-  const { users, loading, error } = useSelector((state) => state.user)
+  const navigate = useNavigate();
 
+  const users = useSelector((state) => state.user.users)
+
+  
   useEffect(() => {
     dispatch(fetchAllUsers());
-  }, [dispatch, users]);
-
+  }, [dispatch, isLoading]);
+  
+  
   const handleLogin = (e) => {
     e.preventDefault()
     const loginData = {
       email: e.target.email.value,
       password: e.target.password.value,
     }
-
+    
     const foundUser = users.find((user) => user.email == loginData.email)
 
     if (foundUser) {
@@ -56,6 +53,10 @@ const Authorization = () => {
     }
   }
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  }
+
   const openModal = (e) => {
     setIsModalOpen(true)
   }
@@ -72,7 +73,8 @@ const Authorization = () => {
       confirmPassword: "",
       loggedIn: false,
       bookmarked: [],
-      applied: []
+      applied: [],
+      picture:null
     },
     onSubmit: (values, actions) => {
       const { confirmPassword, ...userData } = values
@@ -83,6 +85,7 @@ const Authorization = () => {
         actions.setFieldError('email', 'Bu email artıq istifadə olunub')
       }
       else {
+        setIsLoading(true);
         dispatch(updateUser(userData))
           .then(() => {
             actions.resetForm();
@@ -90,7 +93,10 @@ const Authorization = () => {
           })
           .catch((error) => {
             console.error('Failed to update user:', error);
-          });
+          })
+          .finally(() => {
+            setIsLoading(false);
+          })
       }
     },
     validationSchema: AuthorizationSchema
@@ -98,7 +104,6 @@ const Authorization = () => {
 
   return (
     <div>
-      {/* <Navbar /> */}
       <section className='authorization'>
         <button onClick={() => navigate("/")} className="goHome"> <FaAngleDoubleLeft className='goHome__icon' /><span>Əsas səhifə</span></button>
         <ul className="login">
@@ -145,11 +150,12 @@ const Authorization = () => {
               ) : (
                 <IoMdEye className="eye showEye" onClick={togglePasswordVisibility} />
               )}
-              {errors.password && touched.password && <div className='error'>{errors.password}</div>}
             </div>
+            {errors.password && touched.password && <div className='error'>{errors.password}</div>}
             <input name='confirmPassword' className="register__confirmPassword input" type={showPassword ? "text" : "password"} placeholder=" Confirm password" value={values.confirmPassword} onChange={handleChange} />
             {errors.confirmPassword && touched.confirmPassword && <div className='error'>{errors.confirmPassword}</div>}
-            <button type='submit' className="register__button">Qeydiyyat</button>
+            <button type='submit' className="register__button" disabled={isLoading}>{isLoading ? 'Qeydiyyat davam edir...' : 'Qeydiyyat'}
+            </button>
           </form>
           <IoCloseCircle onClick={closeModal} className="close" />
         </div>
@@ -159,4 +165,3 @@ const Authorization = () => {
 }
 
 export default Authorization
-

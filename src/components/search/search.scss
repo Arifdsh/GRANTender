@@ -141,7 +141,7 @@
       @include button-styles($neutral-color-white, $primary-color, $primary-color);
 
       &:hover {
-        background-color: $primary-colorLight;
+        background-color: rgba($primary-colorLight,0.5);
         color:$neutral-color-white;
       }
     }
@@ -193,7 +193,7 @@
       @include transition(0.4s);
 
       &:hover {
-        background-color: $primary-color;
+        background-color: rgba($primary-colorLight,0.5);
         cursor: pointer;
       }
     }
@@ -213,7 +213,7 @@
       @include transition(0.4s);
 
       &:hover {
-        background-color: $primary-color;
+        background-color: rgba($primary-colorLight,0.5);
       }
     }
   }
@@ -228,7 +228,7 @@
     @include transition(0.4s);
 
     &:hover {
-      background-color: $primary-color;
+      background-color: rgba($primary-colorLight,0.5);
     }
     &::-webkit-inner-spin-button, &::-webkit-clear-button {
       display: none;

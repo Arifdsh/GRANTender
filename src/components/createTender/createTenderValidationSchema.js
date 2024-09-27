@@ -1,13 +1,13 @@
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object({
-  owner: Yup.string().required('Elan sahibi is required'),
-  subject: Yup.string().required('Elanin məqsədi is required'),
-  endDate: Yup.date().required('Bitme tarixi is required').nullable(),
-  address: Yup.string().required('Ünvan is required'),
-  price: Yup.number().required('Qiymət is required').positive('Qiymət must be positive'),
-  city: Yup.string().required('Şəhər is required'),
-  files: Yup.mixed().test('fileType', 'Only PDF, Word, and Excel files are allowed', (value) => {
+  owner: Yup.string().required('Elan sahibi bildirilməlidir'),
+  subject: Yup.string().required('Elanin məqsədi  bildirilməlidir'),
+  endDate: Yup.date().required('Bitme tarixi bildirilməlidir').nullable(),
+  address: Yup.string().required('Ünvan bildirilməlidir'),
+  price: Yup.number().required('Qiymət bildirilməlidir').positive('Təyin edə bilməzsiniz'),
+  city: Yup.string().required('Şəhər gostərilməlidir'),
+  files: Yup.mixed().test('fileType', 'Ancaq PDF, Word və Excel fayllara icazə verilir', (value) => {
     if (!value || value.length === 0) return true;
     return Array.from(value).every(file => 
       ['application/pdf', 

@@ -6,11 +6,6 @@
     border-color: $primary-color;
   }
 }
-.owl-carousel .owl-dots .owl-dot span {
-  background: $primary-colorLight !important;
-}
-
-.owl-carousel .owl-dots .owl-dot.active span,
-.owl-carousel .owl-dots .owl-dot:hover span {
-  background-color: $primary-color !important;
+.content_carousel{
+  padding:25px 0;
 }

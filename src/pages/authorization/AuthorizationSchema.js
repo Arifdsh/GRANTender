@@ -14,11 +14,11 @@ const is18YearsOld = (value) => {
 
 export const AuthorizationSchema=Yup.object().shape({
 
-    name:Yup.string().min(3).max(15).required().matches(/^[A-Za-z]+$/, 'Ancaq hərif daxil edilməlidir'),
-    surname:Yup.string().min(3).max(20).required().matches(/^[A-Za-z]+$/, 'Ancaq hərif daxil edilməlidir'),
-    email: Yup.string().email('invalid email').required(),
-    age : Yup.date().required().test('18 yaş və ya üzəri olmalıdır', value=>is18YearsOld(value)),
-    password : Yup.string().required().min(3).max(10),
-    confirmPassword : Yup.string().required().oneOf([Yup.ref('password') ,] , 'Şifrə eyni deyil')
+    name:Yup.string().trim().min(3,"Minimum 3 hərf daxil edilməlidir").max(15,"Maksimum uzunluq 15 herf ola biler").required("Ad daxil edilməlidir").matches(/^[A-Za-z]+$/, 'Ancaq hərf daxil edilməlidir'),
+    surname:Yup.string().trim().min(3,"Minimum 3 hərf daxil edilməlidir").max(20,"Maksimum uzunluq 20 herf ola biler").required("Soyad daxil edilməlidir").matches(/^[A-Za-z]+$/, 'Ancaq hərf daxil edilməlidir'),
+    email: Yup.string().trim().email('Yanlış email').required("Email daxil edilməlidir"),
+    age : Yup.date().required("Yaş daxil edilməlidir").test('18 yaş və ya üzəri olmalıdır', value=>is18YearsOld(value)),
+    password : Yup.string().trim().required("Password daxil edilməlidir").min(6,"Minimum 6 simvol daxil edilməlidir").max(15,"Maksimum 15 simvol daxil edilməlidir"),
+    confirmPassword : Yup.string().required("Təkrar password daxil edilməlidir").oneOf([Yup.ref('password') ,] , 'Şifrə eyni deyil')
 })
 

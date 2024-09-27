@@ -15,6 +15,10 @@
 
 .tenders {
   margin-inline: 8.7%;
+  position:relative;
+  &.load{
+    height:150px;
+  }
   &-list {
     padding: 20px;
     &__item {

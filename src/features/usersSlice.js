@@ -1,26 +1,49 @@
 import { createSlice, createAsyncThunk, createSelector } from '@reduxjs/toolkit';
 import axios from 'axios';
+const apiUrlUser = import.meta.env.VITE_API_URL_USER
 
-export const fetchUser = createAsyncThunk('user/fetchUser', async (userId) => {
-  const response = await axios.get(`http://localhost:5173/user/${userId}`);
-  return response.data;
+export const fetchUser = createAsyncThunk('user/fetchUser', async (userId, { rejectWithValue }) => {
+  if (!userId) {
+    return rejectWithValue('User ID is undefined');
+  }
+  try {
+    const response = await axios.get(`${apiUrlUser}/${userId}`);
+    return response.data;
+  } catch (error) {
+    return rejectWithValue(error.response?.data || 'Failed to fetch user');
+  }
 });
 
 export const fetchAllUsers = createAsyncThunk('user/fetchAllUsers', async () => {
-  const response = await axios.get('http://localhost:5173/user')
-  return response.data;
+  try {
+    const response = await axios.get(apiUrlUser)
+    return response.data;
+
+  } catch (error) {
+    console.error("Faild to fetch all users: ", error);
+    throw error;
+  }
 });
 
 
 export const updateUser = createAsyncThunk('user/updateUser', async (userData) => {
-  const response = await axios.post('http://localhost:5173/user', userData);
-  return response.data;
+  try {
+    const response = await axios.post(apiUrlUser, userData);
+    return response.data;
+  } catch (error) {
+    console.error("Faild to update user: ", error);
+    throw error;
+  }
 });
 
 export const editUser = createAsyncThunk('user/editUser', async (userData) => {
-  // Use PATCH to update only the provided fields
-  const response = await axios.patch(`http://localhost:5173/user/${userData.id}`, userData);
-  return response.data;
+  try {
+    const response = await axios.patch(`${apiUrlUser}/${userData.id}`, userData);
+    return response.data;
+  } catch (error) {
+    console.error("Faild to edit user patch: ", error);
+    throw error
+  }
 });
 
 export const toggleBookmark = createAsyncThunk(
@@ -32,7 +55,7 @@ export const toggleBookmark = createAsyncThunk(
       ? user.bookmarked.filter((id) => id !== tenderId)
       : [...user.bookmarked, tenderId]
 
-    const response = await axios.patch(`http://localhost:5173/user/${userId}`, {
+    const response = await axios.patch(`${apiUrlUser}/${userId}`, {
       bookmarked: updatedBookmarks,
     });
 
@@ -47,7 +70,7 @@ export const applyForTender = createAsyncThunk(
 
     const updatedApplied = [...user.applied, tenderId];
 
-    const response = await axios.patch(`http://localhost:5173/user/${userId}`, {
+    const response = await axios.patch(`${apiUrlUser}/${userId}`, {
       applied: updatedApplied,
     });
 
@@ -56,19 +79,34 @@ export const applyForTender = createAsyncThunk(
 )
 
 export const loginUser = createAsyncThunk('user/loginUser', async (userId) => {
-  const response = await axios.patch(`http://localhost:5173/user/${userId}`, { loggedIn: true });
-  return response.data;
+  try {
+    const response = await axios.patch(`${apiUrlUser}/${userId}`, { loggedIn: true });
+    return response.data;
+  } catch (error) {
+    console.error("Login faild: ", error);
+    throw error;
+  }
 });
 
 export const checkLoggedInUser = createAsyncThunk('user/checkLoggedInUser', async () => {
-  const response = await axios.get('http://localhost:5173/user');
-  const loggedInUser = response.data.find((user) => user.loggedIn === true);
-  return loggedInUser || null;
+  try {
+    const response = await axios.get(apiUrlUser);
+    const loggedInUser = response.data.find((user) => user.loggedIn === true);
+    return loggedInUser || null;
+  } catch (error) {
+    console.error("Login check faild: ", error);
+    throw error
+  }
 });
 
 export const logoutUser = createAsyncThunk('user/logoutUser', async (userId, { dispatch }) => {
-  await axios.patch(`http://localhost:5173/user/${userId}`, { loggedIn: false });
-  dispatch(clearUserState())
+  try {
+    await axios.patch(`${apiUrlUser}/${userId}`, { loggedIn: false });
+    dispatch(clearUserState())
+  } catch (error) {
+    console.error("Faild to logout: ", error);
+    throw error
+  }
 });
 
 
@@ -80,11 +118,18 @@ const userSlice = createSlice({
     status: 'idle',
     error: null,
     bookmarked: [],
+    showProfileEdit: false,
   },
   reducers: {
     clearUserState: (state) => {
       state.user = null;
       state.bookmarked = [];
+    },
+    showProfileEditForm: (state) => {
+      state.showProfileEdit = true;
+    },
+    hideProfileEditForm: (state) => {
+      state.showProfileEdit = false;
     },
   },
   extraReducers: (builder) => {
@@ -130,6 +175,7 @@ const userSlice = createSlice({
 });
 
 
+export default userSlice.reducer
 
 export const selectIsUserLoggedIn = createSelector(
   (state) => state.user,
@@ -137,4 +183,5 @@ export const selectIsUserLoggedIn = createSelector(
 );
 
 export const { setLoggedInUser, addBookmark, removeBookmark, clearUserState, } = userSlice.actions;
-export default userSlice.reducer
+
+export const { showProfileEditForm, hideProfileEditForm } = userSlice.actions;

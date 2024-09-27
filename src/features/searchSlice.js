@@ -13,13 +13,13 @@ const searchSlice = createSlice({
     name: "search",
     initialState,
     reducers: {
-       setFilters: (state, action) => {
-        return {...state, ...action.payload}
-       },
-       resetFilters: () => initialState,
+        setFilters: (state, action) => {
+            return { ...state, ...action.payload }
+        },
+        resetFilters: () => initialState,
     },
 })
 
-export const {setFilters, resetFilters} = searchSlice.actions
+export const { setFilters, resetFilters } = searchSlice.actions
 
 export default searchSlice.reducer
