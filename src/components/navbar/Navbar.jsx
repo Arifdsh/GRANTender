@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { useNavigate, useLocation } from "react-router-dom"; // useLocation əlavə etdik
+import { useNavigate, useLocation } from "react-router-dom";
 import { LiaSignInAltSolid } from "react-icons/lia";
 import { GoPersonFill } from "react-icons/go";
 import { RiLogoutCircleLine } from "react-icons/ri";
@@ -12,25 +12,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { checkLoggedInUser, logoutUser } from "../../features/usersSlice";
 
 const Header = () => {
-  const [userName, setUserName] = useState("");
   const navigate = useNavigate();
-  const [homePage, setHomePage] = useState(false);
-  const [isProfilePage, setIsProfilePage] = useState(false); // Profil səhifəsini izləyirik
+  const [isProfilePage, setIsProfilePage] = useState(false); 
   const dispatch = useDispatch();
   const loggedInUser = useSelector((state) => state.user.user);
-  const location = useLocation(); // URL-i izləmək üçün useLocation istifadə edirik
+  const location = useLocation();
 
   useEffect(() => {
     dispatch(checkLoggedInUser());
   }, [dispatch]);
 
-  // URL dəyişdikdə profil səhifəsi olub olmadığını yoxlayırıq
+  
   useEffect(() => {
-    setIsProfilePage(location.pathname === "/profile"); // Səhifənin URL-nə uyğun olaraq isProfilePage-i yeniləyirik
+    setIsProfilePage(location.pathname === "/profile");
   }, [location]);
 
   const goToHomePage = () => {
-    setHomePage(true);
     navigate("/");
   };
   
@@ -74,7 +71,7 @@ const Header = () => {
               <Nav.Link
                 href="#/cards.htm"
                 className="nav-color fw-bold fs-4"
-                disabled={isProfilePage} // Profil səhifəsində disabled olacaq
+                disabled={isProfilePage}
               >
                 Tenderlər
               </Nav.Link>
@@ -84,7 +81,7 @@ const Header = () => {
               <Nav.Link
                 href="#/section-partnyor.htm"
                 className="nav-color fw-bold fs-4"
-                disabled={isProfilePage} // Profil səhifəsində disabled olacaq
+                disabled={isProfilePage}
               >
                 Partnyorlarımız
               </Nav.Link>
