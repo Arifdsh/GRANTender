@@ -11,7 +11,7 @@ import ScrollToTop from "./components/scrolltotop/ScrollToTop";
 import Navbar from "../src/components/navbar/Navbar.jsx";
 import { Suspense, lazy } from "react";
 import Loading from "../src/components/loading/Loading.jsx";
-import DarkLightMode from "./components/navbar/DarkLightMode.jsx";
+import DarkLightMode from "./components/darkLightMode/DarkLightMode.jsx";
 
 const Home = lazy(() => import("./pages/home/Home"));
 const Detail = lazy(() => import("./pages/detail/Detail"));
