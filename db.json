@@ -185,7 +185,7 @@
       "email": "arif@gmail.com",
       "age": "1993-07-03",
       "password": "arif123",
-      "loggedIn": true,
+      "loggedIn": false,
       "bookmarked": [],
       "applied": [
         "213e",
