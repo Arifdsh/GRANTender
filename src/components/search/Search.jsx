@@ -1,10 +1,11 @@
 import "../search/search.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
 import { IoIosSearch } from "react-icons/io";
 import { FiRefreshCcw } from "react-icons/fi";
 import { useDispatch } from "react-redux";
 import { setFilters, resetFilters } from "../../features/searchSlice";
+import { useLocation } from "react-router-dom";
 
 const Search = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,6 +17,7 @@ const Search = () => {
   const [endDate, setEndDate] = useState("");
 
   const dispatch = useDispatch()
+  const location = useLocation()
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
@@ -47,6 +49,10 @@ const Search = () => {
       handleSearch();
     }
   };
+
+  useEffect(()=>{
+     handleReset()
+  }, [location.pathname])
 
   return (
     <>
